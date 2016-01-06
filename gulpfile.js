@@ -23,7 +23,7 @@ gulp.task('bs-server', function() {
 // Proxy
 gulp.task('bs-proxy', function() {
 	browserSync.init({
-		files: ['pages/**', 'css/*.css', 'js/*.js'],
+		files: ['pages/**', 'css/*.css', 'js/*.js', 'utilities/**'],
 		proxy: 'localhost/ma.wroc.pl'
 	});
 });
