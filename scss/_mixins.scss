@@ -1,0 +1,22 @@
+@function columns-width($cols){
+	@return ($cols * ($column-width + $gutter)) - $gutter;
+}
+
+@mixin hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@mixin defaulf-transition($property) {
+	transition: $property .25s;
+}
+
+@mixin no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

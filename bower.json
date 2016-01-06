@@ -1,0 +1,24 @@
+{
+  "name": "mawebsite",
+  "description": "New website for Museum of Architecture in Wrocław",
+  "main": "",
+  "authors": [
+    "Olaf Schindler"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "orkana39.pl",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.3",
+    "isotope": "~2.2.2",
+    "perfect-scrollbar": "~0.6.8"
+  }
+}

@@ -1,0 +1,56 @@
+/* Fonts */
+
+@font-face {
+  font-family: 'icons';
+  src: url('../fonts/icons.eot');
+  src: url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/icons.woff') format('woff'),
+  url('../fonts/icons.ttf') format('truetype'),
+  url('../fonts/icons.svg#maisonregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maison';
+  src: url('../fonts/maisonweb-regular.eot');
+  src: url('../fonts/maisonweb-regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/maisonweb-regular.woff') format('woff'),
+  url('../fonts/maisonweb-regular.ttf') format('truetype'),
+  url('../fonts/maisonweb-regular.svg#maisonregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maison';
+  src: url('../fonts/maisonweb-italic.eot');
+  src: url('../fonts/maisonweb-italic.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/maisonweb-italic.woff') format('woff'),
+  url('../fonts/maisonweb-italic.ttf') format('truetype'),
+  url('../fonts/maisonweb-italic.svg#maisonregular') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Maison';
+  src: url('../fonts/maisonweb-bold.eot');
+  src: url('../fonts/maisonweb-bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/maisonweb-bold.woff') format('woff'),
+  url('../fonts/maisonweb-bold.ttf') format('truetype'),
+  url('../fonts/maisonweb-bold.svg#maisonregular') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maison';
+  src: url('../fonts/maisonweb-light.eot');
+  src: url('../fonts/maisonweb-light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/maisonweb-light.woff') format('woff'),
+  url('../fonts/maisonweb-light.ttf') format('truetype'),
+  url('../fonts/maisonweb-light.svg#maisonregular') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}

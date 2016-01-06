@@ -1,0 +1,65 @@
+//partials
+@import 'vendor/normalize';
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+@import 'utilities';
+
+//vendors
+@import '../bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css';
+
+/*** MA's styles ***/
+
+html {
+	overflow-y: scroll;
+	font-size: $global-font-size;
+	line-height: $global-line-height;
+}
+body {
+	font-family: $font-stack;
+}
+
+.row {
+	width: columns-width(12);
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-left: auto;
+
+	> * {
+		float: left;
+	}
+};
+.row:after {
+		clear: left;
+		content: '';
+		display: table;
+	}
+
+/* Menu */
+
+.icon {
+	font-family: 'icons';
+}
+.stripe {
+	border-top-width: 8px;
+	border-top-style: solid;
+}
+.small-stripe {
+	border-top-width: 4px;
+	border-top-style: solid;
+	padding-top: 5px;
+}
+
+
+// TEMP
+
+.bricks-container {
+	@extend .row;
+
+	margin-top: 130px;
+
+	.last {
+		margin-right: 0;
+	}
+}

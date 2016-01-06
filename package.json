@@ -1,0 +1,16 @@
+{
+  "name": "mawebsite",
+  "version": "0.0.1",
+  "description": "New website for Museum of Architecture in Wrocław",
+  "author": "Olaf Schindler",
+  "license": "MIT",
+  "repository": "",
+  "devDependencies": {
+    "bower": "^1.7.1",
+    "browser-sync": "^2.10.1",
+    "gulp": "^3.9.0",
+    "gulp-fingerprint": "^0.3.2",
+    "gulp-rev": "^6.0.1",
+    "gulp-rev-manifest": "^1.0.0"
+  }
+}

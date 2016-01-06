@@ -1,0 +1,36 @@
+/* Headres sizes */
+
+.reset {
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+h1 {
+	@extend .reset;
+	font-size: 42px;
+	//margin-bottom: $gutter;
+	font-weight: normal;
+}
+h2 {
+	@extend .reset;
+	font-size: 34px;
+	font-weight: normal;
+	line-height: 1.2;
+	margin-bottom: $gutter;
+}
+h3 {
+	@extend .reset;
+	font-size: 21px;
+	margin-bottom: $gutter;
+}
+h4 {
+	@extend .reset;
+	font-size: $global-font-size;
+	margin-bottom: $gutter;
+}
+p {
+	@extend .reset;
+	font-size: $global-font-size;
+	margin-bottom: 1.5 * $global-font-size;
+}

@@ -1,0 +1,9 @@
+/* Links */
+
+a {
+	text-decoration: none;
+	color: inherit;
+	&:hover {
+		opacity: 0.6;
+	}
+}
