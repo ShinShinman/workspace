@@ -50,7 +50,7 @@
 			<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		</head>
 
-    <body>
+    <body class="{$current-page}">
 			<!--[if lt IE 7]>
 				<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 			<![endif]-->
@@ -61,6 +61,7 @@
 
 			<!-- FOOTER -->
 
+			<script src="{$workspace}/js/main.min.js" ></script>
 			<xsl:apply-templates mode="js"/>
 
 		</body>
@@ -82,7 +83,7 @@
 		</div>
 
 		<nav>
-			<a class="logo" href="javascript:void(0);">MA</a>
+			<a class="logo" href="{$root}">MA</a>
 			<!--<div class="search"></div>-->
 			<form id="search-form" action="" method="get">
 				<input type="text" name="keywords" placeholder="Używaj #tagów" autocomplete="off"/>
@@ -116,8 +117,6 @@
 	<li><a href="{adres}"><xsl:value-of select="nazwa" /></a></li>
 </xsl:template>
 
-<xsl:template match="data" mode="js">
-	<script src="{$workspace}/js/main.min.js" ></script>
-</xsl:template>
+<xsl:template match="data" mode="js" />
 
 </xsl:stylesheet>

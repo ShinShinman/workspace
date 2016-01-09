@@ -1,16 +1,21 @@
 // BRICK
 
 .brick {
-	width: $column-width * 4 + 3 * $gutter;
-	//margin-right: $gutter;
-	float: left;
-	margin-top: 30px;
+	width: ($column-width * 4) + (3 * $gutter);
+	margin-bottom: 30px;
+
+	a {
+		display: block;
+	}
 
 	h1 {
+		@extend .small-stripe;
 		margin-top: 10px;
-		margin-bottom: 0;
+		margin-bottom: 2px;
 		font-size: 24px;
+		font-weight: bold;
 		line-height: 1.2;
+		
 		text-transform: uppercase;
 
 		img {
@@ -22,7 +27,7 @@
 
 	h2 {
 		font-size: 19px;
-		font-weight: 400;
+		font-weight: bold;
 		margin-top: 0;
 		margin-bottom: 0;
 	}
@@ -32,17 +37,12 @@
 		margin-bottom: $gutter;
 	}
 
-	.date {
-		line-height: 30px;
-		color: red;
-	}
-
 	.dashed {
 		position: relative;
 		width: 100%;
 		height: 30px;
 		
-		margin: $gutter 0;
+		margin: 10px 0;
 
 		svg {
 			position: absolute;
@@ -58,11 +58,20 @@
 			stroke-width: 1;
 			stroke-dasharray: 10 4;
 		}
+
+		p {
+			line-height: 30px;
+			color: red;
+		}
+	}
+
+	img {
+		width: 100%;
 	}
 
 	.badge {
 		position: relative;
-		top: -10px;
+		top: -15px;
 		width: 20px;
 		height: 30px;
 		float: right;

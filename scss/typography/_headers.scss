@@ -9,13 +9,15 @@
 h1 {
 	@extend .reset;
 	font-size: 42px;
+	//font-weight: normal;
+	line-height: 1.2;
+
 	//margin-bottom: $gutter;
-	font-weight: normal;
 }
 h2 {
 	@extend .reset;
-	font-size: 34px;
-	font-weight: normal;
+	font-size: 30px;
+	font-weight: bold;
 	line-height: 1.2;
 	margin-bottom: $gutter;
 }
@@ -33,4 +35,28 @@ p {
 	@extend .reset;
 	font-size: $global-font-size;
 	margin-bottom: 1.5 * $global-font-size;
+}
+
+/* Experimental */
+.typo-h1 {
+	@extend .reset;
+	font-size: 42px;
+	line-height: 1.2;
+}
+.typo-h2 {
+	@extend .reset;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 1.2;
+	margin-bottom: $gutter;
+}
+.typo-h3 {
+	@extend .reset;
+	font-size: 21px;
+	margin-bottom: $gutter;
+}
+.typo-h4 {
+	@extend .reset;
+	font-size: $global-font-size;
+	margin-bottom: $gutter;
 }

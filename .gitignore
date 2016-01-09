@@ -1,3 +1,5 @@
+.syignore
+.syncany/
 bower_components/
 node_modules/
 static/

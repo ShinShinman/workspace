@@ -25,14 +25,47 @@
 
 <xsl:template match="data">
 
-	<div class="bricks-container">
-		<xsl:apply-templates select="aktualnosci/entry" />
-	</div>
+	<xsl:apply-templates select="highlight/entry" />
+
+	<section class="aktualnosci">
+		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'aktualnosci']" /></h1>
+		<div class="bricks-container">
+			<xsl:apply-templates select="news/entry" />
+
+			<!-- Skasować! -->
+			<xsl:apply-templates select="news/entry" />
+		</div>
+	</section>
 
 </xsl:template>
 
-<xsl:template match="aktualnosci/entry">
+<xsl:template match="highlight/entry">
+	<div class="highlight owl-carousel owl-theme">
+		<xsl:apply-templates select="slides/item" />
+	</div>
+</xsl:template>
+
+<xsl:template match="slides/item">
+	<div class="item" style="background-image: url({$workspace}{image/@path}/{image/filename});">
+		<h1><xsl:value-of select="title" /></h1>
+		<xsl:copy-of select="text-box" />
+	</div>
+</xsl:template>
+
+<xsl:template match="news/entry">
 	<xsl:call-template name="brick" />
+</xsl:template>
+
+<xsl:template match="data" mode="js">
+	<xsl:apply-templates select="highlight/entry" mode="js" />
+</xsl:template>
+
+<xsl:template match="highlight/entry" mode="js">
+	<script>
+		$(function() {
+			MA.setupHighlight();
+		});
+	</script>
 </xsl:template>
 
 </xsl:stylesheet>

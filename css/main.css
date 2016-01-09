@@ -4,13 +4,14 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-@import url(../bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css);
+@import url(../bower_components/perfect-scrollbar/css/perfect-scrollbar.css);
+@import url(../bower_components/owl.carousel/dist/assets/owl.carousel.min.css);
 html {
   font-family: sans-serif;
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
   /* 2 */ }
 
 /**
@@ -52,7 +53,7 @@ progress,
 video {
   display: inline-block;
   /* 1 */
-  vertical-align: baseline;
+  vertical-align: baseline
   /* 2 */ }
 
 /**
@@ -211,7 +212,7 @@ textarea {
   /* 1 */
   font: inherit;
   /* 2 */
-  margin: 0;
+  margin: 0
   /* 3 */ }
 
 /**
@@ -243,7 +244,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
-  cursor: pointer;
+  cursor: pointer
   /* 3 */ }
 
 /**
@@ -279,7 +280,7 @@ input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
-  padding: 0;
+  padding: 0
   /* 2 */ }
 
 /**
@@ -298,7 +299,7 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  box-sizing: content-box;
+  box-sizing: content-box
   /* 2 */ }
 
 /**
@@ -325,7 +326,7 @@ fieldset {
 legend {
   border: 0;
   /* 1 */
-  padding: 0;
+  padding: 0
   /* 2 */ }
 
 /**
@@ -387,18 +388,18 @@ th {
   font-weight: 300;
   font-style: normal; }
 /* Headres sizes */
-.reset, h1, h2, .sticky-nav .main-menu .left ul > li > a, h3, h4, p {
+.reset, h1, h2, .sticky-nav .main-menu .left ul > li > a, h3, h4, p, .typo-h1, .typo-h2, .article section article h1, .typo-h3, .article section article h2, .typo-h4, .article section article h3 {
   margin: 0;
   padding: 0;
   vertical-align: baseline; }
 
 h1 {
   font-size: 42px;
-  font-weight: normal; }
+  line-height: 1.2; }
 
 h2, .sticky-nav .main-menu .left ul > li > a {
-  font-size: 34px;
-  font-weight: normal;
+  font-size: 30px;
+  font-weight: bold;
   line-height: 1.2;
   margin-bottom: 15px; }
 
@@ -413,6 +414,25 @@ h4 {
 p {
   font-size: 16px;
   margin-bottom: 24px; }
+
+/* Experimental */
+.typo-h1 {
+  font-size: 42px;
+  line-height: 1.2; }
+
+.typo-h2, .article section article h1 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 15px; }
+
+.typo-h3, .article section article h2, .article section article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section article ul > li > a {
+  font-size: 21px;
+  margin-bottom: 15px; }
+
+.typo-h4, .article section article h3 {
+  font-size: 16px;
+  margin-bottom: 15px; }
 
 /* Lists */
 ul {
@@ -432,12 +452,14 @@ a {
 /* Utilities */
 .brick {
   width: 311.332px;
-  float: left;
-  margin-top: 30px; }
+  margin-bottom: 30px; }
+  .brick a {
+    display: block; }
   .brick h1 {
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-bottom: 2px;
     font-size: 24px;
+    font-weight: bold;
     line-height: 1.2;
     text-transform: uppercase; }
     .brick h1 img {
@@ -445,20 +467,17 @@ a {
       margin: -10px 10px 0; }
   .brick h2, .brick .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .brick ul > li > a {
     font-size: 19px;
-    font-weight: 400;
+    font-weight: bold;
     margin-top: 0;
     margin-bottom: 0; }
   .brick p {
     margin-top: 0;
     margin-bottom: 15px; }
-  .brick .date {
-    line-height: 30px;
-    color: red; }
   .brick .dashed {
     position: relative;
     width: 100%;
     height: 30px;
-    margin: 15px 0; }
+    margin: 10px 0; }
     .brick .dashed svg {
       position: absolute;
       top: 0;
@@ -470,9 +489,14 @@ a {
       stroke: black;
       stroke-width: 1;
       stroke-dasharray: 10 4; }
+    .brick .dashed p {
+      line-height: 30px;
+      color: red; }
+  .brick img {
+    width: 100%; }
   .brick .badge {
     position: relative;
-    top: -10px;
+    top: -15px;
     width: 20px;
     height: 30px;
     float: right;
@@ -486,8 +510,15 @@ a {
   .brick > img {
     width: 100%; }
 
+.floater > *, .nav-stripes > *, .sticky-nav nav > *, .sticky-nav .main-menu > * {
+  float: left; }
+.floater:after, .nav-stripes:after, .sticky-nav nav:after, .sticky-nav .main-menu:after {
+  clear: left;
+  content: "";
+  display: table; }
+
 .nav-stripes {
-  margin-bottom: 10px; }
+  margin-bottom: 10px !important; }
   .nav-stripes .first {
     width: 800.83px;
     margin-right: 15px; }
@@ -495,14 +526,13 @@ a {
     width: 148.166px; }
 
 .sticky-nav {
-  padding-top: 30px;
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  padding-top: 30px;
   z-index: 1000;
-  background-color: white;
-  transition: background-color 0.25s; }
+  background-color: white; }
   .sticky-nav nav .logo {
     width: 66.583px;
     margin-right: 15px;
@@ -517,7 +547,8 @@ a {
       opacity: 1; }
   .sticky-nav nav form {
     opacity: 0;
-    transition: opacity 0.25s;
+    -webkit-transition: opacity 0.25s;
+            transition: opacity 0.25s;
     margin-right: 15px;
     width: 719.247px; }
   .sticky-nav nav input {
@@ -543,28 +574,7 @@ a {
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 148.166px;
-    /*
-    			li {
-    				width: 32%;
-    				height: 32%;
-    				margin-right: 1px;
-    				display: block;
-    				float: left;
-    				line-height: 3;
-    				text-align: center;
-    				cursor: pointer;
-    
-    				&:hover {
-    					color: white;
-    					background-color: black;
-    
-    					a:hover {
-    						opacity: 1;
-    					}
-    				}
-    			}
-    			*/ }
+    width: 148.166px; }
     .sticky-nav nav ul a {
       width: 32%;
       height: 32%;
@@ -615,19 +625,12 @@ html {
 body {
   font-family: "Maison", sans-serif; }
 
-.row, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, .bricks-container {
+.row, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, section, .owl-carousel .item h1, .owl-carousel .item p {
   width: 963.996px;
   margin-top: 0;
   margin-right: auto;
   margin-bottom: 30px;
   margin-left: auto; }
-  .row > *, .nav-stripes > *, .sticky-nav nav > *, .sticky-nav .main-menu > *, .bricks-container > * {
-    float: left; }
-
-.row:after, .nav-stripes:after, .sticky-nav nav:after, .sticky-nav .main-menu:after, .bricks-container:after {
-  clear: left;
-  content: '';
-  display: table; }
 
 /* Menu */
 .icon {
@@ -637,14 +640,83 @@ body {
   border-top-width: 8px;
   border-top-style: solid; }
 
-.small-stripe {
+.small-stripe, .brick h1, .article section article h1 {
   border-top-width: 4px;
   border-top-style: solid;
   padding-top: 5px; }
 
-.bricks-container {
-  margin-top: 130px; }
-  .bricks-container .last {
-    margin-right: 0; }
+section:first-of-type {
+  margin-top: 120px; }
+
+.owl-carousel .item {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+  .owl-carousel .item h1 {
+    margin-top: 40vh;
+    margin-bottom: 0;
+    font-size: 55px;
+    font-weight: bold; }
+  .owl-carousel .item p {
+    font-size: 34px; }
+
+.owl-dots {
+  width: 963.996px;
+  margin: 0 auto;
+  position: relative;
+  top: -60px;
+  -webkit-tap-highlight-color: transparent; }
+  .owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+    *display: inline; }
+    .owl-dots .owl-dot span {
+      width: 66.583px;
+      height: 10px;
+      margin-right: 15px;
+      background: black;
+      display: block;
+      -webkit-backface-visibility: visible;
+      -webkit-transition: opacity 0.25s;
+              transition: opacity 0.25s; }
+    .owl-dots .owl-dot.active {
+      opacity: 0.6; }
+    .owl-dots .owl-dot:hover {
+      opacity: 0.6; }
+
+/* POST */
+.article a:hover {
+  color: white;
+  background-color: black;
+  opacity: 1; }
+.article > header {
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 15px; }
+.article section {
+  width: 637.664px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto; }
+  .article section header h1 {
+    text-transform: uppercase; }
+  .article section header h2, .article section header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section header ul > li > a {
+    margin-bottom: 7px; }
+  .article section header .date {
+    color: red; }
+  .article section header .category-list {
+    display: block;
+    overflow: auto;
+    margin-bottom: 24px;
+    font-weight: bold; }
+    .article section header .category-list > li {
+      float: left;
+      margin-right: 15px; }
+  .article section article img {
+    max-width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

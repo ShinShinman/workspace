@@ -4,6 +4,174 @@
 		"selected_items":
 		[
 			[
+				"hi",
+				"highlightVisible"
+			],
+			[
+				"h",
+				"highlightVisible"
+			],
+			[
+				"scro",
+				"scrollTop"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"stickN",
+				"stickyNavSetup"
+			],
+			[
+				"stic",
+				"stickyNavSetup"
+			],
+			[
+				"scr",
+				"scrollTop"
+			],
+			[
+				"nor",
+				"normal	(_headers.scss)"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"he",
+				"header"
+			],
+			[
+				"se",
+				"select"
+			],
+			[
+				"di",
+				"dictionary	(exibitions.xsl)"
+			],
+			[
+				"sty",
+				"style"
+			],
+			[
+				"sti",
+				"stickyNav"
+			],
+			[
+				"exh",
+				"exhibition"
+			],
+			[
+				"ex",
+				"exhibitions"
+			],
+			[
+				"call",
+				"call-template"
+			],
+			[
+				"templ",
+				"template"
+			],
+			[
+				"sticky",
+				"stickyNav"
+			],
+			[
+				"stick",
+				"stickyNav"
+			],
+			[
+				"sett",
+				"settings"
+			],
+			[
+				"coll",
+				"collapsedBackground"
+			],
+			[
+				"cola",
+				"collapse"
+			],
+			[
+				"act",
+				"action"
+			],
+			[
+				"high",
+				"highlightOn"
+			],
+			[
+				"targ",
+				"targetState"
+			],
+			[
+				"bac",
+				"backgroundColor"
+			],
+			[
+				"backg",
+				"backgroundColor"
+			],
+			[
+				"main",
+				"mainMenu"
+			],
+			[
+				"sear",
+				"searchTrigger"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"ba",
+				"backgroundColor"
+			],
+			[
+				"exten",
+				"extend	(main.scss)"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"i",
+				"image"
+			],
+			[
+				"app",
+				"apply-templates"
+			],
+			[
+				"ty",
+				"type	(master.xsl)"
+			],
+			[
+				"appl",
+				"apply	(master.xsl)"
+			],
+			[
+				"temp",
+				"template	(home.xsl)"
+			],
+			[
 				"target",
 				"target"
 			],
@@ -60,10 +228,6 @@
 				"include"
 			],
 			[
-				"main",
-				"mainMenuState"
-			],
-			[
 				"margi",
 				"margin-right"
 			],
@@ -96,20 +260,12 @@
 				"border-right"
 			],
 			[
-				"mar",
-				"margin-right"
-			],
-			[
 				"imp",
 				"important	!important"
 			],
 			[
 				"tran",
 				"transparent	(main.css)"
-			],
-			[
-				"bac",
-				"background-color"
 			],
 			[
 				"backr",
@@ -126,10 +282,6 @@
 			[
 				"pad",
 				"padding-right"
-			],
-			[
-				"dis",
-				"display"
 			],
 			[
 				"paddi",
@@ -184,10 +336,6 @@
 				"value-of"
 			],
 			[
-				"he",
-				"height	(newsletter2.html)"
-			],
-			[
 				"poli",
 				"polityka	(privacy-policy.xsl)"
 			],
@@ -218,10 +366,6 @@
 			[
 				"out",
 				"outline"
-			],
-			[
-				"hi",
-				"hidden"
 			],
 			[
 				"post",
@@ -370,155 +514,19 @@
 			[
 				"po",
 				"pointer"
-			],
-			[
-				"co",
-				"color"
-			],
-			[
-				"tex",
-				"text-decoration"
-			],
-			[
-				"l",
-				"lang"
-			],
-			[
-				"wi",
-				"wiecej-dzialan"
-			],
-			[
-				"no",
-				"nowrap"
-			],
-			[
-				"white",
-				"white-space"
-			],
-			[
-				"cur",
-				"cursor"
-			],
-			[
-				"ke",
-				"keyCode"
-			],
-			[
-				"from",
-				"fromCharCode"
-			],
-			[
-				"sear",
-				"search-suggestions"
-			],
-			[
-				"appl",
-				"apply-templates"
-			],
-			[
-				"evet",
-				"events"
-			],
-			[
-				"rbga",
-				"rgba()"
-			],
-			[
-				"ea",
-				"each	$.each()"
-			],
-			[
-				"rgb",
-				"rgba()"
-			],
-			[
-				"CLND",
-				"CLNDR-template"
-			],
-			[
-				"sty",
-				"style	(clndrTest.html)"
-			],
-			[
-				"cl",
-				"class	(clndrTest.html)"
-			],
-			[
-				"dat",
-				"date"
-			],
-			[
-				"events",
-				"events"
-			],
-			[
-				"nom",
-				"numberOfRows"
-			],
-			[
-				"number",
-				"numberOfRows"
-			],
-			[
-				"head",
-				"header	(clndrTest.html)"
-			],
-			[
-				"numb",
-				"numberOfRows"
-			],
-			[
-				"a",
-				"absolute"
-			],
-			[
-				"ba",
-				"background"
-			],
-			[
-				"filter",
-				"filterButton"
-			],
-			[
-				"cate",
-				"category"
-			],
-			[
-				"na",
-				"name"
-			],
-			[
-				"pa",
-				"param"
-			],
-			[
-				"owl",
-				"owlCarousel"
-			],
-			[
-				"owl-demo",
-				"owl-demo2"
-			],
-			[
-				"cu",
-				"cursor"
-			],
-			[
-				"call",
-				"call-template"
-			],
-			[
-				"job",
-				"job[@lang"
-			],
-			[
-				"ch",
-				"choose"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
+			"settings":
+			{
+				"buffer_size": 2659,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -527,13 +535,21 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 81.0,
-		"last_filter": "",
+		"height": 392.0,
+		"last_filter": "css",
 		"selected_items":
 		[
 			[
 				"css",
 				"Set Syntax: CSS"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"js_",
+				"Snippet: js_IIFE"
 			],
 			[
 				"coffee",
@@ -552,10 +568,6 @@
 				"Set Syntax: JavaScript"
 			],
 			[
-				"scss",
-				"Set Syntax: SCSS"
-			],
-			[
 				"html",
 				"Set Syntax: HTML"
 			],
@@ -570,10 +582,6 @@
 			[
 				"pc",
 				"Package Control: List Packages"
-			],
-			[
-				"js_",
-				"Snippet: js_namespace"
 			],
 			[
 				"inst",
@@ -675,27 +683,68 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
+		"/C/Users/shinman/Downloads/yszt/MArch-info.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/.gitignore",
+		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore",
+		"/C/Users/shinman/Downloads/yszt/ma/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/publish.editor.js",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/editor/editor.js",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/extension.driver.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/artykul.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_plugin.sublime-snippet",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
+		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/template.html.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.js",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.coffee",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.coffee",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.js",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/test.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.default.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.carousel.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.green.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
+		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/date-time.xsl",
+		"/Z/Alternativa - strona WWW/symphony/workspace/utilities/get-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/index.html",
+		"/Z/Alternativa - strona WWW/symphony/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick",
+		"/Z/Alternativa - strona WWW/symphony/workspace/pages/index.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
+		"/Z/Alternativa - strona WWW/symphony/workspace/pages/about.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home_.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/install.sql",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/menu.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/nanoScroller.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/menu.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/main.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/nanoscroller/bin/css/nanoscroller.css",
 		"/C/Users/shinman/Downloads/complete/RA500-omar.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js",
@@ -715,7 +764,6 @@
 		"/Z/MA WWW/html/css/typography.css",
 		"/Z/MA WWW/html/fontTest.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/test.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css",
@@ -734,10 +782,7 @@
 		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/dist/foundation.css",
 		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/vendor/normalize.scss",
 		"/C/Users/shinman/Desktop/bower test/node_modules/normalize.css/normalize.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/index.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/Users/shinman/Downloads/symphony-longsip-master/gulpfile.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home_.xsl",
 		"/C/Users/shinman/Downloads/symphony-longsip-master/workspace/styles/main.styl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/test/main-320aab339a.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/test/main-99a1190588.css",
@@ -765,7 +810,6 @@
 		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
 		"/C/Users/shinman/Downloads/maison webfont/stylesheet.css",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_jQuery.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_plugin.sublime-snippet",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_yyy.sublime-snippet",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_IIFE.sublime-snippet",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_pl.sublime-snippet",
@@ -775,42 +819,11 @@
 		"/C/Users/shinman/Desktop/bower test/gulpfile.js",
 		"/C/Users/shinman/Desktop/koala test/coffeescript/firstTest.js",
 		"/C/Users/shinman/Desktop/koala test/coffeescript/firstTest.coffee",
-		"/C/Users/shinman/Desktop/bower test/package.json",
-		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/pages/newsletter-f-alt.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/routes.xml",
-		"/Z/Alternativa - strona WWW/newsletter/Adresy PL/newsletter nowy - test.csv",
-		"/C/Users/shinman/Downloads/odbiorcy-test-pl_2015-12-15.csv",
-		"/C/Users/shinman/Downloads/yszt/odbiorcy-test-pl_2015-12-15.csv",
-		"/Z/Alternativa - strona WWW/newsletter/Adresy nowe/contacts-new.xml",
-		"/Z/Alternativa - strona WWW/newsletter/Adresy PL/news-letter-nowy-pl.xml",
-		"/C/Users/shinman/Desktop/102 • alt/index.php",
-		"/Z/Alternativa - strona WWW/symphony/workspace/utilities/master.xsl",
-		"/C/Users/shinman/Desktop/102 • alt/css/base.css",
-		"/Z/Alternativa - strona WWW/master.xsl",
-		"/Z/Alternativa - strona WWW/newsletter/html/newsletter2.1.html",
-		"/Z/Alternativa - strona WWW/symphony/workspace/xml/dictionary.xml",
-		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/class.f-aktualnosci-template.php",
-		"/C/Users/shinman/Downloads/yszt/class.datasourcemanager.php",
-		"/Z/Alternativa - strona WWW/newsletter/html/newsletter.html",
-		"/Z/Alternativa - strona WWW/newsletter/html/newsletter2.html",
-		"/Z/Alternativa - strona WWW/symphony/workspace/pages/privacy-policy.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/css/rwd.css",
-		"/C/Users/shinman/Downloads/animaux-lang_german-dbe2a14/lang/lang.pl.php",
-		"/C/Users/shinman/Downloads/animaux-lang_german-dbe2a14/lang/lang.pl.txt",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
-		"/C/Users/shinman/Downloads/jurajkapsz-lang_slovak-e5af65f/lang/lang.sk.php",
-		"/C/Users/shinman/Downloads/animaux-lang_german-dbe2a14/extension.driver.php",
-		"/C/Users/shinman/Downloads/jurajkapsz-lang_slovak-e5af65f/extension.driver.php",
-		"/C/Users/shinman/Downloads/yszt/main2015111301",
-		"/C/Users/shinman/Downloads/yszt/main2015111612",
-		"/C/Users/shinman/Downloads/yszt/main2015111312",
-		"/C/Users/shinman/Downloads/yszt/main"
+		"/C/Users/shinman/Desktop/bower test/package.json"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -824,6 +837,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"directionCount",
+			"direction",
+			"highlightVisible",
+			"visible",
+			"stickyNav",
+			"stickNav",
+			"tytul",
+			"collapse",
+			"expand",
+			"collapsedBackground",
+			"settings.bac",
+			"Animal",
+			".owl-theme ",
+			"owl",
+			"vh",
+			"vw",
+			".row",
 			"target",
 			"fontello",
 			"Maison-cyfry-Regular",
@@ -934,24 +964,7 @@
 			"$filters",
 			"$(\".pre",
 			"7",
-			"o-nas",
-			"hide-",
-			"white-space: nowrap;",
-			"sugg",
-			"    ",
-			"p",
-			"img",
-			"gallery/item",
-			"    ",
-			"double",
-			"jpg",
-			"li",
-			"::",
-			"after",
-			"mapa",
-			"Działamy",
-			"not(",
-			"shin"
+			"o-nas"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -959,6 +972,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"dirCount",
+			"directionCount",
+			"MA.settings.highlightVisible",
+			"title",
+			"collapsed",
+			"expanded",
 			"Maison-Light",
 			"Maison-Bold",
 			"Maison-Regular-italic",
@@ -1026,8 +1045,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1070,7 +1119,7 @@
 	"project": "MAWWW-E1.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
