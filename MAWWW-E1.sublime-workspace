@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"fon",
+				"font"
+			],
+			[
+				"flo",
+				"float"
+			],
+			[
+				"column",
+				"columns"
+			],
+			[
+				"lag",
+				"language"
+			],
+			[
 				"hi",
 				"highlightVisible"
 			],
@@ -456,10 +472,6 @@
 				"margin-bottom"
 			],
 			[
-				"fon",
-				"font-family"
-			],
-			[
 				"lan",
 				"lang"
 			],
@@ -502,31 +514,11 @@
 			[
 				"la",
 				"language"
-			],
-			[
-				"bot",
-				"bottom"
-			],
-			[
-				"r",
-				"right"
-			],
-			[
-				"po",
-				"pointer"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
-			"settings":
-			{
-				"buffer_size": 2659,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -684,6 +676,7 @@
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
@@ -692,26 +685,40 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/highlight.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/Z/MA WWW/font/MArch/MArch-info.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
+		"/C/Users/shinman/Documents/ma/.git/config",
+		"/C/Users/shinman/Documents/ma/.gitmodules",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
+		"/C/Users/shinman/Documents/ma/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/ma/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/publish.editor.js",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/editor/editor.js",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/extension.driver.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/artykul.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_plugin.sublime-snippet",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
 		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/template.html.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
@@ -720,9 +727,7 @@
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.coffee",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.js",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/test.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.default.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.carousel.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.green.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
@@ -739,7 +744,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/install.sql",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/menu.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/nanoScroller.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/menu.js",
@@ -757,9 +761,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_typoreset.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_mixins.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/menu.html",
 		"/Z/MA WWW/html/css/typography.css",
 		"/Z/MA WWW/html/fontTest.html",
@@ -810,16 +812,7 @@
 		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
 		"/C/Users/shinman/Downloads/maison webfont/stylesheet.css",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_jQuery.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_yyy.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_IIFE.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_pl.sublime-snippet",
-		"/Z/MA WWW/html/images/badge_.png",
-		"/C/Users/shinman/Desktop/koala test/coffeescript/firsTest.coffee",
-		"/C/Users/shinman/Desktop/koala test/js/compiledCoffee.js",
-		"/C/Users/shinman/Desktop/bower test/gulpfile.js",
-		"/C/Users/shinman/Desktop/koala test/coffeescript/firstTest.js",
-		"/C/Users/shinman/Desktop/koala test/coffeescript/firstTest.coffee",
-		"/C/Users/shinman/Desktop/bower test/package.json"
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_yyy.sublime-snippet"
 	],
 	"find":
 	{
@@ -837,6 +830,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"p",
+			"social",
+			"march-regular",
+			"32%",
+			"icons",
+			"[",
+			"debug",
 			"directionCount",
 			"direction",
 			"highlightVisible",
@@ -957,14 +957,7 @@
 			"if",
 			"double",
 			"h1",
-			"updateCalendar",
-			"category/item",
-			"last",
-			"after",
-			"$filters",
-			"$(\".pre",
-			"7",
-			"o-nas"
+			"updateCalendar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -972,6 +965,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"march-regular",
+			"social",
+			"march-regular",
 			"dirCount",
 			"directionCount",
 			"MA.settings.highlightVisible",
@@ -1045,38 +1041,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2659,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

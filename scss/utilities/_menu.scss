@@ -15,7 +15,7 @@
 	@extend .row;
 	@extend .floater;
 
-	margin-bottom: 10px !important;
+	margin-bottom: 0px !important;
 
 	.first {
 		@extend .stripe;
@@ -45,13 +45,18 @@
 		//color: white;
 
 		.logo {
-			width: columns-width(1);
-			margin-right: $gutter; /* * 2 + columns-width(9); */
-			line-height: 3;
+			//width: columns-width(1);
+			width: 48px;
+			height: 48px;
+			font-size: 24px;
+			line-height: 48px;
 			text-align: center;
-			@include hide-text;
-			background: url($css-images-path + 'ma-logo.svg') no-repeat center;
+			margin-right: $gutter + columns-width(1) - 48; /* * 2 + columns-width(9); */
+			//@include hide-text;
+			//background: url($css-images-path + 'ma-logo.svg') no-repeat center;
 			&:hover {
+				color: white;
+		    background-color: black;
 				opacity: 1;
 			}
 		}
@@ -99,13 +104,13 @@
 			width: columns-width(2);
 
 			a {
-				width: 32%;
-				height: 32%;
+				width: 48px;
+				height: 48px;
 				margin-right: 1px;
 				display: block;
 				float: left;
 				text-align: center;
-				line-height: 3;
+				line-height: 48px;
 				cursor: pointer;
 				&:hover {
 					color: white;
@@ -137,6 +142,7 @@
 
 		.right {
 			width: columns-width(5);
+			padding-bottom: 100px;
 		}
 	}
 	&.extended {
@@ -145,6 +151,14 @@
 		nav ul a:hover {
 			color: black;
 			background-color: white;
+		}
+		a.logo:hover {
+			color: black;
+			background-color: white;
+		}
+
+		ul {
+			margin-bottom: $global-margin;
 		}
 	}
 }

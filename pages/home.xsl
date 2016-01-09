@@ -22,6 +22,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:include href="../utilities/master.xsl"/>
+<xsl:include href="../utilities/_highlight.xsl" />
 
 <xsl:template match="data">
 
@@ -40,16 +41,7 @@
 </xsl:template>
 
 <xsl:template match="highlight/entry">
-	<div class="highlight owl-carousel owl-theme">
-		<xsl:apply-templates select="slides/item" />
-	</div>
-</xsl:template>
-
-<xsl:template match="slides/item">
-	<div class="item" style="background-image: url({$workspace}{image/@path}/{image/filename});">
-		<h1><xsl:value-of select="title" /></h1>
-		<xsl:copy-of select="text-box" />
-	</div>
+	<xsl:call-template name="highlight" />
 </xsl:template>
 
 <xsl:template match="news/entry">

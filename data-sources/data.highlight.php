@@ -27,8 +27,8 @@ class datasourcehighlight extends SectionDatasource
             'field_id' => '21',
             'elements' => array(
                 'title: formatted',
+                'article-link: formatted',
                 'text-box: formatted',
-                'link',
                 'image'
             )
         )
@@ -47,7 +47,7 @@ class datasourcehighlight extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-07T20:11:02+00:00'
+            'release-date' => '2016-01-09T22:21:00+00:00'
         );
     }
     public function getSource()

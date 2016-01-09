@@ -7,7 +7,7 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article class="brick">
-			<a href="{$root}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
+			<a href="{$root}/{//current-language/@handle}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
 				<h1><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<xsl:apply-templates select="subtitle" />
 				<xsl:apply-templates select="./date" />

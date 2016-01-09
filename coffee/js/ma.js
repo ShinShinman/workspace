@@ -53,7 +53,7 @@
             backgroundColor: 'black'
           });
           targetHeight = $(window).height() - target.offset().top - 24;
-          trigger.text('x');
+          trigger.text('X');
           return target.css('height', targetHeight).perfectScrollbar({
             suppressScorllX: true
           });
@@ -64,7 +64,7 @@
             color: 'black',
             backgroundColor: MA.settings.highlightVisible ? 'transparent' : 'white'
           });
-          trigger.text('m');
+          trigger.text('G');
           return $('body').css('position', 'static');
         }
       });
@@ -116,8 +116,7 @@
         dots: true,
         smartSpeed: 1000,
         autoplay: true,
-        autoplayTimeout: 10000,
-        autoplayHoverPause: true
+        autoplayTimeout: 7000
       });
       stickyNavSetup({
         backgroundColor: 'transparent'
@@ -191,6 +190,10 @@
       searchToggle(searchTrigger, searchForm);
       menuToggle(menuTrigger, mainMenu);
       isotopeSetup(grid, gridItem);
+      Hyphenator.config({
+        orphancontrol: 2
+      });
+      Hyphenator.run();
       return console.log('MA initiated.');
     };
 

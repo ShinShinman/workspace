@@ -20,6 +20,7 @@
     "jquery": "~1.11.3",
     "isotope": "~2.2.2",
     "perfect-scrollbar": "~0.6.8",
-    "owl.carousel": "https://github.com/smashingboxes/OwlCarousel2.git#~2.0.0-beta.3"
+    "owl.carousel": "https://github.com/smashingboxes/OwlCarousel2.git#~2.0.0-beta.3",
+    "Hyphenator": "https://github.com/mnater/Hyphenator.git#~5.1.0"
   }
 }

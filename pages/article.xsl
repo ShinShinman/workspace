@@ -27,15 +27,11 @@
 	<xsl:apply-templates select="exhibition/entry" />
 </xsl:template>
 
-<xsl:template name="single-view">
-	<xsl:apply-templates select="exhibition/entry" />
-</xsl:template>
-
 <xsl:template match="exhibition/entry">
 	<header style="background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px">
 	</header>
 	<section>
-		<header>
+		<header class="donthyphenate">
 			<h1><xsl:value-of select="title" /></h1>
 			<h2><xsl:value-of select="subtitle" /></h2>
 			<h3 class="date"><xsl:value-of select="date" /></h3>

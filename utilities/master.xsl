@@ -28,15 +28,16 @@
 	encoding="UTF-8"
 	indent="yes" />
 
-	<xsl:include href="brick.xsl" />
-	<xsl:include href="date-time.xsl" />
+	<xsl:include href="_brick.xsl" />
+	<xsl:include href="_date-time.xsl" />
+	<xsl:include href="_footer.xsl" />
 
 	<xsl:template match="/">
 
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{//fl-languages/current-language/@handle}"> <!--<![endif]-->
 		<head>
 			<meta charset="utf-8"/>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -50,7 +51,7 @@
 			<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		</head>
 
-    <body class="{$current-page}">
+    <body class="{$current-page} hyphenate">
 			<!--[if lt IE 7]>
 				<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 			<![endif]-->
@@ -60,6 +61,7 @@
 			<xsl:apply-templates />
 
 			<!-- FOOTER -->
+			<xsl:call-template name="footer" />
 
 			<script src="{$workspace}/js/main.min.js" ></script>
 			<xsl:apply-templates mode="js"/>
@@ -83,8 +85,7 @@
 		</div>
 
 		<nav>
-			<a class="logo" href="{$root}">MA</a>
-			<!--<div class="search"></div>-->
+			<a class="logo icon" href="{$root}/{//current-language/@handle}">M</a>
 			<form id="search-form" action="" method="get">
 				<input type="text" name="keywords" placeholder="Używaj #tagów" autocomplete="off"/>
 				<input type="submit" value="&rarr;" class="icon"/>
@@ -92,9 +93,16 @@
 			</form>
 
 			<ul>
-				<li><a href="javascript:void(0);" class="icon search-trigger">s</a></li>
-				<li><a href="javascript:void(0);">EN</a></li>
-				<li><a href="javascript:void(0);" class="icon menu-trigger">m</a></li>
+				<li><a href="javascript:void(0);" class="icon search-trigger">S</a></li>
+				<li>
+					<a class="icon">
+						<xsl:attribute name="href">
+							<xsl:apply-templates mode="language-button" />
+						</xsl:attribute>
+						E
+					</a>
+				</li>
+				<li><a href="javascript:void(0);" class="icon menu-trigger">G</a></li>
 			</ul>
 		</nav>
 
@@ -115,6 +123,10 @@
 
 <xsl:template match="linki/item">
 	<li><a href="{adres}"><xsl:value-of select="nazwa" /></a></li>
+</xsl:template>
+
+<xsl:template match="data" mode="language-button">
+	<xsl:value-of select="concat($root, '/en')" />
 </xsl:template>
 
 <xsl:template match="data" mode="js" />

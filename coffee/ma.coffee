@@ -40,7 +40,7 @@ class MA
 					backgroundColor: 'black'
 				})
 				targetHeight = $(window).height() - target.offset().top - 24
-				trigger.text('x')
+				trigger.text('X')
 				#disable scroll
 				# $('body').css('position', 'fixed')
 				target.css('height', targetHeight).perfectScrollbar({
@@ -53,7 +53,7 @@ class MA
 					color: 'black',
 					backgroundColor: if MA.settings.highlightVisible then 'transparent' else 'white'
 					})
-				trigger.text('m')
+				trigger.text('G')
 				$('body').css('position', 'static')
 
 	isotopeSetup = (target, item) ->
@@ -92,8 +92,8 @@ class MA
 			dots: true,
 			smartSpeed: 1000,
 			autoplay: true,
-			autoplayTimeout: 10000,
-			autoplayHoverPause: true
+			autoplayTimeout: 7000
+			# autoplayHoverPause: true
 		})
 		stickyNavSetup({
 			backgroundColor: 'transparent'
@@ -173,6 +173,8 @@ class MA
 		searchToggle(searchTrigger, searchForm)
 		menuToggle(menuTrigger, mainMenu)
 		isotopeSetup(grid, gridItem)
+		Hyphenator.config({orphancontrol: 2})
+		Hyphenator.run()
 		console.log 'MA initiated.'
 
 
