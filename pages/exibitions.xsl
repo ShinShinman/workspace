@@ -24,35 +24,9 @@
 <xsl:include href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<section class="{exhibitions/section/@handle}">
+	<section class="exhibitions">
 		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wystawy']" /></h1>
 		<div class="bricks-container">
-			<xsl:apply-templates select="exhibitions/entry" />
-
-			<!-- Skasować! -->
-			<xsl:apply-templates select="exhibitions/entry" />
-		</div>
-	</section>
-
-<!--
-	<xsl:choose>
-		<xsl:when test="$title">
-			<xsl:call-template name="single-view" />
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:call-template name="exhibitions" />
-		</xsl:otherwise>
-	</xsl:choose>
--->
-</xsl:template>
-
-<xsl:template name="exhibitions">
-	<section class="{exhibitions/section/@handle}">
-		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wystawy']" /></h1>
-		<div class="bricks-container">
-			<xsl:apply-templates select="exhibitions/entry" />
-
-			<!-- Skasować! -->
 			<xsl:apply-templates select="exhibitions/entry" />
 		</div>
 	</section>
@@ -62,17 +36,14 @@
 	<xsl:call-template name="brick" />
 </xsl:template>
 
-<xsl:template name="single-view">
-	<xsl:apply-templates select="exhibition/entry" />
+<!--
+<xsl:template match="data" mode="js">
+	<script>
+		$(function() {
+			MA.stickyNavSetup({backgroundColor: 'white'});
+		});
+	</script>
 </xsl:template>
-
-<xsl:template match="exhibition/entry">
-	<header style="background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px">
-	</header>
-	<section>
-		<h1><xsl:value-of select="title" /></h1>
-		<h2><xsl:value-of select="subtitle" /></h2>
-	</section>
-</xsl:template>
+-->
 
 </xsl:stylesheet>

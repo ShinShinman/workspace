@@ -1,7 +1,7 @@
 <?php
-class datasourceexhibition extends SectionDatasource
+class datasourceedu_header extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibition';
+    public $dsParamROOTELEMENT = 'edu-header';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -9,33 +9,15 @@ class datasourceexhibition extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '$title';
     public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-    
-    public $dsParamFILTERS = array(
-        '1' => '{$title}',
-    );
-        
+
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'article: formatted',
-        'category',
-        'date: formatted'
+        'article: formatted'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'category' => array(
-            'section_id' => '8',
-            'field_id' => '31',
-            'elements' => array(
-                'exhib-category: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -44,18 +26,18 @@ class datasourceexhibition extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Exhibition',
+            'name' => 'Edu header',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-13T18:45:16+00:00'
+            'release-date' => '2016-01-13T19:16:31+00:00'
         );
     }
     public function getSource()
     {
-        return '1';
+        return '12';
     }
     public function allowEditorToParse()
     {

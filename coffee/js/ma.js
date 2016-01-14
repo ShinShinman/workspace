@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
+    var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
 
     function MA() {}
 
@@ -24,6 +24,7 @@
       searchTrigger: $('.search-trigger'),
       menuTrigger: $('.menu-trigger'),
       mainMenu: $('.main-menu'),
+      mainMenuOpened: false,
       grid: $('.bricks-container'),
       gridItem: '.brick',
       highlightOn: false,
@@ -42,30 +43,45 @@
       });
     };
 
+    openMenu = function() {
+      var target, targetHeight, trigger;
+      target = MA.settings.mainMenu;
+      trigger = MA.settings.menuTrigger;
+      MA.settings.mainMenuOpened = true;
+      target.show().parent().data('state', 'extended').addClass('extended').css('height', '100vh');
+      stickyNavSetup({
+        color: 'white',
+        backgroundColor: 'black'
+      });
+      targetHeight = $(window).height() - 150;
+      trigger.text('X');
+      target.css('height', targetHeight).perfectScrollbar({
+        suppressScorllX: true
+      });
+    };
+
+    closeMenu = function() {
+      var target, trigger;
+      target = MA.settings.mainMenu;
+      trigger = MA.settings.menuTrigger;
+      MA.settings.mainMenuOpened = false;
+      target.parent().data('state', 'collapsed');
+      target.hide().parent().removeClass('extended').css('height', 'auto');
+      stickyNavSetup({
+        color: 'black',
+        backgroundColor: 'transparent'
+      });
+      trigger.text('G');
+    };
+
     menuToggle = function(trigger, target) {
       return trigger.click(function() {
-        var mainMenuState, targetHeight;
+        var mainMenuState;
         mainMenuState = target.parent().data('state');
         if (mainMenuState === 'collapsed') {
-          target.show().parent().data('state', 'extended').addClass('extended').css('height', '100vh');
-          stickyNavSetup({
-            color: 'white',
-            backgroundColor: 'black'
-          });
-          targetHeight = $(window).height() - target.offset().top - 24;
-          trigger.text('X');
-          return target.css('height', targetHeight).perfectScrollbar({
-            suppressScorllX: true
-          });
+          return openMenu();
         } else {
-          target.parent().data('state', 'collapsed');
-          target.hide().parent().removeClass('extended').css('height', 'auto');
-          stickyNavSetup({
-            color: 'black',
-            backgroundColor: MA.settings.highlightVisible ? 'transparent' : 'white'
-          });
-          trigger.text('G');
-          return $('body').css('position', 'static');
+          return closeMenu();
         }
       });
     };
@@ -81,20 +97,6 @@
       });
     };
 
-    setNavBackground = function(action, highlightOn) {
-      var backgroundColor;
-      if (action === 'expanded') {
-        backgroundColor = 'black';
-      }
-      if (action === 'collapsed' && !highlightOn) {
-        backgroundColor = 'white';
-      }
-      if (action === 'collapsed' && highlightOn) {
-        backgroundColor = 'transparent';
-      }
-      return MA.settings.stickyNav.css('background-color', backgroundColor);
-    };
-
     stickyNavSetup = function(options) {
       var settings;
       settings = $.extend({
@@ -107,11 +109,35 @@
       });
     };
 
+    setNavBackground = function(offsetElement) {
+      var dirCount, direction, offset;
+      offset = $(offsetElement).height();
+      dirCount = [0, 0];
+      direction = '';
+      $(window).scroll(function() {
+        dirCount.pop();
+        dirCount.push($(window).scrollTop());
+        dirCount.reverse();
+        direction = dirCount[0] > dirCount[1] ? 'down' : 'up';
+        if ($(window).scrollTop() < offset && !MA.settings.mainMenuOpened) {
+          stickyNavSetup({
+            backgroundColor: 'transparent'
+          });
+        }
+        if ($(window).scrollTop() >= offset && !MA.settings.mainMenuOpened) {
+          return stickyNavSetup({
+            backgroundColor: 'white'
+          });
+        }
+      });
+    };
+
     MA.prototype.setupHighlight = function() {
-      var dirCount, direction, hlHeight;
+      var items;
       MA.settings.highlightOn = true;
-      $('.highlight').owlCarousel({
-        loop: true,
+      items = $('.owl-carousel .item').length;
+      $('.owl-carousel').owlCarousel({
+        loop: items > 1,
         items: 1,
         dots: true,
         smartSpeed: 1000,
@@ -121,46 +147,42 @@
       stickyNavSetup({
         backgroundColor: 'transparent'
       });
-      hlHeight = $('.highlight').height();
-      MA.settings.highlightVisible = true;
-      dirCount = [0, 0];
-      direction = '';
-      $(window).scroll(function() {
-        dirCount.pop();
-        dirCount.push($(window).scrollTop());
-        dirCount.reverse();
-        direction = dirCount[0] > dirCount[1] ? 'down' : 'up';
-        console.log($(window).scrollTop() < hlHeight);
-
-        /*
-        			if MA.settings.highlightVisible and direction == 'down'
-        				console.log 'act'
-        				MA.settings.highlightVisible = false
-        				$('html, body').animate({
-        					scrollTop: hlHeight
-        				})
-        
-        			if not MA.settings.highlightVisible and direction == 'down'
-        				MA.settings.highlightVisible = true
-        				$('html, body').animate({
-        					scrollTop: 0
-        				})
-         */
-        if ($(window).scrollTop() < hlHeight && !MA.settings.highlightVisible) {
-          MA.settings.highlightVisible = true;
-          stickyNavSetup({
-            backgroundColor: 'transparent'
-          });
-          console.log('Highligt in!');
-        }
-        if ($(window).scrollTop() >= hlHeight && MA.settings.highlightVisible) {
-          MA.settings.highlightVisible = false;
-          stickyNavSetup({
-            backgroundColor: 'white'
-          });
-          return console.log('Highligt out!');
-        }
+      $('.slide-down a').click(function() {
+        return $('html, body').animate({
+          scrollTop: hlHeight
+        }, 800);
       });
+      setNavBackground('.owl-carousel');
+
+      /*
+      		hlHeight = $('.owl-carousel').height()
+      		MA.settings.highlightVisible = true
+      		dirCount = [0, 0]
+      		direction = ''
+      
+      		$(window).scroll ->
+      			dirCount.pop()
+      			dirCount.push($(window).scrollTop())
+      			dirCount.reverse()
+      			direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
+      			console.log direction
+      
+      			 * Highligt in!
+      			if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
+      				MA.settings.highlightVisible = true
+      				stickyNavSetup({
+      					backgroundColor: 'transparent'
+      					})
+      				console.log 'Highligt in!'
+      
+      			 * Highligt out!
+      			if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
+      				MA.settings.highlightVisible = false
+      				stickyNavSetup({
+      					backgroundColor: 'white'
+      					})
+      				console.log 'Highligt out!'
+       */
     };
 
     isScrolledIntoView = function(elem) {
@@ -186,6 +208,17 @@
       });
     };
 
+    apiTest = function() {
+      return console.log('Public API available!');
+    };
+
+    MA.prototype.api = {
+      apiTest: apiTest,
+      openMenu: openMenu,
+      closeMenu: closeMenu,
+      setNavBackground: setNavBackground
+    };
+
     MA.prototype.init = function() {
       searchToggle(searchTrigger, searchForm);
       menuToggle(menuTrigger, mainMenu);
@@ -204,8 +237,31 @@
   window.MA = new MA();
 
   $(function() {
+    var clear, filters;
     console.log('DOM is ready!');
-    return window.MA.init();
+    window.MA.init();
+    filters = $('.edu-categories li a:not(.clear-filter)');
+    clear = $('.edu-categories li a.clear-filter');
+    console.log(clear);
+    clear.click(function() {
+      filters.parent().removeClass('inactive-filter');
+      $(this).hide();
+      return $('.bricks-container').isotope({
+        filter: '*'
+      });
+    });
+    filters.click(function() {
+      filters.parent().addClass('inactive-filter');
+      $(this).parent().removeClass('inactive-filter');
+      filters.parent().find('.clear-filter').hide();
+      $(this).parent().find('.clear-filter').show();
+      return $('.bricks-container').isotope({
+        filter: '.' + $(this).data('filter')
+      });
+    });
+    return filters.find('span').click(function() {
+      return console.log($(this));
+    });
   });
 
 }).call(this);

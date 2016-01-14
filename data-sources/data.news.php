@@ -12,7 +12,11 @@ class datasourcenews extends SectionDatasource
     public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-
+    
+    public $dsParamFILTERS = array(
+        '30' => 'yes',
+    );
+        
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
         'subtitle: formatted',
@@ -39,7 +43,7 @@ class datasourcenews extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-08T14:16:11+00:00'
+            'release-date' => '2016-01-10T20:34:46+00:00'
         );
     }
     public function getSource()

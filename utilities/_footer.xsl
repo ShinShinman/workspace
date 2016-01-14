@@ -12,13 +12,13 @@
 				Polska</p>
 			</div>
 			<div class="second-column">
-				<p><a href="mailto:muzuem@ma.wroc.pl">muzuem@ma.wroc.pl</a></p>
+				<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
 			</div>
 			<div class="third-column">
 				<ul class="social">
-					<li><a href="javascript:void(0)">f</a></li>
-					<li><a href="javascript:void(0)">i</a></li>
-					<li><a href="javascript:void(0)">t</a></li>
+					<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">t</a></li>
+					<li><a href="javascript:void(0)" target="_blank">i</a></li>
+					<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 				</ul>
 			</div>
 		</footer>

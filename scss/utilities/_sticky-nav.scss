@@ -38,6 +38,10 @@
 	background-color: white;
 	//@include defaulf-transition(background-color);
 
+	.icon {
+		font-size: 18px;
+	}
+
 	nav {
 		@extend .row;
 	@extend .floater;

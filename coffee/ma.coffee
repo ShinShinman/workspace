@@ -16,6 +16,7 @@ class MA
 		searchTrigger: $('.search-trigger')
 		menuTrigger: $('.menu-trigger')
 		mainMenu: $('.main-menu')
+		mainMenuOpened: false
 		grid: $('.bricks-container')
 		gridItem: '.brick'
 		highlightOn: false
@@ -30,31 +31,43 @@ class MA
 				if opacity > 0 then 0 else 1
 			)
 
+	openMenu = ->
+		target = MA.settings.mainMenu
+		trigger = MA.settings.menuTrigger
+		MA.settings.mainMenuOpened = true
+		target.show().parent().data('state', 'extended').addClass('extended').css('height', '100vh')
+		stickyNavSetup({
+			color: 'white',
+			backgroundColor: 'black'
+		})
+		targetHeight = $(window).height() - 150
+		trigger.text('X')
+		target.css('height', targetHeight).perfectScrollbar({
+			suppressScorllX: true
+		})
+		return
+
+	closeMenu = ->
+		target = MA.settings.mainMenu
+		trigger = MA.settings.menuTrigger
+		MA.settings.mainMenuOpened = false
+		target.parent().data('state', 'collapsed')
+		target.hide().parent().removeClass('extended').css('height', 'auto')
+		stickyNavSetup({
+			color: 'black',
+			backgroundColor: 'transparent'
+			# backgroundColor: if MA.settings.highlightVisible then 'transparent' else 'white'
+			})
+		trigger.text('G')
+		return
+
 	menuToggle = (trigger, target) ->
 		trigger.click ->
 			mainMenuState = target.parent().data('state')
 			if mainMenuState == 'collapsed'
-				target.show().parent().data('state', 'extended').addClass('extended').css('height', '100vh')
-				stickyNavSetup({
-					color: 'white',
-					backgroundColor: 'black'
-				})
-				targetHeight = $(window).height() - target.offset().top - 24
-				trigger.text('X')
-				#disable scroll
-				# $('body').css('position', 'fixed')
-				target.css('height', targetHeight).perfectScrollbar({
-					suppressScorllX: true
-				})		
+				openMenu()
 			else
-				target.parent().data('state', 'collapsed')
-				target.hide().parent().removeClass('extended').css('height', 'auto')
-				stickyNavSetup({
-					color: 'black',
-					backgroundColor: if MA.settings.highlightVisible then 'transparent' else 'white'
-					})
-				trigger.text('G')
-				$('body').css('position', 'static')
+				closeMenu()
 
 	isotopeSetup = (target, item) ->
 		$(window).load( ->
@@ -65,12 +78,6 @@ class MA
 				}
 			});
 		)
-
-	setNavBackground = (action, highlightOn) ->
-		backgroundColor = 'black' if action is 'expanded'
-		backgroundColor = 'white' if action is 'collapsed' and not highlightOn
-		backgroundColor = 'transparent' if action is 'collapsed' and highlightOn
-		MA.settings.stickyNav.css('background-color', backgroundColor)
 
 	stickyNavSetup = (options) ->
 		settings = $.extend( {
@@ -84,10 +91,36 @@ class MA
 			'backgroundColor': settings.backgroundColor
 		} )
 
+	setNavBackground = (offsetElement) ->
+		offset = $(offsetElement).height()
+		dirCount = [0, 0]
+		direction = ''
+
+		$(window).scroll ->
+			dirCount.pop()
+			dirCount.push($(window).scrollTop())
+			dirCount.reverse()
+			direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
+
+		# Highligt in!
+			if $(window).scrollTop() < offset and  not MA.settings.mainMenuOpened
+				stickyNavSetup({
+					backgroundColor: 'transparent'
+					})
+
+			# Highligt out!
+			if $(window).scrollTop() >= offset and  not MA.settings.mainMenuOpened
+				stickyNavSetup({
+					backgroundColor: 'white'
+					})
+		return
+
+
 	setupHighlight: ->
 		MA.settings.highlightOn = true
-		$('.highlight').owlCarousel({
-			loop: true,
+		items = $('.owl-carousel .item').length
+		$('.owl-carousel').owlCarousel({
+			loop: items > 1,
 			items: 1,
 			dots: true,
 			smartSpeed: 1000,
@@ -99,7 +132,15 @@ class MA
 			backgroundColor: 'transparent'
 		})
 
-		hlHeight = $('.highlight').height()
+		$('.slide-down a').click ->
+			$('html, body').animate({
+				scrollTop: hlHeight
+			}, 800)
+
+		setNavBackground('.owl-carousel')
+
+		###
+		hlHeight = $('.owl-carousel').height()
 		MA.settings.highlightVisible = true
 		dirCount = [0, 0]
 		direction = ''
@@ -109,23 +150,9 @@ class MA
 			dirCount.push($(window).scrollTop())
 			dirCount.reverse()
 			direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-			console.log $(window).scrollTop() < hlHeight
+			console.log direction
 
-			###
-			if MA.settings.highlightVisible and direction == 'down'
-				console.log 'act'
-				MA.settings.highlightVisible = false
-				$('html, body').animate({
-					scrollTop: hlHeight
-				})
-
-			if not MA.settings.highlightVisible and direction == 'down'
-				MA.settings.highlightVisible = true
-				$('html, body').animate({
-					scrollTop: 0
-				})
-			###
-
+			# Highligt in!
 			if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
 				MA.settings.highlightVisible = true
 				stickyNavSetup({
@@ -133,26 +160,29 @@ class MA
 					})
 				console.log 'Highligt in!'
 
+			# Highligt out!
 			if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
 				MA.settings.highlightVisible = false
 				stickyNavSetup({
 					backgroundColor: 'white'
 					})
 				console.log 'Highligt out!'
-		
+		###
+
 		return
 
 	isScrolledIntoView = (elem) ->
-    $elem = $(elem);
-    $window = $(window);
+		$elem = $(elem);
+		$window = $(window);
 
-    docViewTop = $window.scrollTop();
-    docViewBottom = docViewTop + $window.height();
+		docViewTop = $window.scrollTop();
+		docViewBottom = docViewTop + $window.height();
 
-    elemTop = $elem.offset().top;
-    elemBottom = elemTop + $elem.height();
+		elemTop = $elem.offset().top;
+		elemBottom = elemTop + $elem.height();
 
-    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+		return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+
 
 	
 	# Public methods
@@ -168,11 +198,23 @@ class MA
 			'backgroundColor': settings.backgroundColor
 		} )
 	
+
+
+	apiTest = ->
+  	console.log 'Public API available!'
+
+	# Public API
+	api:
+		apiTest: apiTest
+		openMenu: openMenu
+		closeMenu: closeMenu
+		setNavBackground: setNavBackground
+
 	# Initialize
 	init: ->
 		searchToggle(searchTrigger, searchForm)
 		menuToggle(menuTrigger, mainMenu)
-		isotopeSetup(grid, gridItem)
+		isotopeSetup(grid, gridItem) # poprawić --> nie na wszystkich stronach
 		Hyphenator.config({orphancontrol: 2})
 		Hyphenator.run()
 		console.log 'MA initiated.'
@@ -184,3 +226,26 @@ window.MA = new MA()
 $ ->
 	console.log 'DOM is ready!'
 	window.MA.init()
+
+	filters = $('.edu-categories li a:not(.clear-filter)')
+
+	clear = $('.edu-categories li a.clear-filter')
+	console.log clear
+	clear.click ->
+		filters.parent().removeClass('inactive-filter')
+		$(@).hide()
+		$('.bricks-container').isotope({
+				filter: '*'
+			})
+
+	filters.click ->
+		filters.parent().addClass('inactive-filter')
+		$(@).parent().removeClass('inactive-filter')
+		filters.parent().find('.clear-filter').hide()
+		$(@).parent().find('.clear-filter').show()
+		$('.bricks-container').isotope({
+				filter: '.' + $(@).data('filter')
+			})
+	
+	filters.find('span').click ->
+		console.log $(@)

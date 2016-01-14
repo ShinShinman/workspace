@@ -14,17 +14,18 @@ class datasourcemain_menu extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'linki',
+        'links',
         'prawa-kolumna: formatted'
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
-        'linki' => array(
+        'links' => array(
             'section_id' => '2',
             'field_id' => '15',
             'elements' => array(
-                'nazwa: formatted',
-                'adres: formatted'
+                'name: formatted',
+                'address: formatted',
+                'blank'
             )
         )
     );
@@ -42,7 +43,7 @@ class datasourcemain_menu extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-06T22:41:47+00:00'
+            'release-date' => '2016-01-12T09:21:58+00:00'
         );
     }
     public function getSource()

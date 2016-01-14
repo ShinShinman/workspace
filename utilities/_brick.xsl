@@ -7,12 +7,12 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article class="brick">
-			<a href="{$root}/{//current-language/@handle}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
-				<h1><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
+			<a href="{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
+				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<xsl:apply-templates select="subtitle" />
 				<xsl:apply-templates select="./date" />
 				<xsl:copy-of select="lead" />
-				<img src="{$workspace}{cover-image/@path}/{cover-image/filename}" />
+				<xsl:apply-templates select="cover-image" />
 			</a>
 		</article>
 
@@ -26,9 +26,11 @@
 		<div class="dashed">
 			<svg>
 				<path d="M0 0 H 300" />
-				<path d="M0 30 H 300" />
 			</svg>
 			<xsl:copy-of select="./node()" />
+			<svg>
+				<path d="M0 0 H 300" />
+			</svg>
 			<!--<xsl:apply-templates select=".//black" />-->
 			<!--
 			<xsl:apply-templates select="date[@type = 'exact']" />
@@ -42,6 +44,7 @@
 	</xsl:template>
 
 	<xsl:template match="badge">
+		<!-- wprowadzić rozróżnienie na różne szarfy -->
 		<span class="badge"></span>
 	</xsl:template>
 
@@ -66,6 +69,10 @@
 					<xsl:with-param name="format" select="'x.N.Y'"/>
 				</xsl:call-template>
 			</p>
+	</xsl:template>
+
+	<xsl:template match="cover-image">
+		<img src="{$workspace}{@path}/{filename}" />
 	</xsl:template>
 
 </xsl:stylesheet>

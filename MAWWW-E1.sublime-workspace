@@ -4,6 +4,102 @@
 		"selected_items":
 		[
 			[
+				"edu-cate",
+				"edu-categories"
+			],
+			[
+				"cl",
+				"class"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"edu-le",
+				"edu-lessons"
+			],
+			[
+				"clear-fil",
+				"clear-filter"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"clear",
+				"clearFilters"
+			],
+			[
+				"cla",
+				"class"
+			],
+			[
+				"active",
+				"active-filter"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"mae",
+				"margin-left"
+			],
+			[
+				"edu-cat",
+				"edu-categories"
+			],
+			[
+				"ed",
+				"edu-categories"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"lin",
+				"line-height"
+			],
+			[
+				"bu",
+				"bull	(edukacja.xsl)"
+			],
+			[
+				"off",
+				"offsetElement"
+			],
+			[
+				"ma",
+				"mainMenuOpened"
+			],
+			[
+				"menu",
+				"menuTrigger"
+			],
+			[
+				"tr",
+				"trigger"
+			],
+			[
+				"bac",
+				"backgroundColor"
+			],
+			[
+				"api",
+				"apiTest"
+			],
+			[
 				"fon",
 				"font"
 			],
@@ -54,10 +150,6 @@
 			[
 				"bl",
 				"block"
-			],
-			[
-				"dis",
-				"display"
 			],
 			[
 				"he",
@@ -128,10 +220,6 @@
 				"targetState"
 			],
 			[
-				"bac",
-				"backgroundColor"
-			],
-			[
 				"backg",
 				"backgroundColor"
 			],
@@ -158,10 +246,6 @@
 			[
 				"exten",
 				"extend	(main.scss)"
-			],
-			[
-				"mar",
-				"margin-top"
 			],
 			[
 				"no",
@@ -192,10 +276,6 @@
 				"target"
 			],
 			[
-				"off",
-				"offset"
-			],
-			[
 				"bricks",
 				"bricks-container"
 			],
@@ -204,20 +284,12 @@
 				"container"
 			],
 			[
-				"padd",
-				"padding-right"
-			],
-			[
 				"nano",
 				"nanoscroller"
 			],
 			[
 				"init",
 				"initial	(index.html)"
-			],
-			[
-				"marg",
-				"margin"
 			],
 			[
 				"font",
@@ -318,10 +390,6 @@
 			[
 				"font-",
 				"font-family"
-			],
-			[
-				"cla",
-				"class	Attr"
 			],
 			[
 				"li",
@@ -446,79 +514,51 @@
 			[
 				"ent",
 				"entry"
-			],
-			[
-				"hei",
-				"height"
-			],
-			[
-				"va",
-				"value-of"
-			],
-			[
-				"subs",
-				"subscribe"
-			],
-			[
-				"te",
-				"template"
-			],
-			[
-				"newslett",
-				"newsletter	(routes.xml)"
-			],
-			[
-				"margn",
-				"margin-bottom"
-			],
-			[
-				"lan",
-				"lang"
-			],
-			[
-				"java",
-				"javascript:void"
-			],
-			[
-				"appe",
-				"append"
-			],
-			[
-				"anim",
-				"animate"
-			],
-			[
-				"an",
-				"animate	.animate()"
-			],
-			[
-				"prevent",
-				"preventDefault"
-			],
-			[
-				"line",
-				"line-height"
-			],
-			[
-				"border-co",
-				"border-color"
-			],
-			[
-				"cons",
-				"console"
-			],
-			[
-				"rel",
-				"relative"
-			],
-			[
-				"la",
-				"language"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "coffee/ma.coffee",
+			"settings":
+			{
+				"buffer_size": 5718,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scss/main.scss",
+			"settings":
+			{
+				"buffer_size": 4376,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pages/education.xsl",
+			"settings":
+			{
+				"buffer_size": 2559,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pages/education_lesson.xsl",
+			"settings":
+			{
+				"buffer_size": 2473,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -534,6 +574,10 @@
 			[
 				"css",
 				"Set Syntax: CSS"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
 			],
 			[
 				"scss",
@@ -558,10 +602,6 @@
 			[
 				"js",
 				"Set Syntax: JavaScript"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
 			],
 			[
 				"xml",
@@ -676,7 +716,6 @@
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
@@ -685,35 +724,55 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/lesson.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/edukacja.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/footer.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/Users/shinman/Desktop/images compresion/gulpfile.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/.git/config",
+		"/C/xampp/htdocs/ma.wroc.pl/.gitmodules",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
+		"/C/Users/shinman/Downloads/yszt/.htaccess",
+		"/C/xampp/apache/conf/httpd.conf",
+		"/C/Users/shinman/Desktop/Nowy dokument tekstowy.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
+		"/Z/MA WWW/html/zaslepka.html",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
+		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/install",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
+		"/Z/MA WWW/font/MArch/MArch-info.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.js",
+		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_stick-nav.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/highlight.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
-		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/Users/shinman/Documents/ma/.git/config",
 		"/C/Users/shinman/Documents/ma/.gitmodules",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
-		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
 		"/C/Users/shinman/Documents/ma/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/ma/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/publish.editor.js",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/editor/editor.js",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/extension.driver.php",
@@ -722,7 +781,6 @@
 		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
 		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/template.html.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
-		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.js",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.coffee",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.coffee",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.js",
@@ -731,7 +789,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.carousel.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.green.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
-		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/date-time.xsl",
 		"/Z/Alternativa - strona WWW/symphony/workspace/utilities/get-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/index.html",
@@ -794,25 +851,7 @@
 		"/C/Users/shinman/Desktop/koala test/sass/test.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main_.scss",
 		"/C/Users/shinman/Desktop/koala test/sass/_variables.scss",
-		"/C/Users/shinman/Desktop/koala test/sass/_mixins.scss",
-		"/C/Users/shinman/Desktop/_dev/gulpfile.js",
-		"/C/Users/shinman/Desktop/_dev/package.json",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Local/Session.sublime_session",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/typography/_typography.scss",
-		"/Z/MA WWW/html/scss/_global.scss",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/_global.scss",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/typography/_base.scss",
-		"/Z/MA WWW/html/scss/test.scss",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/attributes/attr.js",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/attributes.js",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/ajax/jsonp.js",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/ajax.js",
-		"/Z/MA WWW/html/kafelek.html",
-		"/Z/MA WWW/html/menu.html",
-		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
-		"/C/Users/shinman/Downloads/maison webfont/stylesheet.css",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_jQuery.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_yyy.sublime-snippet"
+		"/C/Users/shinman/Desktop/koala test/sass/_mixins.scss"
 	],
 	"find":
 	{
@@ -830,6 +869,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"			",
+			"		",
+			"li.",
+			"rgb(56, 191, 172)",
+			"li",
+			"rgb(42, 212, 63)",
+			"info",
+			"rgb(247, 86, 227)",
+			"rgb(247, 77, 69)",
+			"rgb(43, 251, 222)",
+			"rgb(42, 212, 63)",
+			"rgb(33, 255, 60)",
+			"rgb(255, 248, 33)",
+			"klasy-0-3",
+			"0-3",
+			"klasy-0-3",
+			"przedszkola",
+			"exhibitions/entry",
+			"yszt",
+			"hlHeight",
+			"console",
+			"1",
+			"const",
+			"MultiViews",
+			"header",
 			"p",
 			"social",
 			"march-regular",
@@ -932,32 +996,7 @@
 			">\n",
 			"jspeare@totamto.pl",
 			"news",
-			"container",
-			"gallery",
-			"p.",
-			"p ",
-			"1-col",
-			"ul ul",
-			"trigger",
-			"img",
-			"bio",
-			"img",
-			"max-width: 100%",
-			"breadcrumbs",
-			"brick",
-			"post",
-			"Stacja transformacja",
-			"	      ",
-			"aside",
-			"javascript:void()",
-			"  ",
-			".event-info",
-			"30",
-			"lt;",
-			"if",
-			"double",
-			"h1",
-			"updateCalendar"
+			"container"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1041,8 +1080,155 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "coffee/ma.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5542,
+								5542
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2765.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scss/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3259,
+								3259
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3245.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"default_dir": "C:\\xampp\\htdocs\\ma.wroc.pl\\workspace",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "pages/education.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2559,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1342,
+								1342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XSL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "pages/education_lesson.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2473,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1513,
+								1415
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XSL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],

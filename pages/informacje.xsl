@@ -24,37 +24,26 @@
 <xsl:include href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="exhibition/entry" />
-	<xsl:apply-templates select="news" />
+	<xsl:apply-templates select="info/entry" />
 </xsl:template>
 
-<xsl:template match="exhibition/entry">
-	<header class="offset" style="background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px">
-	</header>
-	<section class="post">
-		<header class="donthyphenate">
+<xsl:template match="info/entry">
+	<section class="info">
+		<header>
 			<h1><xsl:value-of select="title" /></h1>
-			<h2><xsl:value-of select="subtitle" /></h2>
-			<h3 class="date"><xsl:value-of select="date" /></h3>
-			<ul class="category-list">
-				<xsl:apply-templates select="category/item" />
-			</ul>
 		</header>
 		<article>
-			<xsl:copy-of select="article" />
+			<xsl:copy-of select="article/node()" />
 		</article>
 	</section>
 </xsl:template>
 
-<xsl:template match="category/item">
-	<li><a href="#"><xsl:value-of select="exhib-category" /></a></li>
-</xsl:template>
-
+<!--
 <xsl:template match="news">
 	<section class="news">
 		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'aktualnosci']" /></h1>
 		<div class="bricks-container">
-			<xsl:apply-templates select="./entry[not(@id = //exhibition/entry/@id)]" />
+			<xsl:apply-templates select="./entry" />
 		</div>
 	</section>
 </xsl:template>
@@ -62,16 +51,16 @@
 <xsl:template match="news/entry">
 	<xsl:call-template name="brick" />
 </xsl:template>
+-->
 
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //dictionary/entry/word[@handle-pl = 'wystawy']/@handle)" />
+	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
 </xsl:template>
 
 <xsl:template match="data" mode="js">
 	<script>
 		$(function() {
-			MA.stickyNavSetup({backgroundColor: 'transparent'});
-			MA.api.setNavBackground('.offset')
+			MA.stickyNavSetup({backgroundColor: 'white'});
 		});
 	</script>
 </xsl:template>

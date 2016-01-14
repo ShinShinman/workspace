@@ -1,38 +1,34 @@
 <?php
-class datasourceexhibition extends SectionDatasource
+class datasourceedu_lessons extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibition';
-    public $dsParamORDER = 'desc';
+    public $dsParamROOTELEMENT = 'edu-lessons';
+    public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '$title';
-    public $dsParamSORT = 'system:id';
+    public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '1' => '{$title}',
+        '68' => 'yes',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'article: formatted',
-        'category',
-        'date: formatted'
+        'lead: formatted',
+        'edu-category'
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
-        'category' => array(
-            'section_id' => '8',
-            'field_id' => '31',
+        'edu-category' => array(
+            'section_id' => '14',
+            'field_id' => '72',
             'elements' => array(
-                'exhib-category: formatted'
+                'edu-category: formatted'
             )
         )
     );
@@ -44,18 +40,18 @@ class datasourceexhibition extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Exhibition',
+            'name' => 'Edu lessons',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-13T18:45:16+00:00'
+            'release-date' => '2016-01-13T21:31:38+00:00'
         );
     }
     public function getSource()
     {
-        return '1';
+        return '13';
     }
     public function allowEditorToParse()
     {

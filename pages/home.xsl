@@ -28,12 +28,9 @@
 
 	<xsl:apply-templates select="highlight/entry" />
 
-	<section class="aktualnosci">
+	<section class="news">
 		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'aktualnosci']" /></h1>
 		<div class="bricks-container">
-			<xsl:apply-templates select="news/entry" />
-
-			<!-- Skasować! -->
 			<xsl:apply-templates select="news/entry" />
 		</div>
 	</section>
@@ -50,14 +47,6 @@
 
 <xsl:template match="data" mode="js">
 	<xsl:apply-templates select="highlight/entry" mode="js" />
-</xsl:template>
-
-<xsl:template match="highlight/entry" mode="js">
-	<script>
-		$(function() {
-			MA.setupHighlight();
-		});
-	</script>
 </xsl:template>
 
 </xsl:stylesheet>
