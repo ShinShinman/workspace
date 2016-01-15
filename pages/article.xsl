@@ -41,7 +41,7 @@
 			</ul>
 		</header>
 		<article>
-			<xsl:copy-of select="article" />
+			<xsl:copy-of select="article/node()" />
 		</article>
 	</section>
 </xsl:template>

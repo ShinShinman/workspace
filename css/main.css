@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -358,7 +359,7 @@ th {
 /* Utilities */
 .brick {
   width: 311.332px;
-  margin-bottom: 30px; }
+  margin-bottom: 24px; }
   .brick a {
     display: block; }
   .brick h1, .brick .slide-down a, .slide-down .brick a {
@@ -377,6 +378,7 @@ th {
     margin-top: 0;
     margin-bottom: 0; }
   .brick p {
+    text-align: justify;
     margin-top: 0;
     margin-bottom: 15px; }
   .brick .dashed {
@@ -702,20 +704,24 @@ p {
 /* Experimental */
 .typo-h1 {
   font-size: 42px;
-  line-height: 1.2; }
+  line-height: 1.2;
+  text-align: left; }
 
 .typo-h2, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a {
   font-size: 30px;
   font-weight: bold;
   line-height: 1.2;
+  text-align: left;
   margin-bottom: 15px; }
 
 .typo-h3, .text-column article h2, .article section.post article h2, .info article h2, .edu article h2, .single-lesson article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a {
   font-size: 21px;
+  text-align: left;
   margin-bottom: 15px; }
 
 .typo-h4, .text-column article h3, .article section.post article h3, .info article h3, .edu article h3, .single-lesson article h3 {
   font-size: 16px;
+  text-align: left;
   margin-bottom: 15px; }
 
 /* Lists */
@@ -768,6 +774,11 @@ section:not(.highlight):first-of-type {
   margin-top: 135px; }
 
 /* TYPOGRAPHY */
+/* Brakuj─ůce spacje przed italikami i boldem */
+em:before, strong:before {
+  content: " "; }
+
+/* Szeroko┼Ť─ç kolumny tekstowej */
 .text-column, .article section.post, .info, .edu, .single-lesson {
   width: 637.664px;
   margin-top: 0;
@@ -810,6 +821,8 @@ section:not(.highlight):first-of-type {
   .article section.post header .category-list > li {
     float: left;
     margin-right: 15px; }
+.article section.post article {
+  text-align: justify; }
 
 .news > h1, .slide-down .news > a {
   margin-bottom: 24px; }
@@ -819,11 +832,16 @@ section:not(.highlight):first-of-type {
   margin-bottom: 24px; }
 
 /* INFO */
+.info article {
+  text-align: justify; }
+
 /* EDU */
-.edu article ul {
-  list-style: disc; }
-.edu article li {
-  margin-bottom: 12px; }
+.edu article {
+  text-align: justify; }
+  .edu article ul {
+    list-style: disc; }
+  .edu article li {
+    margin-bottom: 12px; }
 
 .edu-lessons .przedszkola h1, .edu-lessons .przedszkola .slide-down a, .slide-down .edu-lessons .przedszkola a {
   border-color: #3abb4a; }
@@ -904,5 +922,7 @@ section:not(.highlight):first-of-type {
   color: white;
   background-color: #ff5e57;
   padding: 0 6px; }
+.single-lesson article {
+  text-align: justify; }
 
 /*# sourceMappingURL=main.css.map */

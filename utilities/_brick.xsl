@@ -11,7 +11,7 @@
 				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<xsl:apply-templates select="subtitle" />
 				<xsl:apply-templates select="./date" />
-				<xsl:copy-of select="lead" />
+				<xsl:copy-of select="lead/node()" />
 				<xsl:apply-templates select="cover-image" />
 			</a>
 		</article>
@@ -37,10 +37,6 @@
 			<xsl:apply-templates select="date[@type = 'range']" />
 		-->
 		</div>
-	</xsl:template>
-
-	<xsl:template match="date//black">
-		<span style="color: black"><xsl:value-of select="." /></span>
 	</xsl:template>
 
 	<xsl:template match="badge">

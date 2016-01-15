@@ -43,21 +43,25 @@ p {
 	@extend .reset;
 	font-size: 42px;
 	line-height: 1.2;
+	text-align: left;
 }
 .typo-h2 {
 	@extend .reset;
 	font-size: 30px;
 	font-weight: bold;
 	line-height: 1.2;
+	text-align: left;
 	margin-bottom: $gutter;
 }
 .typo-h3 {
 	@extend .reset;
 	font-size: 21px;
+	text-align: left;
 	margin-bottom: $gutter;
 }
 .typo-h4 {
 	@extend .reset;
 	font-size: $global-font-size;
+	text-align: left;
 	margin-bottom: $gutter;
 }

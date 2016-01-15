@@ -10,14 +10,14 @@
 			<xsl:attribute name="class">brick<xsl:apply-templates select="edu-category/item" /></xsl:attribute>
 			<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-en = $root-page]}/{//dictionary//word[@handle-pl = 'lekcja']/@handle}/{title/@handle}">
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
-				<xsl:copy-of select="lead" />
+				<!--<xsl:copy-of select="lead/node()" />-->
 			</a>
 		</article>
 
 	</xsl:template>
 
 	<xsl:template match="edu-category/item">
-		<xsl:text> </xsl:text><xsl:value-of select="./@handle" />
+		<xsl:text> </xsl:text><xsl:value-of select="edu-category/@handle-pl" />
 	</xsl:template>
 
 	<xsl:template match="entry/date">

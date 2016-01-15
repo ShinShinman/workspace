@@ -216,6 +216,12 @@ class MA
 		menuToggle(menuTrigger, mainMenu)
 		isotopeSetup(grid, gridItem) # poprawić --> nie na wszystkich stronach
 		Hyphenator.config({orphancontrol: 2})
+		Hyphenator.config(
+      defaultlanguage: 'pl'
+			minwordlength: 8
+    )
+		Hyphenator.addExceptions('', 'Europan')
+		Hyphenator.addExceptions('', 'Sweden')
 		Hyphenator.run()
 		console.log 'MA initiated.'
 

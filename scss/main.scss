@@ -62,6 +62,12 @@ body {
 
 /* TYPOGRAPHY */
 
+/* Brakujące spacje przed italikami i boldem */
+em:before, strong:before {
+	content: " ";
+}
+
+/* Szerokość kolumny tekstowej */
 .text-column {
 	width: columns-width(8);
 	margin-top: 0;
@@ -142,6 +148,9 @@ body {
 				}
 			}
 		}
+		article {
+			text-align: justify;
+		}
 	}
 }
 
@@ -165,6 +174,10 @@ body {
 
 .info {
 	@extend .text-column;
+
+	article {
+		text-align: justify;
+	}
 }
 
 /* EDU */
@@ -173,6 +186,7 @@ body {
 	@extend .text-column;
 
 	article {
+		text-align: justify;
 		ul {
 			list-style: disc;
 		}
@@ -317,5 +331,8 @@ body {
 			background-color: rgb(255, 94, 87);
 			padding: 0 6px;
 		}
+	}
+	article {
+		text-align: justify;
 	}
 }
