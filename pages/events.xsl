@@ -22,39 +22,28 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:include href="../utilities/master.xsl"/>
-<xsl:include href="../utilities/_highlight.xsl" />
 
 <xsl:template match="data">
-
-	<xsl:apply-templates select="highlight/entry" />
-
-	<xsl:apply-templates select="info-banner/entry" />	
-
-	<section class="news">
-		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'aktualnosci']" /></h1>
+	<section class="events">
+		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wydarzenia']" /></h1>
 		<div class="bricks-container">
-			<xsl:apply-templates select="news/entry" />
+			<xsl:apply-templates select="events/entry" />
 		</div>
 	</section>
-
 </xsl:template>
 
-<xsl:template match="highlight/entry">
-	<xsl:call-template name="highlight" />
-</xsl:template>
-
-<xsl:template match="news/entry">
+<xsl:template match="events/entry">
 	<xsl:call-template name="brick" />
 </xsl:template>
 
-<xsl:template match="info-banner/entry">
-	<section class="info-banner">
-		<xsl:copy-of select="msg/node()" />
-	</section>
-</xsl:template>
-
+<!--
 <xsl:template match="data" mode="js">
-	<xsl:apply-templates select="highlight/entry" mode="js" />
+	<script>
+		$(function() {
+			MA.stickyNavSetup({backgroundColor: 'white'});
+		});
+	</script>
 </xsl:template>
+-->
 
 </xsl:stylesheet>

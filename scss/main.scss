@@ -63,8 +63,10 @@ body {
 /* TYPOGRAPHY */
 
 /* Brakujące spacje przed italikami i boldem */
-em:before, strong:before {
-	content: " ";
+a, em, strong {
+	&:before {
+		content: " ";	
+	}
 }
 
 /* Szerokość kolumny tekstowej */
@@ -270,7 +272,7 @@ em:before, strong:before {
 
 		li {
 			float: left;
-			margin-right: $gutter;
+			margin-right: 8px;
 			color: white;
 
 			&.inactive-filter {
@@ -335,4 +337,26 @@ em:before, strong:before {
 	article {
 		text-align: justify;
 	}
+}
+
+
+
+/* INFO-BANNER */
+
+.info-banner {
+	color: white;
+	background-color: black;
+	padding: 15px;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+
+
+/* MAINTENANCE */
+
+section.maintenance {
+	margin-bottom: 450px;
 }

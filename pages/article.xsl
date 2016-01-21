@@ -42,8 +42,15 @@
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
+			<!--<xsl:apply-templates select="article//*" />-->
 		</article>
 	</section>
+</xsl:template>
+
+<xsl:template match="article//*">
+	<xsl:element name="{name()}">
+		<xsl:apply-templates select="* | @* | text()" />
+	</xsl:element>
 </xsl:template>
 
 <xsl:template match="category/item">

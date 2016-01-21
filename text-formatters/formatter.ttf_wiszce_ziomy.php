@@ -12,7 +12,7 @@
 
 		public function __construct() {
 			$this->_patterns = array (
-				'/(\\b)(a|i|o|u|w|z|A|I|O|U|W|Z)(\\b )/' => '$2----UUU----',
+				'/(\\b)(a|i|o|u|w|z|A|I|O|U|W|Z)(\\b )/' => '$2&#160;',
 			);;
 		}
 		
@@ -25,7 +25,7 @@
 					'email' => 'studio@orkana39.pl'
 				),
 				'version' => '1.3',
-				'release-date' => '2016-01-09T16:46:49+00:00',
+				'release-date' => '2016-01-20T18:06:48+00:00',
 				'description' => 'Usuwa sieroty',
 				'templatedtextformatters-version' => '1.11', // required
 				'templatedtextformatters-type' => 'regex' // required

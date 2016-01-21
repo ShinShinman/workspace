@@ -775,7 +775,7 @@ section:not(.highlight):first-of-type {
 
 /* TYPOGRAPHY */
 /* Brakuj─ůce spacje przed italikami i boldem */
-em:before, strong:before {
+a:before, em:before, strong:before {
   content: " "; }
 
 /* Szeroko┼Ť─ç kolumny tekstowej */
@@ -881,7 +881,7 @@ em:before, strong:before {
   overflow: auto; }
   .edu-lessons .edu-categories li {
     float: left;
-    margin-right: 15px;
+    margin-right: 8px;
     color: white; }
     .edu-lessons .edu-categories li.inactive-filter {
       opacity: 0.4; }
@@ -924,5 +924,17 @@ em:before, strong:before {
   padding: 0 6px; }
 .single-lesson article {
   text-align: justify; }
+
+/* INFO-BANNER */
+.info-banner {
+  color: white;
+  background-color: black;
+  padding: 15px; }
+  .info-banner p {
+    margin-bottom: 0; }
+
+/* MAINTENANCE */
+section.maintenance {
+  margin-bottom: 450px; }
 
 /*# sourceMappingURL=main.css.map */

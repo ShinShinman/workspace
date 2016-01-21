@@ -22,6 +22,7 @@
 			if (!is_array(self::$_recursion)) self::$_recursion = array();
 
 			$this->_formatters = array (
+				'ttf_wiszce_ziomy' => 'Wiszce ziomy',
 				'markdown_extra_with_smartypants' => 'Markdown Extra (With SmartyPants)',
 			);;
 
@@ -36,8 +37,8 @@
 					'email' => 'studio@orkana39.pl'
 				),
 				'version' => '1.4',
-				'release-date' => '2016-01-09T18:07:40+00:00',
-				'description' => 'Formatting text in the following order: Markdown Extra (With SmartyPants)',
+				'release-date' => '2016-01-20T18:07:22+00:00',
+				'description' => 'Formatting text in the following order: Wiszce ziomy → Markdown Extra (With SmartyPants)',
 				'templatedtextformatters-version' => '1.11', // required
 				'templatedtextformatters-type' => 'chain' // required
 			);
