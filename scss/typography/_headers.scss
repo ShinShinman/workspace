@@ -7,30 +7,18 @@
 }
 
 h1 {
-	@extend .reset;
-	font-size: 42px;
-	//font-weight: normal;
-	line-height: 1;
-
+	@extend .typo-h1;
 
 	//margin-bottom: $gutter;
 }
 h2 {
-	@extend .reset;
-	font-size: 30px;
-	font-weight: bold;
-	line-height: 1.2;
-	margin-bottom: $gutter;
+	@extend .typo-h2;
 }
 h3 {
-	@extend .reset;
-	font-size: 21px;
-	margin-bottom: $gutter;
+	@extend .typo-h3;
 }
 h4 {
-	@extend .reset;
-	font-size: $global-font-size;
-	margin-bottom: $gutter;
+	@extend .typo-h4;
 }
 p {
 	@extend .reset;
@@ -42,8 +30,10 @@ p {
 .typo-h1 {
 	@extend .reset;
 	font-size: 42px;
-	line-height: 1.2;
+	line-height: 1;
 	text-align: left;
+
+	margin-bottom: 6px;
 }
 .typo-h2 {
 	@extend .reset;
@@ -51,17 +41,20 @@ p {
 	font-weight: bold;
 	line-height: 1.2;
 	text-align: left;
-	margin-bottom: $gutter;
+
+	margin-bottom: 6px;
 }
 .typo-h3 {
 	@extend .reset;
 	font-size: 21px;
 	text-align: left;
-	margin-bottom: $gutter;
+
+	margin-bottom: 6px;
 }
 .typo-h4 {
 	@extend .reset;
 	font-size: $global-font-size;
 	text-align: left;
-	margin-bottom: $gutter;
+
+	margin-bottom: 6px;
 }

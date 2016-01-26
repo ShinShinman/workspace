@@ -9,8 +9,9 @@
 //vendors
 //@import '../bower_components/perfect-scrollbar/css/perfect-scrollbar.css';
 //@import '../bower_components/owl.carousel/dist/assets/owl.carousel.min.css';
-@import 'vendor/perfect-scrollbar.min.css';
 @import 'vendor/owl.carousel.min.css';
+@import 'vendor/perfect-scrollbar.min.css';
+
 
 /*** MA's styles ***/
 
@@ -21,6 +22,13 @@ html {
 }
 body {
 	font-family: $font-stack;
+	position: relative;
+	height: auto;
+	min-height: 100vh;
+	overflow: auto;
+	/*
+	padding-bottom: 200px;
+	*/
 }
 
 .row {
@@ -57,6 +65,9 @@ body {
 		@extend .row;
 		&:not(.highlight):first-of-type {
 			margin-top: 135px;
+		}
+		&:last-of-type {
+			margin-bottom: 250px;
 		}
 	}
 
@@ -138,23 +149,51 @@ a, em, strong {
 			.date {
 				color: red;
 			}
-			.category-list {
+			ul {
 				display: block;
 				overflow: auto;
-				margin-bottom: 24px;
 				font-weight: bold;
 
 				> li {
 					float: left;
-					margin-right: $gutter;
+					margin: 3px $gutter 3px 0;
+				}
+			}
+			.category-list {
+				margin-bottom: 6px;
+			}
+			.event-list {
+				a:after {
+					content: " > ";
 				}
 			}
 		}
 		article {
-			text-align: justify;
 		}
 	}
 }
+
+/* TO POWINNO BYć GLOBALNE: */
+.color-label {
+	color: white;
+	font-weight: normal;
+	padding: 0 6px;
+}
+.tag {
+	@extend .color-label;
+	background-color: lightgrey;
+}
+.event {
+	@extend .color-label;
+	background-color: black;
+}
+.oppening {
+	@extend .color-label;
+	background-color: red;
+}
+
+
+
 
 
 .news {
@@ -188,7 +227,6 @@ a, em, strong {
 	@extend .text-column;
 
 	article {
-		text-align: justify;
 		ul {
 			list-style: disc;
 		}
@@ -206,8 +244,8 @@ a, em, strong {
 		}
 	}
 	li.przedszkola {
+		@extend .color-label;
 		background-color: rgb(58, 187, 74);
-		padding: 0 6px;
 	}
 
 	.klasy-0-3 {
@@ -216,8 +254,8 @@ a, em, strong {
 		}
 	}
 	li.klasy-0-3 {
+		@extend .color-label;
 		background-color: rgb(58, 187, 74);
-		padding: 0 6px;
 	}
 
 	.klasy-4-6 {
@@ -226,8 +264,8 @@ a, em, strong {
 		}
 	}
 	li.klasy-4-6 {
+		@extend .color-label;
 		background-color: rgb(111, 155, 255);
-		padding: 0 6px;
 	}
 
 	.gimnazjum {
@@ -236,8 +274,8 @@ a, em, strong {
 		}
 	}
 	li.gimnazjum {
+		@extend .color-label;
 		background-color: rgb(212, 95, 197);
-		padding: 0 6px;
 	}
 
 	.szkoly-ponadgimnazjalne {
@@ -246,8 +284,8 @@ a, em, strong {
 		}
 	}
 	li.szkoly-ponadgimnazjalne {
+		@extend .color-label;
 		background-color: rgb(56, 191, 172);
-		padding: 0 6px;
 	}
 
 	.wyklady-dla-mlodziezy {
@@ -256,8 +294,8 @@ a, em, strong {
 		}
 	}
 	li.wyklady-dla-mlodziezy {
+		@extend .color-label;
 		background-color: rgb(255, 94, 87);
-		padding: 0 6px;
 	}
 
 	header {
@@ -270,10 +308,13 @@ a, em, strong {
 	.edu-categories {
 		overflow: auto;
 
+		a:before {
+			content: none;
+		}
+
 		li {
 			float: left;
 			margin-right: 8px;
-			color: white;
 
 			&.inactive-filter {
 				opacity: 0.4;

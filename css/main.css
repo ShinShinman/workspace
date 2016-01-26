@@ -5,8 +5,8 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-@import url(vendor/perfect-scrollbar.min.css);
 @import url(vendor/owl.carousel.min.css);
+@import url(vendor/perfect-scrollbar.min.css);
 html {
   font-family: sans-serif;
   /* 1 */
@@ -378,7 +378,6 @@ th {
     margin-top: 0;
     margin-bottom: 0; }
   .brick p {
-    text-align: justify;
     margin-top: 0;
     margin-bottom: 15px; }
   .brick .dashed {
@@ -422,9 +421,9 @@ th {
   .brick > img {
     width: 100%; }
 
-.floater > *, .nav-stripes > *, .sticky-nav nav > *, .sticky-nav .main-menu > *, .main-footer > * {
+.floater > *, .nav-stripes > *, .sticky-nav nav > *, .sticky-nav .main-menu > *, .main-footer .footer > * {
   float: left; }
-.floater:after, .nav-stripes:after, .sticky-nav nav:after, .sticky-nav .main-menu:after, .main-footer:after {
+.floater:after, .nav-stripes:after, .sticky-nav nav:after, .sticky-nav .main-menu:after, .main-footer .footer:after {
   clear: left;
   content: "";
   display: table; }
@@ -530,10 +529,11 @@ th {
 
 /* HIGHLIGHT */
 .highlight {
-  width: 100% !important; }
-  .highlight a:hover {
+  width: 100% !important;
+  position: relative; }
+  .highlight .owl-carousel a:hover {
     opacity: 1; }
-  .highlight.owl-carousel .item {
+  .highlight .owl-carousel .item {
     width: 100%;
     height: 100vh;
     margin: 0;
@@ -541,18 +541,18 @@ th {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover; }
-    .highlight.owl-carousel .item .text-box h1, .highlight.owl-carousel .item .text-box .slide-down a, .slide-down .highlight.owl-carousel .item .text-box a {
+    .highlight .owl-carousel .item .text-box h1, .highlight .owl-carousel .item .text-box .slide-down a, .slide-down .highlight .owl-carousel .item .text-box a {
       width: 637.664px;
       margin-right: 326.332px;
       margin-top: 40vh;
       margin-bottom: 0;
       font-size: 55px;
       font-weight: bold; }
-    .highlight.owl-carousel .item .text-box p {
+    .highlight .owl-carousel .item .text-box p {
       width: 637.664px;
       margin-right: 326.332px;
       font-size: 34px; }
-    .highlight.owl-carousel .item .text-box .icon {
+    .highlight .owl-carousel .item .text-box .icon {
       font-size: inherit; }
   .highlight .owl-dots {
     width: 963.996px;
@@ -592,34 +592,39 @@ th {
 
 /* FOOTER */
 .main-footer {
-  margin-top: 120px !important; }
-  .main-footer p {
-    font-size: 14px;
-    line-height: 16px;
-    margin-bottom: 16px; }
-  .main-footer .first-column {
-    width: 311.332px;
-    margin-right: 15px; }
-    .main-footer .first-column p {
-      margin-left: 163.166px; }
-      .main-footer .first-column p.logo {
-        font-size: 20px;
-        line-height: 20px;
-        float: left;
-        margin-left: 0; }
-  .main-footer .second-column {
-    width: 474.498px;
-    margin-right: 15px; }
-    .main-footer .second-column p {
-      text-align: right;
-      font-weight: bold; }
-  .main-footer .third-column {
-    width: 148.166px; }
-    .main-footer .third-column .social li {
-      width: 35px;
-      float: right;
-      text-align: right;
-      font-family: 'social'; }
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+  .main-footer .footer {
+    margin-top: 0 !important;
+    margin-bottom: 0; }
+    .main-footer .footer p {
+      font-size: 14px;
+      line-height: 16px;
+      margin-bottom: 16px; }
+    .main-footer .footer .first-column {
+      width: 311.332px;
+      margin-right: 15px; }
+      .main-footer .footer .first-column p {
+        margin-left: 163.166px; }
+        .main-footer .footer .first-column p.logo {
+          font-size: 20px;
+          line-height: 20px;
+          float: left;
+          margin-left: 0; }
+    .main-footer .footer .second-column {
+      width: 474.498px;
+      margin-right: 15px; }
+      .main-footer .footer .second-column p {
+        text-align: right;
+        font-weight: bold; }
+    .main-footer .footer .third-column {
+      width: 148.166px; }
+      .main-footer .footer .third-column .social li {
+        width: 35px;
+        float: right;
+        text-align: right;
+        font-family: 'social'; }
 
 .ps-container > .ps-scrollbar-y-rail {
   border-radius: 0;
@@ -674,55 +679,38 @@ th {
   font-weight: normal;
   font-style: normal; }
 /* Headres sizes */
-.reset, h1, .slide-down a, h2, .sticky-nav .main-menu .left ul > li > a, h3, h4, p, .typo-h1, .typo-h2, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .typo-h3, .text-column article h2, .article section.post article h2, .info article h2, .edu article h2, .single-lesson article h2, .typo-h4, .text-column article h3, .article section.post article h3, .info article h3, .edu article h3, .single-lesson article h3 {
+.reset, p, .typo-h1, h1, .slide-down a, .typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .typo-h3, h3, .text-column article h2, .article section.post article h2, .info article h2, .edu article h2, .single-lesson article h2, .typo-h4, h4, .text-column article h3, .article section.post article h3, .info article h3, .edu article h3, .single-lesson article h3 {
   margin: 0;
   padding: 0;
   vertical-align: baseline; }
-
-h1, .slide-down a {
-  font-size: 42px;
-  line-height: 1; }
-
-h2, .sticky-nav .main-menu .left ul > li > a {
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 15px; }
-
-h3 {
-  font-size: 21px;
-  margin-bottom: 15px; }
-
-h4 {
-  font-size: 16px;
-  margin-bottom: 15px; }
 
 p {
   font-size: 16px;
   margin-bottom: 24px; }
 
 /* Experimental */
-.typo-h1 {
+.typo-h1, h1, .slide-down a {
   font-size: 42px;
-  line-height: 1.2;
-  text-align: left; }
+  line-height: 1;
+  text-align: left;
+  margin-bottom: 6px; }
 
-.typo-h2, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a {
+.typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a {
   font-size: 30px;
   font-weight: bold;
   line-height: 1.2;
   text-align: left;
-  margin-bottom: 15px; }
+  margin-bottom: 6px; }
 
-.typo-h3, .text-column article h2, .article section.post article h2, .info article h2, .edu article h2, .single-lesson article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a {
+.typo-h3, h3, .text-column article h2, .article section.post article h2, .info article h2, .edu article h2, .single-lesson article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a {
   font-size: 21px;
   text-align: left;
-  margin-bottom: 15px; }
+  margin-bottom: 6px; }
 
-.typo-h4, .text-column article h3, .article section.post article h3, .info article h3, .edu article h3, .single-lesson article h3 {
+.typo-h4, h4, .text-column article h3, .article section.post article h3, .info article h3, .edu article h3, .single-lesson article h3 {
   font-size: 16px;
   text-align: left;
-  margin-bottom: 15px; }
+  margin-bottom: 6px; }
 
 /* Lists */
 ul {
@@ -746,9 +734,16 @@ html {
   line-height: 1.5; }
 
 body {
-  font-family: "Maison", sans-serif; }
+  font-family: "Maison", sans-serif;
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  overflow: auto
+  /*
+  padding-bottom: 200px;
+  */ }
 
-.row, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, .highlight.owl-carousel .item .text-box, .main-footer, section {
+.row, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, .highlight .owl-carousel .item .text-box, section {
   width: 963.996px;
   margin-top: 0;
   margin-right: auto;
@@ -760,7 +755,7 @@ body {
   font-family: 'MArch';
   font-size: inherit; }
 
-.stripe, .nav-stripes .first, .nav-stripes .second, .main-footer .first-column, .main-footer .second-column, .main-footer .third-column {
+.stripe, .nav-stripes .first, .nav-stripes .second, .main-footer .footer .first-column, .main-footer .footer .second-column, .main-footer .footer .third-column {
   border-top-width: 8px;
   border-top-style: solid;
   padding-top: 10px; }
@@ -772,6 +767,8 @@ body {
 
 section:not(.highlight):first-of-type {
   margin-top: 135px; }
+section:last-of-type {
+  margin-bottom: 250px; }
 
 /* TYPOGRAPHY */
 /* Brakuj─ůce spacje przed italikami i boldem */
@@ -813,16 +810,32 @@ a:before, em:before, strong:before {
   margin-bottom: 7px; }
 .article section.post header .date {
   color: red; }
-.article section.post header .category-list {
+.article section.post header ul {
   display: block;
   overflow: auto;
-  margin-bottom: 24px;
   font-weight: bold; }
-  .article section.post header .category-list > li {
+  .article section.post header ul > li {
     float: left;
-    margin-right: 15px; }
-.article section.post article {
-  text-align: justify; }
+    margin: 3px 15px 3px 0; }
+.article section.post header .category-list {
+  margin-bottom: 6px; }
+.article section.post header .event-list a:after {
+  content: " > "; }
+
+/* TO POWINNO BY─ç GLOBALNE: */
+.color-label, .tag, .event, .oppening, .edu-lessons li.przedszkola, .edu-lessons li.klasy-0-3, .edu-lessons li.klasy-4-6, .edu-lessons li.gimnazjum, .edu-lessons li.szkoly-ponadgimnazjalne, .edu-lessons li.wyklady-dla-mlodziezy {
+  color: white;
+  font-weight: normal;
+  padding: 0 6px; }
+
+.tag {
+  background-color: lightgrey; }
+
+.event {
+  background-color: black; }
+
+.oppening {
+  background-color: red; }
 
 .news > h1, .slide-down .news > a {
   margin-bottom: 24px; }
@@ -836,53 +849,46 @@ a:before, em:before, strong:before {
   text-align: justify; }
 
 /* EDU */
-.edu article {
-  text-align: justify; }
-  .edu article ul {
-    list-style: disc; }
-  .edu article li {
-    margin-bottom: 12px; }
+.edu article ul {
+  list-style: disc; }
+.edu article li {
+  margin-bottom: 12px; }
 
 .edu-lessons .przedszkola h1, .edu-lessons .przedszkola .slide-down a, .slide-down .edu-lessons .przedszkola a {
   border-color: #3abb4a; }
 .edu-lessons li.przedszkola {
-  background-color: #3abb4a;
-  padding: 0 6px; }
+  background-color: #3abb4a; }
 .edu-lessons .klasy-0-3 h1, .edu-lessons .klasy-0-3 .slide-down a, .slide-down .edu-lessons .klasy-0-3 a {
   border-color: #3abb4a; }
 .edu-lessons li.klasy-0-3 {
-  background-color: #3abb4a;
-  padding: 0 6px; }
+  background-color: #3abb4a; }
 .edu-lessons .klasy-4-6 h1, .edu-lessons .klasy-4-6 .slide-down a, .slide-down .edu-lessons .klasy-4-6 a {
   border-color: #6f9bff; }
 .edu-lessons li.klasy-4-6 {
-  background-color: #6f9bff;
-  padding: 0 6px; }
+  background-color: #6f9bff; }
 .edu-lessons .gimnazjum h1, .edu-lessons .gimnazjum .slide-down a, .slide-down .edu-lessons .gimnazjum a {
   border-color: #d45fc5; }
 .edu-lessons li.gimnazjum {
-  background-color: #d45fc5;
-  padding: 0 6px; }
+  background-color: #d45fc5; }
 .edu-lessons .szkoly-ponadgimnazjalne h1, .edu-lessons .szkoly-ponadgimnazjalne .slide-down a, .slide-down .edu-lessons .szkoly-ponadgimnazjalne a {
   border-color: #38bfac; }
 .edu-lessons li.szkoly-ponadgimnazjalne {
-  background-color: #38bfac;
-  padding: 0 6px; }
+  background-color: #38bfac; }
 .edu-lessons .wyklady-dla-mlodziezy h1, .edu-lessons .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-lessons .wyklady-dla-mlodziezy a {
   border-color: #ff5e57; }
 .edu-lessons li.wyklady-dla-mlodziezy {
-  background-color: #ff5e57;
-  padding: 0 6px; }
+  background-color: #ff5e57; }
 .edu-lessons header {
   margin-bottom: 12px; }
   .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
     margin-bottom: 24px; }
 .edu-lessons .edu-categories {
   overflow: auto; }
+  .edu-lessons .edu-categories a:before {
+    content: none; }
   .edu-lessons .edu-categories li {
     float: left;
-    margin-right: 8px;
-    color: white; }
+    margin-right: 8px; }
     .edu-lessons .edu-categories li.inactive-filter {
       opacity: 0.4; }
     .edu-lessons .edu-categories li.label {

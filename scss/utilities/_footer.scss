@@ -1,52 +1,60 @@
 /* FOOTER */
 
 .main-footer {
-	@extend .row;
-	@extend .floater;
-	margin-top: 120px !important;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 
-	p {
-		font-size: 14px;
-		line-height: 16px;
-		margin-bottom: 16px;
-	}
 
-	.first-column {
-		@extend .stripe;
-		width: columns-width(4);
-		margin-right: $gutter;
+	.footer {
+		@extend .floater;
+
+		margin-top: 0 !important;
+		margin-bottom: 0;
 
 		p {
-			margin-left: columns-width(2) + $gutter;
+			font-size: 14px;
+			line-height: 16px;
+			margin-bottom: 16px;
+		}
 
-			&.logo {
-				font-size: 20px;
-				line-height: 20px;
-				float: left;
-				margin-left: 0;
+		.first-column {
+			@extend .stripe;
+			width: columns-width(4);
+			margin-right: $gutter;
+
+			p {
+				margin-left: columns-width(2) + $gutter;
+
+				&.logo {
+					font-size: 20px;
+					line-height: 20px;
+					float: left;
+					margin-left: 0;
+				}
 			}
 		}
-	}
-	.second-column {
-		@extend .stripe;
-		width: columns-width(6);
-		margin-right: $gutter;
+		.second-column {
+			@extend .stripe;
+			width: columns-width(6);
+			margin-right: $gutter;
 
-		p {
-			text-align: right;
-			font-weight: bold;
-		}
-	}
-	.third-column {
-		@extend .stripe;
-		width: columns-width(2);
-
-		.social {
-			li {
-				width: 35px;
-				float: right;
+			p {
 				text-align: right;
-				font-family: 'social';
+				font-weight: bold;
+			}
+		}
+		.third-column {
+			@extend .stripe;
+			width: columns-width(2);
+
+			.social {
+				li {
+					width: 35px;
+					float: right;
+					text-align: right;
+					font-family: 'social';
+				}
 			}
 		}
 	}

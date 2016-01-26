@@ -2,12 +2,14 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:template name="highlight">
-		<section class="highlight owl-carousel donthyphenate">
-			<xsl:apply-templates select="slides/item" />
+		<section class="highlight donthyphenate">
+			<div class="owl-carousel">
+				<xsl:apply-templates select="slides/item" />
+			</div>
+			<div class="slide-down">
+				<a href="javascript:void(0)"><span class="icon">F</span></a>
+			</div>
 		</section>
-		<div class="slide-down">
-			<a href="javascript:void(0)"><span class="icon">F</span></a>
-		</div>
 	</xsl:template>
 
 	<xsl:template match="slides/item">

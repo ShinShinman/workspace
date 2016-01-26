@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"news",
+				"news-events"
+			],
+			[
+				"xsl",
+				"xsl:template"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"re",
+				"relative"
+			],
+			[
 				"sec",
 				"section	(home.xsl)"
 			],
@@ -416,10 +432,6 @@
 				"match"
 			],
 			[
-				"xsl",
-				"xsl:template"
-			],
-			[
 				"value",
 				"value-of"
 			],
@@ -502,23 +514,35 @@
 			[
 				"le",
 				"left"
-			],
-			[
-				"mni",
-				"min-height"
-			],
-			[
-				"brod",
-				"border-bottom-style"
-			],
-			[
-				"copy",
-				"copy-of"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "scss/main.scss",
+			"settings":
+			{
+				"buffer_size": 5401,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pages/home.xsl",
+			"settings":
+			{
+				"buffer_size": 2078,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pages/article.xsl",
+			"settings":
+			{
+				"buffer_size": 5435,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -528,9 +552,13 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "css",
+		"last_filter": "inst",
 		"selected_items":
 		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
 			[
 				"css",
 				"Set Syntax: CSS"
@@ -574,10 +602,6 @@
 			[
 				"pc",
 				"Package Control: List Packages"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			],
 			[
 				"xsl",
@@ -676,14 +700,40 @@
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/C/Users/shinman/Desktop/rep.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
+		"/C/Users/shinman/Downloads/linux/nmap.txt",
+		"/C/Users/shinman/Downloads/Crypto.sublime-settings",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Installed Packages/Crypto.sublime-package",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/maintenance.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/extension.driver.php",
@@ -696,12 +746,8 @@
 		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/index.php",
 		"/C/Users/shinman/Desktop/imagemini/gulpfile.js",
 		"/C/Users/shinman/Desktop/nmap.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
 		"/C/Users/shinman/Documents/GitHub/ma/.gitignore",
 		"/C/Users/shinman/Documents/GitHub/ma/.git/config",
@@ -716,18 +762,13 @@
 		"/C/Users/shinman/Desktop/images compresion/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/.git/config",
 		"/C/xampp/htdocs/ma.wroc.pl/.gitmodules",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/Users/shinman/Downloads/yszt/.htaccess",
 		"/C/xampp/apache/conf/httpd.conf",
 		"/C/Users/shinman/Desktop/Nowy dokument tekstowy.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
 		"/Z/MA WWW/html/zaslepka.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
 		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/install",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.js",
 		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
@@ -738,7 +779,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/highlight.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/Users/shinman/Documents/ma/.git/config",
 		"/C/Users/shinman/Documents/ma/.gitmodules",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
@@ -755,7 +795,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_plugin.sublime-snippet",
 		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
 		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/template.html.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.coffee",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.coffee",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.js",
@@ -774,7 +813,6 @@
 		"/Z/Alternativa - strona WWW/symphony/workspace/pages/about.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home_.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/install.sql",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/menu.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/nanoScroller.html",
@@ -796,19 +834,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_mixins.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/menu.html",
 		"/Z/MA WWW/html/css/typography.css",
-		"/Z/MA WWW/html/fontTest.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/test.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/node_modules/bower/node_modules/configstore/node_modules/uuid/test/test.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/kafelek.html",
-		"/Z/MA WWW/html/scss/main.scss",
-		"/C/Users/shinman/Downloads/fontello-80df9e03/demo.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/koala-config.json",
-		"/C/Users/shinman/Desktop/src/scss/vendor/normalize.scss",
-		"/C/Users/shinman/Downloads/normalize.css-master/normalize.css",
-		"/C/Users/shinman/Downloads/normalize.css-master/package.json"
+		"/Z/MA WWW/html/fontTest.html"
 	],
 	"find":
 	{
@@ -826,6 +852,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"4",
+			"console",
+			".highlighty",
+			"sticky-nav",
+			"transition",
+			"transform",
 			"	",
 			"##",
 			"			",
@@ -947,13 +979,7 @@
 			"box",
 			"projects",
 			"main-menu/entry",
-			"events/entry",
-			"'",
-			"mode=\"class\"",
-			"orkana39.pl/clients/alternativa",
-			"text",
-			">\n",
-			"jspeare@totamto.pl"
+			"events/entry"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1037,8 +1063,96 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "scss/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2347,
+								2347
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1693.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "pages/home.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1805,
+								1134
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XSL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 168.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "pages/article.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5435,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4224,
+								4224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XSL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1428.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1073,6 +1187,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.crypto_error":
+	{
+		"height": 94.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0

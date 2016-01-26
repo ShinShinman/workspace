@@ -224,11 +224,8 @@
       menuToggle(menuTrigger, mainMenu);
       isotopeSetup(grid, gridItem);
       Hyphenator.config({
-        orphancontrol: 2
-      });
-      Hyphenator.config({
-        defaultlanguage: 'pl'
-      }, {
+        orphancontrol: 2,
+        defaultlanguage: 'pl',
         minwordlength: 8
       });
       Hyphenator.addExceptions('', 'Europan');
@@ -249,15 +246,16 @@
     window.MA.init();
     filters = $('.edu-categories li a:not(.clear-filter)');
     clear = $('.edu-categories li a.clear-filter');
-    console.log(clear);
-    clear.click(function() {
+    clear.click(function(e) {
+      e.preventDefault();
       filters.parent().removeClass('inactive-filter');
       $(this).hide();
       return $('.bricks-container').isotope({
         filter: '*'
       });
     });
-    filters.click(function() {
+    filters.click(function(e) {
+      e.preventDefault();
       filters.parent().addClass('inactive-filter');
       $(this).parent().removeClass('inactive-filter');
       filters.parent().find('.clear-filter').hide();

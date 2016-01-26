@@ -1,7 +1,7 @@
 <?php
-class datasourceexhibition extends SectionDatasource
+class datasourcenews_exhibitions extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibition';
+    public $dsParamROOTELEMENT = 'news-exhibitions';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -9,58 +9,40 @@ class datasourceexhibition extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '$title';
     public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
+        'system:id' => '{$ds-news}',
         '30' => 'yes',
-        '1' => '{$title}',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'title: all-languages: formatted',
         'subtitle: formatted',
-        'main-image',
-        'article: formatted',
+        'lead: formatted',
         'category',
-        'date: formatted',
-        'linked-event'
+        'badge',
+        'cover-image',
+        'date: formatted'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'category' => array(
-            'section_id' => '8',
-            'field_id' => '31',
-            'elements' => array(
-                'exhib-category: formatted'
-            )
-        ),
-        'linked-event' => array(
-            'section_id' => '11',
-            'field_id' => '50',
-            'elements' => array(
-                'title: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
-        $this->_dependencies = array();
+        $this->_dependencies = array('$ds-news');
     }
     public function about()
     {
         return array(
-            'name' => 'Exhibition',
+            'name' => 'News-Exhibitions',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-25T15:58:24+00:00'
+            'release-date' => '2016-01-25T17:55:44+00:00'
         );
     }
     public function getSource()

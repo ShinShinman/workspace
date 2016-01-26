@@ -2,31 +2,22 @@
 class datasourcenews extends SectionDatasource
 {
     public $dsParamROOTELEMENT = 'news';
-    public $dsParamORDER = 'asc';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamPARAMOUTPUT = array(
+        'linked-articles'
+        );
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-    
-    public $dsParamFILTERS = array(
-        '30' => 'yes',
-    );
-        
+
     public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'article: formatted',
-        'cover-image',
-        'category',
-        'badge',
-        'date: formatted',
-        'lead: formatted'
+        'linked-articles'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -43,12 +34,12 @@ class datasourcenews extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-10T20:34:46+00:00'
+            'release-date' => '2016-01-25T17:50:31+00:00'
         );
     }
     public function getSource()
     {
-        return '1';
+        return '16';
     }
     public function allowEditorToParse()
     {

@@ -2,12 +2,13 @@
 
 .highlight {
 	width: 100% !important;
+	position: relative;
 
-	a:hover {
-		opacity: 1;
-	}
+	.owl-carousel {
 
-	&.owl-carousel {
+		a:hover {
+			opacity: 1;
+		}
 
 		.item {
 			width: 100%;

@@ -1,7 +1,7 @@
 <?php
-class datasourceexhibition extends SectionDatasource
+class datasourceevent extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibition';
+    public $dsParamROOTELEMENT = 'event';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -15,19 +15,18 @@ class datasourceexhibition extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '30' => 'yes',
-        '1' => '{$title}',
+        '50' => '{$title}',
+        '56' => 'yes',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'title: all-languages: formatted',
         'subtitle: formatted',
         'main-image',
         'article: formatted',
         'category',
-        'date: formatted',
-        'linked-event'
+        'badge',
+        'date: formatted'
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
@@ -36,13 +35,6 @@ class datasourceexhibition extends SectionDatasource
             'field_id' => '31',
             'elements' => array(
                 'exhib-category: formatted'
-            )
-        ),
-        'linked-event' => array(
-            'section_id' => '11',
-            'field_id' => '50',
-            'elements' => array(
-                'title: formatted'
             )
         )
     );
@@ -54,18 +46,18 @@ class datasourceexhibition extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Exhibition',
+            'name' => 'Event',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-25T15:58:24+00:00'
+            'release-date' => '2016-01-25T16:02:12+00:00'
         );
     }
     public function getSource()
     {
-        return '1';
+        return '11';
     }
     public function allowEditorToParse()
     {

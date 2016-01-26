@@ -215,11 +215,11 @@ class MA
 		searchToggle(searchTrigger, searchForm)
 		menuToggle(menuTrigger, mainMenu)
 		isotopeSetup(grid, gridItem) # poprawić --> nie na wszystkich stronach
-		Hyphenator.config({orphancontrol: 2})
-		Hyphenator.config(
-      defaultlanguage: 'pl'
+		Hyphenator.config({
+			orphancontrol: 2
+			defaultlanguage: 'pl'
 			minwordlength: 8
-    )
+		})
 		Hyphenator.addExceptions('', 'Europan')
 		Hyphenator.addExceptions('', 'Sweden')
 		Hyphenator.run()
@@ -236,15 +236,17 @@ $ ->
 	filters = $('.edu-categories li a:not(.clear-filter)')
 
 	clear = $('.edu-categories li a.clear-filter')
-	console.log clear
-	clear.click ->
+	
+	clear.click (e) ->
+		e.preventDefault()
 		filters.parent().removeClass('inactive-filter')
 		$(@).hide()
 		$('.bricks-container').isotope({
 				filter: '*'
 			})
 
-	filters.click ->
+	filters.click (e) ->
+		e.preventDefault()
 		filters.parent().addClass('inactive-filter')
 		$(@).parent().removeClass('inactive-filter')
 		filters.parent().find('.clear-filter').hide()
