@@ -133,6 +133,8 @@ class MA
 		})
 
 		$('.slide-down a').click ->
+			hlHeight = $('.owl-carousel').height()
+			console.log 'Click!'
 			$('html, body').animate({
 				scrollTop: hlHeight
 			}, 800)

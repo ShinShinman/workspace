@@ -148,6 +148,9 @@
         backgroundColor: 'transparent'
       });
       $('.slide-down a').click(function() {
+        var hlHeight;
+        hlHeight = $('.owl-carousel').height();
+        console.log('Click!');
         return $('html, body').animate({
           scrollTop: hlHeight
         }, 800);

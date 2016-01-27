@@ -42,12 +42,14 @@
 			<h3 class="date"><xsl:value-of select="date" /></h3>
 			
 			<xsl:apply-templates select="tags" />
-			<!--<ul class="tag-list">
+			<!--
+			<ul class="tag-list">
 				<li class="label">Tagi:</li>
 				<li class="tag"><a href="javascript:void(0)">#madeInEurope</a></li>
 				<li class="tag"><a href="javascript:void(0)">#meisVanDerRohe</a></li>
 				<li class="tag"><a href="javascript:void(0)">#architekturaWspółczesna</a></li>
-			</ul>-->
+			</ul>
+			-->
 
 			<xsl:apply-templates select="linked-event" />
 

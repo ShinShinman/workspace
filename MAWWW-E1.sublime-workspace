@@ -531,7 +531,7 @@
 			"file": "pages/home.xsl",
 			"settings":
 			{
-				"buffer_size": 2078,
+				"buffer_size": 2095,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "pages/article.xsl",
 			"settings":
 			{
-				"buffer_size": 5435,
+				"buffer_size": 5428,
 				"line_ending": "Windows"
 			}
 		}
@@ -699,7 +699,6 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
@@ -1101,15 +1100,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2078,
+						"buffer_size": 2095,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1805,
-								1134
+								831,
+								831
 							]
 						],
 						"settings":
@@ -1130,15 +1129,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5435,
+						"buffer_size": 5428,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4224,
-								4224
+								1610,
+								1610
 							]
 						],
 						"settings":
@@ -1147,7 +1146,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1428.0,
+						"translation.y": 224.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
