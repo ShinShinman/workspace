@@ -15,7 +15,7 @@
 
 	// Add the ignore rules that Koala will not search them.
 	// e.g. ["*.json", "*.txt", "test", "path/libs"]
-	"ignores": ["node_modules", "css", "test", "js", "scss/vendor", "bower_components", "/gulpfile.js"],
+	"ignores": ["node_modules", "test", "js", "scss/vendor", "bower_components", "/gulpfile.js"],
 
 	// Options of Compilers.
 	"options": {

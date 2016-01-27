@@ -1,0 +1,90 @@
+/* HIGHLIGHT */
+
+.highlight {
+	width: 100% !important;
+	position: relative;
+
+	.owl-carousel {
+
+		a:hover {
+			opacity: 1;
+		}
+
+		.item {
+			width: 100%;
+			height: 100vh;
+			margin: 0;
+			overflow: hidden;
+
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			
+			.text-box {
+				@extend .row;
+				h1 {
+					width: columns-width(8);
+					margin-right: $gutter + columns-width(4);
+					margin-top: 40vh;
+					margin-bottom: 0;
+					font-size: 55px;
+					font-weight: bold;
+				}
+				p {
+					width: columns-width(8);
+					margin-right: $gutter + columns-width(4);
+					font-size: 34px;
+				}
+				.icon {
+					font-size: inherit;
+				}
+			}
+		}
+	}
+
+	.owl-dots {
+		width: columns-width(12);
+		margin: 0 auto;
+		position: relative;
+		top: -60px;
+	  -webkit-tap-highlight-color: transparent;
+
+		.owl-dot {
+			display: inline-block;
+	    zoom: 1;
+	    *display: inline;
+
+	    span {
+	    	width: columns-width(1);
+	      height: 10px;
+	      margin-right: $gutter;
+	      background: black;
+	      display: block;
+	      -webkit-backface-visibility: visible;
+	      @include defaulf-transition(opacity);
+	    }
+
+	    &.active {
+	    	opacity: 0.6;
+	    }
+	    &:hover {
+	    	opacity: 0.6;
+	    }
+		}
+	}
+
+}
+
+.slide-down {
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	z-index: 100;
+	width: 100%;
+
+	a {
+		@extend h1;
+		display: inline-block;
+		transform: rotate(90deg);
+	}
+}

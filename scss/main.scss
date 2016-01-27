@@ -1,12 +1,17 @@
 //partials
+
 @import 'vendor/normalize';
 @import 'variables';
 @import 'mixins';
-@import 'typography';
 @import 'utilities';
+@import 'typography';
 
 //vendors
-@import '../bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css';
+//@import '../bower_components/perfect-scrollbar/css/perfect-scrollbar.css';
+//@import '../bower_components/owl.carousel/dist/assets/owl.carousel.min.css';
+@import 'vendor/owl.carousel.min.css';
+@import 'vendor/perfect-scrollbar.min.css';
+
 
 /*** MA's styles ***/
 
@@ -17,6 +22,13 @@ html {
 }
 body {
 	font-family: $font-stack;
+	position: relative;
+	height: auto;
+	min-height: 100vh;
+	overflow: auto;
+	/*
+	padding-bottom: 200px;
+	*/
 }
 
 .row {
@@ -25,25 +37,19 @@ body {
 	margin-right: auto;
 	margin-bottom: 30px;
 	margin-left: auto;
-
-	> * {
-		float: left;
-	}
-};
-.row:after {
-		clear: left;
-		content: '';
-		display: table;
-	}
+}
 
 /* Menu */
 
 .icon {
-	font-family: 'icons';
+	//font-family: 'icons';
+	font-family: 'MArch';
+	font-size: inherit;
 }
 .stripe {
 	border-top-width: 8px;
 	border-top-style: solid;
+	padding-top: 10px;
 }
 .small-stripe {
 	border-top-width: 4px;
@@ -54,12 +60,344 @@ body {
 
 // TEMP
 
-.bricks-container {
-	@extend .row;
 
-	margin-top: 130px;
-
-	.last {
-		margin-right: 0;
+	section {
+		@extend .row;
+		&:not(.highlight):first-of-type {
+			margin-top: 135px;
+		}
+		&:last-of-type {
+			margin-bottom: 250px;
+		}
 	}
+
+/* TYPOGRAPHY */
+
+/* Brakujące spacje przed italikami i boldem */
+a, em, strong {
+	&:before {
+		content: " ";	
+	}
+}
+
+/* Szerokość kolumny tekstowej */
+.text-column {
+	width: columns-width(8);
+	margin-top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+
+	header {
+		margin-bottom: 24px;
+
+		h1 {
+			text-transform: uppercase;
+		}
+		h2 {
+			margin-bottom: 7px;
+		}
+	}
+
+	article {
+		h1 {
+			@extend .typo-h2;
+			@extend .small-stripe;
+		}
+		h2 {
+			@extend .typo-h3;
+		}
+		h3 {
+			@extend .typo-h4;
+		}
+		img {
+			max-width: 100%;
+		}
+		a:before {
+			content: " ";
+		}
+		a:hover {
+			color: white;
+			background-color: black;
+			opacity: 1;
+		}
+		ul {
+			margin-bottom: 24px;
+		}
+	}
+}
+
+/* POST */
+
+.article {
+	
+	> header {
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-bottom: $gutter;
+	}
+	section.post {
+		@extend .text-column;
+
+		header {
+			h1 {
+				text-transform: uppercase;
+			}
+			h2 {
+				margin-bottom: 7px;
+			}
+			.date {
+				color: red;
+			}
+			ul {
+				display: block;
+				overflow: auto;
+				font-weight: bold;
+
+				> li {
+					float: left;
+					margin: 3px $gutter 3px 0;
+				}
+			}
+			.category-list {
+				margin-bottom: 6px;
+			}
+			.event-list {
+				a:after {
+					content: " > ";
+				}
+			}
+		}
+		article {
+		}
+	}
+}
+
+/* TO POWINNO BYć GLOBALNE: */
+.color-label {
+	color: white;
+	font-weight: normal;
+	padding: 0 6px;
+}
+.tag {
+	@extend .color-label;
+	background-color: lightgrey;
+}
+.event {
+	@extend .color-label;
+	background-color: black;
+}
+.oppening {
+	@extend .color-label;
+	background-color: red;
+}
+
+
+
+
+
+.news {
+	> h1 {
+		margin-bottom: 24px;
+	}
+}
+
+
+/* EXHIBITIONS */
+
+.exhibitions {
+	> h1 {
+		margin-bottom: 24px;
+	}
+}
+
+/* INFO */
+
+.info {
+	@extend .text-column;
+
+	article {
+		text-align: justify;
+	}
+}
+
+/* EDU */
+
+.edu {
+	@extend .text-column;
+
+	article {
+		ul {
+			list-style: disc;
+		}
+		li {
+			margin-bottom: 12px;
+		}
+	}
+}
+
+.edu-lessons {
+
+	.przedszkola {
+		h1 {
+			border-color: rgb(58, 187, 74);
+		}
+	}
+	li.przedszkola {
+		@extend .color-label;
+		background-color: rgb(58, 187, 74);
+	}
+
+	.klasy-0-3 {
+		h1 {
+			border-color: rgb(58, 187, 74);
+		}
+	}
+	li.klasy-0-3 {
+		@extend .color-label;
+		background-color: rgb(58, 187, 74);
+	}
+
+	.klasy-4-6 {
+		h1 {
+			border-color: rgb(111, 155, 255);
+		}
+	}
+	li.klasy-4-6 {
+		@extend .color-label;
+		background-color: rgb(111, 155, 255);
+	}
+
+	.gimnazjum {
+		h1 {
+			border-color: rgb(212, 95, 197);
+		}
+	}
+	li.gimnazjum {
+		@extend .color-label;
+		background-color: rgb(212, 95, 197);
+	}
+
+	.szkoly-ponadgimnazjalne {
+		h1 {
+			border-color: rgb(56, 191, 172);
+		}
+	}
+	li.szkoly-ponadgimnazjalne {
+		@extend .color-label;
+		background-color: rgb(56, 191, 172);
+	}
+
+	.wyklady-dla-mlodziezy {
+		h1 {
+			border-color: rgb(255, 94, 87);
+		}
+	}
+	li.wyklady-dla-mlodziezy {
+		@extend .color-label;
+		background-color: rgb(255, 94, 87);
+	}
+
+	header {
+		margin-bottom: 12px;
+
+		h1 {
+			margin-bottom: 24px;
+		}
+	}
+	.edu-categories {
+		overflow: auto;
+
+		a:before {
+			content: none;
+		}
+
+		li {
+			float: left;
+			margin-right: 8px;
+
+			&.inactive-filter {
+				opacity: 0.4;
+			}
+			&.label {
+				color: black;
+			}
+			.clear-filter {
+				margin-left: 5px;
+				border-left: white 1px solid;
+				padding-left: 5px;
+				display: none;
+			}
+		}
+	}
+}
+
+/* LESSON */
+
+.single-lesson {
+	@extend .text-column;
+
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+		.edu-categories span {
+			display: inline-block;
+		}
+		.przedszkola {
+			color: white;
+			background-color: rgb(58, 187, 74);
+			padding: 0 6px;
+		}
+		.klasy-0-3 {
+			color: white;
+			background-color: rgb(58, 187, 74);
+			padding: 0 6px;
+		}
+		.klasy-4-6 {
+			color: white;
+			background-color: rgb(111, 155, 255);
+			padding: 0 6px;
+		}
+		.gimnazjum {
+			color: white;
+			background-color: rgb(212, 95, 197);
+			padding: 0 6px;
+		}
+		.szkoly-ponadgimnazjalne {
+			color: white;
+			background-color: rgb(56, 191, 172);
+			padding: 0 6px;
+		}
+		.wyklady-dla-mlodziezy {
+			color: white;
+			background-color: rgb(255, 94, 87);
+			padding: 0 6px;
+		}
+	}
+	article {
+		text-align: justify;
+	}
+}
+
+
+
+/* INFO-BANNER */
+
+.info-banner {
+	color: white;
+	background-color: black;
+	padding: 15px;
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+
+
+/* MAINTENANCE */
+
+section.maintenance {
+	margin-bottom: 450px;
 }
