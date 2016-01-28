@@ -63,6 +63,11 @@
 			<xsl:call-template name="footer" />
 
 			<script src="{$workspace}/js/main.min.js" ></script>
+			<script>
+				$(function(){
+					<xsl:apply-templates select="//dont-hyphenate/entry/item" />
+				})
+			</script>
 			<xsl:apply-templates mode="js"/>
 
 		</body>
@@ -187,6 +192,10 @@
 
 <xsl:template match="data" mode="language-button">
 	<xsl:value-of select="concat($root, '/en')" />
+</xsl:template>
+
+<xsl:template match="//dont-hyphenate/entry/item">
+	Hyphenator.addExceptions('<xsl:value-of select="./@lang" />', '<xsl:value-of select="." />');
 </xsl:template>
 
 <xsl:template match="data" mode="js" />

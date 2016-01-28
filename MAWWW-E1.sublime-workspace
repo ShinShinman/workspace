@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"appl",
+				"apply"
+			],
+			[
 				"news",
 				"news-events"
 			],
@@ -284,10 +288,6 @@
 				"type	(master.xsl)"
 			],
 			[
-				"appl",
-				"apply	(master.xsl)"
-			],
-			[
 				"temp",
 				"template	(home.xsl)"
 			],
@@ -520,26 +520,46 @@
 	"buffers":
 	[
 		{
-			"file": "scss/main.scss",
+			"contents": "@media (min-width: 1200px) {\n\n@media (max-width: 980px) {\n\n@media (max-width: 979px) {\n\n@media (min-width: 980px) {\n\n@media (min-width: 768px) and (max-width: 979px){\n\n@media (max-width: 768px) {\n\n@media (max-width: 767px) {\n\n@media (max-width: 480px) {\n\nShould be the standards",
 			"settings":
 			{
-				"buffer_size": 5401,
+				"buffer_size": 278,
+				"line_ending": "Windows",
+				"name": "@media (min-width: 1200px) {"
+			}
+		},
+		{
+			"file": "utilities/master.xsl",
+			"settings":
+			{
+				"buffer_size": 6834,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "pages/home.xsl",
+			"file": "coffee/ma.coffee",
 			"settings":
 			{
-				"buffer_size": 2095,
+				"buffer_size": 5851,
 				"line_ending": "Windows"
 			}
 		},
 		{
+			"contents": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<!DOCTYPE xsl:stylesheet [\n	<!ENTITY nbsp \"&#x00A0;\">\n	<!ENTITY copy   \"&#169;\">\n	<!ENTITY ndash \"&#8211;\">\n	<!ENTITY thinsp \"&#8201;\">\n	<!ENTITY amp \"&#038;\">\n	<!ENTITY hellip \"&#8230;\">\n	<!ENTITY bull \"&#8226;\">\n	<!ENTITY lsaqua \"&#8249;\">\n	<!ENTITY rsaqua \"&#8250;\">\n	<!ENTITY larr \"&#8592;\">\n	<!ENTITY rarr \"&#8594;\">\n	<!ENTITY lsaquo \"&#8249;\">\n	<!ENTITY rsaquo \"&#8250;\">\n	<!ENTITY percent \"&#37;\">\n	<!ENTITY gt \"&#37;\">\n]>\n\n<xsl:stylesheet version=\"1.0\"\n	xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">\n\n<xsl:include href=\"../utilities/master.xsl\"/>\n\n<xsl:template match=\"data\">\n	<xsl:apply-templates select=\"exhibition/entry\" />\n	<xsl:apply-templates select=\"event/entry\" />\n	<xsl:apply-templates select=\"news\" />\n</xsl:template>\n\n<xsl:template match=\"exhibition/entry\">\n	<header class=\"offset\" style=\"background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px\">\n	</header>\n	<section class=\"post\">\n		<header class=\"donthyphenate\">\n			\n			<ul class=\"category-list\">\n				<xsl:apply-templates select=\"category/item\" />\n			</ul>\n			<h1><xsl:value-of select=\"title\" /></h1>\n			<xsl:apply-templates select=\"subtitle\" />\n			<h3 class=\"date\"><xsl:value-of select=\"date\" /></h3>\n			\n			<xsl:apply-templates select=\"tags\" />\n			<!--\n			<ul class=\"tag-list\">\n				<li class=\"label\">Tagi:</li>\n				<li class=\"tag\"><a href=\"javascript:void(0)\">#madeInEurope</a></li>\n				<li class=\"tag\"><a href=\"javascript:void(0)\">#meisVanDerRohe</a></li>\n				<li class=\"tag\"><a href=\"javascript:void(0)\">#architekturaWspółczesna</a></li>\n			</ul>\n			-->\n\n			<xsl:apply-templates select=\"linked-event\" />\n\n		</header>\n		<article>\n			<xsl:copy-of select=\"article/node()\" />\n			<!--<xsl:apply-templates select=\"article//*\" />-->\n		</article>\n	</section>\n</xsl:template>\n\n<xsl:template match=\"event/entry\">\n	<header class=\"offset\" style=\"background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px\">\n	</header>\n	<section class=\"post\">\n		<header class=\"donthyphenate\">\n			<ul class=\"category-list\">\n				<xsl:apply-templates select=\"category/item\" />\n			</ul>\n			<h1><xsl:value-of select=\"title\" /></h1>\n			<xsl:apply-templates select=\"subtitle\" />\n			<h3 class=\"date\"><xsl:value-of select=\"date\" /></h3>\n			\n			<xsl:apply-templates select=\"tags\" />\n			<!--<ul class=\"tag-list\">\n				<li class=\"label\">Tagi:</li>\n				<li class=\"tag\"><a href=\"javascript:void(0)\">#madeInEurope</a></li>\n				<li class=\"tag\"><a href=\"javascript:void(0)\">#meisVanDerRohe</a></li>\n				<li class=\"tag\"><a href=\"javascript:void(0)\">#architekturaWspółczesna</a></li>\n			</ul>-->\n\n			<xsl:apply-templates select=\"linked-event\" />\n\n		</header>\n		<article>\n			<xsl:copy-of select=\"article/node()\" />\n			<!--<xsl:apply-templates select=\"article//*\" />-->\n		</article>\n	</section>\n</xsl:template>\n\n<xsl:template match=\"subtitle\">\n	<h2><xsl:value-of select=\".\" /></h2>\n</xsl:template>\n\n<xsl:template match=\"tags\">\n	<ul class=\"tag-list\">\n		<li class=\"label\">Tagi:</li>\n		<li class=\"tag\"><a href=\"javascript:void(0)\">#madeInEurope</a></li>\n		<li class=\"tag\"><a href=\"javascript:void(0)\">#meisVanDerRohe</a></li>\n		<li class=\"tag\"><a href=\"javascript:void(0)\">#architekturaWspółczesna</a></li>\n		<!--<xsl:apply-templates select=\"category/item\" />-->\n	</ul>\n</xsl:template>\n\n<xsl:template match=\"linked-event\">\n	<ul class=\"event-list\">\n		<li class=\"label\">Powiązane wydarzenia:</li>\n		<xsl:apply-templates select=\"item\" />\n	</ul>\n</xsl:template>\n\n<xsl:template match=\"linked-event/item\">\n	<li class=\"event\"><a href=\"{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}\"><xsl:value-of select=\"title\" /></a></li>\n</xsl:template>\n\n<xsl:template match=\"article//*\">\n	<xsl:element name=\"{name()}\">\n		<xsl:apply-templates select=\"* | @* | text()\" />\n	</xsl:element>\n</xsl:template>\n\n<xsl:template match=\"category/item\">\n	<li><a href=\"#\"><xsl:value-of select=\"exhib-category\" /></a></li>\n</xsl:template>\n\n<xsl:template match=\"news\">\n	<section class=\"news\">\n		<h1><xsl:value-of select=\"//dictionary/entry/word[@handle-pl = 'aktualnosci']\" /></h1>\n		<div class=\"bricks-container\">\n			<xsl:apply-templates select=\"./entry/linked-articles/item[not(@id = //exhibition/entry/@id)]\" />\n		</div>\n	</section>\n</xsl:template>\n\n<xsl:template match=\"news/entry\">\n	<xsl:call-template name=\"brick\" />\n</xsl:template>\n\n<xsl:template match=\"news/entry/linked-articles/item[@section-handle = 'wystawy']\">\n	<xsl:variable name=\"id\"><xsl:value-of select=\"./@id\" /></xsl:variable>\n	<xsl:apply-templates select=\"//news-exhibitions/entry[@id = $id]\" />\n</xsl:template>\n\n<xsl:template match=\"news-exhibitions/entry\">\n	<xsl:call-template name=\"brick\" />\n</xsl:template>\n\n<xsl:template match=\"news/entry/linked-articles/item[@section-handle = 'events']\">\n	<xsl:variable name=\"id\"><xsl:value-of select=\"./@id\" /></xsl:variable>\n	<xsl:apply-templates select=\"//news-events/entry[@id = $id]\" />\n</xsl:template>\n\n<xsl:template match=\"news-events/entry\">\n	<xsl:call-template name=\"brick\" />\n</xsl:template>\n\n<xsl:template match=\"data\" mode=\"ma-button\">\n	<xsl:value-of select=\"concat($root, '/', //current-language/@handle, '/', //dictionary/entry/word[@handle-pl = 'wystawy']/@handle)\" />\n</xsl:template>\n\n<xsl:template match=\"data\" mode=\"js\">\n	<script>\n		$(function() {\n			MA.stickyNavSetup({backgroundColor: 'transparent'});\n			MA.api.setNavBackground('.offset')\n		});\n	</script>\n</xsl:template>\n\n</xsl:stylesheet>",
 			"file": "pages/article.xsl",
+			"file_size": 5678,
+			"file_write_time": 130984492922386741,
 			"settings":
 			{
-				"buffer_size": 5428,
+				"buffer_size": 5503,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Windows/System32/drivers/etc/hosts",
+			"settings":
+			{
+				"buffer_size": 2925,
 				"line_ending": "Windows"
 			}
 		}
@@ -700,17 +720,21 @@
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
-		"/C/Users/shinman/Desktop/rep.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/test (restored version 1).txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/test.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
+		"/C/Users/shinman/Desktop/tale of us boiler room dj set.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/C/Users/shinman/Desktop/rep.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
@@ -720,7 +744,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
@@ -732,7 +755,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/maintenance.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/extension.driver.php",
@@ -786,7 +808,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/ma/.gitignore",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/publish.editor.js",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/editor/editor.js",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/extension.driver.php",
@@ -830,10 +851,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_typoreset.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_mixins.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/menu.html",
-		"/Z/MA WWW/html/css/typography.css",
-		"/Z/MA WWW/html/fontTest.html"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_mixins.scss"
 	],
 	"find":
 	{
@@ -851,6 +869,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hlHeight",
 			"4",
 			"console",
 			".highlighty",
@@ -977,8 +996,7 @@
 			"blue",
 			"box",
 			"projects",
-			"main-menu/entry",
-			"events/entry"
+			"main-menu/entry"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1062,53 +1080,111 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scss/main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5401,
+						"buffer_size": 278,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2347,
-								2347
+								278,
+								278
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"auto_name": "@media (min-width: 1200px) {",
+							"default_dir": "C:\\xampp\\htdocs\\ma.wroc.pl\\workspace",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "utilities/master.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6758,
+								6758
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XSL.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1693.0,
+						"translation.y": 588.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "coffee/ma.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5085,
+								5085
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 2898.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "pages/home.xsl",
+					"buffer": 3,
+					"file": "pages/article.xsl",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2095,
+						"buffer_size": 5503,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								831,
-								831
+								1038,
+								1038
 							]
 						],
 						"settings":
@@ -1117,36 +1193,35 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 168.0,
+						"translation.y": 210.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "pages/article.xsl",
+					"buffer": 4,
+					"file": "/C/Windows/System32/drivers/etc/hosts",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5428,
+						"buffer_size": 2925,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1610,
-								1610
+								2898,
+								2885
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/XML/XSL.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 224.0,
+						"translation.y": 798.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

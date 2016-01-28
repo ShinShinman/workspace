@@ -67,7 +67,7 @@
 	<section class="post">
 		<header class="donthyphenate">
 			<ul class="category-list">
-				<xsl:apply-templates select="category/item" />
+				<li><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wydarzenia']" /></li>
 			</ul>
 			<h1><xsl:value-of select="title" /></h1>
 			<xsl:apply-templates select="subtitle" />
@@ -113,7 +113,7 @@
 </xsl:template>
 
 <xsl:template match="linked-event/item">
-	<li class="event"><a href="{$root}/wydarzenia/{title/@handle}"><xsl:value-of select="title" /></a></li>
+	<li class="event"><a href="{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}"><xsl:value-of select="title" /></a></li>
 </xsl:template>
 
 <xsl:template match="article//*">
