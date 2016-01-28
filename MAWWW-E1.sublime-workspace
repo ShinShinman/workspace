@@ -4,12 +4,296 @@
 		"selected_items":
 		[
 			[
-				"target",
-				"target"
+				"news",
+				"news-events"
+			],
+			[
+				"xsl",
+				"xsl:template"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"re",
+				"relative"
+			],
+			[
+				"sec",
+				"section	(home.xsl)"
+			],
+			[
+				"edu-cate",
+				"edu-categories"
+			],
+			[
+				"cl",
+				"class"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"edu-le",
+				"edu-lessons"
+			],
+			[
+				"clear-fil",
+				"clear-filter"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"clear",
+				"clearFilters"
+			],
+			[
+				"cla",
+				"class"
+			],
+			[
+				"active",
+				"active-filter"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"mae",
+				"margin-left"
+			],
+			[
+				"edu-cat",
+				"edu-categories"
+			],
+			[
+				"ed",
+				"edu-categories"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"lin",
+				"line-height"
+			],
+			[
+				"bu",
+				"bull	(edukacja.xsl)"
 			],
 			[
 				"off",
-				"offset"
+				"offsetElement"
+			],
+			[
+				"ma",
+				"mainMenuOpened"
+			],
+			[
+				"menu",
+				"menuTrigger"
+			],
+			[
+				"tr",
+				"trigger"
+			],
+			[
+				"bac",
+				"backgroundColor"
+			],
+			[
+				"api",
+				"apiTest"
+			],
+			[
+				"fon",
+				"font"
+			],
+			[
+				"flo",
+				"float"
+			],
+			[
+				"column",
+				"columns"
+			],
+			[
+				"lag",
+				"language"
+			],
+			[
+				"hi",
+				"highlightVisible"
+			],
+			[
+				"h",
+				"highlightVisible"
+			],
+			[
+				"scro",
+				"scrollTop"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"stickN",
+				"stickyNavSetup"
+			],
+			[
+				"stic",
+				"stickyNavSetup"
+			],
+			[
+				"scr",
+				"scrollTop"
+			],
+			[
+				"nor",
+				"normal	(_headers.scss)"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"he",
+				"header"
+			],
+			[
+				"se",
+				"select"
+			],
+			[
+				"di",
+				"dictionary	(exibitions.xsl)"
+			],
+			[
+				"sty",
+				"style"
+			],
+			[
+				"sti",
+				"stickyNav"
+			],
+			[
+				"exh",
+				"exhibition"
+			],
+			[
+				"ex",
+				"exhibitions"
+			],
+			[
+				"call",
+				"call-template"
+			],
+			[
+				"templ",
+				"template"
+			],
+			[
+				"sticky",
+				"stickyNav"
+			],
+			[
+				"stick",
+				"stickyNav"
+			],
+			[
+				"sett",
+				"settings"
+			],
+			[
+				"coll",
+				"collapsedBackground"
+			],
+			[
+				"cola",
+				"collapse"
+			],
+			[
+				"act",
+				"action"
+			],
+			[
+				"high",
+				"highlightOn"
+			],
+			[
+				"targ",
+				"targetState"
+			],
+			[
+				"backg",
+				"backgroundColor"
+			],
+			[
+				"main",
+				"mainMenu"
+			],
+			[
+				"sear",
+				"searchTrigger"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"ba",
+				"backgroundColor"
+			],
+			[
+				"exten",
+				"extend	(main.scss)"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"i",
+				"image"
+			],
+			[
+				"app",
+				"apply-templates"
+			],
+			[
+				"ty",
+				"type	(master.xsl)"
+			],
+			[
+				"appl",
+				"apply	(master.xsl)"
+			],
+			[
+				"temp",
+				"template	(home.xsl)"
+			],
+			[
+				"target",
+				"target"
 			],
 			[
 				"bricks",
@@ -20,20 +304,12 @@
 				"container"
 			],
 			[
-				"padd",
-				"padding-right"
-			],
-			[
 				"nano",
 				"nanoscroller"
 			],
 			[
 				"init",
 				"initial	(index.html)"
-			],
-			[
-				"marg",
-				"margin"
 			],
 			[
 				"font",
@@ -58,10 +334,6 @@
 			[
 				"in",
 				"include"
-			],
-			[
-				"main",
-				"mainMenuState"
 			],
 			[
 				"margi",
@@ -96,20 +368,12 @@
 				"border-right"
 			],
 			[
-				"mar",
-				"margin-right"
-			],
-			[
 				"imp",
 				"important	!important"
 			],
 			[
 				"tran",
 				"transparent	(main.css)"
-			],
-			[
-				"bac",
-				"background-color"
 			],
 			[
 				"backr",
@@ -126,10 +390,6 @@
 			[
 				"pad",
 				"padding-right"
-			],
-			[
-				"dis",
-				"display"
 			],
 			[
 				"paddi",
@@ -152,10 +412,6 @@
 				"font-family"
 			],
 			[
-				"cla",
-				"class	Attr"
-			],
-			[
 				"li",
 				"link	Tag"
 			],
@@ -176,16 +432,8 @@
 				"match"
 			],
 			[
-				"xsl",
-				"xsl:template"
-			],
-			[
 				"value",
 				"value-of"
-			],
-			[
-				"he",
-				"height	(newsletter2.html)"
 			],
 			[
 				"poli",
@@ -218,10 +466,6 @@
 			[
 				"out",
 				"outline"
-			],
-			[
-				"hi",
-				"hidden"
 			],
 			[
 				"post",
@@ -270,255 +514,35 @@
 			[
 				"le",
 				"left"
-			],
-			[
-				"mni",
-				"min-height"
-			],
-			[
-				"brod",
-				"border-bottom-style"
-			],
-			[
-				"copy",
-				"copy-of"
-			],
-			[
-				"ent",
-				"entry"
-			],
-			[
-				"hei",
-				"height"
-			],
-			[
-				"va",
-				"value-of"
-			],
-			[
-				"subs",
-				"subscribe"
-			],
-			[
-				"te",
-				"template"
-			],
-			[
-				"newslett",
-				"newsletter	(routes.xml)"
-			],
-			[
-				"margn",
-				"margin-bottom"
-			],
-			[
-				"fon",
-				"font-family"
-			],
-			[
-				"lan",
-				"lang"
-			],
-			[
-				"java",
-				"javascript:void"
-			],
-			[
-				"appe",
-				"append"
-			],
-			[
-				"anim",
-				"animate"
-			],
-			[
-				"an",
-				"animate	.animate()"
-			],
-			[
-				"prevent",
-				"preventDefault"
-			],
-			[
-				"line",
-				"line-height"
-			],
-			[
-				"border-co",
-				"border-color"
-			],
-			[
-				"cons",
-				"console"
-			],
-			[
-				"rel",
-				"relative"
-			],
-			[
-				"la",
-				"language"
-			],
-			[
-				"bot",
-				"bottom"
-			],
-			[
-				"r",
-				"right"
-			],
-			[
-				"po",
-				"pointer"
-			],
-			[
-				"co",
-				"color"
-			],
-			[
-				"tex",
-				"text-decoration"
-			],
-			[
-				"l",
-				"lang"
-			],
-			[
-				"wi",
-				"wiecej-dzialan"
-			],
-			[
-				"no",
-				"nowrap"
-			],
-			[
-				"white",
-				"white-space"
-			],
-			[
-				"cur",
-				"cursor"
-			],
-			[
-				"ke",
-				"keyCode"
-			],
-			[
-				"from",
-				"fromCharCode"
-			],
-			[
-				"sear",
-				"search-suggestions"
-			],
-			[
-				"appl",
-				"apply-templates"
-			],
-			[
-				"evet",
-				"events"
-			],
-			[
-				"rbga",
-				"rgba()"
-			],
-			[
-				"ea",
-				"each	$.each()"
-			],
-			[
-				"rgb",
-				"rgba()"
-			],
-			[
-				"CLND",
-				"CLNDR-template"
-			],
-			[
-				"sty",
-				"style	(clndrTest.html)"
-			],
-			[
-				"cl",
-				"class	(clndrTest.html)"
-			],
-			[
-				"dat",
-				"date"
-			],
-			[
-				"events",
-				"events"
-			],
-			[
-				"nom",
-				"numberOfRows"
-			],
-			[
-				"number",
-				"numberOfRows"
-			],
-			[
-				"head",
-				"header	(clndrTest.html)"
-			],
-			[
-				"numb",
-				"numberOfRows"
-			],
-			[
-				"a",
-				"absolute"
-			],
-			[
-				"ba",
-				"background"
-			],
-			[
-				"filter",
-				"filterButton"
-			],
-			[
-				"cate",
-				"category"
-			],
-			[
-				"na",
-				"name"
-			],
-			[
-				"pa",
-				"param"
-			],
-			[
-				"owl",
-				"owlCarousel"
-			],
-			[
-				"owl-demo",
-				"owl-demo2"
-			],
-			[
-				"cu",
-				"cursor"
-			],
-			[
-				"call",
-				"call-template"
-			],
-			[
-				"job",
-				"job[@lang"
-			],
-			[
-				"ch",
-				"choose"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "scss/main.scss",
+			"settings":
+			{
+				"buffer_size": 5401,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pages/home.xsl",
+			"settings":
+			{
+				"buffer_size": 2095,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pages/article.xsl",
+			"settings":
+			{
+				"buffer_size": 5428,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -527,13 +551,29 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 81.0,
-		"last_filter": "",
+		"height": 392.0,
+		"last_filter": "inst",
 		"selected_items":
 		[
 			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
 				"css",
 				"Set Syntax: CSS"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"js_",
+				"Snippet: js_IIFE"
 			],
 			[
 				"coffee",
@@ -552,14 +592,6 @@
 				"Set Syntax: JavaScript"
 			],
 			[
-				"scss",
-				"Set Syntax: SCSS"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
-			],
-			[
 				"xml",
 				"Set Syntax: XML"
 			],
@@ -570,14 +602,6 @@
 			[
 				"pc",
 				"Package Control: List Packages"
-			],
-			[
-				"js_",
-				"Snippet: js_namespace"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			],
 			[
 				"xsl",
@@ -652,7 +676,7 @@
 				"Preferences: Settings - Default"
 			]
 		],
-		"width": 424.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -675,27 +699,125 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/install.sql",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/Users/shinman/Desktop/rep.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
+		"/C/Users/shinman/Downloads/linux/nmap.txt",
+		"/C/Users/shinman/Downloads/Crypto.sublime-settings",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Installed Packages/Crypto.sublime-package",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/maintenance.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/extension.driver.php",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/assets/templatedtextformatters.settings.js",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/content/content.index.php",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/content/content.edit.php",
+		"/C/Users/shinman/Desktop/images compression/package.json",
+		"/C/Users/shinman/Desktop/image compression/package.json",
+		"/C/Users/shinman/Desktop/image compression/gulpfile.js",
+		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/index.php",
+		"/C/Users/shinman/Desktop/imagemini/gulpfile.js",
+		"/C/Users/shinman/Desktop/nmap.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
+		"/C/Users/shinman/Documents/GitHub/ma/.gitignore",
+		"/C/Users/shinman/Documents/GitHub/ma/.git/config",
+		"/C/Users/shinman/Documents/GitHub/ma/.gitmodules",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/.htaccess",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/lesson.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/edukacja.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
+		"/C/Users/shinman/Desktop/images compresion/gulpfile.js",
+		"/C/xampp/htdocs/ma.wroc.pl/.git/config",
+		"/C/xampp/htdocs/ma.wroc.pl/.gitmodules",
+		"/C/Users/shinman/Downloads/yszt/.htaccess",
+		"/C/xampp/apache/conf/httpd.conf",
+		"/C/Users/shinman/Desktop/Nowy dokument tekstowy.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
+		"/Z/MA WWW/html/zaslepka.html",
+		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/install",
+		"/Z/MA WWW/font/MArch/MArch-info.txt",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.js",
+		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_stick-nav.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/highlight.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick.xsl",
+		"/C/Users/shinman/Documents/ma/.git/config",
+		"/C/Users/shinman/Documents/ma/.gitmodules",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/Users/shinman/Documents/ma/.gitignore",
+		"/C/Users/shinman/Downloads/yszt/MArch-info.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/.gitignore",
+		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore",
+		"/C/Users/shinman/Downloads/yszt/ma/.gitignore",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/publish.editor.js",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/editor/editor.js",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/extension.driver.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/artykul.xsl",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_plugin.sublime-snippet",
+		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
+		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/template.html.xsl",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.coffee",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.coffee",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.js",
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/test.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.default.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.carousel.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.green.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/date-time.xsl",
+		"/Z/Alternativa - strona WWW/symphony/workspace/utilities/get-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/index.html",
+		"/Z/Alternativa - strona WWW/symphony/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick",
+		"/Z/Alternativa - strona WWW/symphony/workspace/pages/index.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
+		"/Z/Alternativa - strona WWW/symphony/workspace/pages/about.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home_.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/install.sql",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/menu.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/nanoScroller.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/menu.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/main.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/nanoscroller/bin/css/nanoscroller.css",
 		"/C/Users/shinman/Downloads/complete/RA500-omar.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js",
@@ -708,109 +830,14 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_typoreset.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_mixins.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/menu.html",
 		"/Z/MA WWW/html/css/typography.css",
-		"/Z/MA WWW/html/fontTest.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/test.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/node_modules/bower/node_modules/configstore/node_modules/uuid/test/test.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/kafelek.html",
-		"/Z/MA WWW/html/scss/main.scss",
-		"/C/Users/shinman/Downloads/fontello-80df9e03/demo.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/koala-config.json",
-		"/C/Users/shinman/Desktop/src/scss/vendor/normalize.scss",
-		"/C/Users/shinman/Downloads/normalize.css-master/normalize.css",
-		"/C/Users/shinman/Downloads/normalize.css-master/package.json",
-		"/C/Users/shinman/Downloads/normalize.css-master/bower.json",
-		"/C/Users/shinman/Downloads/fontello-80df9e03/css/fontello.css",
-		"/C/Users/shinman/Desktop/bower test/bower.json",
-		"/C/Users/shinman/routes.xml",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/dist/foundation.css",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/vendor/normalize.scss",
-		"/C/Users/shinman/Desktop/bower test/node_modules/normalize.css/normalize.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/index.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
-		"/C/Users/shinman/Downloads/symphony-longsip-master/gulpfile.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home_.xsl",
-		"/C/Users/shinman/Downloads/symphony-longsip-master/workspace/styles/main.styl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/test/main-320aab339a.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/test/main-99a1190588.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/css/main.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/brick.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_mixinx.scss",
-		"/C/Users/shinman/Desktop/koala test/sass/test.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main_.scss",
-		"/C/Users/shinman/Desktop/koala test/sass/_variables.scss",
-		"/C/Users/shinman/Desktop/koala test/sass/_mixins.scss",
-		"/C/Users/shinman/Desktop/_dev/gulpfile.js",
-		"/C/Users/shinman/Desktop/_dev/package.json",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Local/Session.sublime_session",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/typography/_typography.scss",
-		"/Z/MA WWW/html/scss/_global.scss",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/_global.scss",
-		"/C/Users/shinman/Desktop/bower test/bower_components/foundation-sites/scss/typography/_base.scss",
-		"/Z/MA WWW/html/scss/test.scss",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/attributes/attr.js",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/attributes.js",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/ajax/jsonp.js",
-		"/C/Users/shinman/Desktop/bower test/bower_components/jquery/src/ajax.js",
-		"/Z/MA WWW/html/kafelek.html",
-		"/Z/MA WWW/html/menu.html",
-		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
-		"/C/Users/shinman/Downloads/maison webfont/stylesheet.css",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_jQuery.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_plugin.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_yyy.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_IIFE.sublime-snippet",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_pl.sublime-snippet",
-		"/Z/MA WWW/html/images/badge_.png",
-		"/C/Users/shinman/Desktop/koala test/coffeescript/firsTest.coffee",
-		"/C/Users/shinman/Desktop/koala test/js/compiledCoffee.js",
-		"/C/Users/shinman/Desktop/bower test/gulpfile.js",
-		"/C/Users/shinman/Desktop/koala test/coffeescript/firstTest.js",
-		"/C/Users/shinman/Desktop/koala test/coffeescript/firstTest.coffee",
-		"/C/Users/shinman/Desktop/bower test/package.json",
-		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/pages/newsletter-f-alt.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/routes.xml",
-		"/Z/Alternativa - strona WWW/newsletter/Adresy PL/newsletter nowy - test.csv",
-		"/C/Users/shinman/Downloads/odbiorcy-test-pl_2015-12-15.csv",
-		"/C/Users/shinman/Downloads/yszt/odbiorcy-test-pl_2015-12-15.csv",
-		"/Z/Alternativa - strona WWW/newsletter/Adresy nowe/contacts-new.xml",
-		"/Z/Alternativa - strona WWW/newsletter/Adresy PL/news-letter-nowy-pl.xml",
-		"/C/Users/shinman/Desktop/102 • alt/index.php",
-		"/Z/Alternativa - strona WWW/symphony/workspace/utilities/master.xsl",
-		"/C/Users/shinman/Desktop/102 • alt/css/base.css",
-		"/Z/Alternativa - strona WWW/master.xsl",
-		"/Z/Alternativa - strona WWW/newsletter/html/newsletter2.1.html",
-		"/Z/Alternativa - strona WWW/symphony/workspace/xml/dictionary.xml",
-		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/class.f-aktualnosci-template.php",
-		"/C/Users/shinman/Downloads/yszt/class.datasourcemanager.php",
-		"/Z/Alternativa - strona WWW/newsletter/html/newsletter.html",
-		"/Z/Alternativa - strona WWW/newsletter/html/newsletter2.html",
-		"/Z/Alternativa - strona WWW/symphony/workspace/pages/privacy-policy.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/css/rwd.css",
-		"/C/Users/shinman/Downloads/animaux-lang_german-dbe2a14/lang/lang.pl.php",
-		"/C/Users/shinman/Downloads/animaux-lang_german-dbe2a14/lang/lang.pl.txt",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
-		"/C/Users/shinman/Downloads/jurajkapsz-lang_slovak-e5af65f/lang/lang.sk.php",
-		"/C/Users/shinman/Downloads/animaux-lang_german-dbe2a14/extension.driver.php",
-		"/C/Users/shinman/Downloads/jurajkapsz-lang_slovak-e5af65f/extension.driver.php",
-		"/C/Users/shinman/Downloads/yszt/main2015111301",
-		"/C/Users/shinman/Downloads/yszt/main2015111612",
-		"/C/Users/shinman/Downloads/yszt/main2015111312",
-		"/C/Users/shinman/Downloads/yszt/main"
+		"/Z/MA WWW/html/fontTest.html"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -824,6 +851,63 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"4",
+			"console",
+			".highlighty",
+			"sticky-nav",
+			"transition",
+			"transform",
+			"	",
+			"##",
+			"			",
+			"		",
+			"li.",
+			"rgb(56, 191, 172)",
+			"li",
+			"rgb(42, 212, 63)",
+			"info",
+			"rgb(247, 86, 227)",
+			"rgb(247, 77, 69)",
+			"rgb(43, 251, 222)",
+			"rgb(42, 212, 63)",
+			"rgb(33, 255, 60)",
+			"rgb(255, 248, 33)",
+			"klasy-0-3",
+			"0-3",
+			"klasy-0-3",
+			"przedszkola",
+			"exhibitions/entry",
+			"yszt",
+			"hlHeight",
+			"console",
+			"1",
+			"const",
+			"MultiViews",
+			"header",
+			"p",
+			"social",
+			"march-regular",
+			"32%",
+			"icons",
+			"[",
+			"debug",
+			"directionCount",
+			"direction",
+			"highlightVisible",
+			"visible",
+			"stickyNav",
+			"stickNav",
+			"tytul",
+			"collapse",
+			"expand",
+			"collapsedBackground",
+			"settings.bac",
+			"Animal",
+			".owl-theme ",
+			"owl",
+			"vh",
+			"vw",
+			".row",
 			"target",
 			"fontello",
 			"Maison-cyfry-Regular",
@@ -894,64 +978,7 @@
 			"box",
 			"projects",
 			"main-menu/entry",
-			"events/entry",
-			"'",
-			"mode=\"class\"",
-			"orkana39.pl/clients/alternativa",
-			"text",
-			">\n",
-			"jspeare@totamto.pl",
-			"news",
-			"container",
-			"gallery",
-			"p.",
-			"p ",
-			"1-col",
-			"ul ul",
-			"trigger",
-			"img",
-			"bio",
-			"img",
-			"max-width: 100%",
-			"breadcrumbs",
-			"brick",
-			"post",
-			"Stacja transformacja",
-			"	      ",
-			"aside",
-			"javascript:void()",
-			"  ",
-			".event-info",
-			"30",
-			"lt;",
-			"if",
-			"double",
-			"h1",
-			"updateCalendar",
-			"category/item",
-			"last",
-			"after",
-			"$filters",
-			"$(\".pre",
-			"7",
-			"o-nas",
-			"hide-",
-			"white-space: nowrap;",
-			"sugg",
-			"    ",
-			"p",
-			"img",
-			"gallery/item",
-			"    ",
-			"double",
-			"jpg",
-			"li",
-			"::",
-			"after",
-			"mapa",
-			"Działamy",
-			"not(",
-			"shin"
+			"events/entry"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -959,6 +986,15 @@
 		"regex": false,
 		"replace_history":
 		[
+			"march-regular",
+			"social",
+			"march-regular",
+			"dirCount",
+			"directionCount",
+			"MA.settings.highlightVisible",
+			"title",
+			"collapsed",
+			"expanded",
 			"Maison-Light",
 			"Maison-Bold",
 			"Maison-Regular-italic",
@@ -1026,8 +1062,96 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "scss/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2347,
+								2347
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1693.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "pages/home.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2095,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								831,
+								831
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XSL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 168.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "pages/article.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5428,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1610,
+								1610
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XSL.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 224.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1062,6 +1186,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.crypto_error":
+	{
+		"height": 94.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -1070,7 +1198,7 @@
 	"project": "MAWWW-E1.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
