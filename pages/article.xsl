@@ -113,7 +113,7 @@
 </xsl:template>
 
 <xsl:template match="linked-event/item">
-	<li class="event"><a href="{$root}/wydarzenia/{title/@handle}"><xsl:value-of select="title" /></a></li>
+	<li class="event"><a href="{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}"><xsl:value-of select="title" /></a></li>
 </xsl:template>
 
 <xsl:template match="article//*">

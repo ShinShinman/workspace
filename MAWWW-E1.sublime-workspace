@@ -519,30 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "scss/main.scss",
-			"settings":
-			{
-				"buffer_size": 5401,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "pages/home.xsl",
-			"settings":
-			{
-				"buffer_size": 2095,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "pages/article.xsl",
-			"settings":
-			{
-				"buffer_size": 5428,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -699,18 +675,19 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography"
 	],
 	"file_history":
 	[
-		"/C/Users/shinman/Desktop/rep.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
-		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/shinman/Desktop/tale of us boiler room dj set.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
+		"/C/Users/shinman/Desktop/rep.txt",
+		"/C/Windows/System32/drivers/etc/hosts",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
@@ -720,7 +697,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
@@ -732,7 +708,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/maintenance.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/extension.driver.php",
@@ -832,8 +807,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_typoreset.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_mixins.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/static/menu.html",
-		"/Z/MA WWW/html/css/typography.css",
-		"/Z/MA WWW/html/fontTest.html"
+		"/Z/MA WWW/html/css/typography.css"
 	],
 	"find":
 	{
@@ -851,6 +825,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hlHeight",
 			"4",
 			"console",
 			".highlighty",
@@ -977,8 +952,7 @@
 			"blue",
 			"box",
 			"projects",
-			"main-menu/entry",
-			"events/entry"
+			"main-menu/entry"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1062,96 +1036,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "scss/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5401,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2347,
-								2347
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1693.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "pages/home.xsl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2095,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								831,
-								831
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XSL.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 168.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "pages/article.xsl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5428,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1610,
-								1610
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XSL.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 224.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
