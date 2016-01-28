@@ -222,8 +222,6 @@ class MA
 			defaultlanguage: 'pl'
 			minwordlength: 8
 		})
-		Hyphenator.addExceptions('', 'Europan')
-		Hyphenator.addExceptions('', 'Sweden')
 		Hyphenator.run()
 		console.log 'MA initiated.'
 
