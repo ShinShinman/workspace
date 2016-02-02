@@ -215,11 +215,8 @@ a, em, strong {
 
 .info {
 	@extend .text-column;
-
-	article {
-		text-align: justify;
-	}
 }
+
 
 /* EDU */
 
@@ -400,4 +397,32 @@ a, em, strong {
 
 section.maintenance {
 	margin-bottom: 450px;
+}
+
+
+/* 2.02.2016 */
+
+/* BIP */
+.biuletyn {
+	@extend .text-column;
+
+	article {
+		ul ul {
+			margin-bottom: 0;
+		}
+
+		li {
+			margin-top: 3px;
+			margin-bottom: 3px;
+		}
+	}
+}
+
+
+.text-column {
+	article {
+		h1 {
+			margin-bottom: 12px;
+		}
+	}
 }
