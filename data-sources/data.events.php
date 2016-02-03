@@ -15,6 +15,7 @@ class datasourceevents extends SectionDatasource
     
     public $dsParamFILTERS = array(
         '56' => 'yes',
+        '99' => 'not: archiwum-wydarzen',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
@@ -25,28 +26,11 @@ class datasourceevents extends SectionDatasource
         'inline-images',
         'article: formatted',
         'category',
-        'badge',
         'cover-image',
         'date: formatted',
         'kalendar'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'badge' => array(
-            'section_id' => '9',
-            'field_id' => '33',
-            'elements' => array(
-                'badge: formatted'
-            )
-        ),
-        'category' => array(
-            'section_id' => '8',
-            'field_id' => '31',
-            'elements' => array(
-                'exhib-category: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -61,7 +45,7 @@ class datasourceevents extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-19T19:08:35+00:00'
+            'release-date' => '2016-02-03T22:19:35+00:00'
         );
     }
     public function getSource()

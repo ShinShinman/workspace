@@ -15,6 +15,7 @@ class datasourceexhibitions extends SectionDatasource
     
     public $dsParamFILTERS = array(
         '30' => 'yes',
+        '32' => 'not: archiwum-wystaw',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
@@ -50,7 +51,7 @@ class datasourceexhibitions extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-11T20:27:29+00:00'
+            'release-date' => '2016-02-03T22:18:46+00:00'
         );
     }
     public function getSource()
