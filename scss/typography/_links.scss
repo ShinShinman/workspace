@@ -7,3 +7,9 @@ a {
 		opacity: 0.6;
 	}
 }
+/* Brakujące spacje przed italikami i boldem */
+a, em, strong {
+	&:before {
+		content: " ";	
+	}
+}

@@ -1,0 +1,47 @@
+/* LESSON */
+
+.single-lesson {
+	@extend .text-column;
+
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+		.edu-categories span {
+			display: inline-block;
+		}
+		.przedszkola {
+			color: white;
+			background-color: rgb(58, 187, 74);
+			padding: 0 6px;
+		}
+		.klasy-0-3 {
+			color: white;
+			background-color: rgb(58, 187, 74);
+			padding: 0 6px;
+		}
+		.klasy-4-6 {
+			color: white;
+			background-color: rgb(111, 155, 255);
+			padding: 0 6px;
+		}
+		.gimnazjum {
+			color: white;
+			background-color: rgb(212, 95, 197);
+			padding: 0 6px;
+		}
+		.szkoly-ponadgimnazjalne {
+			color: white;
+			background-color: rgb(56, 191, 172);
+			padding: 0 6px;
+		}
+		.wyklady-dla-mlodziezy {
+			color: white;
+			background-color: rgb(255, 94, 87);
+			padding: 0 6px;
+		}
+	}
+	article {
+		text-align: justify;
+	}
+}

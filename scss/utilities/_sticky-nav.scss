@@ -72,23 +72,23 @@
 
 			margin-right: $gutter;
 			width: columns-width(9);
-		}
 
-		input {
-			height: 48px;
-			margin: 0;
-			padding: 0;
-			border: 1px solid black;
-			outline: none;
-			background-color: white;
-			float: left;
-		}
+			input {
+				height: 48px;
+				margin: 0;
+				padding: 0;
+				border: 1px solid black;
+				outline: none;
+				background-color: white;
+				float: left;
+			}
 
-		input[type = text] {
-			width: columns-width(9)-59;
-			border-right: none;
-			height: 46px;
-			padding: 0 5px;
+			input[type = text] {
+				width: columns-width(9)-59;
+				border-right: none;
+				height: 46px;
+				padding: 0 5px;
+			}
 		}
 
 		input[type = submit] {

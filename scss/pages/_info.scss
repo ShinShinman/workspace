@@ -1,0 +1,9 @@
+/* INFO */
+
+.info {
+	@extend .text-column;
+
+	article {
+		text-align: justify;
+	}
+}

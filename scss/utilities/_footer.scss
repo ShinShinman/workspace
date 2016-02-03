@@ -59,3 +59,58 @@
 		}
 	}
 }
+
+
+/* SMALL FOOTER */
+
+.small-footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+
+
+	.footer {
+		@extend .floater;
+		@extend .stripe;
+
+		margin-top: 0 !important;
+		margin-bottom: 0;
+
+		p {
+			font-size: 14px;
+			line-height: 16px;
+			margin-bottom: 16px;
+		}
+
+		.first-column {
+			width: columns-width(2);
+			margin-right: $gutter;
+
+			p {
+				margin-left: columns-width(2) + $gutter;
+
+				&.logo {
+					font-size: 20px;
+					line-height: 25px;
+					float: left;
+					margin-left: 0;
+				}
+			}
+			.social {
+				clear: both;
+				li {
+					width: 35px;
+					float: left;
+					font-family: 'social';
+				}
+			}
+		}
+		.second-column {
+			width: columns-width(2);
+			
+			p a {
+				font-weight: bold;
+			}
+		}
+	}
+}

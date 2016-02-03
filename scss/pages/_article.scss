@@ -1,0 +1,45 @@
+/* ARTICLE if for exhibitions and events */
+
+.article {
+	
+	> header {
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-bottom: $gutter;
+	}
+	section.post {
+		@extend .text-column;
+
+		header {
+			h1 {
+				text-transform: uppercase;
+			}
+			h2 {
+				margin-bottom: 7px;
+			}
+			.date {
+				color: red;
+			}
+			ul {
+				display: block;
+				overflow: auto;
+				font-weight: bold;
+
+				> li {
+					float: left;
+					margin: 3px $gutter 3px 0;
+				}
+			}
+			.category-list {
+				margin-bottom: 6px;
+			}
+			.event-list {
+				a:after {
+					content: " > ";
+				}
+			}
+		}
+		article {
+		}
+	}
+}

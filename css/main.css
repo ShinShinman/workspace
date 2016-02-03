@@ -356,6 +356,75 @@ td,
 th {
   padding: 0; }
 
+/*** MA's styles ***/
+html {
+  overflow-y: scroll;
+  font-size: 16px;
+  line-height: 1.5; }
+
+body {
+  font-family: "Maison", sans-serif;
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  overflow: auto;
+  /*
+  padding-bottom: 200px;
+  */ }
+
+.row, section, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, .highlight .owl-carousel .item .text-box {
+  width: 963.996px;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto; }
+
+section:not(.highlight):first-of-type {
+  margin-top: 135px; }
+section:last-of-type {
+  margin-bottom: 250px; }
+
+/* TO POWINNO BY─ç GLOBALNE: */
+.icon {
+  font-family: 'MArch';
+  font-size: inherit; }
+
+.stripe, .nav-stripes .first, .nav-stripes .second, .main-footer .footer .first-column, .main-footer .footer .second-column, .main-footer .footer .third-column, .small-footer .footer {
+  border-top-width: 8px;
+  border-top-style: solid;
+  padding-top: 10px; }
+
+.small-stripe, .brick h1, .brick .slide-down a, .slide-down .brick a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a {
+  border-top-width: 4px;
+  border-top-style: solid;
+  padding-top: 5px; }
+
+.color-label, .tag, .event, .oppening, .edu-lessons li.przedszkola, .edu-lessons li.klasy-0-3, .edu-lessons li.klasy-4-6, .edu-lessons li.gimnazjum, .edu-lessons li.szkoly-ponadgimnazjalne, .edu-lessons li.wyklady-dla-mlodziezy {
+  color: white;
+  font-weight: normal;
+  padding: 0 6px; }
+
+.tag {
+  background-color: lightgrey; }
+
+.event {
+  background-color: black; }
+
+.oppening {
+  background-color: red; }
+
+/* Przerobi─ç AKTUALNO┼ÜCI na komponent i INFO-BANNER chyba te┼╝ */
+.news > h1, .slide-down .news > a {
+  margin-bottom: 24px; }
+
+/* INFO-BANNER */
+.info-banner {
+  color: white;
+  background-color: black;
+  padding: 15px; }
+  .info-banner p {
+    margin-bottom: 0; }
+
 /* Utilities */
 .brick {
   width: 311.332px;
@@ -421,9 +490,9 @@ th {
   .brick > img {
     width: 100%; }
 
-.floater > *, .nav-stripes > *, .sticky-nav nav > *, .sticky-nav .main-menu > *, .main-footer .footer > * {
+.floater > *, .nav-stripes > *, .sticky-nav nav > *, .sticky-nav .main-menu > *, .main-footer .footer > *, .small-footer .footer > * {
   float: left; }
-.floater:after, .nav-stripes:after, .sticky-nav nav:after, .sticky-nav .main-menu:after, .main-footer .footer:after {
+.floater:after, .nav-stripes:after, .sticky-nav nav:after, .sticky-nav .main-menu:after, .main-footer .footer:after, .small-footer .footer:after {
   clear: left;
   content: "";
   display: table; }
@@ -463,19 +532,19 @@ th {
     transition: opacity 0.25s;
     margin-right: 15px;
     width: 719.247px; }
-  .sticky-nav nav input {
-    height: 48px;
-    margin: 0;
-    padding: 0;
-    border: 1px solid black;
-    outline: none;
-    background-color: white;
-    float: left; }
-  .sticky-nav nav input[type=text] {
-    width: 660.247px;
-    border-right: none;
-    height: 46px;
-    padding: 0 5px; }
+    .sticky-nav nav form input {
+      height: 48px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid black;
+      outline: none;
+      background-color: white;
+      float: left; }
+    .sticky-nav nav form input[type=text] {
+      width: 660.247px;
+      border-right: none;
+      height: 46px;
+      padding: 0 5px; }
   .sticky-nav nav input[type=submit] {
     width: 48px;
     border-left: none; }
@@ -622,6 +691,39 @@ th {
         text-align: right;
         font-family: 'social'; }
 
+/* SMALL FOOTER */
+.small-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+  .small-footer .footer {
+    margin-top: 0 !important;
+    margin-bottom: 0; }
+    .small-footer .footer p {
+      font-size: 14px;
+      line-height: 16px;
+      margin-bottom: 16px; }
+    .small-footer .footer .first-column {
+      width: 148.166px;
+      margin-right: 15px; }
+      .small-footer .footer .first-column p {
+        margin-left: 163.166px; }
+        .small-footer .footer .first-column p.logo {
+          font-size: 20px;
+          line-height: 25px;
+          float: left;
+          margin-left: 0; }
+      .small-footer .footer .first-column .social {
+        clear: both; }
+        .small-footer .footer .first-column .social li {
+          width: 35px;
+          float: left;
+          font-family: 'social'; }
+    .small-footer .footer .second-column {
+      width: 148.166px; }
+      .small-footer .footer .second-column p a {
+        font-weight: bold; }
+
 .ps-container > .ps-scrollbar-y-rail {
   border-radius: 0;
   width: 4px; }
@@ -675,7 +777,7 @@ th {
   font-weight: normal;
   font-style: normal; }
 /* Headres sizes */
-.reset, p, .typo-h1, h1, .slide-down a, .typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .biuletyn article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .typo-h3, h3, .text-column article h2, .article section.post article h2, .info article h2, .edu article h2, .single-lesson article h2, .biuletyn article h2, .typo-h4, h4, .text-column article h3, .article section.post article h3, .info article h3, .edu article h3, .single-lesson article h3, .biuletyn article h3 {
+.reset, p, .typo-h1, h1, .slide-down a, .typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .typo-h3, h3, .text-column article h2, .article section.post article h2, .edu article h2, .info article h2, .single-lesson article h2, .typo-h4, h4, .text-column article h3, .article section.post article h3, .edu article h3, .info article h3, .single-lesson article h3 {
   margin: 0;
   padding: 0;
   vertical-align: baseline; }
@@ -691,19 +793,19 @@ p {
   text-align: left;
   margin-bottom: 6px; }
 
-.typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .biuletyn article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a {
+.typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a {
   font-size: 30px;
   font-weight: bold;
   line-height: 1.2;
   text-align: left;
   margin-bottom: 6px; }
 
-.typo-h3, h3, .text-column article h2, .article section.post article h2, .info article h2, .edu article h2, .single-lesson article h2, .biuletyn article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a, .biuletyn article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .biuletyn article ul > li > a {
+.typo-h3, h3, .text-column article h2, .article section.post article h2, .edu article h2, .info article h2, .single-lesson article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a {
   font-size: 21px;
   text-align: left;
   margin-bottom: 6px; }
 
-.typo-h4, h4, .text-column article h3, .article section.post article h3, .info article h3, .edu article h3, .single-lesson article h3, .biuletyn article h3 {
+.typo-h4, h4, .text-column article h3, .article section.post article h3, .edu article h3, .info article h3, .single-lesson article h3 {
   font-size: 16px;
   text-align: left;
   margin-bottom: 6px; }
@@ -711,8 +813,6 @@ p {
 /* Lists */
 ul {
   list-style: none; }
-  ul ul {
-    margin-left: 1rem; }
 
 ul, li {
   margin: 0;
@@ -725,79 +825,36 @@ a {
   a:hover {
     opacity: 0.6; }
 
-/*** MA's styles ***/
-html {
-  overflow-y: scroll;
-  font-size: 16px;
-  line-height: 1.5; }
-
-body {
-  font-family: "Maison", sans-serif;
-  position: relative;
-  height: auto;
-  min-height: 100vh;
-  overflow: auto;
-  /*
-  padding-bottom: 200px;
-  */ }
-
-.row, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, .highlight .owl-carousel .item .text-box, section {
-  width: 963.996px;
-  margin-top: 0;
-  margin-right: auto;
-  margin-bottom: 30px;
-  margin-left: auto; }
-
-/* Menu */
-.icon {
-  font-family: 'MArch';
-  font-size: inherit; }
-
-.stripe, .nav-stripes .first, .nav-stripes .second, .main-footer .footer .first-column, .main-footer .footer .second-column, .main-footer .footer .third-column {
-  border-top-width: 8px;
-  border-top-style: solid;
-  padding-top: 10px; }
-
-.small-stripe, .brick h1, .brick .slide-down a, .slide-down .brick a, .text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .biuletyn article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a {
-  border-top-width: 4px;
-  border-top-style: solid;
-  padding-top: 5px; }
-
-section:not(.highlight):first-of-type {
-  margin-top: 135px; }
-section:last-of-type {
-  margin-bottom: 250px; }
-
-/* TYPOGRAPHY */
 /* Brakuj─ůce spacje przed italikami i boldem */
 a:before, em:before, strong:before {
   content: " "; }
 
 /* Szeroko┼Ť─ç kolumny tekstowej */
-.text-column, .article section.post, .info, .edu, .single-lesson, .biuletyn {
+.text-column, .article section.post, .edu, .info, .single-lesson {
   width: 637.664px;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px; }
-  .text-column header, .article section.post header, .info header, .edu header, .single-lesson header, .biuletyn header {
+  .text-column header, .article section.post header, .edu header, .info header, .single-lesson header {
     margin-bottom: 24px; }
-    .text-column header h1, .article section.post header h1, .info header h1, .edu header h1, .single-lesson header h1, .biuletyn header h1, .text-column header .slide-down a, .slide-down .text-column header a, .article section.post header .slide-down a, .slide-down .article section.post header a, .info header .slide-down a, .slide-down .info header a, .edu header .slide-down a, .slide-down .edu header a, .single-lesson header .slide-down a, .slide-down .single-lesson header a, .biuletyn header .slide-down a, .slide-down .biuletyn header a {
+    .text-column header h1, .article section.post header h1, .edu header h1, .info header h1, .single-lesson header h1, .text-column header .slide-down a, .slide-down .text-column header a, .article section.post header .slide-down a, .slide-down .article section.post header a, .edu header .slide-down a, .slide-down .edu header a, .info header .slide-down a, .slide-down .info header a, .single-lesson header .slide-down a, .slide-down .single-lesson header a {
       text-transform: uppercase; }
-    .text-column header h2, .article section.post header h2, .info header h2, .edu header h2, .single-lesson header h2, .biuletyn header h2, .text-column header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column header ul > li > a, .article section.post header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post header ul > li > a, .info header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info header ul > li > a, .edu header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu header ul > li > a, .single-lesson header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson header ul > li > a, .biuletyn header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .biuletyn header ul > li > a {
+    .text-column header h2, .article section.post header h2, .edu header h2, .info header h2, .single-lesson header h2, .text-column header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column header ul > li > a, .article section.post header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post header ul > li > a, .edu header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu header ul > li > a, .info header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info header ul > li > a, .single-lesson header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson header ul > li > a {
       margin-bottom: 7px; }
-  .text-column article img, .article section.post article img, .info article img, .edu article img, .single-lesson article img, .biuletyn article img {
+  .text-column article img, .article section.post article img, .edu article img, .info article img, .single-lesson article img {
     max-width: 100%; }
-  .text-column article a:before, .article section.post article a:before, .info article a:before, .edu article a:before, .single-lesson article a:before, .biuletyn article a:before {
+  .text-column article a:before, .article section.post article a:before, .edu article a:before, .info article a:before, .single-lesson article a:before {
     content: " "; }
-  .text-column article a:hover, .article section.post article a:hover, .info article a:hover, .edu article a:hover, .single-lesson article a:hover, .biuletyn article a:hover {
+  .text-column article a:hover, .article section.post article a:hover, .edu article a:hover, .info article a:hover, .single-lesson article a:hover {
     color: white;
     background-color: black;
     opacity: 1; }
-  .text-column article ul, .article section.post article ul, .info article ul, .edu article ul, .single-lesson article ul, .biuletyn article ul {
+  .text-column article ul, .article section.post article ul, .edu article ul, .info article ul, .single-lesson article ul {
     margin-bottom: 24px; }
 
-/* POST */
+/* Pages */
+/* ARTICLE if for exhibitions and events */
 .article > header {
   background-position: center;
   background-repeat: no-repeat;
@@ -820,35 +877,32 @@ a:before, em:before, strong:before {
 .article section.post header .event-list a:after {
   content: " > "; }
 
-/* TO POWINNO BY─ç GLOBALNE: */
-.color-label, .tag, .event, .oppening, .edu-lessons li.przedszkola, .edu-lessons li.klasy-0-3, .edu-lessons li.klasy-4-6, .edu-lessons li.gimnazjum, .edu-lessons li.szkoly-ponadgimnazjalne, .edu-lessons li.wyklady-dla-mlodziezy {
-  color: white;
-  font-weight: normal;
-  padding: 0 6px; }
-
-.tag {
-  background-color: lightgrey; }
-
-.event {
-  background-color: black; }
-
-.oppening {
-  background-color: red; }
-
-.news > h1, .slide-down .news > a {
-  margin-bottom: 24px; }
-
-/* EXHIBITIONS */
-.exhibitions > h1, .slide-down .exhibitions > a {
-  margin-bottom: 24px; }
-
-/* INFO */
 /* EDU */
 .edu article ul {
   list-style: disc; }
 .edu article li {
   margin-bottom: 12px; }
 
+.edu-lessons header {
+  margin-bottom: 12px; }
+  .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
+    margin-bottom: 24px; }
+.edu-lessons .edu-categories {
+  overflow: auto; }
+  .edu-lessons .edu-categories a:before {
+    content: none; }
+  .edu-lessons .edu-categories li {
+    float: left;
+    margin-right: 8px; }
+    .edu-lessons .edu-categories li.inactive-filter {
+      opacity: 0.4; }
+    .edu-lessons .edu-categories li.label {
+      color: black; }
+    .edu-lessons .edu-categories li .clear-filter {
+      margin-left: 5px;
+      border-left: white 1px solid;
+      padding-left: 5px;
+      display: none; }
 .edu-lessons .przedszkola h1, .edu-lessons .przedszkola .slide-down a, .slide-down .edu-lessons .przedszkola a {
   border-color: #3abb4a; }
 .edu-lessons li.przedszkola {
@@ -873,26 +927,14 @@ a:before, em:before, strong:before {
   border-color: #ff5e57; }
 .edu-lessons li.wyklady-dla-mlodziezy {
   background-color: #ff5e57; }
-.edu-lessons header {
-  margin-bottom: 12px; }
-  .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
-    margin-bottom: 24px; }
-.edu-lessons .edu-categories {
-  overflow: auto; }
-  .edu-lessons .edu-categories a:before {
-    content: none; }
-  .edu-lessons .edu-categories li {
-    float: left;
-    margin-right: 8px; }
-    .edu-lessons .edu-categories li.inactive-filter {
-      opacity: 0.4; }
-    .edu-lessons .edu-categories li.label {
-      color: black; }
-    .edu-lessons .edu-categories li .clear-filter {
-      margin-left: 5px;
-      border-left: white 1px solid;
-      padding-left: 5px;
-      display: none; }
+
+/* EXHIBITIONS */
+.exhibitions > h1, .slide-down .exhibitions > a {
+  margin-bottom: 24px; }
+
+/* INFO */
+.info article {
+  text-align: justify; }
 
 /* LESSON */
 .single-lesson header h1, .single-lesson header .slide-down a, .slide-down .single-lesson header a {
@@ -926,27 +968,8 @@ a:before, em:before, strong:before {
 .single-lesson article {
   text-align: justify; }
 
-/* INFO-BANNER */
-.info-banner {
-  color: white;
-  background-color: black;
-  padding: 15px; }
-  .info-banner p {
-    margin-bottom: 0; }
-
 /* MAINTENANCE */
 section.maintenance {
   margin-bottom: 450px; }
-
-/* 2.02.2016 */
-/* BIP */
-.biuletyn article ul ul {
-  margin-bottom: 0; }
-.biuletyn article li {
-  margin-top: 3px;
-  margin-bottom: 3px; }
-
-.text-column article h1, .article section.post article h1, .info article h1, .edu article h1, .single-lesson article h1, .biuletyn article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .info article .slide-down a, .slide-down .info article a, .edu article .slide-down a, .slide-down .edu article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a {
-  margin-bottom: 12px; }
 
 /*# sourceMappingURL=main.css.map */
