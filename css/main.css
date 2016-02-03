@@ -663,7 +663,7 @@ section:last-of-type {
   .main-footer .footer {
     margin-top: 0 !important;
     margin-bottom: 0; }
-    .main-footer .footer p {
+    .main-footer .footer p, .main-footer .footer ul {
       font-size: 14px;
       line-height: 16px;
       margin-bottom: 16px; }
@@ -683,6 +683,8 @@ section:last-of-type {
       .main-footer .footer .second-column p {
         text-align: right;
         font-weight: bold; }
+      .main-footer .footer .second-column .yyy {
+        text-align: right; }
     .main-footer .footer .third-column {
       width: 148.166px; }
       .main-footer .footer .third-column .social li {
@@ -933,8 +935,9 @@ a:before, em:before, strong:before {
   margin-bottom: 24px; }
 
 /* INFO */
-.info article {
-  text-align: justify; }
+.info article .article-anchor {
+  padding-top: 120px;
+  margin-top: -144px; }
 
 /* LESSON */
 .single-lesson header h1, .single-lesson header .slide-down a, .slide-down .single-lesson header a {

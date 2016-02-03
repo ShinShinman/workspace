@@ -4,6 +4,10 @@
 	@extend .text-column;
 
 	article {
-		text-align: justify;
+		.article-anchor {
+			padding-top: 120px;
+			margin-top: -144px;
+		}
+
 	}
 }
