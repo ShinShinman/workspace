@@ -125,7 +125,8 @@ class MA
 			dots: true,
 			smartSpeed: 1000,
 			autoplay: true,
-			autoplayTimeout: 7000
+			autoplayTimeout: 7000,
+			smartSpeed: 800
 			# autoplayHoverPause: true
 		})
 		stickyNavSetup({
