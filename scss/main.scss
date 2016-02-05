@@ -23,6 +23,7 @@ body {
 	*/
 }
 
+/* Layout */
 .row {
 	width: columns-width(12);
 	margin-top: 0;
@@ -42,7 +43,7 @@ section {
 }
 
 
-/* TO POWINNO BYć GLOBALNE: */
+/* TO POWINNO BYć GLOBALNE: --> character stylez */
 .icon {
 	font-family: 'MArch';
 	font-size: inherit;
@@ -94,6 +95,16 @@ section {
 
 	p {
 		margin-bottom: 0;
+	}
+}
+
+
+/* Text column */
+.text-column {
+	article {
+		h1 {
+			margin-bottom: 12px;
+		}
 	}
 }
 

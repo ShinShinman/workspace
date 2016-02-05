@@ -1,0 +1,10 @@
+/* BIP */
+
+.biuletyn {
+	@extend .text-column;
+
+	ul ul {
+		margin-left: 1rem;
+		margin-bottom: 0;
+	}
+}
