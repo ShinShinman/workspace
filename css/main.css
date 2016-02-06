@@ -400,7 +400,7 @@ section:last-of-type {
   border-top-style: solid;
   padding-top: 5px; }
 
-.color-label, .tag, .event, .oppening, .edu-lessons li.przedszkola, .edu-lessons li.klasy-0-3, .edu-lessons li.klasy-4-6, .edu-lessons li.gimnazjum, .edu-lessons li.szkoly-ponadgimnazjalne, .edu-lessons li.wyklady-dla-mlodziezy {
+.color-label, .tag, .event, .oppening, .edu-items li.przedszkola, .edu-items li.klasy-0-3, .edu-items li.klasy-4-6, .edu-items li.gimnazjum, .edu-items li.szkoly-ponadgimnazjalne, .edu-items li.wyklady-dla-mlodziezy, .edu-items li.dla-dzieci, .edu-items li.dla-nauczycieli, .edu-items li.gry, li.wyklady-dla-mlodziezy {
   color: white;
   font-weight: normal;
   padding: 0 6px; }
@@ -825,11 +825,20 @@ ul, li {
   margin: 0;
   padding: 0; }
 
+ul.inline-list {
+  overflow: hidden; }
+  ul.inline-list li {
+    float: left;
+    margin-right: 16px;
+    font-weight: bold; }
+
 /* Links */
 a {
   text-decoration: none;
   color: inherit; }
   a:hover {
+    opacity: 0.6; }
+  a.active {
     opacity: 0.6; }
 
 /* Brakuj─ůce spacje przed italikami i boldem */
@@ -889,54 +898,76 @@ a:before, em:before, strong:before {
   margin-top: -24px; }
 
 /* EDU */
+.edu header h1, .edu header .slide-down a, .slide-down .edu header a {
+  margin-bottom: 12px; }
 .edu article ul {
   list-style: disc; }
 .edu article li {
   margin-bottom: 12px; }
 
-.edu-lessons header {
-  margin-bottom: 12px; }
-  .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
-    margin-bottom: 24px; }
-.edu-lessons .edu-categories {
-  overflow: auto; }
-  .edu-lessons .edu-categories a:before {
-    content: none; }
-  .edu-lessons .edu-categories li {
-    float: left;
-    margin-right: 8px; }
-    .edu-lessons .edu-categories li.inactive-filter {
-      opacity: 0.4; }
-    .edu-lessons .edu-categories li.label {
-      color: black; }
-    .edu-lessons .edu-categories li .clear-filter {
-      margin-left: 5px;
-      border-left: white 1px solid;
-      padding-left: 5px;
-      display: none; }
-.edu-lessons .przedszkola h1, .edu-lessons .przedszkola .slide-down a, .slide-down .edu-lessons .przedszkola a {
-  border-color: #3abb4a; }
-.edu-lessons li.przedszkola {
-  background-color: #3abb4a; }
-.edu-lessons .klasy-0-3 h1, .edu-lessons .klasy-0-3 .slide-down a, .slide-down .edu-lessons .klasy-0-3 a {
-  border-color: #3abb4a; }
-.edu-lessons li.klasy-0-3 {
-  background-color: #3abb4a; }
-.edu-lessons .klasy-4-6 h1, .edu-lessons .klasy-4-6 .slide-down a, .slide-down .edu-lessons .klasy-4-6 a {
-  border-color: #6f9bff; }
-.edu-lessons li.klasy-4-6 {
-  background-color: #6f9bff; }
-.edu-lessons .gimnazjum h1, .edu-lessons .gimnazjum .slide-down a, .slide-down .edu-lessons .gimnazjum a {
-  border-color: #d45fc5; }
-.edu-lessons li.gimnazjum {
-  background-color: #d45fc5; }
-.edu-lessons .szkoly-ponadgimnazjalne h1, .edu-lessons .szkoly-ponadgimnazjalne .slide-down a, .slide-down .edu-lessons .szkoly-ponadgimnazjalne a {
-  border-color: #38bfac; }
-.edu-lessons li.szkoly-ponadgimnazjalne {
-  background-color: #38bfac; }
-.edu-lessons .wyklady-dla-mlodziezy h1, .edu-lessons .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-lessons .wyklady-dla-mlodziezy a {
+.edu-items {
+  /* Materia┼éy do pobrania */ }
+  .edu-items header {
+    margin-bottom: 12px; }
+    .edu-items header h1, .edu-items header .slide-down a, .slide-down .edu-items header a {
+      margin-bottom: 24px; }
+  .edu-items .edu-categories {
+    overflow: auto; }
+    .edu-items .edu-categories a:before {
+      content: none; }
+    .edu-items .edu-categories li {
+      float: left;
+      margin-right: 8px; }
+      .edu-items .edu-categories li.inactive-filter {
+        opacity: 0.4; }
+      .edu-items .edu-categories li.label {
+        color: black; }
+      .edu-items .edu-categories li .clear-filter {
+        margin-left: 5px;
+        border-left: white 1px solid;
+        padding-left: 5px;
+        display: none; }
+  .edu-items .przedszkola h1, .edu-items .przedszkola .slide-down a, .slide-down .edu-items .przedszkola a {
+    border-color: #3abb4a; }
+  .edu-items li.przedszkola {
+    background-color: #3abb4a; }
+  .edu-items .klasy-0-3 h1, .edu-items .klasy-0-3 .slide-down a, .slide-down .edu-items .klasy-0-3 a {
+    border-color: #3abb4a; }
+  .edu-items li.klasy-0-3 {
+    background-color: #3abb4a; }
+  .edu-items .klasy-4-6 h1, .edu-items .klasy-4-6 .slide-down a, .slide-down .edu-items .klasy-4-6 a {
+    border-color: #6f9bff; }
+  .edu-items li.klasy-4-6 {
+    background-color: #6f9bff; }
+  .edu-items .gimnazjum h1, .edu-items .gimnazjum .slide-down a, .slide-down .edu-items .gimnazjum a {
+    border-color: #d45fc5; }
+  .edu-items li.gimnazjum {
+    background-color: #d45fc5; }
+  .edu-items .szkoly-ponadgimnazjalne h1, .edu-items .szkoly-ponadgimnazjalne .slide-down a, .slide-down .edu-items .szkoly-ponadgimnazjalne a {
+    border-color: #38bfac; }
+  .edu-items li.szkoly-ponadgimnazjalne {
+    background-color: #38bfac; }
+  .edu-items .wyklady-dla-mlodziezy h1, .edu-items .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-items .wyklady-dla-mlodziezy a {
+    border-color: #ff5e57; }
+  .edu-items li.wyklady-dla-mlodziezy {
+    background-color: #ff5e57; }
+  .edu-items .dla-dzieci h1, .edu-items .dla-dzieci .slide-down a, .slide-down .edu-items .dla-dzieci a {
+    border-color: #9ea1a9; }
+  .edu-items li.dla-dzieci {
+    background-color: #9ea1a9; }
+  .edu-items .dla-nauczycieli h1, .edu-items .dla-nauczycieli .slide-down a, .slide-down .edu-items .dla-nauczycieli a {
+    border-color: #565656; }
+  .edu-items li.dla-nauczycieli {
+    background-color: #565656; }
+  .edu-items .gry h1, .edu-items .gry .slide-down a, .slide-down .edu-items .gry a {
+    border-color: red; }
+  .edu-items li.gry {
+    background-color: red; }
+
+.wyklady-dla-mlodziezy h1, .wyklady-dla-mlodziezy .slide-down a, .slide-down .wyklady-dla-mlodziezy a {
   border-color: #ff5e57; }
-.edu-lessons li.wyklady-dla-mlodziezy {
+
+li.wyklady-dla-mlodziezy {
   background-color: #ff5e57; }
 
 /* EXHIBITIONS */

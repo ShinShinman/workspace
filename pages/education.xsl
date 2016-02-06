@@ -33,6 +33,10 @@
 	<section class="edu">
 		<header>
 			<h1><xsl:value-of select="title" /></h1>
+			<ul class="inline-list">
+				<li><a href="javascript:void(0)" class="active">Lekcje muzealne</a></li>
+				<li><a href="{$root}/{$current-path}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
+			</ul>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
@@ -41,7 +45,7 @@
 </xsl:template>
 
 <xsl:template match="edu-lessons">
-	<section class="edu-lessons">
+	<section class="edu-items">
 		<header>
 			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'lekcje-muzealne-i-wyklady-dla-mlodziezy']" /></h1>
 			<ul class="edu-categories">
@@ -56,7 +60,7 @@
 </xsl:template>
 
 <xsl:template match="edu-categories/entry">
-	<li class="{edu-category/@handle-pl}"><a href="javascript:void(0)" data-filter="{edu-category/@handle}"><xsl:value-of select="edu-category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
+	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
 </xsl:template>
 
 <xsl:template match="edu-lessons/entry">

@@ -33,7 +33,7 @@
 	<section class="single-lesson">
 		<header class="donthyphenate">
 			<h1><xsl:value-of select="title" /></h1>
-			<p class="edu-categories"><span class="{edu-category/item/edu-category/@handle}"><xsl:value-of select="edu-category/item/edu-category" /></span></p>
+			<p class="edu-categories"><span class="{category/item/category/@handle}"><xsl:value-of select="category/item/category" /></span></p>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
@@ -42,7 +42,7 @@
 </xsl:template>
 
 <xsl:template match="edu-lessons">
-	<section class="edu-lessons">
+	<section class="edu-items">
 		<header>
 			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'pozostale-lekcje-i-wyklady']" /></h1>
 			<ul class="edu-categories">
@@ -57,7 +57,7 @@
 </xsl:template>
 
 <xsl:template match="edu-categories/entry">
-	<li class="{edu-category/@handle}"><a href="javascript:void(0)" data-filter="{edu-category/@handle}"><xsl:value-of select="edu-category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
+	<li class="{category/@handle}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
 </xsl:template>
 
 <xsl:template match="edu-lessons/entry">

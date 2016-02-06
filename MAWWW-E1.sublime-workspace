@@ -4,8 +4,12 @@
 		"selected_items":
 		[
 			[
+				"fon",
+				"font-weight"
+			],
+			[
 				"mar",
-				"margin	(main.scss)"
+				"margin-right"
 			],
 			[
 				"appl",
@@ -122,10 +126,6 @@
 			[
 				"api",
 				"apiTest"
-			],
-			[
-				"fon",
-				"font"
 			],
 			[
 				"flo",
@@ -528,16 +528,16 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "inst",
+		"last_filter": "css",
 		"selected_items":
 		[
 			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
 				"css",
 				"Set Syntax: CSS"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
 			],
 			[
 				"html",
@@ -652,7 +652,7 @@
 				"Preferences: Settings - Default"
 			]
 		],
-		"width": 400.0
+		"width": 424.0
 	},
 	"console":
 	{
@@ -674,14 +674,23 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_links.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/.git/info/exclude",
 		"/Z/MA Werkbund/.syignore",
 		"/C/Users/shinman/Desktop/MA Werkbund/.syignore",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bip.scss",
@@ -698,10 +707,8 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_maintenance.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
 		"/C/Users/shinman/Downloads/KeePass2.31/XSL/KDBX_PasswordsOnly.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/Windows/System32/drivers/etc/hosts",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
@@ -716,7 +723,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/maintenance.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/education.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_links.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
@@ -752,7 +758,6 @@
 		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/index.php",
 		"/C/Users/shinman/Desktop/imagemini/gulpfile.js",
 		"/C/Users/shinman/Desktop/nmap.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
 		"/C/Users/shinman/Documents/GitHub/ma/.gitignore",
@@ -803,9 +808,7 @@
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.coffee",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.coffee",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/object.js",
-		"/C/Users/shinman/Desktop/CoffeeScript Sink/test.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.theme.default.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.carousel.css"
+		"/C/Users/shinman/Desktop/CoffeeScript Sink/test.coffee"
 	],
 	"find":
 	{
