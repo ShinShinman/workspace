@@ -25,18 +25,15 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-aid-header/entry" />
+	<xsl:apply-templates select="edu-one-aid/entry" />
 	<xsl:apply-templates select="edu-aid" />
 </xsl:template>
 
-<xsl:template match="edu-aid-header/entry">
-	<section class="edu">
-		<header>
+<xsl:template match="edu-one-aid/entry">
+	<section class="single-aid">
+		<header class="donthyphenate">
 			<h1><xsl:value-of select="title" /></h1>
-			<ul class="inline-list">
-				<li><a href="{$root}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/lekcje-muzealne">Lekcje muzealne</a></li>
-				<li><a href="javascript:void(0)" class="active">Materiały do pobrania</a></li>
-			</ul>
+			<p class="edu-categories"><span class="{category/item/category/@handle}"><xsl:value-of select="category/item/category" /></span></p>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
@@ -47,20 +44,20 @@
 <xsl:template match="edu-aid">
 	<section class="edu-items">
 		<header>
-			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></h1>
+			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'pozostale-lekcje-i-wyklady']" /></h1>
 			<ul class="edu-categories">
 				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
 				<xsl:apply-templates select="//edu-aid-categories/entry" />
 			</ul>
 		</header>
 		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
+			<xsl:apply-templates select="./entry[not(@id = //edu-one-aid/entry/@id)]" />
 		</div>
 	</section>
 </xsl:template>
 
 <xsl:template match="edu-aid-categories/entry">
-	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
+	<li class="{category/@handle}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
 </xsl:template>
 
 <xsl:template match="edu-aid/entry">
@@ -68,7 +65,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //dictionary/entry/word[@handle-en = $root-page], '/materialy-do-pobrania/')" />
 </xsl:template>
 
 <xsl:template match="data" mode="js">

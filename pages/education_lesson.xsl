@@ -65,7 +65,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //dictionary/entry/word[@handle-en = $root-page])" />
+	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //dictionary/entry/word[@handle-en = $root-page], '/lekcje-muzealne/')" />
 </xsl:template>
 
 <xsl:template match="data" mode="js">

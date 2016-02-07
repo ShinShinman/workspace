@@ -8,12 +8,30 @@
 
 		<article>
 			<xsl:attribute name="class">brick<xsl:apply-templates select="category/item" /></xsl:attribute>
-			<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-en = $root-page]}/{//dictionary//word[@handle-pl = 'lekcja']/@handle}/{title/@handle}">
+			<a>
+				<xsl:attribute name="href">
+					<xsl:choose>
+						<xsl:when test="name(..) = 'edu-lessons'">
+							<xsl:call-template name="lesson" />
+						</xsl:when>
+						<xsl:when test="name(..) = 'edu-aid'">
+							<xsl:call-template name="aid" />
+						</xsl:when>
+					</xsl:choose>
+				</xsl:attribute>
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 				<!--<xsl:copy-of select="lead/node()" />-->
 			</a>
 		</article>
 
+	</xsl:template>
+
+	<xsl:template name="lesson">
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', //dictionary//word[@handle-pl = 'lekcja']/@handle, '/', title/@handle)" />
+	</xsl:template>
+
+	<xsl:template name="aid">
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'do-pobrania', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template match="category/item">
