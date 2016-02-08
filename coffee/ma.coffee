@@ -229,32 +229,97 @@ class MA
 
 window.MA = new MA()
 
+getHashFilter = ->
+  hash = location.hash
+  # get filter=filterName
+  matches = location.hash.match(/filter=([^&]+)/i)
+  hashFilter = matches and matches[1]
+  hashFilter and decodeURIComponent(hashFilter)
+
+
+
 # jQuery
 $ ->
 	console.log 'DOM is ready!'
 	window.MA.init()
 
-	filters = $('.edu-categories li a:not(.clear-filter)')
+	filters = $('.edu-categories li')
+	filterTriggers = $('.edu-categories li a:not(.clear-filter)')
 
 	clear = $('.edu-categories li a.clear-filter')
 	
 	clear.click (e) ->
 		e.preventDefault()
-		filters.parent().removeClass('inactive-filter')
+		filters.removeClass('inactive-filter')
 		$(@).hide()
+		history.pushState '', document.title, window.location.pathname
 		$('.bricks-container').isotope({
 				filter: '*'
 			})
 
-	filters.click (e) ->
+	filterTriggers.click (e) ->
 		e.preventDefault()
-		filters.parent().addClass('inactive-filter')
+		filters.addClass('inactive-filter')
 		$(@).parent().removeClass('inactive-filter')
-		filters.parent().find('.clear-filter').hide()
+		filters.find('.clear-filter').hide()
 		$(@).parent().find('.clear-filter').show()
+		location.hash = 'filter=' + encodeURIComponent( $(@).data('filter') )
+		###
 		$('.bricks-container').isotope({
 				filter: '.' + $(@).data('filter')
 			})
-	
-	filters.find('span').click ->
-		console.log $(@)
+		###
+
+	onHashchange = ->
+		hashFilter = getHashFilter()
+		if !hashFilter
+		  return
+		# filter isotope
+		filters.addClass('inactive-filter')
+		filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show()
+		$('.bricks-container').isotope
+			filter: '.' + hashFilter
+
+	$(window).on 'hashchange', onHashchange
+	# trigger event handler to init Isotope
+	onHashchange()
+
+
+
+###
+$( function() {
+
+  var $container = $('.isotope');
+
+  // bind filter button click
+  var $filters = $('#filters').on( 'click', 'button', function() {
+    var filterAttr = $( this ).attr('data-filter');
+    // set filter in hash
+    location.hash = 'filter=' + encodeURIComponent( filterAttr );
+  });
+
+  var isIsotopeInit = false;
+
+  function onHashchange() {
+    var hashFilter = getHashFilter();
+    if ( !hashFilter && isIsotopeInit ) {
+      return;
+    }
+    isIsotopeInit = true;
+    // filter isotope
+    $container.isotope({
+      itemSelector: '.element-item',
+      filter: hashFilter
+    });
+    // set selected class on button
+    if ( hashFilter ) {
+      $filters.find('.is-checked').removeClass('is-checked');
+      $filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
+    }
+  }
+
+  $(window).on( 'hashchange', onHashchange );
+  // trigger event handler to init Isotope
+  onHashchange();
+});
+###

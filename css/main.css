@@ -431,6 +431,9 @@ section:last-of-type {
   margin-bottom: 12px; }
 
 /* Utilities */
+.bricks-container {
+  min-height: 200px; }
+
 .brick {
   width: 311.332px;
   margin-bottom: 24px; }

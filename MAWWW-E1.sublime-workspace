@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"hash",
+				"hashFilter"
+			],
+			[
+				"fil",
+				"filters"
+			],
+			[
+				"ha",
+				"hashFilter"
+			],
+			[
+				"mat",
+				"matches"
+			],
+			[
+				"get",
+				"getHashFilter"
+			],
+			[
 				"a",
 				"attribute"
 			],
@@ -432,10 +452,6 @@
 				"vertical	(newsletter2.1.html)"
 			],
 			[
-				"mat",
-				"match"
-			],
-			[
 				"value",
 				"value-of"
 			],
@@ -498,22 +514,6 @@
 			[
 				"sub",
 				"submit"
-			],
-			[
-				"langu",
-				"language	(master.xsl)"
-			],
-			[
-				"lang",
-				"language	(master.xsl)"
-			],
-			[
-				"rig",
-				"right"
-			],
-			[
-				"positi",
-				"position"
 			]
 		]
 	},
@@ -675,12 +675,17 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
@@ -688,17 +693,14 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_links.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.git/info/exclude",
 		"/Z/MA Werkbund/.syignore",
 		"/C/Users/shinman/Desktop/MA Werkbund/.syignore",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bip.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
@@ -745,7 +747,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Installed Packages/Crypto.sublime-package",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
@@ -826,6 +827,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"filters",
+			"var ",
 			"lesson",
 			"158, 161, 169",
 			"rgb(255, 94, 87)",
@@ -951,9 +954,7 @@
 			"Newsletter",
 			"privacy-polcy",
 			"newsletter-info",
-			"0",
-			"closeBtn",
-			"<hr"
+			"0"
 		],
 		"highlight": true,
 		"in_selection": false,

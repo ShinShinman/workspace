@@ -1,5 +1,5 @@
 (function() {
-  var MA;
+  var MA, getHashFilter;
 
   MA = (function() {
     var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
@@ -242,33 +242,97 @@
 
   window.MA = new MA();
 
+  getHashFilter = function() {
+    var hash, hashFilter, matches;
+    hash = location.hash;
+    matches = location.hash.match(/filter=([^&]+)/i);
+    hashFilter = matches && matches[1];
+    return hashFilter && decodeURIComponent(hashFilter);
+  };
+
   $(function() {
-    var clear, filters;
+    var clear, filterTriggers, filters, onHashchange;
     console.log('DOM is ready!');
     window.MA.init();
-    filters = $('.edu-categories li a:not(.clear-filter)');
+    filters = $('.edu-categories li');
+    filterTriggers = $('.edu-categories li a:not(.clear-filter)');
     clear = $('.edu-categories li a.clear-filter');
     clear.click(function(e) {
       e.preventDefault();
-      filters.parent().removeClass('inactive-filter');
+      filters.removeClass('inactive-filter');
       $(this).hide();
+      history.pushState('', document.title, window.location.pathname);
       return $('.bricks-container').isotope({
         filter: '*'
       });
     });
-    filters.click(function(e) {
+    filterTriggers.click(function(e) {
       e.preventDefault();
-      filters.parent().addClass('inactive-filter');
+      filters.addClass('inactive-filter');
       $(this).parent().removeClass('inactive-filter');
-      filters.parent().find('.clear-filter').hide();
+      filters.find('.clear-filter').hide();
       $(this).parent().find('.clear-filter').show();
+      return location.hash = 'filter=' + encodeURIComponent($(this).data('filter'));
+
+      /*
+      		$('.bricks-container').isotope({
+      				filter: '.' + $(@).data('filter')
+      			})
+       */
+    });
+    onHashchange = function() {
+      var hashFilter;
+      hashFilter = getHashFilter();
+      if (!hashFilter) {
+        return;
+      }
+      filters.addClass('inactive-filter');
+      filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show();
       return $('.bricks-container').isotope({
-        filter: '.' + $(this).data('filter')
+        filter: '.' + hashFilter
       });
-    });
-    return filters.find('span').click(function() {
-      return console.log($(this));
-    });
+    };
+    $(window).on('hashchange', onHashchange);
+    return onHashchange();
   });
+
+
+  /*
+  $( function() {
+  
+    var $container = $('.isotope');
+  
+    // bind filter button click
+    var $filters = $('#filters').on( 'click', 'button', function() {
+      var filterAttr = $( this ).attr('data-filter');
+      // set filter in hash
+      location.hash = 'filter=' + encodeURIComponent( filterAttr );
+    });
+  
+    var isIsotopeInit = false;
+  
+    function onHashchange() {
+      var hashFilter = getHashFilter();
+      if ( !hashFilter && isIsotopeInit ) {
+        return;
+      }
+      isIsotopeInit = true;
+      // filter isotope
+      $container.isotope({
+        itemSelector: '.element-item',
+        filter: hashFilter
+      });
+      // set selected class on button
+      if ( hashFilter ) {
+        $filters.find('.is-checked').removeClass('is-checked');
+        $filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
+      }
+    }
+  
+    $(window).on( 'hashchange', onHashchange );
+    // trigger event handler to init Isotope
+    onHashchange();
+  });
+   */
 
 }).call(this);
