@@ -1,0 +1,9 @@
+/* BIP TENDERS */
+
+.tenders {
+	@extend .text-column;
+	
+	article {
+		margin-bottom: 24px;
+	}
+}
