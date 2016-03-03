@@ -34,7 +34,7 @@
 
 <xsl:template match="tenders/entry">
 		<article>
-			<h1><xsl:value-of select="title" /></h1>
+			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 			<xsl:copy-of select="lead/node()" />
 			<xsl:apply-templates select="documents" />
 		</article>
