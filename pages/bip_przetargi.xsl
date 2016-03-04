@@ -41,7 +41,7 @@
 </xsl:template>
 
 <xsl:template match="documents">
-	<h2>Documenty do pobrania</h2>
+	<h2>Dokumenty do pobrania</h2>
 	<ul>
 		<xsl:apply-templates select="file" />
 	</ul>
