@@ -56,7 +56,7 @@
 </xsl:template>
 
 <xsl:template match="edu-categories/entry">
-	<li class="{edu-category/@handle-pl}"><a href="javascript:void(0)" data-filter="{edu-category/@handle}"><xsl:value-of select="edu-category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
+	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
 </xsl:template>
 
 <xsl:template match="edu-lessons/entry">

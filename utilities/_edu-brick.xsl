@@ -7,7 +7,7 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article>
-			<xsl:attribute name="class">brick<xsl:apply-templates select="edu-category/item" /></xsl:attribute>
+			<xsl:attribute name="class">brick<xsl:apply-templates select="category/item" /></xsl:attribute>
 			<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-en = $root-page]}/{//dictionary//word[@handle-pl = 'lekcja']/@handle}/{title/@handle}">
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 				<!--<xsl:copy-of select="lead/node()" />-->
@@ -16,8 +16,8 @@
 
 	</xsl:template>
 
-	<xsl:template match="edu-category/item">
-		<xsl:text> </xsl:text><xsl:value-of select="edu-category/@handle-pl" />
+	<xsl:template match="category/item">
+		<xsl:text> </xsl:text><xsl:value-of select="category/@handle-pl" />
 	</xsl:template>
 
 	<xsl:template match="entry/date">

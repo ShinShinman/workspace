@@ -20,15 +20,15 @@ class datasourceedu_lessons extends SectionDatasource
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
         'lead: formatted',
-        'edu-category'
+        'category'
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
-        'edu-category' => array(
+        'category' => array(
             'section_id' => '14',
             'field_id' => '72',
             'elements' => array(
-                'edu-category: formatted'
+                'category: formatted'
             )
         )
     );
@@ -46,7 +46,7 @@ class datasourceedu_lessons extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-13T21:31:38+00:00'
+            'release-date' => '2016-03-10T19:56:21+00:00'
         );
     }
     public function getSource()

@@ -11,10 +11,10 @@ class datasourceedu_categories extends SectionDatasource
     public $dsParamREDIRECTONREQUIRED = 'no';
     public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
-    public $dsParamASSOCIATEDENTRYCOUNTS = 'yes';
+    public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'edu-category: formatted'
+        'category: formatted'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -31,7 +31,7 @@ class datasourceedu_categories extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-13T20:17:49+00:00'
+            'release-date' => '2016-03-10T15:55:07+00:00'
         );
     }
     public function getSource()
