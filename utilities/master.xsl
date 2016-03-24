@@ -60,7 +60,9 @@
 
 			<xsl:apply-templates />
 
-			<xsl:call-template name="footer" />
+			<xsl:call-template name="footer">
+				<xsl:with-param name="lang" select="//current-language/@handle" />
+			</xsl:call-template>
 
 			<script src="{$workspace}/js/main.min.js" ></script>
 			<script>
