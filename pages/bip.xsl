@@ -30,6 +30,7 @@
 <xsl:template match="bip/entry">
 	<section class="biuletyn">
 		<header>
+			<img src="{$workspace}/images/bip_logo.png" />
 			<h1><xsl:value-of select="title" /></h1>
 		</header>
 		<article>
