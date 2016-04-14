@@ -33,12 +33,19 @@
 	<section class="single-lesson">
 		<header class="donthyphenate">
 			<h1><xsl:value-of select="title" /></h1>
-			<p class="edu-categories"><span class="{category/item/category/@handle-pl}"><xsl:value-of select="category/item/category" /></span></p>
+			<!--<p class="edu-categories"><span class="{category/item/category/@handle-pl}"><xsl:value-of select="category/item/category" /></span></p>-->
+			<ul class="edu-categories">
+				<xsl:apply-templates select="category/item" />
+			</ul>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
 		</article>
 	</section>
+</xsl:template>
+
+<xsl:template match="category/item">
+	<li class="{category/@handle-pl}"><xsl:value-of select="category" /></li>
 </xsl:template>
 
 <xsl:template match="edu-lessons">

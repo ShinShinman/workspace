@@ -894,26 +894,27 @@ a:before, em:before, strong:before {
 .edu article li {
   margin-bottom: 12px; }
 
-.edu-lessons header {
-  margin-bottom: 12px; }
-  .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
-    margin-bottom: 24px; }
-.edu-lessons .edu-categories {
+.edu-categories {
   overflow: auto; }
-  .edu-lessons .edu-categories a:before {
+  .edu-categories a:before {
     content: none; }
-  .edu-lessons .edu-categories li {
+  .edu-categories li {
     float: left;
     margin-right: 8px; }
-    .edu-lessons .edu-categories li.inactive-filter {
+    .edu-categories li.inactive-filter {
       opacity: 0.4; }
-    .edu-lessons .edu-categories li.label {
+    .edu-categories li.label {
       color: black; }
-    .edu-lessons .edu-categories li .clear-filter {
+    .edu-categories li .clear-filter {
       margin-left: 5px;
       border-left: white 1px solid;
       padding-left: 5px;
       display: none; }
+
+.edu-lessons header {
+  margin-bottom: 12px; }
+  .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
+    margin-bottom: 24px; }
 .edu-lessons .przedszkola h1, .edu-lessons .przedszkola .slide-down a, .slide-down .edu-lessons .przedszkola a {
   border-color: #3abb4a; }
 .edu-lessons li.przedszkola {
@@ -977,8 +978,6 @@ a:before, em:before, strong:before {
   color: white;
   background-color: #ff5e57;
   padding: 0 6px; }
-.single-lesson article {
-  text-align: justify; }
 
 /* BIP */
 .biuletyn ul ul {
