@@ -1,7 +1,7 @@
 <?php
-class datasourceexhibition extends SectionDatasource
+class datasourceexhibitions_gjp extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibition';
+    public $dsParamROOTELEMENT = 'exhibitions-gjp';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -9,43 +9,14 @@ class datasourceexhibition extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '$title';
     public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-    
-    public $dsParamFILTERS = array(
-        '1' => '{$title}',
-        '30' => 'yes',
-    );
-        
+
     public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'title: all-languages: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'article: formatted',
-        'category',
-        'date: formatted',
-        'linked-event'
+        'article: formatted'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'category' => array(
-            'section_id' => '8',
-            'field_id' => '31',
-            'elements' => array(
-                'exhib-category: formatted'
-            )
-        ),
-        'linked-event' => array(
-            'section_id' => '11',
-            'field_id' => '50',
-            'elements' => array(
-                'title: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -54,18 +25,18 @@ class datasourceexhibition extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Exhibition',
+            'name' => 'Exhibitions-GJP',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-04-14T18:23:42+00:00'
+            'release-date' => '2016-04-14T18:52:57+00:00'
         );
     }
     public function getSource()
     {
-        return '1';
+        return '24';
     }
     public function allowEditorToParse()
     {
