@@ -39,7 +39,7 @@
 			</ul>
 			<h1><xsl:value-of select="title" /></h1>
 			<xsl:apply-templates select="subtitle" />
-			<h3 class="date"><xsl:value-of select="date" /></h3>
+			<h3 class="date"><xsl:copy-of select="date/p/node()" /></h3>
 			
 			<xsl:apply-templates select="tags" />
 			<!--
