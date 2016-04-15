@@ -7,3 +7,13 @@ ul, li {
   margin: 0;
   padding: 0;
 }
+
+ul.inline-list {
+	overflow: hidden;
+
+	li {
+		float: left;
+		margin-right: 16px;
+		font-weight: bold;
+	}
+}

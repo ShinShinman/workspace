@@ -24,7 +24,11 @@
 <xsl:include href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<section class="tenders">
+	<xsl:apply-templates select="bip-important-docs/entry" />
+</xsl:template>
+
+<xsl:template match="bip-important-docs/entry">
+	<section class="important-docs">
 		<header>
 			<h1>Biuletyn Informacji Publicznej</h1>
 			<ul class="inline-list">
@@ -32,9 +36,11 @@
 			</ul>
 		</header>
 		<article>
-			<h1>Aktualne przetargi</h1>
+			<h1><xsl:copy-of select="title/p/node()" /></h1>
+			<ul>
+				<xsl:apply-templates select="files/file" />
+			</ul>
 		</article>
-		<xsl:apply-templates select="bip-tenders/entry" />
 	</section>
 </xsl:template>
 
@@ -49,23 +55,8 @@
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="bip-tenders/entry">
-		<article>
-			<h2 class="donthyphenate"><xsl:value-of select="title" /></h2>
-			<xsl:copy-of select="lead/node()" />
-			<xsl:apply-templates select="documents" />
-		</article>
-</xsl:template>
-
-<xsl:template match="documents">
-	<h3>Dokumenty do pobrania</h3>
-	<ul>
-		<xsl:apply-templates select="file" />
-	</ul>
-</xsl:template>
-
-<xsl:template match="documents/file">
-	<li><a href="{$workspace}/bip/{filename}"><xsl:value-of select="filename" /></a></li>
+<xsl:template match="files/file">
+	<li><a href="{$workspace}/bip/{filename}" target="_blank"><xsl:value-of select="filename" /></a></li>
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">

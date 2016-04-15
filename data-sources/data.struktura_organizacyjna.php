@@ -1,26 +1,21 @@
 <?php
-class datasourcetenders extends SectionDatasource
+class datasourcestruktura_organizacyjna extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'tenders';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'struktura-organizacyjna';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-    
-    public $dsParamFILTERS = array(
-        '115' => 'yes',
-    );
-        
+
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'lead: formatted',
-        'documents'
+        'article: formatted'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -31,18 +26,18 @@ class datasourcetenders extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Tenders',
+            'name' => 'Struktura organizacyjna',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-03-01T17:05:42+00:00'
+            'release-date' => '2016-04-15T11:31:52+00:00'
         );
     }
     public function getSource()
     {
-        return '23';
+        return '26';
     }
     public function allowEditorToParse()
     {

@@ -32,14 +32,14 @@
 		<header>
 			<img src="{$workspace}/images/bip_logo.png" />
 			<h1><xsl:value-of select="title" /></h1>
+			<!--
 			<ul class="inline-list">
 				<li><a href="javascript:void(0)" class="active">Ważne dokumenty</a></li>
 				<li><a href="javascript:void(0)" class="active">Struktura organizacyjna</a></li>
 				<li><a href="javascript:void(0)" class="active">Przetargi</a></li>
-				<!--
 				<li><a href="{$root}/{$current-path}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
-			-->
 			</ul>
+			-->
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />

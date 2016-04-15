@@ -1,0 +1,9 @@
+/* BIP IMPORTANT DOCUMENTS */
+
+.important-docs {
+	@extend .text-column;
+	
+	article {
+		margin-bottom: 24px;
+	}
+}
