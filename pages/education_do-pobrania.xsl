@@ -44,7 +44,7 @@
 <xsl:template match="edu-aid">
 	<section class="edu-items">
 		<header>
-			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'pozostale-lekcje-i-wyklady']" /></h1>
+			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></h1>
 			<ul class="edu-categories">
 				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
 				<xsl:apply-templates select="//edu-aid-categories/entry" />

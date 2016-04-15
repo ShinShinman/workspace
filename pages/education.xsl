@@ -35,7 +35,8 @@
 			<h1><xsl:value-of select="title" /></h1>
 			<ul class="inline-list">
 				<li><a href="javascript:void(0)" class="active">Lekcje muzealne</a></li>
-				<li><a href="{$root}/{$current-path}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
+				<li><a href="{$root}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
+				<li><a href="{$root}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'gry']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'gry']" /></a></li>
 			</ul>
 		</header>
 		<article>

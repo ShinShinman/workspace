@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"materia",
+				"materialy-do-pobrania"
+			],
+			[
 				"hash",
 				"hashFilter"
 			],
@@ -510,15 +514,19 @@
 			[
 				"unsu",
 				"unsubscribed"
-			],
-			[
-				"sub",
-				"submit"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "pages/education_edukacja-gry.xsl",
+			"settings":
+			{
+				"buffer_size": 2702,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -675,27 +683,33 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_struktura.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_important-docs.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_tenders.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_download.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_links.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.git/info/exclude",
@@ -717,7 +731,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_maintenance.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
 		"/C/Users/shinman/Downloads/KeePass2.31/XSL/KDBX_PasswordsOnly.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/Windows/System32/drivers/etc/hosts",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
 		"/F/Uni-USB-Installer-Copying.txt",
@@ -802,14 +815,7 @@
 		"/C/Users/shinman/Downloads/yszt/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore",
-		"/C/Users/shinman/Downloads/yszt/ma/.gitignore",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/publish.editor.js",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/assets/editor/editor.js",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/editor_for_symphony/extension.driver.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/artykul.xsl",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript/js_plugin.sublime-snippet",
-		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/newsletter-f-alt/template.html.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/email-templates/template.html.xsl"
+		"/C/Users/shinman/Downloads/yszt/ma/.gitignore"
 	],
 	"find":
 	{
@@ -827,6 +833,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"edu-aid-header",
+			"-",
+			"2",
+			"struktura-organizacyjna/entry",
+			"tenders",
 			"filters",
 			"var ",
 			"lesson",
@@ -949,12 +960,7 @@
 			"opt2",
 			"unsbscrb",
 			"unsubsOpt",
-			".button",
-			"params/languages/item",
-			"Newsletter",
-			"privacy-polcy",
-			"newsletter-info",
-			"0"
+			".button"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1038,8 +1044,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "pages/education_edukacja-gry.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1903,
+								1903
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
