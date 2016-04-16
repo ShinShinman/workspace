@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"appl",
+				"apply-templates"
+			],
+			[
+				"title",
+				"title/@handle"
+			],
+			[
+				"mat",
+				"match"
+			],
+			[
 				"materia",
 				"materialy-do-pobrania"
 			],
@@ -20,10 +32,6 @@
 				"hashFilter"
 			],
 			[
-				"mat",
-				"matches"
-			],
-			[
 				"get",
 				"getHashFilter"
 			],
@@ -38,10 +46,6 @@
 			[
 				"mar",
 				"margin-right"
-			],
-			[
-				"appl",
-				"apply"
 			],
 			[
 				"news",
@@ -510,23 +514,11 @@
 			[
 				"unsub",
 				"unsubscribe"
-			],
-			[
-				"unsu",
-				"unsubscribed"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "pages/education_edukacja-gry.xsl",
-			"settings":
-			{
-				"buffer_size": 2702,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -684,15 +676,20 @@
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_single-game.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
@@ -700,7 +697,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_important-docs.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_tenders.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
@@ -708,7 +704,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_download.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_links.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
@@ -814,8 +809,7 @@
 		"/C/Users/shinman/Documents/ma/.gitignore",
 		"/C/Users/shinman/Downloads/yszt/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/.gitignore",
-		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore",
-		"/C/Users/shinman/Downloads/yszt/ma/.gitignore"
+		"/C/Users/shinman/Downloads/yszt/ma/ma/.gitignore"
 	],
 	"find":
 	{
@@ -833,6 +827,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"edu-aid-categories",
 			"edu-aid-header",
 			"-",
 			"2",
@@ -959,8 +954,7 @@
 			"unSubmit",
 			"opt2",
 			"unsbscrb",
-			"unsubsOpt",
-			".button"
+			"unsubsOpt"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1044,38 +1038,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "pages/education_edukacja-gry.xsl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2702,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1903,
-								1903
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

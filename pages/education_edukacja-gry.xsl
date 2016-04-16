@@ -25,7 +25,14 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-games-header/entry" />
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="edu-game/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="edu-games-header/entry" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<xsl:apply-templates select="edu-games" />
 </xsl:template>
 
@@ -34,9 +41,9 @@
 		<header>
 			<h1><xsl:value-of select="title/p" /></h1>
 			<ul class="inline-list">
-				<li><a href="{$root}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/lekcje-muzealne">Lekcje muzealne</a></li>
-				<li><a href="{$root}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
-				<li><a href="javascript:void(0)" class="active">Gry</a></li>
+				<li><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'lekcje-muzealne']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'lekcje-muzealne']" /></a></li>
+				<li><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
+				<li><a href="javascript:void(0)" class="active"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'gry']" /></a></li>
 			</ul>
 		</header>
 		<article>
@@ -62,13 +69,26 @@
 	</section>
 </xsl:template>
 
-<xsl:template match="edu-aid-categories/entry">
-	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
-</xsl:template>
-
 <xsl:template match="edu-games/entry">
 	<xsl:call-template name="edu-brick" />
 </xsl:template>
+
+<xsl:template match="edu-game/entry">
+	<section class="edu">
+		<header>
+			<h1><xsl:value-of select="title/p" /></h1>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+		</article>
+	</section>
+</xsl:template>
+
+<!--
+<xsl:template match="edu-aid-categories/entry">
+	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
+</xsl:template>
+-->
 
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />

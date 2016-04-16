@@ -37,8 +37,20 @@
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
+			<ul>
+				<xsl:apply-templates select="files" />
+			</ul>
 		</article>
 	</section>
+</xsl:template>
+
+<xsl:template match="files">
+	<h2>Pliki do pobrania</h2>
+	<xsl:apply-templates select="./file" />
+</xsl:template>
+
+<xsl:template match="files/file">
+	<li><a href="{$workspace}/{@path}/{filename}" target="_blank"><xsl:value-of select="filename" /></a></li>
 </xsl:template>
 
 <xsl:template match="edu-aid">
