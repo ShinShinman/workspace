@@ -395,12 +395,12 @@ section:last-of-type {
   border-top-style: solid;
   padding-top: 10px; }
 
-.small-stripe, .brick h1, .brick .slide-down a, .slide-down .brick a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a {
+.small-stripe, .brick h1, .brick .slide-down a, .slide-down .brick a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .single-aid article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .single-aid article .slide-down a, .slide-down .single-aid article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a {
   border-top-width: 4px;
   border-top-style: solid;
   padding-top: 5px; }
 
-.color-label, .tag, .event, .oppening, .edu-lessons li.przedszkola, .edu-lessons li.klasy-0-3, .edu-lessons li.klasy-4-6, .edu-lessons li.gimnazjum, .edu-lessons li.szkoly-ponadgimnazjalne, .edu-lessons li.wyklady-dla-mlodziezy {
+.color-label, .tag, .event, .oppening, .edu-lessons li.przedszkola, .edu-lessons li.klasy-0-3, .edu-lessons li.klasy-4-6, .edu-lessons li.gimnazjum, .edu-lessons li.szkoly-ponadgimnazjalne, .edu-lessons li.wyklady-dla-mlodziezy, .edu-lessons li.dla-dzieci, .edu-lessons li.dla-nauczycieli, .edu-lessons li.gry, li.wyklady-dla-mlodziezy {
   color: white;
   font-weight: normal;
   padding: 0 6px; }
@@ -427,10 +427,13 @@ section:last-of-type {
     margin-bottom: 0; }
 
 /* Text column */
-.text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a {
+.text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .single-aid article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .single-aid article .slide-down a, .slide-down .single-aid article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a {
   margin-bottom: 12px; }
 
 /* Utilities */
+.bricks-container {
+  min-height: 200px; }
+
 .brick {
   width: 311.332px;
   margin-bottom: 24px; }
@@ -784,7 +787,7 @@ section:last-of-type {
   font-weight: normal;
   font-style: normal; }
 /* Headres sizes */
-.reset, p, .typo-h1, h1, .slide-down a, .typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a, .typo-h3, h3, .text-column article h2, .article section.post article h2, .edu article h2, .info article h2, .single-lesson article h2, .biuletyn article h2, .tenders article h2, .typo-h4, h4, .text-column article h3, .article section.post article h3, .edu article h3, .info article h3, .single-lesson article h3, .biuletyn article h3, .tenders article h3 {
+.reset, p, .typo-h1, h1, .slide-down a, .typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .single-aid article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .single-aid article .slide-down a, .slide-down .single-aid article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a, .typo-h3, h3, .text-column article h2, .article section.post article h2, .edu article h2, .info article h2, .single-lesson article h2, .single-aid article h2, .biuletyn article h2, .tenders article h2, .typo-h4, h4, .text-column article h3, .article section.post article h3, .edu article h3, .info article h3, .single-lesson article h3, .single-aid article h3, .biuletyn article h3, .tenders article h3 {
   margin: 0;
   padding: 0;
   vertical-align: baseline; }
@@ -800,19 +803,19 @@ p {
   text-align: left;
   margin-bottom: 6px; }
 
-.typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a {
+.typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .single-aid article h1, .biuletyn article h1, .tenders article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .single-aid article .slide-down a, .slide-down .single-aid article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a {
   font-size: 30px;
   font-weight: bold;
   line-height: 1.2;
   text-align: left;
   margin-bottom: 6px; }
 
-.typo-h3, h3, .text-column article h2, .article section.post article h2, .edu article h2, .info article h2, .single-lesson article h2, .biuletyn article h2, .tenders article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a, .biuletyn article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .biuletyn article ul > li > a, .tenders article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .tenders article ul > li > a {
+.typo-h3, h3, .text-column article h2, .article section.post article h2, .edu article h2, .info article h2, .single-lesson article h2, .single-aid article h2, .biuletyn article h2, .tenders article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a, .single-aid article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-aid article ul > li > a, .biuletyn article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .biuletyn article ul > li > a, .tenders article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .tenders article ul > li > a {
   font-size: 21px;
   text-align: left;
   margin-bottom: 6px; }
 
-.typo-h4, h4, .text-column article h3, .article section.post article h3, .edu article h3, .info article h3, .single-lesson article h3, .biuletyn article h3, .tenders article h3 {
+.typo-h4, h4, .text-column article h3, .article section.post article h3, .edu article h3, .info article h3, .single-lesson article h3, .single-aid article h3, .biuletyn article h3, .tenders article h3 {
   font-size: 16px;
   text-align: left;
   margin-bottom: 6px; }
@@ -825,11 +828,20 @@ ul, li {
   margin: 0;
   padding: 0; }
 
+ul.inline-list {
+  overflow: hidden; }
+  ul.inline-list li {
+    float: left;
+    margin-right: 16px;
+    font-weight: bold; }
+
 /* Links */
 a {
   text-decoration: none;
   color: inherit; }
   a:hover {
+    opacity: 0.6; }
+  a.active {
     opacity: 0.6; }
 
 /* Brakuj─ůce spacje przed italikami i boldem */
@@ -837,27 +849,27 @@ a:before, em:before, strong:before {
   content: " "; }
 
 /* Szeroko┼Ť─ç kolumny tekstowej */
-.text-column, .article section.post, .edu, .info, .single-lesson, .biuletyn, .tenders {
+.text-column, .article section.post, .edu, .info, .single-lesson, .single-aid, .biuletyn, .tenders {
   width: 637.664px;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px; }
-  .text-column header, .article section.post header, .edu header, .info header, .single-lesson header, .biuletyn header, .tenders header {
+  .text-column header, .article section.post header, .edu header, .info header, .single-lesson header, .single-aid header, .biuletyn header, .tenders header {
     margin-bottom: 24px; }
-    .text-column header h1, .article section.post header h1, .edu header h1, .info header h1, .single-lesson header h1, .biuletyn header h1, .tenders header h1, .text-column header .slide-down a, .slide-down .text-column header a, .article section.post header .slide-down a, .slide-down .article section.post header a, .edu header .slide-down a, .slide-down .edu header a, .info header .slide-down a, .slide-down .info header a, .single-lesson header .slide-down a, .slide-down .single-lesson header a, .biuletyn header .slide-down a, .slide-down .biuletyn header a, .tenders header .slide-down a, .slide-down .tenders header a {
+    .text-column header h1, .article section.post header h1, .edu header h1, .info header h1, .single-lesson header h1, .single-aid header h1, .biuletyn header h1, .tenders header h1, .text-column header .slide-down a, .slide-down .text-column header a, .article section.post header .slide-down a, .slide-down .article section.post header a, .edu header .slide-down a, .slide-down .edu header a, .info header .slide-down a, .slide-down .info header a, .single-lesson header .slide-down a, .slide-down .single-lesson header a, .single-aid header .slide-down a, .slide-down .single-aid header a, .biuletyn header .slide-down a, .slide-down .biuletyn header a, .tenders header .slide-down a, .slide-down .tenders header a {
       text-transform: uppercase; }
-    .text-column header h2, .article section.post header h2, .edu header h2, .info header h2, .single-lesson header h2, .biuletyn header h2, .tenders header h2, .text-column header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column header ul > li > a, .article section.post header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post header ul > li > a, .edu header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu header ul > li > a, .info header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info header ul > li > a, .single-lesson header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson header ul > li > a, .biuletyn header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .biuletyn header ul > li > a, .tenders header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .tenders header ul > li > a {
+    .text-column header h2, .article section.post header h2, .edu header h2, .info header h2, .single-lesson header h2, .single-aid header h2, .biuletyn header h2, .tenders header h2, .text-column header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column header ul > li > a, .article section.post header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post header ul > li > a, .edu header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu header ul > li > a, .info header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info header ul > li > a, .single-lesson header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson header ul > li > a, .single-aid header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-aid header ul > li > a, .biuletyn header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .biuletyn header ul > li > a, .tenders header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .tenders header ul > li > a {
       margin-bottom: 7px; }
-  .text-column article img, .article section.post article img, .edu article img, .info article img, .single-lesson article img, .biuletyn article img, .tenders article img {
+  .text-column article img, .article section.post article img, .edu article img, .info article img, .single-lesson article img, .single-aid article img, .biuletyn article img, .tenders article img {
     max-width: 100%; }
-  .text-column article a:before, .article section.post article a:before, .edu article a:before, .info article a:before, .single-lesson article a:before, .biuletyn article a:before, .tenders article a:before {
+  .text-column article a:before, .article section.post article a:before, .edu article a:before, .info article a:before, .single-lesson article a:before, .single-aid article a:before, .biuletyn article a:before, .tenders article a:before {
     content: " "; }
-  .text-column article a:hover, .article section.post article a:hover, .edu article a:hover, .info article a:hover, .single-lesson article a:hover, .biuletyn article a:hover, .tenders article a:hover {
+  .text-column article a:hover, .article section.post article a:hover, .edu article a:hover, .info article a:hover, .single-lesson article a:hover, .single-aid article a:hover, .biuletyn article a:hover, .tenders article a:hover {
     color: white;
     background-color: black;
     opacity: 1; }
-  .text-column article ul, .article section.post article ul, .edu article ul, .info article ul, .single-lesson article ul, .biuletyn article ul, .tenders article ul {
+  .text-column article ul, .article section.post article ul, .edu article ul, .info article ul, .single-lesson article ul, .single-aid article ul, .biuletyn article ul, .tenders article ul {
     margin-bottom: 24px; }
 
 /* Pages */
@@ -889,55 +901,75 @@ a:before, em:before, strong:before {
   margin-top: -24px; }
 
 /* EDU */
+.edu header h1, .edu header .slide-down a, .slide-down .edu header a {
+  margin-bottom: 12px; }
 .edu article ul {
   list-style: disc; }
 .edu article li {
   margin-bottom: 12px; }
 
-.edu-categories {
-  overflow: auto; }
-  .edu-categories a:before {
-    content: none; }
-  .edu-categories li {
-    float: left;
-    margin-right: 8px; }
-    .edu-categories li.inactive-filter {
-      opacity: 0.4; }
-    .edu-categories li.label {
-      color: black; }
-    .edu-categories li .clear-filter {
-      margin-left: 5px;
-      border-left: white 1px solid;
-      padding-left: 5px;
-      display: none; }
+.edu-items a:before {
+  content: none; }
+.edu-items li {
+  float: left;
+  margin-right: 8px; }
+  .edu-items li.inactive-filter {
+    opacity: 0.4; }
+  .edu-items li.label {
+    color: black; }
+  .edu-items li .clear-filter {
+    margin-left: 5px;
+    border-left: white 1px solid;
+    padding-left: 5px;
+    display: none; }
 
-.edu-lessons header {
-  margin-bottom: 12px; }
-  .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
-    margin-bottom: 24px; }
-.edu-lessons .przedszkola h1, .edu-lessons .przedszkola .slide-down a, .slide-down .edu-lessons .przedszkola a {
-  border-color: #3abb4a; }
-.edu-lessons li.przedszkola {
-  background-color: #3abb4a; }
-.edu-lessons .klasy-0-3 h1, .edu-lessons .klasy-0-3 .slide-down a, .slide-down .edu-lessons .klasy-0-3 a {
-  border-color: #3abb4a; }
-.edu-lessons li.klasy-0-3 {
-  background-color: #3abb4a; }
-.edu-lessons .klasy-4-6 h1, .edu-lessons .klasy-4-6 .slide-down a, .slide-down .edu-lessons .klasy-4-6 a {
-  border-color: #6f9bff; }
-.edu-lessons li.klasy-4-6 {
-  background-color: #6f9bff; }
-.edu-lessons .gimnazjum h1, .edu-lessons .gimnazjum .slide-down a, .slide-down .edu-lessons .gimnazjum a {
-  border-color: #d45fc5; }
-.edu-lessons li.gimnazjum {
-  background-color: #d45fc5; }
-.edu-lessons .szkoly-ponadgimnazjalne h1, .edu-lessons .szkoly-ponadgimnazjalne .slide-down a, .slide-down .edu-lessons .szkoly-ponadgimnazjalne a {
-  border-color: #38bfac; }
-.edu-lessons li.szkoly-ponadgimnazjalne {
-  background-color: #38bfac; }
-.edu-lessons .wyklady-dla-mlodziezy h1, .edu-lessons .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-lessons .wyklady-dla-mlodziezy a {
+.edu-lessons {
+  /* Materia┼éy do pobrania */ }
+  .edu-lessons header {
+    margin-bottom: 12px; }
+    .edu-lessons header h1, .edu-lessons header .slide-down a, .slide-down .edu-lessons header a {
+      margin-bottom: 24px; }
+  .edu-lessons .przedszkola h1, .edu-lessons .przedszkola .slide-down a, .slide-down .edu-lessons .przedszkola a {
+    border-color: #3abb4a; }
+  .edu-lessons li.przedszkola {
+    background-color: #3abb4a; }
+  .edu-lessons .klasy-0-3 h1, .edu-lessons .klasy-0-3 .slide-down a, .slide-down .edu-lessons .klasy-0-3 a {
+    border-color: #3abb4a; }
+  .edu-lessons li.klasy-0-3 {
+    background-color: #3abb4a; }
+  .edu-lessons .klasy-4-6 h1, .edu-lessons .klasy-4-6 .slide-down a, .slide-down .edu-lessons .klasy-4-6 a {
+    border-color: #6f9bff; }
+  .edu-lessons li.klasy-4-6 {
+    background-color: #6f9bff; }
+  .edu-lessons .gimnazjum h1, .edu-lessons .gimnazjum .slide-down a, .slide-down .edu-lessons .gimnazjum a {
+    border-color: #d45fc5; }
+  .edu-lessons li.gimnazjum {
+    background-color: #d45fc5; }
+  .edu-lessons .szkoly-ponadgimnazjalne h1, .edu-lessons .szkoly-ponadgimnazjalne .slide-down a, .slide-down .edu-lessons .szkoly-ponadgimnazjalne a {
+    border-color: #38bfac; }
+  .edu-lessons li.szkoly-ponadgimnazjalne {
+    background-color: #38bfac; }
+  .edu-lessons .wyklady-dla-mlodziezy h1, .edu-lessons .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-lessons .wyklady-dla-mlodziezy a {
+    border-color: #ff5e57; }
+  .edu-lessons li.wyklady-dla-mlodziezy {
+    background-color: #ff5e57; }
+  .edu-lessons .dla-dzieci h1, .edu-lessons .dla-dzieci .slide-down a, .slide-down .edu-lessons .dla-dzieci a {
+    border-color: #9ea1a9; }
+  .edu-lessons li.dla-dzieci {
+    background-color: #9ea1a9; }
+  .edu-lessons .dla-nauczycieli h1, .edu-lessons .dla-nauczycieli .slide-down a, .slide-down .edu-lessons .dla-nauczycieli a {
+    border-color: #565656; }
+  .edu-lessons li.dla-nauczycieli {
+    background-color: #565656; }
+  .edu-lessons .gry h1, .edu-lessons .gry .slide-down a, .slide-down .edu-lessons .gry a {
+    border-color: red; }
+  .edu-lessons li.gry {
+    background-color: red; }
+
+.wyklady-dla-mlodziezy h1, .wyklady-dla-mlodziezy .slide-down a, .slide-down .wyklady-dla-mlodziezy a {
   border-color: #ff5e57; }
-.edu-lessons li.wyklady-dla-mlodziezy {
+
+li.wyklady-dla-mlodziezy {
   background-color: #ff5e57; }
 
 /* EXHIBITIONS */
@@ -977,6 +1009,24 @@ a:before, em:before, strong:before {
 .single-lesson header .wyklady-dla-mlodziezy {
   color: white;
   background-color: #ff5e57;
+  padding: 0 6px; }
+
+/* EDU AID */
+.single-aid header h1, .single-aid header .slide-down a, .slide-down .single-aid header a {
+  margin-bottom: 12px; }
+.single-aid header .edu-categories span {
+  display: inline-block; }
+.single-aid header .dla-dzieci {
+  color: white;
+  background-color: #9ea1a9;
+  padding: 0 6px; }
+.single-aid header .dla-nauczycieli {
+  color: white;
+  background-color: #565656;
+  padding: 0 6px; }
+.single-aid header .gry {
+  color: white;
+  background-color: red;
   padding: 0 6px; }
 
 /* BIP */

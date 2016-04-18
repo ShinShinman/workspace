@@ -3,6 +3,12 @@
 .edu {
 	@extend .text-column;
 
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+	}
+
 	article {
 		ul {
 			list-style: disc;
@@ -13,8 +19,7 @@
 	}
 }
 
-.edu-categories {
-	overflow: auto;
+.edu-items {
 
 	a:before {
 		content: none;
@@ -108,4 +113,42 @@
 		@extend .color-label;
 		background-color: rgb(255, 94, 87);
 	}
+
+	/* Materiały do pobrania */
+	.dla-dzieci {
+		h1 {
+			border-color: rgb(158, 161, 169);
+		}
+	}
+	li.dla-dzieci {
+		@extend .color-label;
+		background-color: rgb(158, 161, 169);
+	}
+	.dla-nauczycieli {
+		h1 {
+			border-color: rgb(86, 86, 86);
+		}
+	}
+	li.dla-nauczycieli {
+		@extend .color-label;
+		background-color: rgb(86, 86, 86);
+	}
+	.gry {
+		h1 {
+			border-color: red;
+		}
+	}
+	li.gry {
+		@extend .color-label;
+		background-color: red;
+	}
 }
+.wyklady-dla-mlodziezy {
+		h1 {
+			border-color: rgb(255, 94, 87);
+		}
+	}
+	li.wyklady-dla-mlodziezy {
+		@extend .color-label;
+		background-color: rgb(255, 94, 87);
+	}

@@ -1,7 +1,7 @@
 <?php
-class datasourceedu_categories extends SectionDatasource
+class datasourceedu_aid extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-categories';
+    public $dsParamROOTELEMENT = 'edu-aid';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -12,11 +12,25 @@ class datasourceedu_categories extends SectionDatasource
     public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-
+    
+    public $dsParamFILTERS = array(
+        '105' => 'yes',
+    );
+        
     public $dsParamINCLUDEDELEMENTS = array(
-        'category: formatted'
+        'title: formatted',
+        'category'
     );
     
+    public $dsParamINCLUDEDASSOCIATIONS = array(
+        'category' => array(
+            'section_id' => '22',
+            'field_id' => '109',
+            'elements' => array(
+                'category: formatted'
+            )
+        )
+    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -25,18 +39,18 @@ class datasourceedu_categories extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu categories',
+            'name' => 'Edu Aid',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-02-06T19:45:23+00:00'
+            'release-date' => '2016-02-06T19:42:57+00:00'
         );
     }
     public function getSource()
     {
-        return '14';
+        return '21';
     }
     public function allowEditorToParse()
     {

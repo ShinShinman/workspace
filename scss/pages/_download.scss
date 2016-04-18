@@ -1,0 +1,29 @@
+/* EDU AID */
+
+.single-aid {
+	@extend .text-column;
+
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+		.edu-categories span {
+			display: inline-block;
+		}
+		.dla-dzieci {
+			color: white;
+			background-color: rgb(158, 161, 169);
+			padding: 0 6px;
+		}
+		.dla-nauczycieli {
+			color: white;
+			background-color: rgb(86, 86, 86);
+			padding: 0 6px;
+		}
+		.gry {
+			color: white;
+			background-color: red;
+			padding: 0 6px;
+		}
+	}
+}

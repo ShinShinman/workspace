@@ -1,7 +1,7 @@
 <?php
-class datasourceedu_categories extends SectionDatasource
+class datasourceedu_aid_categories extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-categories';
+    public $dsParamROOTELEMENT = 'edu-aid-categories';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -25,18 +25,18 @@ class datasourceedu_categories extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu categories',
+            'name' => 'Edu aid categories',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-02-06T19:45:23+00:00'
+            'release-date' => '2016-02-06T18:56:08+00:00'
         );
     }
     public function getSource()
     {
-        return '14';
+        return '22';
     }
     public function allowEditorToParse()
     {

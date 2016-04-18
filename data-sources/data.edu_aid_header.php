@@ -1,20 +1,21 @@
 <?php
-class datasourceedu_categories extends SectionDatasource
+class datasourceedu_aid_header extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-categories';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'edu-aid-header';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'category: formatted'
+        'title: formatted',
+        'article: formatted'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -25,18 +26,18 @@ class datasourceedu_categories extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu categories',
+            'name' => 'Edu Aid Header',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-02-06T19:45:23+00:00'
+            'release-date' => '2016-02-06T18:41:16+00:00'
         );
     }
     public function getSource()
     {
-        return '14';
+        return '20';
     }
     public function allowEditorToParse()
     {

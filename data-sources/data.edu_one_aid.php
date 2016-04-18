@@ -1,22 +1,39 @@
 <?php
-class datasourceedu_categories extends SectionDatasource
+class datasourceedu_one_aid extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-categories';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'edu-one-aid';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamREQUIREDPARAM = '$title';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-
+    
+    public $dsParamFILTERS = array(
+        '103' => '{$title}',
+    );
+        
     public $dsParamINCLUDEDELEMENTS = array(
-        'category: formatted'
+        'title: formatted',
+        'files',
+        'article: formatted',
+        'category'
     );
     
+    public $dsParamINCLUDEDASSOCIATIONS = array(
+        'category' => array(
+            'section_id' => '22',
+            'field_id' => '109',
+            'elements' => array(
+                'category: formatted'
+            )
+        )
+    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -25,18 +42,18 @@ class datasourceedu_categories extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu categories',
+            'name' => 'Edu One Aid',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-02-06T19:45:23+00:00'
+            'release-date' => '2016-02-07T16:30:24+00:00'
         );
     }
     public function getSource()
     {
-        return '14';
+        return '21';
     }
     public function allowEditorToParse()
     {

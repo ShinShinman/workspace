@@ -7,10 +7,21 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article>
-			<xsl:attribute name="class">
-				<xsl:apply-templates select="category" />
-			</xsl:attribute>
-			<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-en = $root-page]}/{//dictionary//word[@handle-pl = 'lekcja']/@handle}/{title/@handle}">
+			<xsl:attribute name="class">brick<xsl:apply-templates select="category/item" /></xsl:attribute>
+			<a>
+				<xsl:attribute name="href">
+					<xsl:choose>
+						<xsl:when test="name(..) = 'edu-lessons'">
+							<xsl:call-template name="lesson" />
+						</xsl:when>
+						<xsl:when test="name(..) = 'edu-aid'">
+							<xsl:call-template name="aid" />
+						</xsl:when>
+						<xsl:when test="name(..) = 'edu-games'">
+							<xsl:call-template name="games" />
+						</xsl:when>
+					</xsl:choose>
+				</xsl:attribute>
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 				<!--<xsl:copy-of select="lead/node()" />-->
 			</a>
@@ -18,13 +29,20 @@
 
 	</xsl:template>
 
-	<xsl:template match="category">
-		<xsl:text>brick</xsl:text>
-		<xsl:apply-templates select="item/category" />
+	<xsl:template name="lesson">
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'lekcje-muzealne', '/', title/@handle)" />
 	</xsl:template>
-	
-	<xsl:template match="item/category">
-		<xsl:text> </xsl:text><xsl:value-of select="@handle-pl" />
+
+	<xsl:template name="aid">
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'materialy-do-pobrania', '/', title/@handle)" />
+	</xsl:template>
+
+	<xsl:template name="games">
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'gry', '/', title/@handle)" />
+	</xsl:template>
+
+	<xsl:template match="category/item">
+		<xsl:text> </xsl:text><xsl:value-of select="category/@handle-pl" />
 	</xsl:template>
 
 	<xsl:template match="entry/date">
