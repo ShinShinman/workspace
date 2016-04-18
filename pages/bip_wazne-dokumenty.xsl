@@ -30,6 +30,7 @@
 <xsl:template match="bip-important-docs/entry">
 	<section class="important-docs">
 		<header>
+			<img src="{$workspace}/images/bip_logo.png" />
 			<h1>Biuletyn Informacji Publicznej</h1>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//bip-nav/page" />

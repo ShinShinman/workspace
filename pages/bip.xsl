@@ -24,27 +24,33 @@
 <xsl:include href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="bip/entry" />
+	<xsl:apply-templates select="struktura-organizacyjna/entry" />
 </xsl:template>
 
-<xsl:template match="bip/entry">
-	<section class="biuletyn">
+<xsl:template match="struktura-organizacyjna/entry">
+	<section class="struktura">
 		<header>
 			<img src="{$workspace}/images/bip_logo.png" />
-			<h1><xsl:value-of select="title" /></h1>
-			<!--
+			<h1>Biuletyn Informacji Publicznej</h1>
 			<ul class="inline-list">
-				<li><a href="javascript:void(0)" class="active">Ważne dokumenty</a></li>
-				<li><a href="javascript:void(0)" class="active">Struktura organizacyjna</a></li>
-				<li><a href="javascript:void(0)" class="active">Przetargi</a></li>
-				<li><a href="{$root}/{$current-path}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
+				<xsl:apply-templates select="//bip-nav/page" />
 			</ul>
-			-->
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
 		</article>
 	</section>
+</xsl:template>
+
+<xsl:template match="bip-nav/page">
+	<xsl:choose>
+		<xsl:when test="@handle = $current-page">
+			<li><a href="javascript:void(0)" class="active"><xsl:value-of select="name" /></a></li>
+		</xsl:when>
+		<xsl:otherwise>
+			<li><a href="{$root}/{//fl-languages/current-language/@handle}/bip/{@handle}"><xsl:value-of select="name" /></a></li>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">

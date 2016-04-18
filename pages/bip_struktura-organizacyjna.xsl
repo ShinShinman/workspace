@@ -30,6 +30,7 @@
 <xsl:template match="struktura-organizacyjna/entry">
 	<section class="struktura">
 		<header>
+			<img src="{$workspace}/images/bip_logo.png" />
 			<h1>Biuletyn Informacji Publicznej</h1>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//bip-nav/page" />
