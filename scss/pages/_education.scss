@@ -21,36 +21,36 @@
 
 .edu-items {
 
-	a:before {
-		content: none;
-	}
-
-	li {
-		float: left;
-		margin-right: 8px;
-
-		&.inactive-filter {
-			opacity: 0.4;
-		}
-		&.label {
-			color: black;
-		}
-		.clear-filter {
-			margin-left: 5px;
-			border-left: white 1px solid;
-			padding-left: 5px;
-			display: none;
-		}
-	}
-}
-
-.edu-lessons {
-
 	header {
 		margin-bottom: 12px;
 
 		h1 {
 			margin-bottom: 24px;
+		}
+	}
+	.edu-categories {
+		overflow: auto;
+
+		a:before {
+			content: none;
+		}
+
+		li {
+			float: left;
+			margin-right: 8px;
+
+			&.inactive-filter {
+				opacity: 0.4;
+			}
+			&.label {
+				color: black;
+			}
+			.clear-filter {
+				margin-left: 5px;
+				border-left: white 1px solid;
+				padding-left: 5px;
+				display: none;
+			}
 		}
 	}
 
