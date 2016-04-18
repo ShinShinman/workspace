@@ -1,0 +1,9 @@
+/* BIP STRUKTURA ORGANIZACYJNA */
+
+.struktura {
+	@extend .text-column;
+	
+	article {
+		margin-bottom: 24px;
+	}
+}
