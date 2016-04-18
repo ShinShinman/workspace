@@ -25,8 +25,39 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-aid-header/entry" />
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="edu-one-aid/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="edu-aid-header/entry" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<xsl:apply-templates select="edu-aid" />
+</xsl:template>
+
+<xsl:template match="edu-one-aid/entry">
+	<section class="single-aid">
+		<header class="donthyphenate">
+			<h1><xsl:value-of select="title" /></h1>
+			<p class="edu-categories"><span class="{category/item/category/@handle}"><xsl:value-of select="category/item/category" /></span></p>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+			<ul>
+				<xsl:apply-templates select="files" />
+			</ul>
+		</article>
+	</section>
+</xsl:template>
+
+<xsl:template match="files">
+	<h2>Pliki do pobrania</h2>
+	<xsl:apply-templates select="./file" />
+</xsl:template>
+
+<xsl:template match="files/file">
+	<li><a href="{$workspace}/{@path}/{filename}" target="_blank"><xsl:value-of select="filename" /></a></li>
 </xsl:template>
 
 <xsl:template match="edu-aid-header/entry">
@@ -55,7 +86,7 @@
 			</ul>
 		</header>
 		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
+			<xsl:apply-templates select="./entry[not(@id = //edu-one-aid/entry/@id)]" />
 		</div>
 	</section>
 </xsl:template>
@@ -69,7 +100,14 @@
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+		<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', 'edukacja/materialy-do-pobrania')" />	
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />			
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="data" mode="js">

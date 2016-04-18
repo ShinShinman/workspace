@@ -25,8 +25,27 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-header/entry" />
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="edu-lesson/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="edu-header/entry" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<xsl:apply-templates select="edu-lessons" />
+</xsl:template>
+
+<xsl:template match="edu-lesson/entry">
+	<section class="single-lesson">
+		<header class="donthyphenate">
+			<h1><xsl:value-of select="title" /></h1>
+			<p class="edu-categories"><span class="{category/item/category/@handle}"><xsl:value-of select="category/item/category" /></span></p>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+		</article>
+	</section>
 </xsl:template>
 
 <xsl:template match="edu-header/entry">
@@ -55,7 +74,7 @@
 			</ul>
 		</header>
 		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
+			<xsl:apply-templates select="./entry[not(@id = //edu-lesson/entry/@id)]" />
 		</div>
 	</section>
 </xsl:template>
@@ -82,7 +101,14 @@
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', 'edukacja/lekcje-muzealne')" />	
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />			
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="data" mode="js">

@@ -30,15 +30,15 @@
 	</xsl:template>
 
 	<xsl:template name="lesson">
-		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', //dictionary//word[@handle-pl = 'lekcja']/@handle, '/', title/@handle)" />
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'lekcje-muzealne', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template name="aid">
-		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'do-pobrania', '/', title/@handle)" />
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'materialy-do-pobrania', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template name="games">
-		<xsl:value-of select="concat($root, $current-path, '/', title/@handle)" />
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'gry', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template match="category/item">

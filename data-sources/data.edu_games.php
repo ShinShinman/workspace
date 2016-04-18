@@ -12,7 +12,11 @@ class datasourceedu_games extends SectionDatasource
     public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-
+    
+    public $dsParamFILTERS = array(
+        '130' => 'yes',
+    );
+        
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
         'files',
@@ -33,7 +37,7 @@ class datasourceedu_games extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-04-15T14:45:13+00:00'
+            'release-date' => '2016-04-18T11:47:31+00:00'
         );
     }
     public function getSource()

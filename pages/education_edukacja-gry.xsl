@@ -64,7 +64,7 @@
 			-->
 		</header>
 		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
+			<xsl:apply-templates select="./entry[not(@id = //edu-game/entry/@id)]" />
 		</div>
 	</section>
 </xsl:template>
@@ -91,7 +91,14 @@
 -->
 
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+		<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', 'edukacja/gry')" />	
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />			
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="data" mode="js">
