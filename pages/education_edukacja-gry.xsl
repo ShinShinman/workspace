@@ -39,7 +39,7 @@
 <xsl:template match="edu-games-header/entry">
 	<section class="edu">
 		<header>
-			<h1><xsl:value-of select="title/p" /></h1>
+			<h1><xsl:copy-of select="title/p/node()" /></h1>
 			<ul class="inline-list">
 				<li><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'lekcje-muzealne']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'lekcje-muzealne']" /></a></li>
 				<li><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
@@ -74,7 +74,7 @@
 </xsl:template>
 
 <xsl:template match="edu-game/entry">
-	<section class="edu">
+	<section class="single-game">
 		<header>
 			<h1><xsl:value-of select="title/p" /></h1>
 		</header>

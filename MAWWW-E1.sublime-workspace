@@ -674,11 +674,21 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_games.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/xampp/php/php.ini",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
+		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.events.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_lessons.php",
@@ -692,14 +702,9 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_single-game.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_struktura.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_important-docs.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_tenders.scss",
@@ -709,7 +714,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_download.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_links.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.git/info/exclude",
 		"/Z/MA Werkbund/.syignore",
 		"/C/Users/shinman/Desktop/MA Werkbund/.syignore",
@@ -791,7 +795,6 @@
 		"/C/Users/shinman/Downloads/yszt/.htaccess",
 		"/C/xampp/apache/conf/httpd.conf",
 		"/C/Users/shinman/Desktop/Nowy dokument tekstowy.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
 		"/Z/MA WWW/html/zaslepka.html",
 		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/install",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
@@ -803,9 +806,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/highlight.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/brick.xsl",
-		"/C/Users/shinman/Documents/ma/.git/config"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_menu.scss"
 	],
 	"find":
 	{
@@ -816,6 +817,7 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"C:\\xampp\\htdocs\\ma.wroc.pl\\workspace\\scss\\pages"
 		]
 	},
 	"find_state":
@@ -823,6 +825,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"single-aid",
 			"HEAD ",
 			"HEAD",
 			"not",
@@ -949,8 +952,7 @@
 			"opt3",
 			"unsbscrb",
 			"subscribeOpt",
-			"subscribeForm",
-			"unSubmit"
+			"subscribeForm"
 		],
 		"highlight": true,
 		"in_selection": false,
