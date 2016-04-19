@@ -835,6 +835,9 @@ ul.inline-list {
     margin-right: 16px;
     font-weight: bold; }
 
+ol {
+  padding: 0; }
+
 /* Links */
 a {
   text-decoration: none;
