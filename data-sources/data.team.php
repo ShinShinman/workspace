@@ -46,7 +46,7 @@ class datasourceteam extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-04-19T19:35:25+00:00'
+            'release-date' => '2016-04-19T21:13:25+00:00'
         );
     }
     public function getSource()
