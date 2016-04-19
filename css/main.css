@@ -1055,6 +1055,11 @@ section.maintenance {
 /* BIP STRUKTURA ORGANIZACYJNA */
 .struktura article {
   margin-bottom: 24px; }
+  .struktura article h2.div-button, .struktura article .sticky-nav .main-menu .left ul > li > a.div-button, .sticky-nav .main-menu .left .struktura article ul > li > a.div-button {
+    cursor: pointer;
+    margin-bottom: 16px; }
+  .struktura article .division {
+    display: none; }
 
 /* BIP IMPORTANT DOCUMENTS */
 .important-docs article {

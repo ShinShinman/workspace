@@ -5,5 +5,13 @@
 	
 	article {
 		margin-bottom: 24px;
+
+		h2.div-button {
+			cursor: pointer;
+			margin-bottom: 16px;
+		}
+		.division {
+			display: none;
+		}
 	}
 }

@@ -37,7 +37,11 @@
 			</ul>
 		</header>
 		<article>
+			<!--
 			<xsl:copy-of select="article/node()" />
+			-->
+			<h1>Struktura organizacyjna</h1>
+			<xsl:apply-templates select="//team/division" />
 		</article>
 	</section>
 </xsl:template>
@@ -53,6 +57,22 @@
 	</xsl:choose>
 </xsl:template>
 
+<xsl:template match="team/division">
+	<h2 class="div-button" data-div="{@link-handle}"><xsl:value-of select="@value" /></h2>
+	<div class="division {@link-handle}">
+		<xsl:apply-templates select="entry" />
+	</div>
+</xsl:template>
+
+<xsl:template match="team/division/entry">
+	<h3><xsl:value-of select="name" /></h3>
+	<ul>
+		<li><xsl:value-of select="job" /></li>
+		<li><xsl:value-of select="telephone" /></li>
+		<li><a href="mailto:{email}"><xsl:value-of select="email" /></a></li>
+	</ul>
+</xsl:template>
+
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
 </xsl:template>
@@ -61,6 +81,12 @@
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'white'});
+
+			var divButtons = $(".div-button")
+			divButtons.click(function(e){
+				$("."+$(this).data("div")).slideToggle();
+			})
+
 		});
 	</script>
 </xsl:template>
