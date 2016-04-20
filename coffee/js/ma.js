@@ -251,16 +251,25 @@
   };
 
   $(function() {
-    var clear, filterTriggers, filters, onHashchange;
+    var clear, filterTriggers, filters, onHashchange, showAll;
     console.log('DOM is ready!');
     window.MA.init();
-    filters = $('.edu-categories li');
-    filterTriggers = $('.edu-categories li a:not(.clear-filter)');
-    clear = $('.edu-categories li a.clear-filter');
+    filters = $('.filters li');
+    filterTriggers = $('.filters li a:not(.clear-filter)');
+    clear = $('.filters li a.clear-filter');
+    showAll = $('.filters li.show-all');
     clear.click(function(e) {
       e.preventDefault();
       filters.removeClass('inactive-filter');
       $(this).hide();
+      history.pushState('', document.title, window.location.pathname);
+      return $('.bricks-container').isotope({
+        filter: '*'
+      });
+    });
+    showAll.click(function(e) {
+      e.preventDefault();
+      filters.removeClass('inactive-filter');
       history.pushState('', document.title, window.location.pathname);
       return $('.bricks-container').isotope({
         filter: '*'

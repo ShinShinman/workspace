@@ -457,6 +457,9 @@ section:last-of-type {
   .brick p {
     margin-top: 0;
     margin-bottom: 15px; }
+    .brick p.category {
+      margin: 0;
+      font-size: 14px; }
   .brick .dashed {
     position: relative;
     width: 100%;

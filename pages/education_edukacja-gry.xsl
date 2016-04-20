@@ -57,7 +57,7 @@
 		<header>
 			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'gry']" /></h1>
 			<!--
-			<ul class="edu-categories">
+			<ul class="edu-categories filters">
 				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
 				<xsl:apply-templates select="//edu-aid-categories/entry" />
 			</ul>

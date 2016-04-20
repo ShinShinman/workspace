@@ -678,6 +678,16 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
+		"/C/Users/shinman/Desktop/trening.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
@@ -685,10 +695,8 @@
 		"/Z/MA WWW/matex/BIP/Struktura Organizacyjna MA 2.md",
 		"/Z/MA WWW/matex/Polska. Architecture/Polska Architecture - info na strone.md",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
-		"/C/Users/shinman/Desktop/trening.txt",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_games.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/php/php.ini",
@@ -705,16 +713,10 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
 		"/C/Users/shinman/Desktop/teraz.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_single-game.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_important-docs.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_tenders.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_download.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_links.scss",
@@ -781,7 +783,6 @@
 		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/index.php",
 		"/C/Users/shinman/Desktop/imagemini/gulpfile.js",
 		"/C/Users/shinman/Desktop/nmap.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
 		"/C/Users/shinman/Documents/GitHub/ma/.gitignore",
 		"/C/Users/shinman/Documents/GitHub/ma/.git/config",
 		"/C/Users/shinman/Documents/GitHub/ma/.gitmodules",
@@ -789,7 +790,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/lesson.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/edukacja.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
 		"/C/Users/shinman/Desktop/images compresion/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/.git/config",
@@ -809,7 +809,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 21.0
 	},
 	"find_in_files":
 	{
@@ -824,6 +824,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"exhib-category",
+			"category",
+			"h3",
 			"p",
 			"h1",
 			"(wew.)(\\d+)",
@@ -948,10 +951,7 @@
 			"unsubscrib/",
 			"unsubscrib",
 			"linked/item",
-			"				",
-			"			",
-			"		",
-			"subscription-check"
+			"				"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1045,7 +1045,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 21.0
 	},
 	"input":
 	{
@@ -1086,7 +1086,7 @@
 	"project": "MAWWW-E1.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 38.0
 	},
 	"save_all_on_build": true,
 	"select_file":

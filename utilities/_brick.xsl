@@ -6,10 +6,11 @@
 	<xsl:template name="brick">
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
-		<article class="brick">
+		<article class="brick {category/item/exhib-category/@handle}">
 			<a href="{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
 				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<xsl:apply-templates select="subtitle" />
+				<xsl:apply-templates select="category/item" />
 				<xsl:apply-templates select="./date" />
 				<xsl:copy-of select="lead/node()" />
 				<xsl:apply-templates select="cover-image" />
@@ -20,6 +21,15 @@
 
 	<xsl:template match="entry/subtitle">
 		<h2><xsl:value-of select="." /></h2>
+	</xsl:template>
+
+	<xsl:template match="category/item">
+		<p class="category"><xsl:value-of select="exhib-category" /></p>
+		<!--
+		<ul class="category-list">
+			<li><xsl:value-of select="exhib-category" /></li>
+		</ul>
+		-->
 	</xsl:template>
 
 	<xsl:template match="entry/date">

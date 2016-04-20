@@ -2,16 +2,16 @@
 class datasourceexhibitions_categories extends SectionDatasource
 {
     public $dsParamROOTELEMENT = 'exhibitions-categories';
-    public $dsParamORDER = 'desc';
+    public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'system:id';
+    public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
-    public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
+    public $dsParamASSOCIATEDENTRYCOUNTS = 'yes';
 
     public $dsParamINCLUDEDELEMENTS = array(
         'exhib-category: formatted'
@@ -31,7 +31,7 @@ class datasourceexhibitions_categories extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-04-14T20:44:03+00:00'
+            'release-date' => '2016-04-20T14:08:48+00:00'
         );
     }
     public function getSource()

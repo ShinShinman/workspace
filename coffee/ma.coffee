@@ -243,15 +243,24 @@ $ ->
 	console.log 'DOM is ready!'
 	window.MA.init()
 
-	filters = $('.edu-categories li')
-	filterTriggers = $('.edu-categories li a:not(.clear-filter)')
+	filters = $('.filters li')
+	filterTriggers = $('.filters li a:not(.clear-filter)')
 
-	clear = $('.edu-categories li a.clear-filter')
+	clear = $('.filters li a.clear-filter')
+	showAll = $('.filters li.show-all')
 	
 	clear.click (e) ->
 		e.preventDefault()
 		filters.removeClass('inactive-filter')
 		$(@).hide()
+		history.pushState '', document.title, window.location.pathname
+		$('.bricks-container').isotope({
+				filter: '*'
+			})
+
+	showAll.click (e) ->
+		e.preventDefault()
+		filters.removeClass('inactive-filter')
 		history.pushState '', document.title, window.location.pathname
 		$('.bricks-container').isotope({
 				filter: '*'

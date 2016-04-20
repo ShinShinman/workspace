@@ -26,10 +26,18 @@
 <xsl:template match="data">
 	<section class="exhibitions">
 		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wystawy']" /></h1>
+			<ul class="inline-list filters">
+				<xsl:apply-templates select="//exhibitions-categories/entry[@wystawy > 0]" />
+				<li class="show-all"><a href="javascript:void(0)">Wszystkie</a></li>
+			</ul>
 		<div class="bricks-container">
 			<xsl:apply-templates select="exhibitions/entry" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="exhibitions-categories/entry">
+	<li class="{exhib-category/@handle}"><a href="javascript:void(0)" data-filter="{exhib-category/@handle}"><xsl:value-of select="exhib-category" /></a><!--<a href="javascript:void(0)" class="clear-filter icons">X</a>--></li>
 </xsl:template>
 
 <xsl:template match="exhibitions/entry">

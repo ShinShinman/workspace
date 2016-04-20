@@ -29,6 +29,13 @@ class datasourceexhibitions extends SectionDatasource
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
+        'category' => array(
+            'section_id' => '8',
+            'field_id' => '31',
+            'elements' => array(
+                'exhib-category: formatted'
+            )
+        ),
         'badge' => array(
             'section_id' => '9',
             'field_id' => '33',
@@ -51,7 +58,7 @@ class datasourceexhibitions extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-04-16T06:59:29+00:00'
+            'release-date' => '2016-04-20T12:08:33+00:00'
         );
     }
     public function getSource()

@@ -41,6 +41,10 @@
 	p {
 		margin-top: 0;
 		margin-bottom: $gutter;
+		&.category {
+			margin: 0;
+			font-size: 14px;
+		}
 	}
 
 	.dashed {
