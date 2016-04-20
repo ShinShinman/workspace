@@ -21,7 +21,7 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:include href="../utilities/master.xsl"/>
+<xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
 	<section class="exhibitions">
@@ -42,6 +42,18 @@
 
 <xsl:template match="exhibitions/entry">
 	<xsl:call-template name="brick" />
+</xsl:template>
+
+<xsl:template name="language-button">
+	<xsl:param name="lang" />
+	<xsl:choose>
+		<xsl:when test="$lang = 'pl'">
+			<a href="{$root}/en/exhibitions/" class="icon">E</a>
+		</xsl:when>
+		<xsl:otherwise>
+			<a href="{$root}/pl/wystawy/" class="icon">P</a>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <!--

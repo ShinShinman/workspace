@@ -10,7 +10,7 @@
 			<a href="{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
 				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<xsl:apply-templates select="subtitle" />
-				<xsl:apply-templates select="category/item" />
+				<xsl:apply-templates select="./category/item" mode="brick" />
 				<xsl:apply-templates select="./date" />
 				<xsl:copy-of select="lead/node()" />
 				<xsl:apply-templates select="cover-image" />
@@ -23,13 +23,8 @@
 		<h2><xsl:value-of select="." /></h2>
 	</xsl:template>
 
-	<xsl:template match="category/item">
-		<p class="category"><xsl:value-of select="exhib-category" /></p>
-		<!--
-		<ul class="category-list">
-			<li><xsl:value-of select="exhib-category" /></li>
-		</ul>
-		-->
+	<xsl:template match="category/item" mode="brick">
+		<p class="category"><xsl:value-of select="exhib-category" /><xsl:value-of select="event-category" /></p>
 	</xsl:template>
 
 	<xsl:template match="entry/date">

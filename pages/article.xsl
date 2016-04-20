@@ -21,7 +21,8 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:include href="../utilities/master.xsl"/>
+<!--<xsl:include href="../utilities/master.xsl"/>-->
+<xsl:import href="../utilities/master.xsl" />
 
 <xsl:template match="data">
 	<xsl:apply-templates select="exhibition/entry" />
@@ -182,6 +183,18 @@
 			MA.api.setNavBackground('.offset')
 		});
 	</script>
+</xsl:template>
+
+<xsl:template name="language-button">
+	<xsl:param name="lang" />
+	<xsl:choose>
+		<xsl:when test="$lang = 'pl'">
+			<a href="{$root}/en/article/{//exhibition/entry/title/@handle-en}{//event/entry/title/@handle-en}" class="icon">E</a>
+		</xsl:when>
+		<xsl:otherwise>
+			<a href="{$root}/pl/artykul/{//exhibition/entry/title/@handle-pl}{//event/entry/title/@handle-pl}" class="icon">P</a>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

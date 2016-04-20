@@ -14,8 +14,8 @@ class datasourcenews_events extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '56' => 'yes',
         'system:id' => '{$ds-news}',
+        '56' => 'yes',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
@@ -23,17 +23,16 @@ class datasourcenews_events extends SectionDatasource
         'subtitle: formatted',
         'lead: formatted',
         'category',
-        'badge',
         'cover-image',
         'date: formatted'
     );
     
     public $dsParamINCLUDEDASSOCIATIONS = array(
         'category' => array(
-            'section_id' => '8',
-            'field_id' => '31',
+            'section_id' => '19',
+            'field_id' => '97',
             'elements' => array(
-                'exhib-category: formatted'
+                'event-category: formatted'
             )
         )
     );
@@ -51,7 +50,7 @@ class datasourcenews_events extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-25T17:55:56+00:00'
+            'release-date' => '2016-04-20T15:15:53+00:00'
         );
     }
     public function getSource()

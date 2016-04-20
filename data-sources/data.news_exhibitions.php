@@ -28,6 +28,15 @@ class datasourcenews_exhibitions extends SectionDatasource
         'date: formatted'
     );
     
+    public $dsParamINCLUDEDASSOCIATIONS = array(
+        'category' => array(
+            'section_id' => '8',
+            'field_id' => '31',
+            'elements' => array(
+                'exhib-category: formatted'
+            )
+        )
+    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -42,7 +51,7 @@ class datasourcenews_exhibitions extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-01-25T17:55:44+00:00'
+            'release-date' => '2016-04-20T15:15:03+00:00'
         );
     }
     public function getSource()
