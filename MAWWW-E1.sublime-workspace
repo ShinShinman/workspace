@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"di",
+				"division"
+			],
+			[
 				"cu",
 				"cursor"
 			],
@@ -218,10 +222,6 @@
 			[
 				"se",
 				"select"
-			],
-			[
-				"di",
-				"dictionary	(exibitions.xsl)"
 			],
 			[
 				"sty",
@@ -678,6 +678,8 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl.OLD",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
@@ -693,7 +695,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
 		"/C/Users/shinman/Desktop/trening.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_struktura.scss",
 		"/Z/MA WWW/matex/BIP/Struktura Organizacyjna MA 2.md",
@@ -804,12 +805,11 @@
 		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_stick-nav.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/footer.xsl"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_stick-nav.scss"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 21.0
 	},
 	"find_in_files":
 	{

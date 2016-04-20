@@ -1,7 +1,7 @@
 <?php
-class datasourceteam extends SectionDatasource
+class datasourceteam_divisions extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'team';
+    public $dsParamROOTELEMENT = 'team-divisions';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -14,23 +14,9 @@ class datasourceteam extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'name: formatted',
-        'division',
-        'job: formatted',
-        'telephone: formatted',
-        'fax: formatted',
-        'email: formatted'
+        'division: formatted'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'division' => array(
-            'section_id' => '30',
-            'field_id' => '141',
-            'elements' => array(
-                'division: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -39,18 +25,18 @@ class datasourceteam extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Team',
+            'name' => 'Team divisions',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-04-20T18:48:28+00:00'
+            'release-date' => '2016-04-20T18:58:17+00:00'
         );
     }
     public function getSource()
     {
-        return '29';
+        return '30';
     }
     public function allowEditorToParse()
     {
