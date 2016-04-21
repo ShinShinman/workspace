@@ -59,7 +59,7 @@
 
 <xsl:template match="team-divisions/entry">
 	<xsl:variable name="division" select="division/@handle" />
-	<h2 class="div-button" data-div="{division/@handle}"><xsl:value-of select="division" /></h2>
+	<h2 class="div-button donthyphenate" data-div="{division/@handle}"><xsl:value-of select="division" /></h2>
 	<div class="division {division/@handle}">
 		<xsl:apply-templates select="//team/entry[division/item/@handle = $division]" />
 	</div>
