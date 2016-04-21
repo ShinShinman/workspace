@@ -37,8 +37,11 @@
 			</ul>
 		</header>
 		<article>
+			<!--
+			<xsl:copy-of select="article/node()" />
+			-->
 			<h1>Struktura organizacyjna</h1>
-			<xsl:apply-templates select="//team/division" />
+			<xsl:apply-templates select="//team-divisions/entry" />
 		</article>
 	</section>
 </xsl:template>
@@ -54,14 +57,15 @@
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="team/division">
-	<h2 class="div-button" data-div="{@link-handle}"><xsl:value-of select="@value" /></h2>
-	<div class="division {@link-handle}">
-		<xsl:apply-templates select="entry" />
+<xsl:template match="team-divisions/entry">
+	<xsl:variable name="division" select="division/@handle" />
+	<h2 class="div-button" data-div="{division/@handle}"><xsl:value-of select="division" /></h2>
+	<div class="division {division/@handle}">
+		<xsl:apply-templates select="//team/entry[division/item/@handle = $division]" />
 	</div>
 </xsl:template>
 
-<xsl:template match="team/division/entry">
+<xsl:template match="team/entry">
 	<h3><xsl:value-of select="name" /></h3>
 	<ul>
 		<li><xsl:value-of select="job" /></li>
