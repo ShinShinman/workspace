@@ -426,6 +426,9 @@ section:last-of-type {
   .info-banner p {
     margin-bottom: 0; }
 
+.hide {
+  display: none; }
+
 /* Text column */
 .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .single-aid article h1, .single-game article h1, .biuletyn article h1, .tenders article h1, .struktura article h1, .important-docs article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .single-aid article .slide-down a, .slide-down .single-aid article a, .single-game article .slide-down a, .slide-down .single-game article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a, .struktura article .slide-down a, .slide-down .struktura article a, .important-docs article .slide-down a, .slide-down .important-docs article a {
   margin-bottom: 12px; }

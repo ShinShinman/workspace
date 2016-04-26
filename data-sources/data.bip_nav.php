@@ -1,5 +1,5 @@
 <?php
-class datasourcebip_nav extends NavigationDatasource
+class datasourcebip_nav extends MultilingualNavigationDatasource
 {
     public $dsParamROOTELEMENT = 'bip-nav';
     public $dsParamORDER = 'desc';
