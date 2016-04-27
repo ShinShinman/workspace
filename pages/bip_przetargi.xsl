@@ -33,7 +33,7 @@
 			</ul>
 		</header>
 		<article>
-			<h1>Aktualne przetargi</h1>
+			<h1>Aktualne przetargi i ogłoszenia</h1>
 		</article>
 		<xsl:apply-templates select="bip-tenders/entry" />
 	</section>

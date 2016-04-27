@@ -672,12 +672,10 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
-	],
 	"file_history":
 	[
+		"/C/Users/shinman/Downloads/m3452_maWebsite (1).sql",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/Users/shinman/Desktop/trening.txt",
@@ -712,7 +710,6 @@
 		"/C/xampp/php/php.ini",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.events.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_lessons.php",
@@ -804,8 +801,7 @@
 		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/install",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.js",
-		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php"
 	],
 	"find":
 	{
@@ -1083,7 +1079,7 @@
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "MAWWW-E1.sublime-project",
+	"project": "MAWWW-E1.sublime-workspace",
 	"replace":
 	{
 		"height": 38.0
