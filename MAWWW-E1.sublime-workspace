@@ -672,6 +672,10 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+	],
 	"file_history":
 	[
 		"/C/Users/shinman/Downloads/m3452_maWebsite (1).sql",
@@ -1118,7 +1122,7 @@
 		[
 			[
 				"",
-				"Z:\\MA WWW\\MAWWW_B.sublime-workspace"
+				"C:\\xampp\\htdocs\\ma.wroc.pl\\workspace\\MAWWW-E1.sublime-workspace"
 			]
 		],
 		"width": 380.0
