@@ -111,7 +111,7 @@
 
     setNavBackground = function(offsetElement) {
       var dirCount, direction, offset;
-      offset = $(offsetElement).height();
+      offset = $(offsetElement).height() - 125;
       dirCount = [0, 0];
       direction = '';
       $(window).scroll(function() {
@@ -150,7 +150,7 @@
       });
       $('.slide-down a').click(function() {
         var hlHeight;
-        hlHeight = $('.owl-carousel').height();
+        hlHeight = $('.owl-carousel').height() - 125;
         console.log('Click!');
         return $('html, body').animate({
           scrollTop: hlHeight
