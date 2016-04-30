@@ -6,6 +6,9 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		margin-bottom: $gutter;
+		&.offset {
+			min-height: 125px;
+		}
 	}
 	section.post {
 		@extend .text-column;

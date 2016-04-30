@@ -73,7 +73,7 @@
 	</xsl:template>
 
 	<xsl:template match="cover-image">
-		<img src="{$workspace}{@path}/{filename}" />
+		<img src="{$root}/image/post-thumbnail{@path}/{filename}" />
 	</xsl:template>
 
 </xsl:stylesheet>

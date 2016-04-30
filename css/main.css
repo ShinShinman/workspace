@@ -887,6 +887,8 @@ a:before, em:before, strong:before {
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom: 15px; }
+  .article > header.offset {
+    min-height: 125px; }
 .article section.post header h1, .article section.post header .slide-down a, .slide-down .article section.post header a {
   text-transform: uppercase; }
 .article section.post header h2, .article section.post header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post header ul > li > a {

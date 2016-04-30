@@ -31,8 +31,14 @@
 </xsl:template>
 
 <xsl:template match="exhibition/entry">
-	<header class="offset" style="background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px">
-	</header>
+	<xsl:choose>
+		<xsl:when test="main-image">
+			<header class="offset" style="background-image: url({$root}/image/post-header{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px" />
+		</xsl:when>
+		<xsl:otherwise>
+			<header class="offset" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<section class="post">
 		<header class="donthyphenate">
 			<ul class="category-list">
@@ -70,8 +76,14 @@
 </xsl:template>
 
 <xsl:template match="event/entry">
-	<header class="offset" style="background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px">
-	</header>
+	<xsl:choose>
+		<xsl:when test="main-image">
+			<header class="offset" style="background-image: url({$workspace}{main-image/@path}/{main-image/filename}); height: {main-image/meta/@height}px" />
+		</xsl:when>
+		<xsl:otherwise>
+			<header class="offset" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<section class="post">
 		<header class="donthyphenate">
 			<ul class="category-list">
