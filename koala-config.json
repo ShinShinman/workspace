@@ -8,8 +8,12 @@
 		// }
 
 		{
-			"src": "coffee/main.js",
-			"dest": "js/main.min.js"
+			"src": "coffee/ma.coffee",
+			"dest": "coffee/js/ma.js"
+		},
+		{
+			"src": "scss/main.scss",
+			"dest": "css/main.css"
 		}
 	],
 
@@ -25,5 +29,7 @@
 	},
 
 	// An array of filesystem paths which should be searched for js/LESS/Sass templates imported with the @import/@append/@prepend directive.
-	"includePaths": []
+	"includePaths": [
+		"C:/xampp/htdocs/ma.wroc.pl/workspace/bower_components/"
+	]
 }

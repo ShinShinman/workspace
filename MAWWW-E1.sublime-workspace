@@ -674,10 +674,28 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/vendor"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
+		"/C/Users/shinman/Downloads/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_vendor.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/perfect-scrollbar/src/css/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css.map",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/Gruntfile.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/src/scss/owl.carousel.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/dist/assets/owl.carousel.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/src/scss/_mixins.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/src/scss/owl.lazyload.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/src/scss/owl.autoheight.scss",
+		"/C/Users/shinman/Desktop/gulp-rev-all test/package.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/Users/shinman/Desktop/s",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
@@ -688,7 +706,6 @@
 		"/C/Users/shinman/Downloads/m3452_maWebsite (1).sql",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/Users/shinman/Desktop/trening.txt",
 		"/C/Users/shinman/Downloads/complete/RA517.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/.gitmodules",
@@ -703,7 +720,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
@@ -765,7 +781,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/test (restored version 1).txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/test.txt",
 		"/C/Users/shinman/Desktop/tale of us boiler room dj set.txt",
@@ -777,8 +792,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/maintenance.xsl",
@@ -793,19 +806,7 @@
 		"/C/Users/shinman/Desktop/imagemini/gulpfile.js",
 		"/C/Users/shinman/Desktop/nmap.txt",
 		"/C/Users/shinman/Documents/GitHub/ma/.gitignore",
-		"/C/Users/shinman/Documents/GitHub/ma/.git/config",
-		"/C/Users/shinman/Documents/GitHub/ma/.gitmodules",
-		"/C/xampp/htdocs/ma.wroc.pl/.htaccess",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/lesson.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/edukacja.xsl",
-		"/Z/Alternativa - strona WWW/symphony/workspace/css/main.css",
-		"/C/Users/shinman/Desktop/images compresion/gulpfile.js",
-		"/C/Users/shinman/Downloads/yszt/.htaccess",
-		"/C/xampp/apache/conf/httpd.conf",
-		"/C/Users/shinman/Desktop/Nowy dokument tekstowy.txt",
-		"/Z/MA WWW/html/zaslepka.html",
-		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/install",
-		"/Z/MA WWW/font/MArch/MArch-info.txt"
+		"/C/Users/shinman/Documents/GitHub/ma/.git/config"
 	],
 	"find":
 	{
@@ -824,6 +825,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"//Colors",
+			"scss",
+			"owl",
 			"union",
 			"li",
 			"category/item",
@@ -948,10 +952,7 @@
 			"unsubscribe-form",
 			"subscribe-form",
 			"fetch-data-form",
-			".newsletter",
-			"subscribe",
-			"subscription-check-2",
-			"pl"
+			".newsletter"
 		],
 		"highlight": true,
 		"in_selection": false,
