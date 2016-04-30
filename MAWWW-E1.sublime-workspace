@@ -678,7 +678,10 @@
 	],
 	"file_history":
 	[
+		"/C/Users/shinman/Desktop/s",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/php/php.ini",
@@ -766,7 +769,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/test (restored version 1).txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/test.txt",
 		"/C/Users/shinman/Desktop/tale of us boiler room dj set.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/Users/shinman/Desktop/rep.txt",
 		"/C/Users/shinman/Downloads/linux/nmap.txt",
 		"/C/Users/shinman/Downloads/Crypto.sublime-settings",
@@ -803,9 +805,7 @@
 		"/C/Users/shinman/Desktop/Nowy dokument tekstowy.txt",
 		"/Z/MA WWW/html/zaslepka.html",
 		"/C/Users/shinman/Downloads/yszt/ma.wroc.pl/install/install",
-		"/Z/MA WWW/font/MArch/MArch-info.txt",
-		"/C/Users/shinman/Desktop/CoffeeScript Sink/class.js",
-		"/C/xampp/htdocs/ma.wroc.pl/install/includes/config_default.php"
+		"/Z/MA WWW/font/MArch/MArch-info.txt"
 	],
 	"find":
 	{

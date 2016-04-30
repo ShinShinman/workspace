@@ -23,11 +23,12 @@
 
 <!--<xsl:include href="../utilities/master.xsl"/>-->
 <xsl:import href="../utilities/master.xsl" />
+<xsl:include href="../utilities/_news.xsl"/>
 
 <xsl:template match="data">
 	<xsl:apply-templates select="exhibition/entry" />
 	<xsl:apply-templates select="event/entry" />
-	<xsl:apply-templates select="news" />
+	<xsl:call-template name="news" />
 </xsl:template>
 
 <xsl:template match="exhibition/entry">
@@ -144,37 +145,6 @@
 
 <xsl:template match="category/item">
 	<li><a href="#"><xsl:value-of select="exhib-category" /></a></li>
-</xsl:template>
-
-<xsl:template match="news">
-	<section class="news">
-		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'aktualnosci']" /></h1>
-		<div class="bricks-container">
-			<xsl:apply-templates select="./entry/linked-articles/item[not(@id = //exhibition/entry/@id)]" />
-		</div>
-	</section>
-</xsl:template>
-
-<xsl:template match="news/entry">
-	<xsl:call-template name="brick" />
-</xsl:template>
-
-<xsl:template match="news/entry/linked-articles/item[@section-handle = 'wystawy']">
-	<xsl:variable name="id"><xsl:value-of select="./@id" /></xsl:variable>
-	<xsl:apply-templates select="//news-exhibitions/entry[@id = $id]" />
-</xsl:template>
-
-<xsl:template match="news-exhibitions/entry">
-	<xsl:call-template name="brick" />
-</xsl:template>
-
-<xsl:template match="news/entry/linked-articles/item[@section-handle = 'events']">
-	<xsl:variable name="id"><xsl:value-of select="./@id" /></xsl:variable>
-	<xsl:apply-templates select="//news-events/entry[@id = $id]" />
-</xsl:template>
-
-<xsl:template match="news-events/entry">
-	<xsl:call-template name="brick" />
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
