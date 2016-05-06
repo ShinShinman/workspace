@@ -63,13 +63,13 @@
 
 		</header>
 		<article>
-			
+			<!--
 			<xsl:choose>
 				<xsl:when test="//exhibition/entry/category/item/@handle = 'one-project-gallery'">
 					<xsl:copy-of select="//exhibitions-gjp/entry/article/node()" />
 				</xsl:when>
 			</xsl:choose>
-
+			-->
 			<xsl:copy-of select="./article/node()" />
 			<!--<xsl:apply-templates select="article//*" />-->
 		</article>
