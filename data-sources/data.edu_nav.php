@@ -1,37 +1,16 @@
 <?php
-class datasourceedu_lessons extends SectionDatasource
+class datasourceedu_nav extends MultilingualNavigationDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-lessons';
+    public $dsParamROOTELEMENT = 'edu-nav';
     public $dsParamORDER = 'asc';
-    public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '20';
-    public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
-    public $dsParamHTMLENCODE = 'no';
-    public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '68' => 'yes',
+        'parent' => '/education',
     );
-        
-    public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'lead: formatted',
-        'category'
-    );
-    
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'category' => array(
-            'section_id' => '14',
-            'field_id' => '72',
-            'elements' => array(
-                'category: formatted'
-            )
-        )
-    );
+
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -40,18 +19,18 @@ class datasourceedu_lessons extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu lessons',
+            'name' => 'Edu Nav',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.7',
-            'release-date' => '2016-07-22T15:52:29+00:00'
+            'release-date' => '2016-07-22T13:12:41+00:00'
         );
     }
     public function getSource()
     {
-        return '13';
+        return 'navigation';
     }
     public function allowEditorToParse()
     {

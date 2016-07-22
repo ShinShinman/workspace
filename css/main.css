@@ -412,6 +412,9 @@ section:last-of-type {
 .oppening {
   background-color: red; }
 
+.comment {
+  background-color: yellow; }
+
 /* Przerobi─ç AKTUALNO┼ÜCI na komponent i INFO-BANNER chyba te┼╝ */
 .news > h1, .slide-down .news > a {
   margin-bottom: 24px; }

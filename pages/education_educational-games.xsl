@@ -26,7 +26,6 @@
 
 <xsl:template match="data">
 	<xsl:apply-templates select="edu-header/entry" />
-	<xsl:apply-templates select="edu-lessons" />
 </xsl:template>
 
 <xsl:template match="edu-header/entry">
@@ -56,42 +55,6 @@
 			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
 		</a>
 	</li>
-</xsl:template>
-
-<xsl:template match="edu-lessons">
-	<section class="edu-items">
-		<header>
-			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'lekcje-muzealne-i-wyklady-dla-mlodziezy']" /></h1>
-			<ul class="edu-categories filters">
-				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
-				<xsl:apply-templates select="//edu-categories/entry" />
-			</ul>
-		</header>
-		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
-		</div>
-	</section>
-</xsl:template>
-
-<xsl:template match="edu-categories/entry">
-	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
-</xsl:template>
-
-<xsl:template match="edu-lessons/entry">
-	<xsl:call-template name="edu-brick" />
-</xsl:template>
-
-<xsl:template match="news">
-	<section class="news">
-		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'aktualnosci']" /></h1>
-		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
-		</div>
-	</section>
-</xsl:template>
-
-<xsl:template match="news/entry">
-	<xsl:call-template name="brick" />
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">

@@ -1,37 +1,23 @@
 <?php
-class datasourceedu_lessons extends SectionDatasource
+class datasourceedu_schools extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-lessons';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'edu-schools';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-    
-    public $dsParamFILTERS = array(
-        '68' => 'yes',
-    );
-        
+
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'lead: formatted',
-        'category'
+        'article: formatted'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'category' => array(
-            'section_id' => '14',
-            'field_id' => '72',
-            'elements' => array(
-                'category: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -40,18 +26,18 @@ class datasourceedu_lessons extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu lessons',
+            'name' => 'Edu Schools',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.7',
-            'release-date' => '2016-07-22T15:52:29+00:00'
+            'release-date' => '2016-07-22T15:42:48+00:00'
         );
     }
     public function getSource()
     {
-        return '13';
+        return '31';
     }
     public function allowEditorToParse()
     {
