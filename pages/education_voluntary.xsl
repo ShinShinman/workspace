@@ -25,25 +25,19 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-header/entry" />
+	<xsl:apply-templates select="edu-voluntary/entry" />
 </xsl:template>
 
-<xsl:template match="edu-header/entry">
+<xsl:template match="edu-voluntary/entry">
 	<section class="edu">
 		<header>
-			<h1><xsl:value-of select="title" /></h1>
-			<ul class="inline-list hide">
-				<li><a href="javascript:void(0)" class="active">Lekcje muzealne</a></li>
-				<li><a href="{$root}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></a></li>
-				<li><a href="{$root}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//dictionary/entry/word[@handle-pl = 'gry']/@handle}"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'gry']" /></a></li>
-			</ul>
-
+			<h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//edu-nav/page" />
 			</ul>
-
 		</header>
 		<article>
+			<h1><xsl:copy-of select="title/p/node()" /></h1>
 			<xsl:copy-of select="article/node()" />
 		</article>
 	</section>
