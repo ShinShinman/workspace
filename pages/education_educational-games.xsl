@@ -26,6 +26,7 @@
 
 <xsl:template match="data">
 	<xsl:apply-templates select="edu-educational-games/entry" />
+	<xsl:apply-templates select="edu-games" />
 </xsl:template>
 
 <xsl:template match="edu-educational-games/entry">
@@ -49,6 +50,27 @@
 			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
 		</a>
 	</li>
+</xsl:template>
+
+<xsl:template match="edu-games">
+	<section class="edu-items">
+		<header>
+			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'gry']" /></h1>
+			<!--
+			<ul class="edu-categories filters">
+				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
+				<xsl:apply-templates select="//edu-aid-categories/entry" />
+			</ul>
+			-->
+		</header>
+		<div class="bricks-container">
+			<xsl:apply-templates select="./entry[not(@id = //edu-game/entry/@id)]" />
+		</div>
+	</section>
+</xsl:template>
+
+<xsl:template match="edu-games/entry">
+	<xsl:call-template name="edu-brick" />
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">

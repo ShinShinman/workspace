@@ -678,10 +678,11 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
@@ -728,7 +729,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
