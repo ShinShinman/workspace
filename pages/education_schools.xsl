@@ -33,7 +33,7 @@
 	<section class="edu">
 		<header>
 			
-			<h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1>
+			<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1></a>
 
 			<ul class="inline-list">
 				<xsl:apply-templates select="//edu-nav/page" />

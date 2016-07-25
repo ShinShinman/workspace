@@ -398,7 +398,7 @@ section:last-of-type {
   border-top-style: solid;
   padding-top: 5px; }
 
-.color-label, .tag, .event, .oppening, .edu-items li.przedszkola, .edu-items li.klasy-0-3, .edu-items li.klasy-4-6, .edu-items li.gimnazjum, .edu-items li.szkoly-ponadgimnazjalne, .edu-items li.wyklady-dla-mlodziezy, .edu-items li.dla-dzieci, .edu-items li.dla-nauczycieli, .edu-items li.gry, li.wyklady-dla-mlodziezy {
+.color-label, .tag, .event, .oppening, .edu-items li.przedszkola, .edu-items li.klasy-0-3, .edu-items li.klasy-4-6, .edu-items li.gimnazjum, .edu-items li.szkoly-ponadgimnazjalne, .edu-items li.wyklady-dla-mlodziezy, .edu-items li.dzieci, .edu-items li.nauczyciele, .edu-items li.dorosli, .edu-items li.gry-on-line, .edu-items li.gry-planszowe, .edu-items li.gry-terenowe, .edu-items li.dla-dzieci, .edu-items li.dla-nauczycieli, .edu-items li.gry, li.wyklady-dla-mlodziezy {
   color: white;
   font-weight: normal;
   padding: 0 6px; }
@@ -415,6 +415,12 @@ section:last-of-type {
 .comment {
   background-color: yellow; }
 
+.hide {
+  display: none; }
+
+.date {
+  color: red; }
+
 /* Przerobi─ç AKTUALNO┼ÜCI na komponent i INFO-BANNER chyba te┼╝ */
 .news > h1, .slide-down .news > a {
   margin-bottom: 24px; }
@@ -427,8 +433,9 @@ section:last-of-type {
   .info-banner p {
     margin-bottom: 0; }
 
-.hide {
-  display: none; }
+/* KIDS-N-PARENTS */
+.kids-n-parents article a:hover > h3 {
+  color: black; }
 
 /* Text column */
 .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .single-aid article h1, .single-game article h1, .biuletyn article h1, .tenders article h1, .struktura article h1, .important-docs article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .single-aid article .slide-down a, .slide-down .single-aid article a, .single-game article .slide-down a, .slide-down .single-game article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a, .struktura article .slide-down a, .slide-down .struktura article a, .important-docs article .slide-down a, .slide-down .important-docs article a {
@@ -921,6 +928,8 @@ a:before, em:before, strong:before {
   margin-bottom: 12px; }
 
 .edu-items {
+  /* Materia┼éy edukacyjne */
+  /* Gry edukacyjne */
   /* Materia┼éy do pobrania */ }
   .edu-items header {
     margin-bottom: 12px; }
@@ -966,6 +975,30 @@ a:before, em:before, strong:before {
     border-color: #ff5e57; }
   .edu-items li.wyklady-dla-mlodziezy {
     background-color: #ff5e57; }
+  .edu-items .dzieci h1, .edu-items .dzieci .slide-down a, .slide-down .edu-items .dzieci a {
+    border-color: #ffef24; }
+  .edu-items li.dzieci {
+    background-color: #ffef24; }
+  .edu-items .nauczyciele h1, .edu-items .nauczyciele .slide-down a, .slide-down .edu-items .nauczyciele a {
+    border-color: #ff5e57; }
+  .edu-items li.nauczyciele {
+    background-color: #ff5e57; }
+  .edu-items .dorosli h1, .edu-items .dorosli .slide-down a, .slide-down .edu-items .dorosli a {
+    border-color: magenta; }
+  .edu-items li.dorosli {
+    background-color: magenta; }
+  .edu-items .gry-on-line h1, .edu-items .gry-on-line .slide-down a, .slide-down .edu-items .gry-on-line a {
+    border-color: #3399ff; }
+  .edu-items li.gry-on-line {
+    background-color: #3399ff; }
+  .edu-items .gry-planszowe h1, .edu-items .gry-planszowe .slide-down a, .slide-down .edu-items .gry-planszowe a {
+    border-color: #ff7800; }
+  .edu-items li.gry-planszowe {
+    background-color: #ff7800; }
+  .edu-items .gry-terenowe h1, .edu-items .gry-terenowe .slide-down a, .slide-down .edu-items .gry-terenowe a {
+    border-color: #4cb87b; }
+  .edu-items li.gry-terenowe {
+    background-color: #4cb87b; }
   .edu-items .dla-dzieci h1, .edu-items .dla-dzieci .slide-down a, .slide-down .edu-items .dla-dzieci a {
     border-color: #9ea1a9; }
   .edu-items li.dla-dzieci {

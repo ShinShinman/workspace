@@ -26,12 +26,13 @@
 
 <xsl:template match="data">
 	<xsl:apply-templates select="edu-adults/entry" />
+	<xsl:apply-templates select="edu-lectures" />
 </xsl:template>
 
 <xsl:template match="edu-adults/entry">
 	<section class="edu">
 		<header>
-			<h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1>
+			<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1></a>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//edu-nav/page" />
 			</ul>
@@ -49,6 +50,36 @@
 			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
 		</a>
 	</li>
+</xsl:template>
+
+<xsl:template match="edu-lectures">
+	<section class="edu-items">
+		<header>
+			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'najblizsze-wyklady-i-spotkania']" /></h1>
+			<xsl:choose>
+				<xsl:when test="entry">
+					<ul class="edu-categories filters">
+						<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
+						<xsl:apply-templates select="//edu-lectures-categories/entry" />
+					</ul>
+				</xsl:when>
+				<xsl:otherwise>
+					<p><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'brak-aktualnych-wykladow']" /></p>
+				</xsl:otherwise>
+			</xsl:choose>
+		</header>
+		<div class="bricks-container">
+			<xsl:apply-templates select="./entry[not(@id = //edu-game/entry/@id)]" />
+		</div>
+	</section>
+</xsl:template>
+
+<xsl:template match="edu-lectures-categories/entry">
+	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
+</xsl:template>
+
+<xsl:template match="edu-lectures/entry">
+	<xsl:call-template name="edu-brick" />
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">

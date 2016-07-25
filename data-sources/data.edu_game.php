@@ -21,9 +21,19 @@ class datasourceedu_game extends SectionDatasource
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
         'files',
-        'article: formatted'
+        'article: formatted',
+        'category'
     );
     
+    public $dsParamINCLUDEDASSOCIATIONS = array(
+        'category' => array(
+            'section_id' => '39',
+            'field_id' => '166',
+            'elements' => array(
+                'category: formatted'
+            )
+        )
+    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -37,8 +47,8 @@ class datasourceedu_game extends SectionDatasource
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
-            'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-04-16T11:18:48+00:00'
+            'version' => 'Symphony 2.6.7',
+            'release-date' => '2016-07-25T13:11:06+00:00'
         );
     }
     public function getSource()

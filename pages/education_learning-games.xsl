@@ -32,7 +32,7 @@
 <xsl:template match="edu-educational-games/entry">
 	<section class="edu">
 		<header>
-			<h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1>
+			<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1></a>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//edu-nav/page" />
 			</ul>
@@ -56,17 +56,19 @@
 	<section class="edu-items">
 		<header>
 			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'gry']" /></h1>
-			<!--
 			<ul class="edu-categories filters">
 				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
-				<xsl:apply-templates select="//edu-aid-categories/entry" />
+				<xsl:apply-templates select="//edu-games-categories/entry" />
 			</ul>
-			-->
 		</header>
 		<div class="bricks-container">
 			<xsl:apply-templates select="./entry[not(@id = //edu-game/entry/@id)]" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="edu-games-categories/entry">
+	<li class="{category/@handle-pl}"><a href="javascript:void(0)" data-filter="{category/@handle}"><xsl:value-of select="category" /></a><a href="javascript:void(0)" class="clear-filter icons">X</a></li>
 </xsl:template>
 
 <xsl:template match="edu-games/entry">

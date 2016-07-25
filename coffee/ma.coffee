@@ -293,6 +293,13 @@ $ ->
 	# trigger event handler to init Isotope
 	onHashchange()
 
+	# kids-n-parents -> Warsztaty
+	wBtn = $('.kids-n-parents a.workshop')
+	wMore = $('.kids-n-parents .more')
+	wBtn.click (e) ->
+		e.preventDefault()
+		wMore.slideToggle()
+
 
 
 ###

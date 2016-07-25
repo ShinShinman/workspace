@@ -81,6 +81,14 @@ section {
 	background-color: yellow;
 }
 
+.hide {
+	display: none;
+}
+
+.date {
+	color: red;	//data w edukacji (też w Wystawach i wydarzeniach, ale tam jest osobna reguła). Czy to ma być globalne?
+}
+
 
 
 /* Przerobić AKTUALNOŚCI na komponent i INFO-BANNER chyba też */
@@ -101,10 +109,11 @@ section {
 	}
 }
 
-
-.hide {
-	display: none;
+/* KIDS-N-PARENTS */
+.kids-n-parents article a:hover > h3 {
+	color: black;
 }
+
 
 
 /* Text column */

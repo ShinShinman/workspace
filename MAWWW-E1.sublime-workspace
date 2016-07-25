@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"cop",
+				"copy-of"
+			],
+			[
+				"en",
+				"entry"
+			],
+			[
+				"edu-",
+				"edu-workshops"
+			],
+			[
+				"edu",
+				"edu-lectures"
+			],
+			[
 				"archive",
 				"archiveItem"
 			],
@@ -498,22 +514,6 @@
 			[
 				"list-s",
 				"list-style-type"
-			],
-			[
-				"nem",
-				"name"
-			],
-			[
-				"xs",
-				"xsl:otherwise	(newsletter.xsl)"
-			],
-			[
-				"n",
-				"none"
-			],
-			[
-				"out",
-				"outline"
 			]
 		]
 	},
@@ -678,18 +678,22 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/Users/shinman/Desktop/trening/trening.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/Users/shinman/Desktop/trening.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
@@ -750,7 +754,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.exhibitions.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
 		"/C/Users/shinman/Desktop/teraz.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_single-game.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_important-docs.scss",
@@ -802,10 +805,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/maintenance.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/extension.driver.php",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/assets/templatedtextformatters.settings.js",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/content/content.index.php",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/content/content.edit.php"
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/extension.driver.php"
 	],
 	"find":
 	{
@@ -824,6 +824,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"255, 94, 87",
+			"dzieci",
+			"255, 94, 87",
+			"dzieci",
+			"wyklady-dla-mlodziezy",
+			"h3",
+			"edu-aid-categories/entry",
 			"edu-voluntary",
 			"edu-kids-and-parents",
 			"edu-how-to-order",
@@ -944,14 +951,7 @@
 			"extended",
 			"aside",
 			"fontello",
-			"maison/maisonmg-regular-webfont",
-			"66.583px",
-			"../fonts/celias/type_dynamic_-_celias-webfont",
-			"jsonProp",
-			"celias/type_dynamic_-_celias-webfont",
-			"maison/maisonmg-regular-webfont",
-			"Active",
-			"Email"
+			"maison/maisonmg-regular-webfont"
 		],
 		"highlight": true,
 		"in_selection": false,

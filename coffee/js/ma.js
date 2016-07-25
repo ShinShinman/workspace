@@ -251,7 +251,7 @@
   };
 
   $(function() {
-    var clear, filterTriggers, filters, onHashchange, showAll;
+    var clear, filterTriggers, filters, onHashchange, showAll, wBtn, wMore;
     console.log('DOM is ready!');
     window.MA.init();
     filters = $('.filters li');
@@ -302,7 +302,13 @@
       });
     };
     $(window).on('hashchange', onHashchange);
-    return onHashchange();
+    onHashchange();
+    wBtn = $('.kids-n-parents a.workshop');
+    wMore = $('.kids-n-parents .more');
+    return wBtn.click(function(e) {
+      e.preventDefault();
+      return wMore.slideToggle();
+    });
   });
 
 

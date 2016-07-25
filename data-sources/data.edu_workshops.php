@@ -1,7 +1,7 @@
 <?php
-class datasourceedu_games extends SectionDatasource
+class datasourceedu_workshops extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-games';
+    public $dsParamROOTELEMENT = 'edu-workshops';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -14,25 +14,17 @@ class datasourceedu_games extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '130' => 'yes',
+        '181' => 'yes',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'files',
+        'subtitle: formatted',
+        'lead: formatted',
         'article: formatted',
-        'category'
+        'date: formatted'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'category' => array(
-            'section_id' => '39',
-            'field_id' => '166',
-            'elements' => array(
-                'category: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -41,18 +33,18 @@ class datasourceedu_games extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu Games',
+            'name' => 'Edu workshops',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.7',
-            'release-date' => '2016-07-25T13:10:41+00:00'
+            'release-date' => '2016-07-25T19:19:18+00:00'
         );
     }
     public function getSource()
     {
-        return '27';
+        return '42';
     }
     public function allowEditorToParse()
     {

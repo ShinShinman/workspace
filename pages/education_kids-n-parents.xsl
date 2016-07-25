@@ -31,7 +31,7 @@
 <xsl:template match="edu-kids-and-parents/entry">
 	<section class="edu">
 		<header>
-			<h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1>
+			<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1></a>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//edu-nav/page" />
 			</ul>
@@ -40,6 +40,7 @@
 			<h1><xsl:copy-of select="title/p/node()" /></h1>
 			<xsl:copy-of select="article/node()" />
 		</article>
+		<xsl:apply-templates select="//edu-workshops/entry" />
 	</section>
 </xsl:template>
 
@@ -49,6 +50,18 @@
 			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
 		</a>
 	</li>
+</xsl:template>
+
+<xsl:template match="edu-workshops/entry">
+	<article>
+		<a href="javascript:void(0);" class="workshop">
+			<h3><xsl:copy-of select="title/p/node()" /> –<span class="date">&nbsp;<xsl:copy-of select="date/p/node()" /></span></h3>
+		</a>
+		<div class="more hide">
+			<xsl:copy-of select="subtitle/node()" />
+			<xsl:copy-of select="article/node()" />
+		</div>
+	</article>
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">

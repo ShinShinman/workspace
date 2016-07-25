@@ -114,6 +114,69 @@
 		background-color: rgb(255, 94, 87);
 	}
 
+	/* Materiały edukacyjne */
+	.dzieci {
+		h1 {
+			border-color: rgb(255, 239, 36);
+		}
+	}
+	li.dzieci {
+		@extend .color-label;
+		background-color: rgb(255, 239, 36);
+	}
+
+	.nauczyciele {
+		h1 {
+			border-color: rgb(255, 94, 87);
+		}
+	}
+	li.nauczyciele {
+		@extend .color-label;
+		background-color: rgb(255, 94, 87);
+	}
+
+	.dorosli {
+		h1 {
+			border-color: rgb(255, 0, 255);
+		}
+	}
+	li.dorosli {
+		@extend .color-label;
+		background-color: rgb(255, 0, 255);
+	}
+
+	/* Gry edukacyjne */
+
+	.gry-on-line {
+		h1 {
+			border-color: rgb(51, 153, 255);
+		}
+	}
+	li.gry-on-line {
+		@extend .color-label;
+		background-color: rgb(51, 153, 255);
+	}
+
+	.gry-planszowe {
+		h1 {
+			border-color: rgb(255, 120, 0);
+		}
+	}
+	li.gry-planszowe {
+		@extend .color-label;
+		background-color: rgb(255, 120, 0);
+	}
+
+	.gry-terenowe {
+		h1 {
+			border-color: rgb(76, 184, 123);
+		}
+	}
+	li.gry-terenowe {
+		@extend .color-label;
+		background-color: rgb(76, 184, 123);
+	}
+
 	/* Materiały do pobrania */
 	.dla-dzieci {
 		h1 {
