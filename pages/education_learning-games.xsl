@@ -25,8 +25,26 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-educational-games/entry" />
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="edu-game/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="edu-educational-games/entry" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<xsl:apply-templates select="edu-games" />
+</xsl:template>
+
+<xsl:template match="edu-game/entry">
+	<section class="single-game">
+		<header>
+			<h1><xsl:value-of select="title/p" /></h1>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+		</article>
+	</section>
 </xsl:template>
 
 <xsl:template match="edu-educational-games/entry">
