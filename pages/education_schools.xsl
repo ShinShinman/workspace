@@ -74,7 +74,7 @@
 <xsl:template match="edu-lessons">
 	<section class="edu-items">
 		<header>
-			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'lekcje-muzealne-i-wyklady']" /></h1>
+			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'program-zajec-edukacyjnych']" /></h1>
 			<ul class="edu-categories filters">
 				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
 				<xsl:apply-templates select="//edu-categories/entry" />

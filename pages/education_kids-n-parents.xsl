@@ -25,9 +25,41 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-kids-and-parents/entry" />
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="edu-workshop/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="edu-kids-and-parents/entry" />
+		</xsl:otherwise>
+	</xsl:choose>
+	<xsl:apply-templates select="edu-workshops" />
 </xsl:template>
 
+<xsl:template match="edu-workshop/entry">
+	<section class="single-lesson">
+		<header class="donthyphenate">
+			<h1><xsl:value-of select="title" /></h1>
+			<p class="edu-categories"><span class="{category/item/category/@handle}"><xsl:value-of select="category/item/category" /></span></p>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+		</article>
+	</section>
+</xsl:template>
+<!--
+<xsl:template match="data">
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="edu-lesson/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="edu-schools/entry" />
+		</xsl:otherwise>
+	</xsl:choose>
+	<xsl:apply-templates select="edu-lessons" />
+</xsl:template>
+-->
 <xsl:template match="edu-kids-and-parents/entry">
 	<section class="edu">
 		<header>
@@ -40,7 +72,7 @@
 			<h1><xsl:copy-of select="title/p/node()" /></h1>
 			<xsl:copy-of select="article/node()" />
 		</article>
-		<xsl:apply-templates select="//edu-workshops/entry" />
+		<!--<xsl:apply-templates select="//edu-workshops/entry" />-->
 	</section>
 </xsl:template>
 
@@ -52,6 +84,28 @@
 	</li>
 </xsl:template>
 
+<xsl:template match="edu-workshops">
+	<section class="edu-items">
+		<header>
+			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'aktualne-warsztaty']" /></h1>
+			<!--
+			<ul class="edu-categories filters">
+				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
+				<xsl:apply-templates select="//edu-categories/entry" />
+			</ul>
+			-->
+		</header>
+		<div class="bricks-container">
+			<xsl:apply-templates select="./entry" />
+		</div>
+	</section>
+</xsl:template>
+
+<xsl:template match="edu-workshops/entry">
+	<xsl:call-template name="edu-brick" />
+</xsl:template>
+
+<!--
 <xsl:template match="edu-workshops/entry">
 	<article>
 		<a href="javascript:void(0);" class="workshop">
@@ -63,7 +117,7 @@
 		</div>
 	</article>
 </xsl:template>
-
+-->
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
 </xsl:template>

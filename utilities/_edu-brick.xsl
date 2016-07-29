@@ -20,6 +20,9 @@
 						<xsl:when test="name(..) = 'edu-games'">
 							<xsl:call-template name="games" />
 						</xsl:when>
+						<xsl:when test="name(..) = 'edu-workshops'">
+							<xsl:call-template name="workshops" />
+						</xsl:when>
 					</xsl:choose>
 				</xsl:attribute>
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
@@ -39,6 +42,10 @@
 
 	<xsl:template name="games">
 		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'gry-edukacyjne', '/', title/@handle)" />
+	</xsl:template>
+
+	<xsl:template name="workshops">
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'dzieci-i-rodzice', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template match="category/item">
