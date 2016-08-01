@@ -421,6 +421,9 @@ section:last-of-type {
 .date {
   color: red; }
 
+.no-break {
+  white-space: nowrap; }
+
 /* Przerobi─ç AKTUALNO┼ÜCI na komponent i INFO-BANNER chyba te┼╝ */
 .news > h1, .slide-down .news > a {
   margin-bottom: 24px; }

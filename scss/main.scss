@@ -89,6 +89,10 @@ section {
 	color: red;	//data w edukacji (też w Wystawach i wydarzeniach, ale tam jest osobna reguła). Czy to ma być globalne?
 }
 
+.no-break {
+	white-space: nowrap;
+}
+
 
 
 /* Przerobić AKTUALNOŚCI na komponent i INFO-BANNER chyba też */
