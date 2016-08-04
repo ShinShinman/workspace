@@ -679,9 +679,12 @@
 	"file_history":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
+		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
@@ -732,7 +735,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl.OLD",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
@@ -803,9 +805,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/maintenance.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/extensions/templatedtextformatters/extension.driver.php"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css"
 	],
 	"find":
 	{
@@ -824,6 +824,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"-040816",
 			"edu-lesson",
 			"edu-lessons",
 			"216, 199, 0",
@@ -950,8 +951,7 @@
 			"settings.bac",
 			"Animal",
 			".owl-theme ",
-			"owl",
-			"vh"
+			"owl"
 		],
 		"highlight": true,
 		"in_selection": false,

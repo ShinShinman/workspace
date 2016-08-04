@@ -87,10 +87,17 @@
 	<section class="edu-items">
 		<header>
 			<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'materialy-do-pobrania']" /></h1>
-			<ul class="edu-categories filters">
-				<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
-				<xsl:apply-templates select="//edu-aid-categories/entry" />
-			</ul>
+			<xsl:choose>
+				<xsl:when test="entry">
+					<ul class="edu-categories filters">
+						<li class="label"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'filtry']" />:</li>
+						<xsl:apply-templates select="//edu-aid-categories/entry" />
+					</ul>
+				</xsl:when>
+				<xsl:otherwise>
+					<p><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'brak-aktualnych-wykladow']" /></p>
+				</xsl:otherwise>
+			</xsl:choose>
 		</header>
 		<div class="bricks-container">
 			<xsl:apply-templates select="./entry[not(@id = //edu-one-aid/entry/@id)]" />

@@ -94,10 +94,17 @@
 				<xsl:apply-templates select="//edu-categories/entry" />
 			</ul>
 			-->
+			<xsl:choose>
+				<xsl:when test="entry">
+					<div class="bricks-container">
+						<xsl:apply-templates select="./entry" />
+					</div>
+				</xsl:when>
+				<xsl:otherwise>
+					<p><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'brak-aktualnych-warsztatow']" /></p>
+				</xsl:otherwise>
+			</xsl:choose>
 		</header>
-		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
-		</div>
 	</section>
 </xsl:template>
 
