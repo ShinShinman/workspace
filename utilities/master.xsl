@@ -120,7 +120,7 @@
 					</a>
 				</li>
 				-->
-				<li><a href="javascript:void(0);" class="icon menu-trigger">G</a></li>
+				<li><a href="javascript:void(0);" class="icon menu-trigger">g</a></li>
 			</ul>
 		</nav>
 

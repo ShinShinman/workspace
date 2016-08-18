@@ -71,7 +71,7 @@
         color: 'black',
         backgroundColor: 'transparent'
       });
-      trigger.text('G');
+      trigger.text('g');
     };
 
     menuToggle = function(trigger, target) {

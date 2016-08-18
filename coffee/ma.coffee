@@ -58,7 +58,7 @@ class MA
 			backgroundColor: 'transparent'
 			# backgroundColor: if MA.settings.highlightVisible then 'transparent' else 'white'
 			})
-		trigger.text('G')
+		trigger.text('g')
 		return
 
 	menuToggle = (trigger, target) ->

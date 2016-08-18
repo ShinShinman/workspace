@@ -678,10 +678,11 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
@@ -694,7 +695,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/Users/shinman/Desktop/trening/trening.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
@@ -824,6 +824,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			">G<",
+			"march-regular",
 			"-040816",
 			"edu-lesson",
 			"edu-lessons",
@@ -949,9 +951,7 @@
 			"expand",
 			"collapsedBackground",
 			"settings.bac",
-			"Animal",
-			".owl-theme ",
-			"owl"
+			"Animal"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -959,6 +959,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"march-regular-180816",
 			"$1 $2",
 			"$1\\s$2",
 			"$1$2",
@@ -1086,7 +1087,7 @@
 	"project": "MAWWW-E1.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
