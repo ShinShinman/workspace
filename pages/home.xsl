@@ -24,6 +24,7 @@
 <xsl:include href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_highlight.xsl" />
 <xsl:include href="../utilities/_news.xsl" />
+<xsl:include href="../utilities/_edu-brick.xsl" />
 
 <xsl:template match="data">
 

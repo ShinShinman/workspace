@@ -22,12 +22,21 @@
 		<xsl:apply-templates select="//news-events/entry[@id = $id]" />
 	</xsl:template>
 
+	<xsl:template match="news/entry/linked-articles/item[@section-handle = 'edu-workshops']">
+		<xsl:variable name="id"><xsl:value-of select="./@id" /></xsl:variable>
+		<xsl:apply-templates select="//news-workshops/entry[@id = $id]" />
+	</xsl:template>
+
 	<xsl:template match="news-exhibitions/entry">
 		<xsl:call-template name="brick" />
 	</xsl:template>
 
 	<xsl:template match="news-events/entry">
 		<xsl:call-template name="brick" />
+	</xsl:template>
+
+	<xsl:template match="news-workshops/entry">
+		<xsl:call-template name="edu-brick" />
 	</xsl:template>
 
 </xsl:stylesheet>
