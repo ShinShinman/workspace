@@ -26,7 +26,9 @@
 					</xsl:choose>
 				</xsl:attribute>
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
-				<!--<xsl:copy-of select="lead/node()" />-->
+				<xsl:apply-templates select="../section" />
+				<xsl:apply-templates select="./date" />
+				<xsl:copy-of select="lead/node()" />
 			</a>
 		</article>
 
@@ -52,6 +54,10 @@
 		<xsl:text> </xsl:text><xsl:value-of select="category/@handle-pl" />
 	</xsl:template>
 
+	<xsl:template match="edu-workshops/section">
+		<p class="category"><xsl:value-of select="." /></p>
+	</xsl:template>
+
 	<xsl:template match="entry/date">
 		<div class="dashed">
 			<svg>
@@ -61,11 +67,6 @@
 			<svg>
 				<path d="M0 0 H 300" />
 			</svg>
-			<!--<xsl:apply-templates select=".//black" />-->
-			<!--
-			<xsl:apply-templates select="date[@type = 'exact']" />
-			<xsl:apply-templates select="date[@type = 'range']" />
-		-->
 		</div>
 	</xsl:template>
 
