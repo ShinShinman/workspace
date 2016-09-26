@@ -26,28 +26,28 @@
 					</xsl:choose>
 				</xsl:attribute>
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
-				<xsl:apply-templates select="../section" />
+				<!--<xsl:apply-templates select="../section" />-->
 				<xsl:apply-templates select="./date" />
-				<xsl:copy-of select="lead/node()" />
+				<!--<xsl:copy-of select="lead/node()" />-->
 			</a>
 		</article>
 
 	</xsl:template>
 
 	<xsl:template name="lesson">
-		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'przedszkola-i-szkoly', '/', title/@handle)" />
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'przedszkola-i-szkoly', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template name="aid">
-		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'materialy-edukacyjne', '/', title/@handle)" />
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'materialy-edukacyjne', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template name="games">
-		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'gry-edukacyjne', '/', title/@handle)" />
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'gry-edukacyjne', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template name="workshops">
-		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-en = $root-page], '/', 'dzieci-i-rodzice', '/', title/@handle)" />
+		<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'dzieci-i-rodzice', '/', title/@handle)" />
 	</xsl:template>
 
 	<xsl:template match="category/item">

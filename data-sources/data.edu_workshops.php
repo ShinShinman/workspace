@@ -38,8 +38,8 @@ class datasourceedu_workshops extends SectionDatasource
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
-            'version' => 'Symphony 2.6.7',
-            'release-date' => '2016-07-25T19:19:18+00:00'
+            'version' => 'Symphony 2.6.3',
+            'release-date' => '2016-09-26T14:50:30+00:00'
         );
     }
     public function getSource()
