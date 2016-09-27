@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"la",
+				"lang"
+			],
+			[
 				"te",
 				"test"
 			],
@@ -510,10 +514,6 @@
 			[
 				"foo",
 				"footnote"
-			],
-			[
-				"list-s",
-				"list-style-type"
 			]
 		]
 	},
@@ -678,10 +678,11 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
+		"/C/xampp/php/php.ini",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
@@ -724,7 +725,6 @@
 		"/C/Users/shinman/Desktop/gulp-rev-all test/package.json",
 		"/C/Users/shinman/Desktop/s",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
-		"/C/xampp/php/php.ini",
 		"/C/Users/shinman/Downloads/m3452_maWebsite (1).sql",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
 		"/C/Users/shinman/Downloads/complete/RA517.txt",
@@ -824,6 +824,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"section",
+			"date",
+			"category",
 			"$root-page",
 			"en",
 			">G<",
@@ -948,10 +951,7 @@
 			"visible",
 			"stickyNav",
 			"stickNav",
-			"tytul",
-			"collapse",
-			"expand",
-			"collapsedBackground"
+			"tytul"
 		],
 		"highlight": true,
 		"in_selection": false,

@@ -22,7 +22,8 @@ class datasourceedu_workshops extends SectionDatasource
         'subtitle: formatted',
         'lead: formatted',
         'article: formatted',
-        'date: formatted'
+        'date: formatted',
+        'cover-image'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -39,7 +40,7 @@ class datasourceedu_workshops extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-09-26T14:50:30+00:00'
+            'release-date' => '2016-09-27T20:01:52+00:00'
         );
     }
     public function getSource()
