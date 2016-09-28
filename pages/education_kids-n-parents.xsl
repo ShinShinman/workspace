@@ -39,27 +39,23 @@
 <xsl:template match="edu-workshop/entry">
 	<section class="single-lesson">
 		<header class="donthyphenate">
+			<ul class="category-list">
+				<li><a href="#">Edukacja</a></li>
+			</ul>
 			<h1><xsl:value-of select="title" /></h1>
-			<p class="edu-categories"><span class="{category/item/category/@handle}"><xsl:value-of select="category/item/category" /></span></p>
+			<xsl:apply-templates select="subtitle" />
+			<h3 class="date"><xsl:copy-of select="date/p/node()" /></h3>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
 		</article>
 	</section>
 </xsl:template>
-<!--
-<xsl:template match="data">
-	<xsl:choose>
-		<xsl:when test="$title">
-			<xsl:apply-templates select="edu-lesson/entry" />
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:apply-templates select="edu-schools/entry" />
-		</xsl:otherwise>
-	</xsl:choose>
-	<xsl:apply-templates select="edu-lessons" />
+
+<xsl:template match="subtitle">
+	<h2><xsl:value-of select="." /></h2>
 </xsl:template>
--->
+
 <xsl:template match="edu-kids-and-parents/entry">
 	<section class="edu">
 		<header>

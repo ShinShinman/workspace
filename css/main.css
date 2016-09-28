@@ -1032,9 +1032,14 @@ li.wyklady-dla-mlodziezy {
 
 /* LESSON */
 .single-lesson header h1, .single-lesson header .slide-down a, .slide-down .single-lesson header a {
-  margin-bottom: 12px; }
+  margin-bottom: 6px; }
+.single-lesson header h2, .single-lesson header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson header ul > li > a {
+  margin-bottom: 6px; }
 .single-lesson header .edu-categories span {
   display: inline-block; }
+.single-lesson header .category-list {
+  margin-bottom: 12px;
+  font-weight: bold; }
 .single-lesson header .przedszkola {
   color: white;
   background-color: #3abb4a;

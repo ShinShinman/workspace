@@ -19,7 +19,9 @@ class datasourceedu_workshop extends SectionDatasource
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'article: formatted'
+        'subtitle: formatted',
+        'article: formatted',
+        'date: formatted'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -35,8 +37,8 @@ class datasourceedu_workshop extends SectionDatasource
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
-            'version' => 'Symphony 2.6.7',
-            'release-date' => '2016-07-29T11:05:29+00:00'
+            'version' => 'Symphony 2.6.3',
+            'release-date' => '2016-09-28T12:01:37+00:00'
         );
     }
     public function getSource()

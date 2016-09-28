@@ -1,25 +1,26 @@
 <?php
-class datasourceedu_lectures extends SectionDatasource
+class datasourceedu_lecture extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'edu-lectures';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'edu-lecture';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamREQUIREDPARAM = '$title';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '172' => 'yes',
+        '169' => '{$title}',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'lead: formatted',
+        'subtitle: formatted',
         'article: formatted',
         'category',
         'date: formatted'
@@ -42,13 +43,13 @@ class datasourceedu_lectures extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Edu lectures',
+            'name' => 'Edu lecture',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-09-28T14:12:20+00:00'
+            'release-date' => '2016-09-28T12:25:21+00:00'
         );
     }
     public function getSource()

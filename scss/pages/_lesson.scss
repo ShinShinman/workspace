@@ -5,11 +5,22 @@
 
 	header {
 		h1 {
-			margin-bottom: 12px;
+			margin-bottom: 6px;
 		}
+
+		h2 {
+			margin-bottom: 6px;
+		}
+
 		.edu-categories span {
 			display: inline-block;
 		}
+
+		.category-list {
+			margin-bottom: 12px;
+			font-weight: bold;
+		}
+
 		.przedszkola {
 			color: white;
 			background-color: rgb(58, 187, 74);
@@ -40,5 +51,6 @@
 			background-color: rgb(255, 94, 87);
 			padding: 0 6px;
 		}
+
 	}
 }

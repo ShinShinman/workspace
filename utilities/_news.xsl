@@ -27,6 +27,11 @@
 		<xsl:apply-templates select="//edu-workshops/entry[@id = $id]" />
 	</xsl:template>
 
+	<xsl:template match="news/entry/linked-articles/item[@section-handle = 'edu-lectures']">
+		<xsl:variable name="id"><xsl:value-of select="./@id" /></xsl:variable>
+		<xsl:apply-templates select="//edu-lectures/entry[@id = $id]" />
+	</xsl:template>
+
 	<xsl:template match="news-exhibitions/entry">
 		<xsl:call-template name="brick" />
 	</xsl:template>
@@ -36,6 +41,10 @@
 	</xsl:template>
 
 	<xsl:template match="edu-workshops/entry">
+		<xsl:call-template name="edu-brick" />
+	</xsl:template>
+
+	<xsl:template match="edu-lectures/entry">
 		<xsl:call-template name="edu-brick" />
 	</xsl:template>
 

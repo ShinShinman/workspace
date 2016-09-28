@@ -7,8 +7,7 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article>
-			<xsl:attribute name="class">brick<xsl:apply-templates select="category/item" /></xsl:attribute>
-
+			<xsl:attribute name="class">brick <xsl:apply-templates select="category/item" /></xsl:attribute>
 			<xsl:choose>
 				<xsl:when test="name(..) = 'edu-lessons'">
 					<xsl:call-template name="lesson" />
@@ -22,14 +21,19 @@
 				<xsl:when test="name(..) = 'edu-workshops'">
 					<xsl:call-template name="workshops" />
 				</xsl:when>
+				<xsl:when test="name(..) = 'edu-lectures'">
+					<xsl:call-template name="lectures" />
+				</xsl:when>
 			</xsl:choose>
-
 		</article>
 
 	</xsl:template>
 
+	<xsl:template match="category/item">
+		<xsl:text> </xsl:text><xsl:value-of select="category/@handle-pl" />
+	</xsl:template>
+
 	<xsl:template name="lesson">
-		<!--<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'przedszkola-i-szkoly', '/', title/@handle)" />-->
 
 		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/przedszkola-i-szkoly/{title/@handle}">
 			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
@@ -40,7 +44,6 @@
 	</xsl:template>
 
 	<xsl:template name="aid">
-		<!--<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'materialy-edukacyjne', '/', title/@handle)" />-->
 
 		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/materialy-edukacyjne/{title/@handle}">
 			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
@@ -51,7 +54,6 @@
 	</xsl:template>
 
 	<xsl:template name="games">
-		<!--<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'gry-edukacyjne', '/', title/@handle)" />-->
 
 		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/gry-edukacyjne/{title/@handle}">
 			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
@@ -62,7 +64,6 @@
 	</xsl:template>
 
 	<xsl:template name="workshops">
-		<!--<xsl:value-of select="concat($root, '/', title/@lang, '/', //dictionary/entry/word[@handle-pl = 'edukacja'], '/', 'dzieci-i-rodzice', '/', title/@handle)" />-->
 
 		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/dzieci-i-rodzice/{title/@handle}">
 			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
@@ -74,8 +75,14 @@
 		</a>
 	</xsl:template>
 
-	<xsl:template match="category/item">
-		<xsl:text> </xsl:text><xsl:value-of select="category/@handle-pl" />
+	<xsl:template name="lectures">
+		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/dorosli/{title/@handle}">
+			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
+			<p class="category">Edukacja</p>
+			<xsl:apply-templates select="./date" />
+			<xsl:copy-of select="lead/node()" />
+			<xsl:apply-templates select="cover-image" />
+		</a>
 	</xsl:template>
 
 	<xsl:template match="edu-workshops/section">

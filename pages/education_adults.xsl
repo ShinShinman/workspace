@@ -25,8 +25,43 @@
 <xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-adults/entry" />
+	<!--<xsl:apply-templates select="edu-adults/entry" />
+	<xsl:apply-templates select="edu-lectures" />-->
+
+
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="edu-lecture/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="edu-adults/entry" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<xsl:apply-templates select="edu-lectures" />
+</xsl:template>
+
+<xsl:template match="edu-lecture/entry">
+	<section class="single-lesson">
+		<header class="donthyphenate">
+			<ul class="category-list">
+				<xsl:apply-templates select="category/item" />
+			</ul>
+			<h1><xsl:value-of select="title" /></h1>
+			<xsl:apply-templates select="subtitle" />
+			<h3 class="date"><xsl:copy-of select="date/p/node()" /></h3>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+		</article>
+	</section>
+</xsl:template>
+
+<xsl:template match="category/item">
+	<li><a href="#"><span class="{category/@handle}"><xsl:value-of select="category" /></span></a></li>
+</xsl:template>
+
+<xsl:template match="subtitle">
+	<h2><xsl:value-of select="." /></h2>
 </xsl:template>
 
 <xsl:template match="edu-adults/entry">
@@ -69,7 +104,7 @@
 			</xsl:choose>
 		</header>
 		<div class="bricks-container">
-			<xsl:apply-templates select="./entry[not(@id = //edu-game/entry/@id)]" />
+			<xsl:apply-templates select="./entry" />
 		</div>
 	</section>
 </xsl:template>
