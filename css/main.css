@@ -893,7 +893,7 @@ a:before, em:before, strong:before {
     margin-bottom: 24px; }
 
 /* Pages */
-/* ARTICLE if for exhibitions and events */
+/* ARTICLE is for exhibitions and events */
 .article > header {
   background-position: center;
   background-repeat: no-repeat;
@@ -921,6 +921,9 @@ a:before, em:before, strong:before {
   font-size: 14px;
   color: grey;
   margin-top: -24px; }
+.article section.post article iframe {
+  width: 638px;
+  height: 360px; }
 
 /* EDU */
 .edu header h1, .edu header .slide-down a, .slide-down .edu header a {
