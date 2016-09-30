@@ -678,6 +678,9 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
@@ -685,7 +688,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
 		"/C/xampp/php/php.ini",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
@@ -803,9 +805,7 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/test.min.css"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl"
 	],
 	"find":
 	{
