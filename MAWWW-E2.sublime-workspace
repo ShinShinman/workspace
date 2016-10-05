@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"margin",
+				"margin-right"
+			],
+			[
 				"te",
 				"text-transform"
 			],
@@ -452,10 +456,6 @@
 				"background"
 			],
 			[
-				"margin",
-				"margin"
-			],
-			[
 				"text",
 				"text-align"
 			],
@@ -527,10 +527,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 380.0,
-		"last_filter": "css",
+		"height": 357.0,
+		"last_filter": "inst",
 		"selected_items":
 		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
 			[
 				"css",
 				"Set Syntax: CSS"
@@ -538,10 +550,6 @@
 			[
 				"scss",
 				"Set Syntax: CSS"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			],
 			[
 				"html",
@@ -628,10 +636,6 @@
 				"Markdown Preview: Preview in Browser"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
 				"insta",
 				"Package Control: Install Package"
 			],
@@ -652,7 +656,7 @@
 				"Preferences: Settings - Default"
 			]
 		],
-		"width": 432.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -674,12 +678,17 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages"
 	],
 	"file_history":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
@@ -704,7 +713,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/Users/shinman/Desktop/trening/trening.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
@@ -734,7 +742,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/.gitmodules",
 		"/C/xampp/htdocs/ma.wroc.pl/.git/config",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.git/config",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl.OLD",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
@@ -803,13 +810,11 @@
 		"/C/Users/shinman/Downloads/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Installed Packages/Crypto.sublime-package",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl"
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -824,6 +829,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"2",
+			"1",
 			"category/item",
 			"dictionary",
 			"subtitle",
@@ -949,9 +956,7 @@
 			"32%",
 			"icons",
 			"[",
-			"debug",
-			"directionCount",
-			"direction"
+			"debug"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1046,7 +1051,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -1087,7 +1092,7 @@
 	"project": "MAWWW-E2.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

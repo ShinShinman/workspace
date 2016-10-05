@@ -129,6 +129,21 @@ section {
 	}
 }
 
+/* FOXYCART DEMO [4.10.2016] */
+.fc-demo {
+	article {
+		width: 311px;
+		float: left;
+		margin-right: 20px;
+		img {
+			width: 100%;
+		}
+		input[type="number"] {
+			width: 40px;
+		}
+	}
+}
+
 
 @import 'utilities';
 @import 'typography';
