@@ -30,6 +30,17 @@
 			<h1>Foxycart demo</h1>
 		</header>
 
+		<p data-fc-id="minicart">
+			<a href="https://ma.foxycart.com/cart?cart=view">
+				<span data-fc-id="minicart-quantity">0</span>
+				<span data-fc-id="minicart-singular"> item </span>
+				<span data-fc-id="minicart-plural"> przedmiotów </span>
+				w koszyku. Suma:
+				<span data-fc-id="minicart-order-total">&nbsp;0 </span>
+				zł
+			</a>
+		</p>
+
 		<article>
 			<!-- link example -->
 			<!--<a href="https://ma.foxycart.com/cart?name=Cool%20Example!amp;price=10!amp;color=red!amp;code=sku123">Add a red Cool Example</a>-->
@@ -67,6 +78,7 @@
 				<input type="submit" value="Dodaj do koszyka" class="submit" />
 			</form>
 		</article>
+
 	</section>
 </xsl:template>
 
