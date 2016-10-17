@@ -454,6 +454,41 @@ section:last-of-type {
   .fc-demo article input[type="number"] {
     width: 40px; }
 
+/* FOXYCART ÔÇô KOSZYK [to powinien by─ç osobny plik w folderze Foxycart] */
+[data-fc-sidecart] {
+  background-color: white !important; }
+
+.fc-container, .fc-sidebar {
+  background-color: white !important; }
+
+#fc div, #fc span, #fc h2, #fc .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left #fc ul > li > a, #fc h3, #fc h4, #fc h5, #fc p, #fc a, #fc table *, #fc button, #fc address {
+  font-family: "Maison", sans-serif !important; }
+#fc .fc-fixed-button-right .fc-btn-action {
+  background: magenta !important; }
+#fc .fc-fixed-button-left .fc-btn-action {
+  background-color: #f0f0f0 !important; }
+#fc .fc-cart__item__quantity .fc-form-control {
+  border: none !important;
+  background-color: #f0f0f0 !important;
+  box-shadow: none !important; }
+#fc .fc-order-quantity {
+  font-weight: normal !important; }
+#fc .fc-form-control {
+  font-family: "Maison" !important;
+  border-radius: 0 !important; }
+#fc .fc-button {
+  border-radius: 0 !important; }
+#fc .fc-transaction__shipping-address {
+  border-radius: 0 !important;
+  margin-left: 0 !important; }
+#fc .fc-subtotal__label {
+  padding-left: 0 !important; }
+#fc .fc-action--checkout--button {
+  border-radius: 0 !important;
+  border: none !important;
+  background: magenta !important;
+  text-shadow: none !important; }
+
 /* Utilities */
 .bricks-container {
   min-height: 200px; }

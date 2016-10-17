@@ -50,15 +50,15 @@
 				<input type="hidden" name="name" value="Werkbund. Droga ku nowoczsności" />
 				<input type="hidden" name="price" value="79.99" />
 				<input type="hidden" name="code" value="ISBN 123-123-123-123" />
-				<label>Język publikacji</label>
 				<select name="language">
+					<option value="" disabled="disabled" selected="selected">Język publikacji</option>
 					<option value="pl">Polski</option>
 					<option value="de">Niemiecki</option>
 					<option value="en">Angielski</option>
 					<option value="cz">Czeski</option>
 				</select><br />
-				<label>Wysyłka</label>
 				<select name="category">
+					<option value="" disabled="disabled" selected="selected">Wysyłka</option>
 					<option value="kurier">Kurier</option>
 					<option value="pickup">Odbiór w MA</option>
 				</select><br />

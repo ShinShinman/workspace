@@ -144,6 +144,63 @@ section {
 	}
 }
 
+/* FOXYCART – KOSZYK [to powinien być osobny plik w folderze Foxycart] */
+[data-fc-sidecart] {
+	background-color: white !important;
+}
+.fc-container, .fc-sidebar {
+	background-color: white !important;
+}
+#fc {
+	div, span, h2, h3, h4, h5, p, a, table *, button, address {
+		font-family: "Maison", sans-serif !important;
+	}
+
+	.fc-fixed-button-right .fc-btn-action {
+		background: magenta !important;
+	}
+
+	.fc-fixed-button-left .fc-btn-action {
+		background-color: rgb(240, 240, 240) !important;
+	}
+
+	.fc-cart__item__quantity .fc-form-control {
+		border: none !important;
+		background-color: rgb(240, 240, 240) !important;
+		box-shadow: none !important;
+	}
+
+	.fc-order-quantity {
+		font-weight: normal !important;
+	}
+
+	.fc-form-control {
+		font-family: "Maison" !important;
+		border-radius: 0 !important;
+	}
+
+	.fc-button {
+		border-radius: 0 !important;
+	}
+
+	.fc-transaction__shipping-address {
+		border-radius: 0 !important;
+		margin-left: 0 !important;
+	}
+
+	.fc-subtotal__label {
+		padding-left: 0 !important;
+	}
+
+
+	.fc-action--checkout--button {
+		border-radius: 0 !important;
+		border: none !important;
+		background: magenta !important;
+		text-shadow: none !important;
+	}
+}
+
 
 @import 'utilities';
 @import 'typography';

@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"bac",
+				"background-color"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"impo",
+				"important"
+			],
+			[
+				"bord",
+				"border-radius"
+			],
+			[
+				"imp",
+				"important"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
 				"margin",
 				"margin-right"
 			],
@@ -96,10 +140,6 @@
 				"getHashFilter"
 			],
 			[
-				"fon",
-				"font-weight"
-			],
-			[
 				"mar",
 				"margin-right"
 			],
@@ -160,10 +200,6 @@
 				"margin-bottom"
 			],
 			[
-				"padd",
-				"padding"
-			],
-			[
 				"border-co",
 				"border-color"
 			],
@@ -202,10 +238,6 @@
 			[
 				"tr",
 				"trigger"
-			],
-			[
-				"bac",
-				"backgroundColor"
 			],
 			[
 				"api",
@@ -340,10 +372,6 @@
 				"opacity"
 			],
 			[
-				"ba",
-				"backgroundColor"
-			],
-			[
 				"exten",
 				"extend\t(main.scss)"
 			],
@@ -388,10 +416,6 @@
 				"initial\t(index.html)"
 			],
 			[
-				"font",
-				"font-size"
-			],
-			[
 				"strip",
 				"stripe\t(main.scss)"
 			],
@@ -404,16 +428,8 @@
 				"border-style"
 			],
 			[
-				"border",
-				"border-width"
-			],
-			[
 				"in",
 				"include"
-			],
-			[
-				"margi",
-				"margin-right"
 			],
 			[
 				"visi",
@@ -442,10 +458,6 @@
 			[
 				"border-r",
 				"border-right"
-			],
-			[
-				"imp",
-				"important\t!important"
 			],
 			[
 				"tran",
@@ -502,18 +514,6 @@
 			[
 				"value",
 				"value-of"
-			],
-			[
-				"poli",
-				"polityka\t(privacy-policy.xsl)"
-			],
-			[
-				"langua",
-				"language"
-			],
-			[
-				"foo",
-				"footnote"
 			]
 		]
 	},
@@ -678,12 +678,14 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/Users/shinman/Desktop/skeczbooki.md",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
@@ -808,8 +810,7 @@
 		"/C/Users/shinman/Downloads/linux/nmap.txt",
 		"/C/Users/shinman/Downloads/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Installed Packages/Crypto.sublime-package",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Polish.txt"
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json"
 	],
 	"find":
 	{
@@ -828,6 +829,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"9",
 			"2",
 			"1",
 			"category/item",
@@ -954,8 +956,7 @@
 			"march-regular",
 			"32%",
 			"icons",
-			"[",
-			"debug"
+			"["
 		],
 		"highlight": true,
 		"in_selection": false,
