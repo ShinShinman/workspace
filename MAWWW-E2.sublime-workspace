@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-weight"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
 				"bac",
 				"background-color"
 			],
@@ -14,10 +22,6 @@
 			[
 				"margi",
 				"margin-left"
-			],
-			[
-				"font",
-				"font-family"
 			],
 			[
 				"border",
@@ -428,10 +432,6 @@
 				"border-style"
 			],
 			[
-				"in",
-				"include"
-			],
-			[
 				"visi",
 				"visible"
 			],
@@ -656,7 +656,7 @@
 				"Preferences: Settings - Default"
 			]
 		],
-		"width": 400.0
+		"width": 432.0
 	},
 	"console":
 	{
@@ -678,11 +678,20 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/wydawnictwa.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/Users/shinman/Desktop/skeczbooki.md",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
@@ -709,11 +718,9 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/Users/shinman/Desktop/trening/trening.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
@@ -722,7 +729,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/Users/shinman/Downloads/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_vendor.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
@@ -757,7 +763,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_games.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
 		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
@@ -804,13 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/test (restored version 1).txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/test.txt",
-		"/C/Users/shinman/Desktop/tale of us boiler room dj set.txt",
-		"/C/Users/shinman/Desktop/rep.txt",
-		"/C/Users/shinman/Downloads/linux/nmap.txt",
-		"/C/Users/shinman/Downloads/Crypto.sublime-settings",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Installed Packages/Crypto.sublime-package",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/test.txt"
 	],
 	"find":
 	{

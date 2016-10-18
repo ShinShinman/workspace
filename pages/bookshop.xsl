@@ -22,52 +22,54 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:import href="../utilities/master.xsl"/>
-<xsl:include href="../utilities/_edu-brick.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="edu-header/entry" />
-</xsl:template>
-
-<xsl:template match="edu-header/entry">
-	<section class="edu">
+	<section class="bookshop">
 		<header>
-			<h1><xsl:value-of select="title" /></h1>
-
+			<h1><a href="#" class="active">Wydawnictwa</a>/<a href="#">Wysyłka</a>/<a href="#">Kontakt</a>/<a href="#">Regulamin</a></h1>
 			<ul class="inline-list">
-				<xsl:apply-templates select="//edu-nav/page" />
+				<li>yszt</li>
+				<li>yszt</li>
+				<li>yszt</li>
+				<li>yszt</li>
 			</ul>
-
 		</header>
-		<article>
-			<xsl:copy-of select="article/node()" />
-		</article>
+
+
+		<div class="bricks-container">
+			<xsl:apply-templates select="events/entry" />
+			<article class="book brick {category/item/exhib-category/@handle}">
+				<a href="#">
+					<div class="article-header">
+						<h1 class="donthyphenate">Tytuł<br />2<br />3</h1>
+						<h2>Podtytuł</h2>
+						<p>Autor</p>
+					</div>
+					<img src="http://placehold.it/320x350" />
+				</a>
+				<a href="#" class="button">80,00 zł</a>
+			</article>
+		</div>
 	</section>
 </xsl:template>
 
-<xsl:template match="edu-nav/page">
-	<li>
-		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = 'pl']/@handle}/{item[@lang = 'pl']/@handle}">
-			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
-		</a>
-	</li>
-</xsl:template>
-
-<xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+<xsl:template match="events/entry">
+	<xsl:call-template name="brick" />
 </xsl:template>
 
 <xsl:template name="language-button">
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/en/education/" class="icon">E</a>
+			<a href="{$root}/en/events/" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/pl/edukacja/" class="icon">P</a>
+			<a href="{$root}/pl/wydarzenia/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
 
+<!--
 <xsl:template match="data" mode="js">
 	<script>
 		$(function() {
@@ -75,5 +77,6 @@
 		});
 	</script>
 </xsl:template>
+-->
 
 </xsl:stylesheet>
