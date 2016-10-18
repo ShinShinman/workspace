@@ -22,15 +22,15 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:import href="../utilities/master.xsl"/>
+<xsl:include href="../utilities/_bookshop-nav.xsl" />
 
 <xsl:template match="data">
 	<section class="bookshop-nav">
 		<header>
-			<h1><a href="#">Wydawnictwa</a>/<a href="#">Wysyłka</a>/<a href="#">Kontakt</a>/<a href="#" class="active">Regulamin</a></h1>
-
+			<xsl:call-template name="bookshop-nav" />
 		</header>
 	</section>
-	<section class="bookshop">
+	<section class="bookshop-page">
 
 		<article>
 			<h1>Regulamin</h1>

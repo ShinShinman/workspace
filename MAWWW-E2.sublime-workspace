@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"book",
+				"bookshop-nav"
+			],
+			[
 				"font",
 				"font-weight"
 			],
@@ -510,10 +514,6 @@
 			[
 				"ver",
 				"vertical\t(newsletter2.1.html)"
-			],
-			[
-				"value",
-				"value-of"
 			]
 		]
 	},
@@ -683,9 +683,10 @@
 	"file_history":
 	[
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/wydawnictwa.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
@@ -808,8 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/test (restored version 1).txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/test.txt"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/test (restored version 1).txt"
 	],
 	"find":
 	{
