@@ -519,6 +519,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "pages/fc-chceckout.xsl",
+			"settings":
+			{
+				"buffer_size": 1225,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -678,10 +687,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages"
 	],
 	"file_history":
 	[
+		"/C/Users/shinman/Downloads/.htaccess",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
@@ -808,8 +819,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/education.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/test (restored version 1).txt"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js"
 	],
 	"find":
 	{
@@ -1043,8 +1053,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "pages/fc-chceckout.xsl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								876,
+								876
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
