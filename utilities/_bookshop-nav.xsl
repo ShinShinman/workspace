@@ -5,7 +5,14 @@
 
 	<xsl:template name="bookshop-nav">
 		<h1>
-			<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
+			<xsl:choose>
+				<xsl:when test="$current-page = 'bookshop'">
+					<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
+				</xsl:when>
+				<xsl:otherwise>
+					<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
+				</xsl:otherwise>
+			</xsl:choose>
 			<xsl:apply-templates select="bookshop-nav/page" />
 		</h1>
 	</xsl:template>

@@ -23,6 +23,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_bookshop-nav.xsl" />
+<xsl:include href="../utilities/_bookshop-brick.xsl" />
 
 <xsl:template match="data">
 	<section class="bookshop-nav">
@@ -40,24 +41,13 @@
 
 
 		<div class="bricks-container">
-			<xsl:apply-templates select="events/entry" />
-			<article class="book brick {category/item/exhib-category/@handle}">
-				<a href="#">
-					<div class="article-header">
-						<h1 class="donthyphenate">Tytuł<br />2<br />3</h1>
-						<h2>Podtytuł</h2>
-						<p>Autor</p>
-					</div>
-					<img src="http://placehold.it/320x350" />
-				</a>
-				<a href="#" class="button">80,00 zł</a>
-			</article>
+			<xsl:apply-templates select="bookshop-items/entry" />
 		</div>
 	</section>
 </xsl:template>
 
-<xsl:template match="events/entry">
-	<xsl:call-template name="brick" />
+<xsl:template match="bookshop-items/entry">
+	<xsl:call-template name="bookshop-brick" />
 </xsl:template>
 
 <xsl:template name="language-button">

@@ -1,0 +1,17 @@
+// BOOKSHOP NAV
+
+.bookshop-nav {
+	header {
+		h1 {
+			color: rgb(153, 153, 153);
+			a:hover {
+				color: black;
+				opacity: 1;
+			}
+			a.active {
+				color: black;
+				opacity: 1;
+			}
+		}
+	}
+}
