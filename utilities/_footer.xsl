@@ -26,7 +26,11 @@
 				</div>
 				<div class="second-column">
 					<div class="a">
-						<p><a href="{$root}">Wydawnictwa</a></p>
+						<p><a href="{$root}/pl/wydawnictwa/">Wydawnictwa</a></p>
+						<ul>
+							<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
+							<li>+48 71 344 82 79 wew.15</li>
+						</ul>
 					</div>
 					<div class="b">
 					<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
@@ -59,11 +63,20 @@
 					Poland</p>
 				</div>
 				<div class="second-column">
-					<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
-					<ul class="yyy">
-						<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Opening hours</a></li>
-						<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ticket prices</a></li>
-					</ul>
+					<div class="a">
+						<p><a href="{$root}/pl/wydawnictwa/">Bookshop</a></p>
+						<ul>
+							<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
+							<li>+48 71 344 82 79 wew.15</li>
+						</ul>
+					</div>
+					<div class="b">
+						<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
+						<ul class="yyy">
+							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Opening hours</a></li>
+							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ticket prices</a></li>
+						</ul>
+					</div>
 				</div>
 				<div class="third-column">
 					<ul class="social">
