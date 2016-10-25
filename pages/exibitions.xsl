@@ -28,7 +28,7 @@
 		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wystawy']" /></h1>
 			<ul class="inline-list filters">
 				<xsl:apply-templates select="//exhibitions-categories/entry[@wystawy > 0]" />
-				<li class="show-all"><a href="javascript:void(0)">Wszystkie</a></li>
+				<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
 			</ul>
 		<div class="bricks-container">
 			<xsl:apply-templates select="exhibitions/entry" />

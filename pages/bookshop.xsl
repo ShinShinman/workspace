@@ -57,8 +57,11 @@
 	<section class="bookshop-nav">
 		<header>
 			<xsl:call-template name="bookshop-nav" />
-			<ul class="inline-list">
+			<ul class="inline-list filters">
 				<xsl:apply-templates select="bookshop-categories/entry" />
+				<li class="show-all">
+					<a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a>
+				</li>
 			</ul>
 		</header>
 		<div class="bricks-container">
