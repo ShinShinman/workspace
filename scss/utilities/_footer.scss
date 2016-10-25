@@ -39,6 +39,15 @@
 			width: columns-width(6);
 			margin-right: $gutter;
 
+			.b {
+				width: columns-width(3);
+				float: left;
+			}
+			.a {
+				@extend .b;
+				margin-right: $gutter;
+			}
+
 			p {
 				text-align: right;
 				font-weight: bold;

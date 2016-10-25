@@ -25,11 +25,16 @@
 					Polska</p>
 				</div>
 				<div class="second-column">
+					<div class="a">
+						<p><a href="{$root}">Wydawnictwa</a></p>
+					</div>
+					<div class="b">
 					<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
-					<ul class="yyy">
-						<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Godziny otwarcia</a></li>
-						<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ceny biletów</a></li>
-					</ul>
+						<ul class="yyy">
+							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Godziny otwarcia</a></li>
+							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ceny biletów</a></li>
+						</ul>
+					</div>
 				</div>
 				<div class="third-column">
 					<ul class="social">

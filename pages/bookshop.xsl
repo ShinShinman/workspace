@@ -26,24 +26,51 @@
 <xsl:include href="../utilities/_bookshop-brick.xsl" />
 
 <xsl:template match="data">
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:apply-templates select="bookshop-book/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:call-template name="bookshop" />
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template match="bookshop-book/entry">
+	<section class="single-book">
+		<header class="donthyphenate">
+			<ul class="category-list">
+				<li><xsl:value-of select="category/item/bookshop-category" /></li>
+			</ul>
+			<h1><xsl:value-of select="title" /></h1>
+			<h2><xsl:value-of select="subtitle" /></h2>
+			<p class="author"><xsl:value-of select="author/p" /></p>
+			<a href="#" class="button"><xsl:value-of select="prize" /></a>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+		</article>
+	</section>
+</xsl:template>
+
+<xsl:template name="bookshop">
 	<section class="bookshop-nav">
 		<header>
-
 			<xsl:call-template name="bookshop-nav" />
-
 			<ul class="inline-list">
-				<li>yszt</li>
-				<li>yszt</li>
-				<li>yszt</li>
-				<li>yszt</li>
+				<xsl:apply-templates select="bookshop-categories/entry" />
 			</ul>
 		</header>
-
-
 		<div class="bricks-container">
 			<xsl:apply-templates select="bookshop-items/entry" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="bookshop-categories/entry">
+	<li>
+		<a href="javascript:void(0)" data-filter="{bookshop-category/@handle}"><xsl:value-of select="bookshop-category" /></a>
+	</li>
 </xsl:template>
 
 <xsl:template match="bookshop-items/entry">

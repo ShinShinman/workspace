@@ -1,5 +1,11 @@
 /* BOOKSHOP */
 
+.bookshop-nav {
+	h1 {
+		margin-bottom: 24px;
+	}
+}
+
 .bookshop-page {
 	@extend .text-column;
 }

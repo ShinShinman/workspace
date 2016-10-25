@@ -4,12 +4,24 @@
 		"selected_items":
 		[
 			[
-				"boo",
-				"_bookshop-brick"
+				"mar",
+				"margin-right"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"margin",
+				"margin-bottom"
 			],
 			[
 				"book",
-				"bookshop-items"
+				"bookshop-brick"
+			],
+			[
+				"boo",
+				"_bookshop-brick"
 			],
 			[
 				"curr",
@@ -66,10 +78,6 @@
 			[
 				"im",
 				"important"
-			],
-			[
-				"margin",
-				"margin-right"
 			],
 			[
 				"te",
@@ -160,10 +168,6 @@
 				"getHashFilter"
 			],
 			[
-				"mar",
-				"margin-right"
-			],
-			[
 				"news",
 				"news-events"
 			],
@@ -214,10 +218,6 @@
 			[
 				"active",
 				"active-filter"
-			],
-			[
-				"marg",
-				"margin-bottom"
 			],
 			[
 				"border-co",
@@ -678,18 +678,33 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_book.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-nav.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
@@ -707,22 +722,17 @@
 		"/C/Users/shinman/Desktop/adresy Symphony",
 		"/C/Users/shinman/Downloads/.htaccess",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/wydawnictwa.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/Users/shinman/Desktop/skeczbooki.md",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
@@ -730,7 +740,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
@@ -771,7 +780,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_struktura.scss",
 		"/Z/MA WWW/matex/BIP/Struktura Organizacyjna MA 2.md",
 		"/Z/MA WWW/matex/Polska. Architecture/Polska Architecture - info na strone.md",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_games.scss",
@@ -800,16 +808,11 @@
 		"/C/xampp/phpMyAdmin/libraries/config.default.php",
 		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/class.general.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_info.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/Users/shinman/Desktop/MA Werkbund/werk katalog/eseje/esej brno/info.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_maintenance.scss",
 		"/C/Users/shinman/Downloads/KeePass2.31/XSL/KDBX_PasswordsOnly.xsl",
 		"/C/Windows/System32/drivers/etc/hosts",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
-		"/F/Uni-USB-Installer-Copying.txt",
-		"/C/Program Files (x86)/GNU/GnuPG/share/gpg4win/README.en.txt",
-		"/F/Uni-USB-Installer-Readme.txt"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss"
 	],
 	"find":
 	{

@@ -7,7 +7,7 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article class="book brick {category/item/bookshop-category/@handle}">
-			<a href="{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
+			<a href="{$root}{$current-path}/{title/@handle}">
 				<div class="bookshop-brick-header">
 					<h1 class="donthyphenate">
 						<!--<xsl:apply-templates select="badge" />-->
@@ -19,7 +19,9 @@
 					<!--<xsl:apply-templates select="./date" />-->
 					<!--<xsl:copy-of select="lead/node()" />-->
 				</div>
-				<xsl:apply-templates select="cover-image" />
+				<div class="bookshop-brick-img">
+					<xsl:apply-templates select="cover-image" />
+				</div>
 			</a>
 			<a href="#" class="button"><xsl:value-of select="prize" /></a>
 		</article>

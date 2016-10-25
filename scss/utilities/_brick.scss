@@ -7,7 +7,7 @@
 // BRICK
 
 .brick {
-	width: ($column-width * 4) + (3 * $gutter);
+	width: columns-width(4);
 	margin-bottom: 24px;
 
 	a {

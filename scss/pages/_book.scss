@@ -1,14 +1,14 @@
-// BOOKSHOP BRICK
+// SINGLE BOOK is for single book view in Bookshop page
 
-.book.brick {
-	.bookshop-brick-header {
-		height: 165px;
-		overflow: hidden;
+.single-book {
+	@extend .text-column;
+
+	p {
+		&.author {
+			margin-bottom: 12px;
+		}
 	}
-	.bookshop-brick-img {
-		height: 330px;
-		overflow: hidden;
-	}
+
 	.button {
 		display: inline-block;
 		text-align: center;
@@ -17,7 +17,7 @@
 		color: white;
 		cursor: pointer;
 		background-color: magenta;
-		width: 100%;
+		width: columns-width(3);
 		height: 35px;
 	}
 }
