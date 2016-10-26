@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"po",
+				"position"
+			],
+			[
 				"mar",
 				"margin-right"
 			],
@@ -510,10 +514,6 @@
 			[
 				"font-",
 				"font-family"
-			],
-			[
-				"li",
-				"link\tTag"
 			]
 		]
 	},
@@ -682,6 +682,9 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
+		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
@@ -691,14 +694,12 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-nav.scss",
@@ -808,8 +809,7 @@
 		"/C/Users/shinman/Desktop/MA Werkbund/werk katalog/eseje/esej brno/info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_maintenance.scss",
 		"/C/Users/shinman/Downloads/KeePass2.31/XSL/KDBX_PasswordsOnly.xsl",
-		"/C/Windows/System32/drivers/etc/hosts",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss"
+		"/C/Windows/System32/drivers/etc/hosts"
 	],
 	"find":
 	{

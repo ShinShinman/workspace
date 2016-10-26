@@ -19,5 +19,16 @@
 		background-color: magenta;
 		width: 100%;
 		height: 35px;
+
+		.basket-icon {
+			//@include hide-text;
+			position: relative;
+			top: 8px;
+			right: 10px;
+			float: right;
+			width: 20px;
+			height: 20px;
+			background: url(http://localhost/ma.wroc.pl/workspace/images/koszyk.svg) no-repeat center;
+		}
 	}
 }
