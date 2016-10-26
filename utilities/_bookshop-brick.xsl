@@ -23,7 +23,7 @@
 					<xsl:apply-templates select="cover-image" />
 				</div>
 			</a>
-			<a href="#" class="button"><xsl:value-of select="prize" /><span class="basket-icon"></span></a>
+			<a href="#" class="button"><xsl:value-of select="prize" /><span class="basket-icon" /></a>
 		</article>
 
 	</xsl:template>

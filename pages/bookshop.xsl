@@ -45,11 +45,25 @@
 			<h1><xsl:value-of select="title" /></h1>
 			<h2><xsl:value-of select="subtitle" /></h2>
 			<p class="author"><xsl:value-of select="author/p" /></p>
-			<a href="#" class="button"><xsl:value-of select="prize" /></a>
+			<a href="#" class="button"><xsl:value-of select="prize" /><span class="basket-icon" /></a>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
 		</article>
+	</section>
+	<section class="books">
+		<header>
+		<h1><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></h1>
+		<ul class="inline-list filters">
+				<xsl:apply-templates select="//bookshop-categories/entry" />
+				<li class="show-all">
+					<a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a>
+				</li>
+			</ul>
+			</header>
+			<div class="bricks-container">
+			<xsl:apply-templates select="//bookshop-items/entry" />
+		</div>
 	</section>
 </xsl:template>
 
@@ -71,9 +85,12 @@
 </xsl:template>
 
 <xsl:template match="bookshop-categories/entry">
-	<li>
-		<a href="javascript:void(0)" data-filter="{bookshop-category/@handle}"><xsl:value-of select="bookshop-category" /></a>
-	</li>
+	<xsl:variable name="cat" select="bookshop-category/@handle" />
+	<xsl:if test="count(//bookshop-items/entry[category/item/bookshop-category/@handle = $cat]) &gt; 0">
+		<li>
+			<a href="javascript:void(0)" data-filter="{bookshop-category/@handle}"><xsl:value-of select="bookshop-category" /></a>
+		</li>
+	</xsl:if>
 </xsl:template>
 
 <xsl:template match="bookshop-items/entry">

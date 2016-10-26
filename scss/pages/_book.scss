@@ -19,5 +19,15 @@
 		background-color: magenta;
 		width: columns-width(3);
 		height: 35px;
+
+		.basket-icon { // usunąć (powtarza się w utilities/bookshop-brick.scss, ta ikona powinna być w foncie
+			position: relative;
+			top: 10px;
+			right: 10px;
+			float: right;
+			width: 18px;
+			height: 18px;
+			background: url(http://localhost/ma.wroc.pl/workspace/images/koszyk.svg) no-repeat center;
+		}
 	}
 }

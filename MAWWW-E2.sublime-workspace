@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"books",
+				"bookshop-category"
+			],
+			[
+				"bookshop",
+				"bookshop-items"
+			],
+			[
 				"po",
 				"position"
 			],
@@ -506,14 +514,6 @@
 			[
 				"req",
 				"require"
-			],
-			[
-				"wid",
-				"width"
-			],
-			[
-				"font-",
-				"font-family"
 			]
 		]
 	},
@@ -682,15 +682,17 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_book.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_book.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
@@ -700,7 +702,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-nav.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
@@ -709,7 +710,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
 		"/C/Users/shinman/Downloads/index.xsl",
@@ -828,6 +828,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"20",
 			"vertical-align",
 			"120",
 			"9",
@@ -954,8 +955,7 @@
 			"header",
 			"p",
 			"social",
-			"march-regular",
-			"32%"
+			"march-regular"
 		],
 		"highlight": true,
 		"in_selection": false,
