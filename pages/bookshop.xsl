@@ -24,6 +24,7 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_bookshop-nav.xsl" />
 <xsl:include href="../utilities/_bookshop-brick.xsl" />
+<xsl:include href="../utilities/_fc-link.xsl" />
 
 <xsl:template match="data">
 	<xsl:choose>
@@ -45,7 +46,9 @@
 			<h1><xsl:value-of select="title" /></h1>
 			<h2><xsl:value-of select="subtitle" /></h2>
 			<p class="author"><xsl:value-of select="author/p" /></p>
-			<a href="#" class="button"><xsl:value-of select="prize" /><span class="basket-icon" /></a>
+			<xsl:call-template name="fc-link">
+				<xsl:with-param name="prize" select="prize" />
+			</xsl:call-template>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />
@@ -107,6 +110,12 @@
 			<a href="{$root}/pl/wydarzenia/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
+</xsl:template>
+
+<xsl:template match="data" mode="meta-tags">
+	<!-- FOXYCART -->
+		<script src="//cdn.foxycart.com/ma/loader.js" async="" defer=""></script>
+	<!-- /FOXYCART -->
 </xsl:template>
 
 <!--

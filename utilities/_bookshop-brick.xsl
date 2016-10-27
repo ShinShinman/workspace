@@ -3,6 +3,8 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+	<!--<xsl:include href="_fc-link.xsl" />-->
+
 	<xsl:template name="bookshop-brick">
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
@@ -23,7 +25,9 @@
 					<xsl:apply-templates select="cover-image" />
 				</div>
 			</a>
-			<a href="#" class="button"><xsl:value-of select="prize" /><span class="basket-icon" /></a>
+			<xsl:call-template name="fc-link">
+				<xsl:with-param name="prize" select="prize" />
+			</xsl:call-template>
 		</article>
 
 	</xsl:template>
@@ -35,6 +39,8 @@
 	<xsl:template match="cover-image">
 		<img src="{$root}/image/post-thumbnail{@path}/{filename}" />
 	</xsl:template>
+
+
 
 	<xsl:template match="category/item" mode="brick">
 		<p class="category"><xsl:value-of select="exhib-category" /><xsl:value-of select="event-category" /></p>

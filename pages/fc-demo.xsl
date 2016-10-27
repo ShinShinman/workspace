@@ -41,6 +41,8 @@
 			</a>
 		</p>
 
+		<p><a href="https://ma.foxycart.com/cart?name=Cool%20Example&amp;price=10">Add a red Cool Example</a></p>
+
 		<article>
 			<!-- link example -->
 			<!--<a href="https://ma.foxycart.com/cart?name=Cool%20Example!amp;price=10!amp;color=red!amp;code=sku123">Add a red Cool Example</a>-->
