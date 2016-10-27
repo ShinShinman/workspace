@@ -682,6 +682,8 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/images/.htaccess",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
@@ -693,7 +695,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-prize.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-chceckout.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
@@ -808,8 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/ninja.xsl",
 		"/C/xampp/phpMyAdmin/libraries/config.default.php",
 		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/class.general.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_info.scss",
-		"/C/Users/shinman/Desktop/MA Werkbund/werk katalog/eseje/esej brno/info.txt"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_info.scss"
 	],
 	"find":
 	{
