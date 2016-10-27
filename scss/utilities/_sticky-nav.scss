@@ -65,6 +65,31 @@
 			}
 		}
 
+		.cart {
+			a {
+				.tmp-icon {
+					@include hide-text;
+					display: block;
+					width: 16px;
+					height: 16px;
+					margin: 16px;
+					background-repeat: no-repeat;
+					background-position: center 0;
+					background-size: 100%;
+				}
+				&:hover .tmp-icon {
+					background-position: center -16px;
+				}
+				.yszt {
+					position: relative;
+					top: -64px;
+					left: -1px;
+					font-size: 12px;
+					font-weight: bold;
+				}
+			}
+		}
+
 		form {
 
 			opacity: 0;

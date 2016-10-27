@@ -148,6 +148,9 @@ section {
 [data-fc-sidecart] {
 	background-color: white !important;
 }
+[data-fc-sidecart]::-webkit-scrollbar {
+	display: none;
+}
 .fc-container, .fc-sidebar {
 	background-color: white !important;
 }

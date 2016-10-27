@@ -49,6 +49,8 @@
 			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css" />
 
 			<xsl:call-template name="favicon" />
+
+			<script src="//cdn.foxycart.com/ma/loader.js" async="" defer=""></script>
 		</head>
 
     <body class="{$current-page} hyphenate">
@@ -91,13 +93,13 @@
 		</div>
 
 		<nav>
-			<!--<a class="logo icon" href="{$root}/{//current-language/@handle}">M</a>-->
 			<a class="logo icon">
 				<xsl:attribute name="href">
 					<xsl:apply-templates mode="ma-button" />
 				</xsl:attribute>
-				M
+				<xsl:text>M</xsl:text>
 			</a>
+			<!-- To należy przerobić po przeniesieniu triggera wyszukiwarki -->
 			<form id="search-form" action="javascript:void(0)" method="get">
 				<input type="text" name="keywords" placeholder="W budowie" autocomplete="off" readonly="readonly"/>
 				<input type="submit" value="&rarr;" class="icon"/>
@@ -105,21 +107,13 @@
 			</form>
 
 			<ul>
-				<li><a href="javascript:void(0);" class="icon search-trigger">S</a></li>
+				<!--<li><a href="javascript:void(0);" class="icon search-trigger">S</a></li>--> <!-- To jest trigger wyszykiwarki i w przyszłości powinien być przeniesiony z inne miejsce-->
+				<li class="cart"><a href="https://ma.foxycart.com/cart?cart=view"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="yszt" data-fc-id="minicart-quantity">0</span></span></a></li>
 				<li>
 					<xsl:call-template name="language-button">
 						<xsl:with-param name="lang" select="//fl-languages/current-language/@language" />
 					</xsl:call-template>
 				</li>
-				<!--
-					<a class="icon">
-						<xsl:attribute name="href">
-							<xsl:apply-templates mode="language-button" />
-						</xsl:attribute>
-						E
-					</a>
-				</li>
-				-->
 				<li><a href="javascript:void(0);" class="icon menu-trigger">g</a></li>
 			</ul>
 		</nav>

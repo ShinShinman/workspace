@@ -27,7 +27,8 @@
 			float: right;
 			width: 18px;
 			height: 18px;
-			background: url(http://localhost/ma.wroc.pl/workspace/images/koszyk.svg) no-repeat center;
+			background-repeat: no-repeat;
+			background-position: center;
 		}
 	}
 }
