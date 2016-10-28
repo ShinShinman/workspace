@@ -11,7 +11,7 @@
 			<xsl:text>.</xsl:text>
 			<xsl:value-of select="substring-after($tmp-prize, ',')" />
 		</xsl:variable>
-		<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url(http://localhost/ma.wroc.pl/workspace/images/koszyk.svg)"/></a>
+		<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url({$root}/workspace/images/koszyk.svg)"/></a>
 	</xsl:template>
 
 </xsl:stylesheet>
