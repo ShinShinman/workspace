@@ -1,0 +1,19 @@
+/* LAYOUT */
+
+.row {
+	width: columns-width(12);
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-left: auto;
+}
+
+section {
+	@extend .row;
+	&:not(.highlight):first-of-type {
+		margin-top: 135px;
+	}
+	&:last-of-type {
+		margin-bottom: 250px;
+	}
+}

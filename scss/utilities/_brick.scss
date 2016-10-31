@@ -72,8 +72,8 @@
 		}
 
 		p {
+			@extend .date;
 			line-height: 21px;
-			color: red;
 			margin: 0;
 			padding: 5px 0 2px;
 		}
