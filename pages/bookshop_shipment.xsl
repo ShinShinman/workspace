@@ -46,12 +46,16 @@
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/en/events/" class="icon">E</a>
+			<a href="{$root}/en/bookshop/shipment/" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/pl/wydarzenia/" class="icon">P</a>
+			<a href="{$root}/pl/wydawnictwa/wysylka/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
+</xsl:template>
+
+<xsl:template match="data" mode="ma-button">
+	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/')" />
 </xsl:template>
 
 <!--

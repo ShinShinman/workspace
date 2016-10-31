@@ -491,6 +491,11 @@ section:last-of-type {
   border: none !important;
   background: magenta !important;
   text-shadow: none !important; }
+#fc .fc-messages__empty-notification {
+  border-radius: 0 !important;
+  background-color: #f0f0f0 !important; }
+  #fc .fc-messages__empty-notification a {
+    color: #4d4d4d !important; }
 
 /* Utilities */
 .bricks-container {

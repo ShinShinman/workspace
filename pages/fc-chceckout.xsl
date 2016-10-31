@@ -30,12 +30,12 @@
 			<h1>Template test</h1>
 		</header>
 
-		<div class="fc">
+		<section class="fc">
 			{% include 'svg.inc.twig' %}
 			{% import "utils.inc.twig" as utils %}
 			{% embed 'checkout.inc.twig' %}
 			{% endembed %}
-		</div>
+		</section>
 	</section>
 
 	<!-- FC footer script insertion -->{% include template_from_string(fc_footer_content) %}<!-- /FC footer scripts -->

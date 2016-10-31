@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>MA Bookstore</title>
+  <meta name="description" content="MA Bookstor Checkout">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/fc-checkout.css" />
+
+	{% for css_file_href in config.css_files %}
+		<link href="{{ css_file_href }}" rel="stylesheet" media="screen">
+	{% endfor %}
+
+</head>
+<body class="fc-checkout">
+
+  <div class="sticky-nav donthyphenate" data-state="collapsed">
+    <div class="nav-stripes">
+      <div class="first"></div>
+    </div>
+    <nav>
+      <a href="http://ma.wroc.pl/pl/wydawnictwa/" class="logo icon">M</a>
+    </nav>
+    <div class="main-menu">
+      <div class="left small-stripe">
+        <ul>
+          <xsl:apply-templates select="//main-menu/entry/links/item" />
+        </ul>
+      </div>
+      <div class="right small-stripe">
+        <xsl:copy-of select="//main-menu/entry/prawa-kolumna" />
+      </div>
+    </div>
+  </div>
+
+  <section class="fc">
+		{% include 'svg.inc.twig' %}
+		{% import "utils.inc.twig" as utils %}
+		{% embed 'checkout.inc.twig' %}
+		{% endembed %}
+	</section>
+
+	<footer class="main-footer">
+		<section class="footer">
+			<div class="first-column">
+				<p class="icon logo">M</p>
+				<p>Muzeum Architektury<br/>
+				we Wrocławiu</p>
+				<p>Bernardyńska 5<br/>
+				50-156 Wrocław<br/>
+				Polska</p>
+			</div>
+			<div class="second-column">
+				<div class="a">
+					<p><a href="http://ma.wroc.pl/pl/wydawnictwa/">Wydawnictwa</a></p>
+					<ul>
+						<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
+						<li>+48 71 344 82 79 wew.15</li>
+					</ul>
+				</div>
+				<div class="b">
+				<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
+					<ul class="yyy">
+						<li><a href="http://ma.wroc.pl/pl/informacje/#godziny-otwarcia">Godziny otwarcia</a></li>
+						<li><a href="http://ma.wroc.pl/pl/informacje/#ceny-biletow">Ceny biletów</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="third-column">
+				<ul class="social">
+					<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">t</a></li>
+					<li><a href="javascript:void(0)" target="_blank">i</a></li>
+					<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
+				</ul>
+			</div>
+		</section>
+	</footer>
+
+	<!-- FC footer script insertion -->{% include template_from_string(fc_footer_content) %}<!-- /FC footer scripts -->
+
+</body>
+</html>

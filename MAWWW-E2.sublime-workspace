@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"impor",
+				"important"
+			],
+			[
 				"bac",
 				"background-color"
 			],
@@ -510,24 +514,11 @@
 			[
 				"pad",
 				"padding-right"
-			],
-			[
-				"paddi",
-				"padding"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "utilities/_fc-link.xsl",
-			"settings":
-			{
-				"buffer_size": 711,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -536,10 +527,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "xml",
+		"height": 219.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
 			[
 				"xml",
 				"Set Syntax: XML"
@@ -563,10 +558,6 @@
 			[
 				"css",
 				"Set Syntax: CSS"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
 			],
 			[
 				"js_",
@@ -665,7 +656,7 @@
 				"Preferences: Settings - Default"
 			]
 		],
-		"width": 432.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -691,19 +682,28 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/images/.htaccess",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/fc/fc-checkout.html",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-chceckout.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Choose-browser.sublime-build",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/fc-checkout.css",
+		"/C/Users/shinman/Downloads/fc-checkout.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-link.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/images/.htaccess",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_book.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-prize.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-chceckout.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
@@ -726,9 +726,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
 		"/C/Users/shinman/Downloads/index.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/.htaccess",
 		"/C/xampp/php/php.ini",
@@ -749,7 +746,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
@@ -813,12 +809,7 @@
 		"/Z/MA Werkbund/.syignore",
 		"/C/Users/shinman/Desktop/MA Werkbund/.syignore",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bip.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/ninja.xsl",
-		"/C/xampp/phpMyAdmin/libraries/config.default.php",
-		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/class.general.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_info.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_headers.scss"
 	],
 	"find":
 	{
@@ -837,6 +828,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"div",
+			"https://ma.wroc.pl/workspace/fonts/",
+			"http",
+			"../",
+			"{//dictionary/entry/word[@handle-pl = 'informacje']}",
+			"{$root}/{//current-language/@handle}",
+			"http://ma.wroc.pl/workspace",
+			"main-menu/entry/links/item",
+			"..",
+			"local",
 			"yszt",
 			"link",
 			"fc-link",
@@ -954,17 +955,7 @@
 			"info",
 			"rgb(247, 86, 227)",
 			"rgb(247, 77, 69)",
-			"rgb(43, 251, 222)",
-			"rgb(42, 212, 63)",
-			"rgb(33, 255, 60)",
-			"rgb(255, 248, 33)",
-			"klasy-0-3",
-			"0-3",
-			"klasy-0-3",
-			"przedszkola",
-			"exhibitions/entry",
-			"yszt",
-			"hlHeight"
+			"rgb(43, 251, 222)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -972,6 +963,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"https://dl.dropboxusercontent.com/u/14956648/mafonts/",
+			"https",
+			"http://ma.wroc.pl/workspace/",
+			"..",
+			"http://ma.wroc.pl/workspace",
 			"link",
 			"march-regular-180816",
 			"$1 $2",
@@ -1053,38 +1049,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "utilities/_fc-link.xsl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 711,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								638,
-								638
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

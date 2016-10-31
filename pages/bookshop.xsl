@@ -104,19 +104,25 @@
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/en/events/" class="icon">E</a>
+			<a href="{$root}/en/bookshop/" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/pl/wydarzenia/" class="icon">P</a>
+			<a href="{$root}/pl/wydawnictwa/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="data" mode="meta-tags">
-	<!-- FOXYCART -->
-		<script src="//cdn.foxycart.com/ma/loader.js" async="" defer=""></script>
-	<!-- /FOXYCART -->
+<xsl:template match="data" mode="ma-button">
+	<xsl:choose>
+		<xsl:when test="//bookshop-book/entry">
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/')" />
+		</xsl:when>
+	<xsl:otherwise>
+		<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+	</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
+
 
 <!--
 <xsl:template match="data" mode="js">

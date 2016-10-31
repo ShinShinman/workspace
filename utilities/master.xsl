@@ -161,7 +161,7 @@
 		Wywalić i przerobić na js.
 		Na stronie głównej MA otwiera menu.
 	</-->
-	<xsl:value-of select="concat($root, '/', //current-language/@handle)" />
+	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
 </xsl:template>
 
 <xsl:template match="main-menu/entry/links/item">

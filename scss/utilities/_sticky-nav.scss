@@ -1,6 +1,6 @@
 // .sticky-nav, .main-menu
 
-.floater {
+.floater { //używany też w _footer.scss, przenieść jako globalne
 	> * {
 		float: left;
 	}

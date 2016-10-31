@@ -202,6 +202,14 @@ section {
 		background: magenta !important;
 		text-shadow: none !important;
 	}
+
+	.fc-messages__empty-notification {
+		border-radius: 0 !important;
+		background-color: rgb(240, 240, 240) !important;
+		a {
+			color: #4d4d4d !important;
+		}
+	}
 }
 
 
