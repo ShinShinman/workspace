@@ -108,7 +108,7 @@
 
 			<ul>
 				<!--<li><a href="javascript:void(0);" class="icon search-trigger">S</a></li>--> <!-- To jest trigger wyszykiwarki i w przyszłości powinien być przeniesiony z inne miejsce-->
-				<li class="cart"><a href="https://ma.foxycart.com/cart?cart=view"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="yszt" data-fc-id="minicart-quantity">0</span></span></a></li>
+				<li class="cart"><a href="https://ma.foxycart.com/cart?cart=view"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a></li>
 				<li>
 					<xsl:call-template name="language-button">
 						<xsl:with-param name="lang" select="//fl-languages/current-language/@language" />

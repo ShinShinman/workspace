@@ -570,12 +570,13 @@ section:last-of-type {
     background-size: 100%; }
   .sticky-nav nav .cart a:hover .tmp-icon {
     background-position: center -16px; }
-  .sticky-nav nav .cart a .yszt {
+  .sticky-nav nav .cart a .quantity {
     position: relative;
     top: -64px;
     left: -1px;
     font-size: 12px;
-    font-weight: bold; }
+    font-weight: bold;
+    color: magenta; }
   .sticky-nav nav form {
     opacity: 0;
     -webkit-transition: opacity 0.25s;
