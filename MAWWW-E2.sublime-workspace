@@ -682,6 +682,9 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc/_card.scss",
@@ -714,10 +717,8 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_book.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-prize.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
@@ -808,8 +809,7 @@
 		"/C/Users/shinman/Desktop/teraz.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_single-game.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_important-docs.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_tenders.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_download.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_tenders.scss"
 	],
 	"find":
 	{

@@ -26,7 +26,7 @@
 				</div>
 				<div class="second-column">
 					<div class="a">
-						<p><a href="{$root}/pl/wydawnictwa/">Wydawnictwa</a></p>
+						<p><a href="{$root}/pl/ksiegarnia/wydawnictwa/">Księgarnia</a></p>
 						<ul>
 							<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
 							<li>+48 71 344 82 79 wew.15</li>
@@ -64,7 +64,7 @@
 				</div>
 				<div class="second-column">
 					<div class="a">
-						<p><a href="{$root}/pl/wydawnictwa/">Bookshop</a></p>
+						<p><a href="{$root}/en/bookstore/publications/">Bookstore</a></p>
 						<ul>
 							<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
 							<li>+48 71 344 82 79 wew.15</li>

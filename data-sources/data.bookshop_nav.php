@@ -2,13 +2,13 @@
 class datasourcebookshop_nav extends MultilingualNavigationDatasource
 {
     public $dsParamROOTELEMENT = 'bookshop-nav';
-    public $dsParamORDER = 'desc';
+    public $dsParamORDER = 'asc';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
     
     public $dsParamFILTERS = array(
-        'parent' => '/bookshop',
+        'parent' => '/bookstore',
     );
 
     public function __construct($env = null, $process_params = true)
@@ -25,7 +25,7 @@ class datasourcebookshop_nav extends MultilingualNavigationDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-10-18T20:08:47+00:00'
+            'release-date' => '2016-11-02T17:00:25+00:00'
         );
     }
     public function getSource()
