@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"hash",
+				"hashFilter"
+			],
+			[
 				"bac",
 				"background-color"
 			],
@@ -142,10 +146,6 @@
 			[
 				"a",
 				"archive\t(exibitions.xsl)"
-			],
-			[
-				"hash",
-				"hashfilter"
 			],
 			[
 				"show",
@@ -682,10 +682,14 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc/_card.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_layout.scss",
@@ -700,7 +704,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/fc/fc-checkout.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.scss",
@@ -717,8 +720,10 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_book.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-prize.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
@@ -752,7 +757,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
@@ -765,7 +769,6 @@
 		"/C/Users/shinman/Desktop/trening.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/Users/shinman/Downloads/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_vendor.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/perfect-scrollbar/src/css/main.scss",
@@ -806,10 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_categories.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.exhibitions.php",
-		"/C/Users/shinman/Desktop/teraz.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_single-game.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_important-docs.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_tenders.scss"
+		"/C/Users/shinman/Desktop/teraz.txt"
 	],
 	"find":
 	{
