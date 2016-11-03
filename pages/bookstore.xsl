@@ -123,15 +123,12 @@
 	</xsl:choose>
 </xsl:template>
 
-
-<!--
 <xsl:template match="data" mode="js">
 	<script>
 		$(function() {
-			MA.stickyNavSetup({backgroundColor: 'white'});
+			MA.iS();
 		});
 	</script>
 </xsl:template>
--->
 
 </xsl:stylesheet>

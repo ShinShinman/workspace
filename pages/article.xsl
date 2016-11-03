@@ -163,6 +163,7 @@
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
 			MA.api.setNavBackground('.offset')
+			MA.iS();
 		});
 	</script>
 </xsl:template>

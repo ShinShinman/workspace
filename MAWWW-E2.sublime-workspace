@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"iso",
+				"isotope"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"grid",
+				"gridItem"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
 				"hash",
 				"hashFilter"
 			],
@@ -134,10 +150,6 @@
 			[
 				"archive",
 				"archiveItem"
-			],
-			[
-				"iso",
-				"isotope"
 			],
 			[
 				"sho",
@@ -412,10 +424,6 @@
 				"background-color"
 			],
 			[
-				"op",
-				"opacity"
-			],
-			[
 				"exten",
 				"extend\t(main.scss)"
 			],
@@ -506,14 +514,6 @@
 			[
 				"backr",
 				"background"
-			],
-			[
-				"text",
-				"text-align"
-			],
-			[
-				"pad",
-				"padding-right"
 			]
 		]
 	},
@@ -682,12 +682,21 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
@@ -704,7 +713,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/fc/fc-checkout.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-chceckout.xsl",
@@ -722,15 +730,12 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-prize.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-nav.scss",
@@ -753,12 +758,9 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
@@ -791,7 +793,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl.OLD",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_struktura.scss",
@@ -808,8 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_lesson.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_categories.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.exhibitions.php",
-		"/C/Users/shinman/Desktop/teraz.txt"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.exhibitions.php"
 	],
 	"find":
 	{
@@ -828,6 +828,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/",
 			"div",
 			"https://ma.wroc.pl/workspace/fonts/",
 			"http",
@@ -954,8 +955,7 @@
 			"rgb(42, 212, 63)",
 			"info",
 			"rgb(247, 86, 227)",
-			"rgb(247, 77, 69)",
-			"rgb(43, 251, 222)"
+			"rgb(247, 77, 69)"
 		],
 		"highlight": true,
 		"in_selection": false,

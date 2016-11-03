@@ -1,5 +1,5 @@
 (function() {
-  var MA, getHashFilter;
+  var MA;
 
   MA = (function() {
     var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
@@ -212,6 +212,70 @@
       });
     };
 
+    MA.prototype.iS = function(options) {
+      var clear, filterTriggers, filters, getHashFilter, onHashchange, settings, showAll;
+      settings = $.extend({
+        grid: MA.settings.grid,
+        item: MA.settings.gridItem
+      }, options);
+      settings.grid.isotope({
+        itemSelector: settings.gridItem,
+        masonry: {
+          gutter: 15
+        }
+      });
+      getHashFilter = function() {
+        var hash, hashFilter, matches;
+        hash = location.hash;
+        matches = location.hash.match(/filter=([^&]+)/i);
+        hashFilter = matches && matches[1];
+        return hashFilter && decodeURIComponent(hashFilter);
+      };
+      filters = $('.filters li');
+      filterTriggers = $('.filters li a:not(.clear-filter)');
+      clear = $('.filters li a.clear-filter');
+      showAll = $('.filters li.show-all');
+      clear.click(function(e) {
+        e.preventDefault();
+        filters.removeClass('inactive-filter');
+        $(this).hide();
+        history.pushState('', document.title, window.location.pathname);
+        return settings.grid.isotope({
+          filter: '*'
+        });
+      });
+      showAll.click(function(e) {
+        e.preventDefault();
+        filters.removeClass('inactive-filter');
+        history.pushState('', document.title, window.location.pathname);
+        return settings.grid.isotope({
+          filter: '*'
+        });
+      });
+      filterTriggers.click(function(e) {
+        e.preventDefault();
+        filters.addClass('inactive-filter');
+        $(this).parent().removeClass('inactive-filter');
+        filters.find('.clear-filter').hide();
+        $(this).parent().find('.clear-filter').show();
+        return location.hash = 'filter=' + encodeURIComponent($(this).data('filter'));
+      });
+      onHashchange = function() {
+        var hashFilter;
+        hashFilter = getHashFilter();
+        if (!hashFilter) {
+          return;
+        }
+        filters.addClass('inactive-filter');
+        filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show();
+        return settings.grid.isotope({
+          filter: '.' + hashFilter
+        });
+      };
+      $(window).on('hashchange', onHashchange);
+      return onHashchange();
+    };
+
     apiTest = function() {
       return console.log('Public API available!');
     };
@@ -220,13 +284,13 @@
       apiTest: apiTest,
       openMenu: openMenu,
       closeMenu: closeMenu,
-      setNavBackground: setNavBackground
+      setNavBackground: setNavBackground,
+      isotopeSetup: isotopeSetup
     };
 
     MA.prototype.init = function() {
       searchToggle(searchTrigger, searchForm);
       menuToggle(menuTrigger, mainMenu);
-      isotopeSetup(grid, gridItem);
       Hyphenator.config({
         orphancontrol: 2,
         defaultlanguage: 'pl',
@@ -242,67 +306,10 @@
 
   window.MA = new MA();
 
-  getHashFilter = function() {
-    var hash, hashFilter, matches;
-    hash = location.hash;
-    matches = location.hash.match(/filter=([^&]+)/i);
-    hashFilter = matches && matches[1];
-    return hashFilter && decodeURIComponent(hashFilter);
-  };
-
   $(function() {
-    var clear, filterTriggers, filters, onHashchange, showAll, wBtn, wMore;
+    var wBtn, wMore;
     console.log('DOM is ready!');
     window.MA.init();
-    filters = $('.filters li');
-    filterTriggers = $('.filters li a:not(.clear-filter)');
-    clear = $('.filters li a.clear-filter');
-    showAll = $('.filters li.show-all');
-    clear.click(function(e) {
-      e.preventDefault();
-      filters.removeClass('inactive-filter');
-      $(this).hide();
-      history.pushState('', document.title, window.location.pathname);
-      return $('.bricks-container').isotope({
-        filter: '*'
-      });
-    });
-    showAll.click(function(e) {
-      e.preventDefault();
-      filters.removeClass('inactive-filter');
-      history.pushState('', document.title, window.location.pathname);
-      return $('.bricks-container').isotope({
-        filter: '*'
-      });
-    });
-    filterTriggers.click(function(e) {
-      e.preventDefault();
-      filters.addClass('inactive-filter');
-      $(this).parent().removeClass('inactive-filter');
-      filters.find('.clear-filter').hide();
-      $(this).parent().find('.clear-filter').show();
-      return location.hash = 'filter=' + encodeURIComponent($(this).data('filter'));
-
-      /*
-      		$('.bricks-container').isotope({
-      				filter: '.' + $(@).data('filter')
-      			})
-       */
-    });
-    onHashchange = function() {
-      var hashFilter;
-      hashFilter = getHashFilter();
-      if (!hashFilter) {
-        return;
-      }
-      filters.addClass('inactive-filter');
-      filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show();
-      return $('.bricks-container').isotope({
-        filter: '.' + hashFilter
-      });
-    };
-    $(window).on('hashchange', onHashchange);
-    onHashchange();
     wBtn = $('.kids-n-parents a.workshop');
     wMore = $('.kids-n-parents .more');
     return wBtn.click(function(e) {
@@ -310,44 +317,5 @@
       return wMore.slideToggle();
     });
   });
-
-
-  /*
-  $( function() {
-  
-    var $container = $('.isotope');
-  
-    // bind filter button click
-    var $filters = $('#filters').on( 'click', 'button', function() {
-      var filterAttr = $( this ).attr('data-filter');
-      // set filter in hash
-      location.hash = 'filter=' + encodeURIComponent( filterAttr );
-    });
-  
-    var isIsotopeInit = false;
-  
-    function onHashchange() {
-      var hashFilter = getHashFilter();
-      if ( !hashFilter && isIsotopeInit ) {
-        return;
-      }
-      isIsotopeInit = true;
-      // filter isotope
-      $container.isotope({
-        itemSelector: '.element-item',
-        filter: hashFilter
-      });
-      // set selected class on button
-      if ( hashFilter ) {
-        $filters.find('.is-checked').removeClass('is-checked');
-        $filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
-      }
-    }
-  
-    $(window).on( 'hashchange', onHashchange );
-    // trigger event handler to init Isotope
-    onHashchange();
-  });
-   */
 
 }).call(this);

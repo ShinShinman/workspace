@@ -200,8 +200,69 @@ class MA
 			'color': settings.color
 			'backgroundColor': settings.backgroundColor
 		} )
-	
 
+	iS: (options) ->
+		settings = $.extend
+			#defaults
+			grid: MA.settings.grid,
+			item: MA.settings.gridItem
+			, options
+
+		settings.grid.isotope
+			itemSelector: settings.gridItem,
+			masonry:
+				gutter: 15
+
+		#test
+		getHashFilter = ->
+			hash = location.hash
+			# get filter=filterName
+			matches = location.hash.match(/filter=([^&]+)/i)
+			hashFilter = matches and matches[1]
+			hashFilter and decodeURIComponent(hashFilter)
+
+		filters = $('.filters li')
+		filterTriggers = $('.filters li a:not(.clear-filter)')
+
+		clear = $('.filters li a.clear-filter')
+		showAll = $('.filters li.show-all')
+
+		clear.click (e) ->
+			e.preventDefault()
+			filters.removeClass 'inactive-filter'
+			$(@).hide()
+			history.pushState '', document.title, window.location.pathname
+			settings.grid.isotope
+				filter: '*'
+
+		showAll.click (e) ->
+			e.preventDefault()
+			filters.removeClass 'inactive-filter'
+			history.pushState '', document.title, window.location.pathname
+			settings.grid.isotope
+				filter: '*'
+
+		filterTriggers.click (e) ->
+			e.preventDefault()
+			filters.addClass 'inactive-filter'
+			$(@).parent().removeClass 'inactive-filter'
+			filters.find('.clear-filter').hide()
+			$(@).parent().find('.clear-filter').show()
+			location.hash = 'filter=' + encodeURIComponent $(@).data('filter')
+
+		onHashchange = ->
+			hashFilter = getHashFilter()
+			if !hashFilter
+				return
+			# filter isotope
+			filters.addClass 'inactive-filter'
+			filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show()
+			settings.grid.isotope
+				filter: '.' + hashFilter
+
+		$(window).on 'hashchange', onHashchange
+		# trigger event handler to init Isotope
+		onHashchange()
 
 	apiTest = ->
   	console.log 'Public API available!'
@@ -212,12 +273,13 @@ class MA
 		openMenu: openMenu
 		closeMenu: closeMenu
 		setNavBackground: setNavBackground
+		isotopeSetup: isotopeSetup
 
 	# Initialize
 	init: ->
 		searchToggle(searchTrigger, searchForm)
 		menuToggle(menuTrigger, mainMenu)
-		isotopeSetup(grid, gridItem) # poprawić --> nie na wszystkich stronach
+		#isotopeSetup(grid, gridItem) # poprawić --> nie na wszystkich stronach
 		Hyphenator.config({
 			orphancontrol: 2
 			defaultlanguage: 'pl'
@@ -229,69 +291,10 @@ class MA
 
 window.MA = new MA()
 
-getHashFilter = ->
-  hash = location.hash
-  # get filter=filterName
-  matches = location.hash.match(/filter=([^&]+)/i)
-  hashFilter = matches and matches[1]
-  hashFilter and decodeURIComponent(hashFilter)
-
-
-
 # jQuery
 $ ->
 	console.log 'DOM is ready!'
 	window.MA.init()
-
-	filters = $('.filters li')
-	filterTriggers = $('.filters li a:not(.clear-filter)')
-
-	clear = $('.filters li a.clear-filter')
-	showAll = $('.filters li.show-all')
-	
-	clear.click (e) ->
-		e.preventDefault()
-		filters.removeClass('inactive-filter')
-		$(@).hide()
-		history.pushState '', document.title, window.location.pathname
-		$('.bricks-container').isotope({
-				filter: '*'
-			})
-
-	showAll.click (e) ->
-		e.preventDefault()
-		filters.removeClass('inactive-filter')
-		history.pushState '', document.title, window.location.pathname
-		$('.bricks-container').isotope({
-				filter: '*'
-			})
-
-	filterTriggers.click (e) ->
-		e.preventDefault()
-		filters.addClass('inactive-filter')
-		$(@).parent().removeClass('inactive-filter')
-		filters.find('.clear-filter').hide()
-		$(@).parent().find('.clear-filter').show()
-		location.hash = 'filter=' + encodeURIComponent( $(@).data('filter') )
-		###
-		$('.bricks-container').isotope({
-				filter: '.' + $(@).data('filter')
-			})
-		###
-
-	onHashchange = ->
-		hashFilter = getHashFilter()
-		if !hashFilter
-		  return
-		# filter isotope
-		filters.addClass('inactive-filter')
-		filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show()
-		$('.bricks-container').isotope
-			filter: '.' + hashFilter
-
-	$(window).on 'hashchange', onHashchange
-	# trigger event handler to init Isotope
-	onHashchange()
 
 	# kids-n-parents -> Warsztaty
 	wBtn = $('.kids-n-parents a.workshop')
@@ -299,43 +302,3 @@ $ ->
 	wBtn.click (e) ->
 		e.preventDefault()
 		wMore.slideToggle()
-
-
-
-###
-$( function() {
-
-  var $container = $('.isotope');
-
-  // bind filter button click
-  var $filters = $('#filters').on( 'click', 'button', function() {
-    var filterAttr = $( this ).attr('data-filter');
-    // set filter in hash
-    location.hash = 'filter=' + encodeURIComponent( filterAttr );
-  });
-
-  var isIsotopeInit = false;
-
-  function onHashchange() {
-    var hashFilter = getHashFilter();
-    if ( !hashFilter && isIsotopeInit ) {
-      return;
-    }
-    isIsotopeInit = true;
-    // filter isotope
-    $container.isotope({
-      itemSelector: '.element-item',
-      filter: hashFilter
-    });
-    // set selected class on button
-    if ( hashFilter ) {
-      $filters.find('.is-checked').removeClass('is-checked');
-      $filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
-    }
-  }
-
-  $(window).on( 'hashchange', onHashchange );
-  // trigger event handler to init Isotope
-  onHashchange();
-});
-###

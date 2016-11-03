@@ -141,6 +141,7 @@
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'white'});
+			MA.iS();
 		});
 	</script>
 </xsl:template>
