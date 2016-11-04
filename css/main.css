@@ -1184,7 +1184,7 @@ section.maintenance {
   margin-bottom: 24px; }
 
 /* BOOKSHOP */
-.bookshop-nav h1, .bookshop-nav .slide-down a, .slide-down .bookshop-nav a {
+.bookshop-nav nav h1, .bookshop-nav nav .slide-down a, .slide-down .bookshop-nav nav a {
   margin-bottom: 24px; }
 
 .single-book p.author {
