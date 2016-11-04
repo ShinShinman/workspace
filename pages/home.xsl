@@ -47,6 +47,11 @@
 </xsl:template>
 
 <xsl:template match="data" mode="js">
+	<script>
+		$(window).load(function() {
+			MA.iS();
+		});
+	</script>
 	<xsl:apply-templates select="highlight/entry" mode="js" />
 </xsl:template>
 

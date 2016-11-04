@@ -162,7 +162,9 @@
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
-			MA.api.setNavBackground('.offset')
+			MA.api.setNavBackground('.offset');
+		});
+		$(window).load(function() {
 			MA.iS();
 		});
 	</script>

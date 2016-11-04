@@ -125,6 +125,8 @@
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'white'});
+		});
+		$(window).load(function() {
 			MA.iS();
 		});
 	</script>

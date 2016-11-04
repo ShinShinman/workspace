@@ -50,7 +50,7 @@
 
 <xsl:template match="data" mode="js">
 	<script>
-		$(function() {
+		$(window).load(function() {
 			MA.iS();
 		});
 	</script>
