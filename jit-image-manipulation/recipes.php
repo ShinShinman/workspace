@@ -44,4 +44,18 @@
 		),
 		########
 
+		########
+		array(
+			'mode' => '2',
+			'name' => 'Bookstore thumbnail',
+			'url-parameter' => 'bookstore-thumbnail',
+			'width' => '320',
+			'height' => '340',
+			'position' => '2',
+			'background' => 'fff',
+			'quality' => NULL,
+			'external' => '0',
+		),
+		########
+
 	);

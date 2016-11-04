@@ -37,7 +37,7 @@
 	</xsl:template>
 
 	<xsl:template match="cover-image">
-		<img src="{$root}/image/post-thumbnail{@path}/{filename}" />
+		<img src="{$root}/image/bookstore-thumbnail{@path}/{filename}" />
 	</xsl:template>
 
 
