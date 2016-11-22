@@ -1251,6 +1251,9 @@ section.maintenance {
   #fc .fc-messages__empty-notification a {
     color: #4d4d4d !important; }
 
+[data-fc-store-page] .main-footer {
+  position: static; }
+
 /* 
  *  Core Owl Carousel CSS File
  */
