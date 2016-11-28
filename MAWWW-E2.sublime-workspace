@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"exhi",
+				"exhibitions-archive"
+			],
+			[
 				"iso",
 				"isotope"
 			],
@@ -510,10 +514,6 @@
 			[
 				"tran",
 				"transparent\t(main.css)"
-			],
-			[
-				"backr",
-				"background"
 			]
 		]
 	},
@@ -527,7 +527,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 219.0,
+		"height": 38.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -656,7 +656,7 @@
 				"Preferences: Settings - Default"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -682,9 +682,19 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/lipsum.sublime-snippet",
+		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/lipsum2.sublime-snippet",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibition-archived.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
+		"/Z/Gulp Build System/todo.md",
+		"/C/Users/shinman/Desktop/image compression/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc/_card.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
@@ -703,7 +713,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
@@ -711,7 +720,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_layout.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_character-styles.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education-kids-n-parents.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
@@ -801,15 +809,7 @@
 		"/Z/MA WWW/matex/Polska. Architecture/Polska Architecture - info na strone.md",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_games.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/.gitignore",
-		"/C/xampp/htdocs/ma.wroc.pl/manifest/config.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.events.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_lessons.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_lesson.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/data-sources/data.edu_categories.php",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lesson.xsl"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_games.scss"
 	],
 	"find":
 	{

@@ -1,0 +1,17 @@
+/* All ARCHIVED EXHIBITIONS view */
+
+.exhibition-archive {
+	.big-nav {
+		a {
+			color: rgb(153, 153, 153);
+			&:hover {
+				color: black;
+				opacity: 1;
+			}
+			&.active {
+				color: black;
+				opacity: 1;
+			}
+		}
+	}
+}
