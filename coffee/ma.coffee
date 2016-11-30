@@ -264,6 +264,45 @@ class MA
 		# trigger event handler to init Isotope
 		onHashchange()
 
+	iSl: (options) ->
+		settings = $.extend
+			#defaults
+			grid: MA.settings.grid
+			slider: $('.slider')
+			sliderRange: [1965, 2016]
+			, options
+		
+		updateLegend = (sYear, eYear) ->
+				$('.legend span').text(' ' + sYear + '–' + eYear)
+
+		filterIsotope = (sYear, eYear) ->
+			value = $('.brick').filter( (index) ->
+				$this = $(this)
+				matcharr = $this.attr('class').match(/brick\s([0-9]*)/)
+				if matcharr
+					year = parseInt(matcharr[1])
+					if year >= sYear and year <= eYear then true else false
+				else
+					false
+			)
+			$('.bricks-container').isotope({filter:value})
+
+		$.getScript '../../../workspace/js/jquery-ui.min.js', ->
+			$.getScript '../../../workspace/js/jquery-ui-slider-pips.min.js', ->
+				$('.slider')
+				.slider
+					range: true
+					min: settings.sliderRange[0]
+					max: settings.sliderRange[1]
+					values: [settings.sliderRange[0], settings.sliderRange[1]]
+					stop: (e, ui) ->
+						filterIsotope ui.values[0], ui.values[1]
+						updateLegend ui.values[0], ui.values[1]
+				.slider 'pips',
+					step: 5
+				.slider 'float'
+				updateLegend $('.slider').slider('values', 0), $('.slider').slider('values', 1)
+
 	apiTest = ->
   	console.log 'Public API available!'
 

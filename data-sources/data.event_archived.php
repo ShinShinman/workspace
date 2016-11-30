@@ -1,7 +1,7 @@
 <?php
-class datasourceexhibitions_archive extends SectionDatasource
+class datasourceevent_archived extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibitions-archive';
+    public $dsParamROOTELEMENT = 'event-archived';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -9,21 +9,34 @@ class datasourceexhibitions_archive extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamNEGATEPARAM = '$title';
-    public $dsParamSORT = 'date';
+    public $dsParamREQUIREDPARAM = '$title';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '222' => 'yes',
+        '227' => '{$title}',
+        '230' => 'yes',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'cover-image',
-        'date'
+        'subtitle: formatted',
+        'article: formatted',
+        'date',
+        'downloadables'
     );
     
+    public $dsParamINCLUDEDASSOCIATIONS = array(
+        'downloadables' => array(
+            'section_id' => '49',
+            'field_id' => '218',
+            'elements' => array(
+                'file-name: formatted',
+                'file-link: formatted'
+            )
+        )
+    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -32,18 +45,18 @@ class datasourceexhibitions_archive extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Exhibitions archive',
+            'name' => 'Event archived',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-11-30T15:09:27+00:00'
+            'release-date' => '2016-11-30T14:50:09+00:00'
         );
     }
     public function getSource()
     {
-        return '48';
+        return '51';
     }
     public function allowEditorToParse()
     {

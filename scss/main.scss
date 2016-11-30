@@ -40,6 +40,22 @@ body {
 }
 
 
+/* BIG-NAV POJAWIA SIĘ W WYSTAWACH, WYDZRZENIACH, ARCHIWUM I (chyba bez odpowiedniej klasy) W KSIĘGARNI /*
+/* przenieść z pages/*** do globalnych styli */
+.big-nav {
+		a {
+			color: rgb(153, 153, 153);
+			&:hover {
+				color: black;
+				opacity: 1;
+			}
+			&.active {
+				color: black;
+				opacity: 1;
+			}
+		}
+	}
+
 
 /* FOXYCART DEMO [4.10.2016] */
 // do skasowania po odpaleniu sklepu //
@@ -56,9 +72,6 @@ body {
 		}
 	}
 }
-
-/* FOXYCART – KOSZYK [to powinien być osobny plik w folderze Foxycart] */
-
 
 
 @import 'utilities';

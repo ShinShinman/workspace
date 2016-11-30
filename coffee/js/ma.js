@@ -276,6 +276,56 @@
       return onHashchange();
     };
 
+    MA.prototype.iSl = function(options) {
+      var filterIsotope, settings, updateLegend;
+      settings = $.extend({
+        grid: MA.settings.grid,
+        slider: $('.slider'),
+        sliderRange: [1965, 2016]
+      }, options);
+      updateLegend = function(sYear, eYear) {
+        return $('.legend span').text(' ' + sYear + '–' + eYear);
+      };
+      filterIsotope = function(sYear, eYear) {
+        var value;
+        value = $('.brick').filter(function(index) {
+          var $this, matcharr, year;
+          $this = $(this);
+          matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
+          if (matcharr) {
+            year = parseInt(matcharr[1]);
+            if (year >= sYear && year <= eYear) {
+              return true;
+            } else {
+              return false;
+            }
+          } else {
+            return false;
+          }
+        });
+        return $('.bricks-container').isotope({
+          filter: value
+        });
+      };
+      return $.getScript('../../../workspace/js/jquery-ui.min.js', function() {
+        return $.getScript('../../../workspace/js/jquery-ui-slider-pips.min.js', function() {
+          $('.slider').slider({
+            range: true,
+            min: settings.sliderRange[0],
+            max: settings.sliderRange[1],
+            values: [settings.sliderRange[0], settings.sliderRange[1]],
+            stop: function(e, ui) {
+              filterIsotope(ui.values[0], ui.values[1]);
+              return updateLegend(ui.values[0], ui.values[1]);
+            }
+          }).slider('pips', {
+            step: 5
+          }).slider('float');
+          return updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+        });
+      });
+    };
+
     apiTest = function() {
       return console.log('Public API available!');
     };

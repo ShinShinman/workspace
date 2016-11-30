@@ -25,7 +25,13 @@
 
 <xsl:template match="data">
 	<section class="events">
-		<h1><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wydarzenia']" /></h1>
+		<nav class="big-nav">
+			<h1>
+				<xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wydarzenia']" />
+				<xsl:text> /</xsl:text>
+				<a href="{//dictionary/entry/word[@handle-pl = 'archiwum-wydarzen']/@handle}/"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'archiwum-wydarzen']" /></a>
+			</h1>
+		</nav>
 		<div class="bricks-container">
 			<xsl:apply-templates select="events/entry" />
 		</div>

@@ -28,16 +28,16 @@
 <xsl:template match="data">
 	<xsl:choose>
 		<xsl:when test="$title">
-			<xsl:apply-templates select="exhibition-archived/entry" />
+			<xsl:apply-templates select="event-archived/entry" />
 		</xsl:when>
 		<xsl:otherwise>
-			<xsl:call-template name="exhibitions-archive" />
+			<xsl:call-template name="events-archive" />
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="exhibition-archived/entry">
-	<section class="archived-exhibition">
+<xsl:template match="event-archived/entry">
+	<section class="archived-event">
 		<header class="donthyphenate">
 			<ul class="category-list">
 				<li><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></li>
@@ -90,7 +90,7 @@
 	<li><a href="{file-link}"><xsl:value-of select="file-name" /></a></li>
 </xsl:template>
 
-<xsl:template name="exhibitions-archive">
+<xsl:template name="events-archive">
 	<section class="archive">
 		<nav class="big-nav">
 			<h1 class="donthyphenate">
@@ -99,20 +99,15 @@
 				<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
 			</h1>
 		</nav>
-		<h2 class="legend">Wystawy z lat <span><xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
-		<!--
-		<ul class="inline-list filters">
-			<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
-		</ul>
-		-->
+		<h2 class="legend">Wydarzenia z lat&nbsp;<span><xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
 		<div class="slider"></div>
 		<div class="bricks-container">
-			<xsl:apply-templates select="exhibitions-archive/entry" />
+			<xsl:apply-templates select="events-archive/entry" />
 		</div>
 	</section>
 </xsl:template>
 
-<xsl:template match="exhibitions-archive/entry">
+<xsl:template match="events-archive/entry">
 	<xsl:call-template name="archive-brick" />
 </xsl:template>
 
@@ -133,7 +128,52 @@
 	<script>
 		$(window).load(function() {
 			MA.iS();
-			MA.iSl({sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />]});
+			MA.iSl({sliderRange: [<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" />]});
+
+			/*
+			var updateLegend = function(sYear, eYear) {
+				$('.legend span').text(' ' + sYear + '–' + eYear);
+			}
+
+			var filterIsotope = function(sYear, eYear) {
+				var value = $('.brick').filter(function(index){
+					var $this = $(this);
+					var matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
+					if (matcharr) {
+						var year = parseInt(matcharr[1]);
+						return ((year <xsl:value-of disable-output-escaping="yes" select="string('&gt;')"/>= sYear) <xsl:value-of disable-output-escaping="yes" select="string('&amp;&amp;')"/> (year <xsl:value-of disable-output-escaping="yes" select="string('&lt;')"/>= eYear)) ? true : false;
+					} else {
+						return false;
+					}
+				});
+				console.log($);
+				console.log(isotope);
+				$('.bricks-container').isotope({filter:value});
+			}
+
+			var sliderRange = [<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />, <xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" />];
+
+			$.getScript('../../../workspace/js/jquery-ui.min.js', function(data, tData) {
+				$.getScript('../../../workspace/js/jquery-ui-slider-pips.min.js', function() {
+					$('.slider')
+					.slider({
+						range: true,
+						min: sliderRange[0],
+						max: sliderRange[1],
+						values: [sliderRange[0], sliderRange[1]],
+						stop: function(event, ui) {
+							filterIsotope(ui.values[0], ui.values[1]);
+							updateLegend(ui.values[0], ui.values[1]);
+						}
+					})
+					.slider('pips', {
+						step: 5
+					})
+					.slider('float');
+					updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+				});
+			});
+			*/
 		});
 	</script>
 </xsl:template>

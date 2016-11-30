@@ -1,7 +1,7 @@
 <?php
-class datasourceexhibitions_archive extends SectionDatasource
+class datasourceevents_archive extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibitions-archive';
+    public $dsParamROOTELEMENT = 'events-archive';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -15,7 +15,7 @@ class datasourceexhibitions_archive extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
     public $dsParamFILTERS = array(
-        '222' => 'yes',
+        '230' => 'yes',
     );
         
     public $dsParamINCLUDEDELEMENTS = array(
@@ -32,18 +32,18 @@ class datasourceexhibitions_archive extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Exhibitions archive',
+            'name' => 'Events archive',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-11-30T15:09:27+00:00'
+            'release-date' => '2016-11-30T15:49:15+00:00'
         );
     }
     public function getSource()
     {
-        return '48';
+        return '51';
     }
     public function allowEditorToParse()
     {
