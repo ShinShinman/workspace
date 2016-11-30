@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-family"
+			],
+			[
+				"valu",
+				"value-of"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
 				"exhi",
 				"exhibitions-archive"
 			],
@@ -26,10 +46,6 @@
 			[
 				"hash",
 				"hashFilter"
-			],
-			[
-				"bac",
-				"background-color"
 			],
 			[
 				"impor",
@@ -60,10 +76,6 @@
 				"position"
 			],
 			[
-				"marg",
-				"margin-right"
-			],
-			[
 				"margin",
 				"margin-bottom"
 			],
@@ -82,10 +94,6 @@
 			[
 				"bo",
 				"bookshop-shipment"
-			],
-			[
-				"font",
-				"font-weight"
 			],
 			[
 				"in",
@@ -424,10 +432,6 @@
 				"searchTrigger"
 			],
 			[
-				"back",
-				"background-color"
-			],
-			[
 				"exten",
 				"extend\t(main.scss)"
 			],
@@ -510,10 +514,6 @@
 			[
 				"border-r",
 				"border-right"
-			],
-			[
-				"tran",
-				"transparent\t(main.css)"
 			]
 		]
 	},
@@ -678,19 +678,39 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
+		"/C/Users/shinman/Desktop/filtrowanie isotope.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/f-alt.org/workspace/pages/news.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
+		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/package.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/vendor/jquery-ui.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/index.html",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.css",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/jquery-ui.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
+		"/C/Users/shinman/Downloads/jquery-ui-1.12.1.custom/index.html",
+		"/C/Users/shinman/Downloads/jquery-ui-1.12.1.custom/jquery-ui.js",
+		"/C/Users/shinman/Desktop/Nowy folder/package.json",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/lipsum.sublime-snippet",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/lipsum2.sublime-snippet",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibition-archived.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
 		"/Z/Gulp Build System/todo.md",
 		"/C/Users/shinman/Desktop/image compression/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc/_card.scss",
@@ -711,8 +731,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
@@ -749,10 +767,8 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_lesson.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_lists.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-nav.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
 		"/C/Users/shinman/Downloads/index.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/.htaccess",
@@ -769,7 +785,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
 		"/Z/MA WWW/font/MArch/MArch-info.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
@@ -797,23 +812,11 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
 		"/C/Users/shinman/Downloads/complete/RA517.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/.gitmodules",
-		"/C/xampp/htdocs/ma.wroc.pl/.git/config",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/.git/config",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl.OLD",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-gry.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_do-pobrania.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_struktura.scss",
-		"/Z/MA WWW/matex/BIP/Struktura Organizacyjna MA 2.md",
-		"/Z/MA WWW/matex/Polska. Architecture/Polska Architecture - info na strone.md",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Crypto.sublime-settings",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Crypto/Crypto.sublime-settings",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_games.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/.git/config"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 33.0
 	},
 	"find_in_files":
 	{
@@ -828,6 +831,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"yszt",
+			"price",
+			"values",
+			"p",
+			"ui-helper-hidden",
+			"slider",
+			"../node_modules/",
 			"/",
 			"div",
 			"https://ma.wroc.pl/workspace/fonts/",
@@ -948,14 +958,7 @@
 			"\t",
 			"##",
 			"\t\t\t",
-			"\t\t",
-			"li.",
-			"rgb(56, 191, 172)",
-			"li",
-			"rgb(42, 212, 63)",
-			"info",
-			"rgb(247, 86, 227)",
-			"rgb(247, 77, 69)"
+			"\t\t"
 		],
 		"highlight": true,
 		"in_selection": false,

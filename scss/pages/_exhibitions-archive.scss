@@ -14,4 +14,44 @@
 			}
 		}
 	}
+
+	.legend {
+		margin-top: 12px;
+		margin-bottom: 36px;
+	}
+
+	.slider.ui-slider.ui-slider-pips {
+		font-family: inherit;
+		height: 5px;
+		border: 1px solid darkgrey;
+		border-radius: 0;
+		margin-bottom: 48px;
+
+		.ui-slider-range {
+			background-color: rgb(81, 96, 255);
+			background-image: none;
+		}
+
+		.ui-slider-handle {
+			border: none;
+			border-radius: 0;
+			background-color: black;
+			background-image: none;
+			top: -.4em;
+
+			&.ui-state-hover {
+				border: none;
+				background-color: darkgrey;
+				background-image: none;
+			}
+		}
+
+		.ui-slider-pip {
+			color: black;
+			.ui-slider-line {
+				height: 10px;
+				top: -10px;
+			}
+		}
+	}
 }

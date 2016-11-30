@@ -19,19 +19,10 @@ class datasourceexhibitions_archive extends SectionDatasource
         
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
+        'cover-image',
         'date'
     );
     
-    public $dsParamINCLUDEDASSOCIATIONS = array(
-        'downalodables' => array(
-            'section_id' => '49',
-            'field_id' => '218',
-            'elements' => array(
-                'file-name: formatted',
-                'file-link: formatted'
-            )
-        )
-    );
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -46,7 +37,7 @@ class datasourceexhibitions_archive extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-11-28T20:39:18+00:00'
+            'release-date' => '2016-11-29T10:52:38+00:00'
         );
     }
     public function getSource()

@@ -6,7 +6,7 @@
 	<xsl:template name="archive-brick">
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
-		<article class="brick {category/item/exhib-category/@handle}">
+		<article class="brick {substring(date/date/start, 1, 4)}">
 			<a href="{$root}{$current-path}/{title/@handle}">
 				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<!--<xsl:apply-templates select="subtitle" />-->
@@ -39,8 +39,10 @@
 			<svg>
 				<path d="M0 0 H 300" />
 			</svg>
-			<xsl:apply-templates select="date[@type = 'exact']" />
-			<xsl:apply-templates select="date[@type = 'range']" />
+			<p>
+				<xsl:apply-templates select="date[@type = 'exact']" />
+				<xsl:apply-templates select="date[@type = 'range']" />
+			</p>
 			<svg>
 				<path d="M0 0 H 300" />
 			</svg>
@@ -48,32 +50,23 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template match="badge">
-		<!-- wprowadzić rozróżnienie na różne szarfy -->
-		<span class="badge"></span>
-	</xsl:template>
-
 	<xsl:template match="date[@type = 'exact']">
-			<p class="date">
-				<xsl:call-template name="format-date">
-					<xsl:with-param name="date" select="start"/>
-					<xsl:with-param name="format" select="'x.N.Y'"/>
-				</xsl:call-template>
-			</p>
+		<xsl:call-template name="format-date">
+			<xsl:with-param name="date" select="start"/>
+			<xsl:with-param name="format" select="'x.N.Y'"/>
+		</xsl:call-template>
 	</xsl:template>
 
 	<xsl:template match="date[@type = 'range']">
-			<p class="date">
-				<xsl:call-template name="format-date">
-					<xsl:with-param name="date" select="start"/>
-					<xsl:with-param name="format" select="'x.N.Y'"/>
-				</xsl:call-template>
-				<xsl:text>–</xsl:text>
-				<xsl:call-template name="format-date">
-					<xsl:with-param name="date" select="start"/>
-					<xsl:with-param name="format" select="'x.N.Y'"/>
-				</xsl:call-template>
-			</p>
+		<xsl:call-template name="format-date">
+			<xsl:with-param name="date" select="start"/>
+			<xsl:with-param name="format" select="'x.N.Y'"/>
+		</xsl:call-template>
+		<xsl:text>–</xsl:text>
+		<xsl:call-template name="format-date">
+			<xsl:with-param name="date" select="start"/>
+			<xsl:with-param name="format" select="'x.N.Y'"/>
+		</xsl:call-template>
 	</xsl:template>
 
 	<xsl:template match="cover-image">

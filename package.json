@@ -4,7 +4,7 @@
   "description": "Warsztaty w aktualnościach",
   "author": "Olaf Schindler",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/ShinShinman/MAWWW.git",
   "devDependencies": {
     "bower": "^1.7.1",
     "browser-sync": "^2.10.1",

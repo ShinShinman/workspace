@@ -16,6 +16,7 @@
 	<!ENTITY rsaquo "&#8250;">
 	<!ENTITY percent "&#37;">
 	<!ENTITY gt "&#37;">
+	<!ENTITY lt "&#60;">
 ]>
 
 <xsl:stylesheet version="1.0"
@@ -98,9 +99,13 @@
 				<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
 			</h1>
 		</nav>
-			<ul class="inline-list filters">
-				<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
-			</ul>
+		<h2 class="legend">Wystawy z lat&nbsp;<span> <xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />–2016</span></h2>
+		<!--
+		<ul class="inline-list filters">
+			<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
+		</ul>
+		-->
+		<div class="slider"></div>
 		<div class="bricks-container">
 			<xsl:apply-templates select="exhibitions-archive/entry" />
 		</div>
@@ -124,9 +129,55 @@
 </xsl:template>
 
 <xsl:template match="data" mode="js">
+	<!--<script src="{$workspace}/js/jquery-ui.min.js" ></script>-->
 	<script>
 		$(window).load(function() {
 			MA.iS();
+
+			var updateLegend = function(sYear, eYear) {
+				$('.legend span').text(' ' + sYear + '–' + eYear);
+			}
+
+			var filterIsotope = function(sYear, eYear) {
+				var value = $('.brick').filter(function(index){
+					var $this = $(this);
+					var matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
+					if (matcharr) {
+						var year = parseInt(matcharr[1]);
+						return ((year <xsl:value-of disable-output-escaping="yes" select="string('&gt;')"/>= sYear) <xsl:value-of disable-output-escaping="yes" select="string('&amp;&amp;')"/> (year <xsl:value-of disable-output-escaping="yes" select="string('&lt;')"/>= eYear)) ? true : false;
+					} else {
+						return false;
+					}
+				});
+				$('.bricks-container').isotope({filter:value});
+			}
+
+			var sliderRange = [<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />, <xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />];
+
+			$.getScript('../../../workspace/js/jquery-ui.min.js', function(data, tData) {
+				console.log(tData);
+				$.getScript('../../../workspace/js/jquery-ui-slider-pips.min.js', function() {
+					$('.slider')
+					.slider({
+						range: true,
+						min: sliderRange[0],
+						max: sliderRange[1],
+						values: [sliderRange[0], sliderRange[1]],
+						stop: function(event, ui) {
+							filterIsotope(ui.values[0], ui.values[1]);
+							updateLegend(ui.values[0], ui.values[1]);
+						}
+					})
+					.slider('pips', {
+						step: 5
+					})
+					.slider('float');
+					updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+				});
+			});			
+		});
+
+		$(function() {
 		});
 	</script>
 </xsl:template>
