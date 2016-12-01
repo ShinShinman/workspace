@@ -132,8 +132,7 @@
 	<!--<script src="{$workspace}/js/jquery-ui.min.js" ></script>-->
 	<script>
 		$(window).load(function() {
-			MA.iS();
-			MA.iSl({sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />]});
+			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />]});
 		});
 	</script>
 </xsl:template>

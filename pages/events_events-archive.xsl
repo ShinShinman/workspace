@@ -127,53 +127,7 @@
 	<!--<script src="{$workspace}/js/jquery-ui.min.js" ></script>-->
 	<script>
 		$(window).load(function() {
-			MA.iS();
-			MA.iSl({sliderRange: [<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" />]});
-
-			/*
-			var updateLegend = function(sYear, eYear) {
-				$('.legend span').text(' ' + sYear + '–' + eYear);
-			}
-
-			var filterIsotope = function(sYear, eYear) {
-				var value = $('.brick').filter(function(index){
-					var $this = $(this);
-					var matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
-					if (matcharr) {
-						var year = parseInt(matcharr[1]);
-						return ((year <xsl:value-of disable-output-escaping="yes" select="string('&gt;')"/>= sYear) <xsl:value-of disable-output-escaping="yes" select="string('&amp;&amp;')"/> (year <xsl:value-of disable-output-escaping="yes" select="string('&lt;')"/>= eYear)) ? true : false;
-					} else {
-						return false;
-					}
-				});
-				console.log($);
-				console.log(isotope);
-				$('.bricks-container').isotope({filter:value});
-			}
-
-			var sliderRange = [<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />, <xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" />];
-
-			$.getScript('../../../workspace/js/jquery-ui.min.js', function(data, tData) {
-				$.getScript('../../../workspace/js/jquery-ui-slider-pips.min.js', function() {
-					$('.slider')
-					.slider({
-						range: true,
-						min: sliderRange[0],
-						max: sliderRange[1],
-						values: [sliderRange[0], sliderRange[1]],
-						stop: function(event, ui) {
-							filterIsotope(ui.values[0], ui.values[1]);
-							updateLegend(ui.values[0], ui.values[1]);
-						}
-					})
-					.slider('pips', {
-						step: 5
-					})
-					.slider('float');
-					updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
-				});
-			});
-			*/
+			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" />]});
 		});
 	</script>
 </xsl:template>

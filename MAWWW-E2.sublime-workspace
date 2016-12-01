@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"isoto",
+				"isotopeY"
+			],
+			[
 				"font",
 				"font-family"
 			],
@@ -510,10 +514,6 @@
 			[
 				"matg",
 				"margin-bottom"
-			],
-			[
-				"border-r",
-				"border-right"
 			]
 		]
 	},
@@ -527,10 +527,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 38.0,
-		"last_filter": "",
+		"height": 338.0,
+		"last_filter": "js",
 		"selected_items":
 		[
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
 			[
 				"html",
 				"Set Syntax: HTML"
@@ -574,10 +578,6 @@
 			[
 				"_",
 				"Snippet: js_namespace"
-			],
-			[
-				"js",
-				"Set Syntax: JavaScript"
 			],
 			[
 				"instal",
@@ -678,29 +678,35 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_event-archived.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_events-archive.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
 		"/C/Users/shinman/Desktop/filtrowanie isotope.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/news.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/vendor/jquery-ui.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/index.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/jquery-ui.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
 		"/C/Users/shinman/Downloads/jquery-ui-1.12.1.custom/index.html",
@@ -709,7 +715,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/lipsum.sublime-snippet",
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/lipsum2.sublime-snippet",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibition-archived.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_bookshop.scss",
 		"/Z/Gulp Build System/todo.md",
 		"/C/Users/shinman/Desktop/image compression/package.json",
@@ -720,9 +725,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_terms.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
@@ -730,7 +733,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
@@ -793,8 +795,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
 		"/C/Users/shinman/Desktop/trening.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
 		"/C/Users/shinman/Downloads/main.css",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_vendor.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/perfect-scrollbar/src/css/main.scss",
@@ -809,10 +809,7 @@
 		"/C/Users/shinman/Desktop/gulp-rev-all test/package.json",
 		"/C/Users/shinman/Desktop/s",
 		"/C/Users/shinman/Downloads/m3452_maWebsite (1).sql",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
-		"/C/Users/shinman/Downloads/complete/RA517.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/.gitmodules",
-		"/C/xampp/htdocs/ma.wroc.pl/.git/config"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl"
 	],
 	"find":
 	{
@@ -831,6 +828,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"exhibitions",
+			"settings.slider",
+			"$('.slider')",
+			"$",
+			"exhibitions-archive",
+			"exhibition-archived",
 			"yszt",
 			"price",
 			"values",
@@ -952,13 +955,7 @@
 			"4",
 			"console",
 			".highlighty",
-			"sticky-nav",
-			"transition",
-			"transform",
-			"\t",
-			"##",
-			"\t\t\t",
-			"\t\t"
+			"sticky-nav"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -966,6 +963,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"jQ",
+			"events-archive",
+			"event-archived",
 			"https://dl.dropboxusercontent.com/u/14956648/mafonts/",
 			"https",
 			"http://ma.wroc.pl/workspace/",
