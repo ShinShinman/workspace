@@ -678,15 +678,20 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/jQuery-ui-Slider-Pips/dist"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
+		"/C/Users/shinman/Desktop/jquery-ui.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/jquery-ui.min.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/jquery-ui-slider-pips.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
@@ -763,7 +768,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-prize.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl",
 		"/C/Users/shinman/AppData/Local/Temp/ai14774734125.tmp/ai14774734125.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_variables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_article.scss",
@@ -806,10 +810,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/src/scss/_mixins.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/src/scss/owl.lazyload.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/owl.carousel/src/scss/owl.autoheight.scss",
-		"/C/Users/shinman/Desktop/gulp-rev-all test/package.json",
-		"/C/Users/shinman/Desktop/s",
-		"/C/Users/shinman/Downloads/m3452_maWebsite (1).sql",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl"
+		"/C/Users/shinman/Desktop/gulp-rev-all test/package.json"
 	],
 	"find":
 	{
@@ -828,6 +829,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'../../../workspace/js/jquery-ui.min.js'",
 			"exhibitions",
 			"settings.slider",
 			"$('.slider')",
@@ -954,8 +956,7 @@
 			"hlHeight",
 			"4",
 			"console",
-			".highlighty",
-			"sticky-nav"
+			".highlighty"
 		],
 		"highlight": true,
 		"in_selection": false,

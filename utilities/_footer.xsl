@@ -29,7 +29,8 @@
 						<p><a href="{$root}/pl/ksiegarnia/wydawnictwa/">Księgarnia</a></p>
 						<ul>
 							<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
-							<li>+48 71 344 82 79 wew.15</li>
+							<li>+48 71 344 82 79 wew.15</li><br />
+							<li><a href="{$workspace}/dl/Polityka_prywatnosci_v1_(2in1).pdf" target="_blank">Polityka prywatności</a></li>
 						</ul>
 					</div>
 					<div class="b">
