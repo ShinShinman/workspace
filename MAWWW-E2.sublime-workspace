@@ -4,12 +4,12 @@
 		"selected_items":
 		[
 			[
-				"isoto",
-				"isotopeY"
+				"font",
+				"font-weight"
 			],
 			[
-				"font",
-				"font-family"
+				"isoto",
+				"isotopeY"
 			],
 			[
 				"valu",
@@ -678,11 +678,15 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/jQuery-ui-Slider-Pips/dist"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-link.xsl",
+		"/C/Users/shinman/Downloads/index.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
@@ -693,7 +697,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
@@ -724,10 +727,8 @@
 		"/Z/Gulp Build System/todo.md",
 		"/C/Users/shinman/Desktop/image compression/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc/_card.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_terms.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl",
@@ -760,7 +761,6 @@
 		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Choose-browser.sublime-build",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/fc-checkout.css",
 		"/C/Users/shinman/Downloads/fc-checkout.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-link.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/images/.htaccess",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
@@ -776,7 +776,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-nav.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_brick.xsl",
-		"/C/Users/shinman/Downloads/index.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/.htaccess",
 		"/C/xampp/php/php.ini",
 		"/C/Users/shinman/Desktop/nomus.txt",
@@ -829,6 +828,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"fc-link",
 			"'../../../workspace/js/jquery-ui.min.js'",
 			"exhibitions",
 			"settings.slider",
@@ -955,8 +955,7 @@
 			"utilities",
 			"hlHeight",
 			"4",
-			"console",
-			".highlighty"
+			"console"
 		],
 		"highlight": true,
 		"in_selection": false,

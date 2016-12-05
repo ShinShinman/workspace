@@ -21,8 +21,9 @@ class datasourcebookshop_items extends SectionDatasource
         'title: formatted',
         'subtitle: formatted',
         'author: formatted',
+        'out-of-stock',
         'cover-image',
-        'prize',
+        'prize: formatted',
         'category'
     );
     
@@ -49,7 +50,7 @@ class datasourcebookshop_items extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-10-21T09:32:18+00:00'
+            'release-date' => '2016-12-05T15:55:42+00:00'
         );
     }
     public function getSource()

@@ -46,9 +46,18 @@
 			<h1><xsl:value-of select="title" /></h1>
 			<h2><xsl:value-of select="subtitle" /></h2>
 			<p class="author"><xsl:value-of select="author/p" /></p>
-			<xsl:call-template name="fc-link">
-				<xsl:with-param name="prize" select="prize" />
-			</xsl:call-template>
+			<xsl:choose>
+				<xsl:when test="out-of-stock = 'Yes'">
+					<div class="button disabled">
+						<p><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'naklad-wyczerpany']" /></p>
+					</div>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:call-template name="fc-link">
+						<xsl:with-param name="prize" select="prize" />
+					</xsl:call-template>
+				</xsl:otherwise>
+			</xsl:choose>
 		</header>
 		<article>
 			<xsl:copy-of select="article/node()" />

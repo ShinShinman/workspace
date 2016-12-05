@@ -57,6 +57,16 @@ body {
 	}
 
 
+/* Wyłączony button w sklepie. Chyba do globalnych... */
+.button.disabled {
+	background-color: rgb(201, 206, 212) !important;
+	color: rgb(41, 41, 41) !important;
+	font-weight: normal !important;
+	cursor: auto !important;
+}
+
+
+
 /* FOXYCART DEMO [4.10.2016] */
 // do skasowania po odpaleniu sklepu //
 .fc-demo {

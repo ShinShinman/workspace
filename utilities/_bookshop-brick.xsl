@@ -25,9 +25,19 @@
 					<xsl:apply-templates select="cover-image" />
 				</div>
 			</a>
-			<xsl:call-template name="fc-link">
-				<xsl:with-param name="prize" select="prize" />
-			</xsl:call-template>
+
+			<xsl:choose>
+				<xsl:when test="out-of-stock = 'Yes'">
+					<div class="button disabled">
+						<p><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'naklad-wyczerpany']" /></p>
+					</div>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:call-template name="fc-link">
+						<xsl:with-param name="prize" select="prize" />
+					</xsl:call-template>
+				</xsl:otherwise>
+			</xsl:choose>
 		</article>
 
 	</xsl:template>
