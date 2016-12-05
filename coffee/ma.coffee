@@ -284,21 +284,19 @@ class MA
 			settings.grid.isotope({filter:value})
 
 		if settings.slider
-			$.getScript '../../../workspace/js/jquery-ui.min.js', ->
-			$.getScript '../../../workspace/js/jquery-ui-slider-pips.min.js', ->
-				$('.slider')
-				.slider
-					range: true
-					min: settings.sliderRange[0]
-					max: settings.sliderRange[1]
-					values: [settings.sliderRange[0], settings.sliderRange[1]]
-					stop: (e, ui) ->
-						filterIsotope ui.values[0], ui.values[1]
-						updateLegend ui.values[0], ui.values[1]
-				.slider 'pips',
-					step: 5
-				.slider 'float'
-				updateLegend $('.slider').slider('values', 0), $('.slider').slider('values', 1)
+			$('.slider')
+			.slider
+				range: true
+				min: settings.sliderRange[0]
+				max: settings.sliderRange[1]
+				values: [settings.sliderRange[0], settings.sliderRange[1]]
+				stop: (e, ui) ->
+					filterIsotope ui.values[0], ui.values[1]
+					updateLegend ui.values[0], ui.values[1]
+			.slider 'pips',
+				step: 5
+			.slider 'float'
+			updateLegend $('.slider').slider('values', 0), $('.slider').slider('values', 1)
 
 	iSl: (options) -> #ta metoda nie jest uzywana, przeniosłem ją do MA.iS(), do usunięcia
 		settings = $.extend
