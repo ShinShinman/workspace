@@ -682,9 +682,9 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-link.xsl",
 		"/C/Users/shinman/Downloads/index.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
@@ -828,6 +828,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"41",
+			"(41",
 			"fc-link",
 			"'../../../workspace/js/jquery-ui.min.js'",
 			"exhibitions",
@@ -953,9 +955,7 @@
 			"5",
 			"info",
 			"utilities",
-			"hlHeight",
-			"4",
-			"console"
+			"hlHeight"
 		],
 		"highlight": true,
 		"in_selection": false,

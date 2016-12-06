@@ -1599,8 +1599,8 @@ body {
 
 /* Wy┼é─ůczony button w sklepie. Chyba do globalnych... */
 .button.disabled {
-  background-color: #c9ced4 !important;
-  color: #292929 !important;
+  background-color: #c1c8d0 !important;
+  color: #737373 !important;
   font-weight: normal !important;
   cursor: auto !important; }
 
