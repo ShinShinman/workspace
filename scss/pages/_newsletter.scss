@@ -1,0 +1,46 @@
+/* Newsletter page */
+
+.newsletter-text {
+	@extend .text-column;
+
+	.subscribe-form {
+		width: columns-width(5);
+		margin-bottom: 24px;
+		overflow: auto;
+
+		fieldset {
+			border: none;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		input {
+			border: none;
+			border-bottom: 1px solid black;
+			margin-bottom: 12px;
+			line-height: 1.5;
+
+			&:focus {
+				outline: none;
+				border-color: lightblue;
+			}
+
+			&.fname {
+				width: columns-width(2);
+				margin-right: 10px;
+			}
+			&.lname {
+				width: columns-width(3);
+			}
+			&[type = "email"] {
+				width: columns-width(5);
+			}
+			&[type = "submit"] {
+				background-color: black;
+				color: white;
+				float: right;
+			}
+		}
+	}
+}
