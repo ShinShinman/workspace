@@ -33,9 +33,6 @@
 			<h1><xsl:copy-of select="title/p/node()" /></h1>
 			<ul class="inline-list">
 				<li>
-					<a href="javascript:void(0)">Zapisy</a>
-				</li>
-				<li>
 					<a href="http://wroc.us14.list-manage.com/unsubscribe?u=603554c72cd4cbcf0d6b22244&amp;id=9561c3dfb6" target="_blank">Rezygnacja</a>
 				</li>
 			</ul>
