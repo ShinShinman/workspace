@@ -6,7 +6,6 @@
 @import 'variables';
 @import 'mixins';
 
-
 /*** MA's styles ***/
 
 html {
@@ -67,6 +66,54 @@ body {
 	cursor: auto !important;
 }
 
+/* ARCHIVE – tymczasowe, tylko do testów wyszukiwarki AB */
+.archive-text {
+	@extend .text-column;
+	margin-bottom: 0 !important;
+
+	form {
+		margin-top: 24px;
+	}
+	input {
+		border: none;
+		border-bottom: 1px solid black;
+		margin-bottom: 12px;
+		width: 100%;
+		line-height: 1.5;
+
+		&:focus {
+			outline: none;
+			border-color: lightblue;
+		}
+	}
+	.results-found {
+		color: grey;
+	}
+}
+.archive {
+	.yszt-y {
+		.tail {
+			overflow: auto;
+			width: columns-width(10);
+
+			p {
+				em {
+					background-color: lightgreen;
+					padding: 0 1px;
+					font-style: normal;
+				}
+				img {
+					max-height: 150px;
+					margin-top: 6px;
+					display: block;
+				}
+			}
+			&:hover {
+				opacity: .6;
+			}
+		}
+	}
+}
 
 
 /* FOXYCART DEMO [4.10.2016] */

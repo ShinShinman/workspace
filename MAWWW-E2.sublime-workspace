@@ -4,16 +4,28 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"pl",
+				"placeholder"
+			],
+			[
 				"sub",
 				"subscribe-form"
 			],
 			[
 				"pad",
 				"padding"
-			],
-			[
-				"mar",
-				"margin"
 			],
 			[
 				"border",
@@ -26,10 +38,6 @@
 			[
 				"te",
 				"text"
-			],
-			[
-				"font",
-				"font-weight"
 			],
 			[
 				"isoto",
@@ -506,14 +514,6 @@
 			[
 				"hidd",
 				"hidden\t(main.min.js)"
-			],
-			[
-				"sea",
-				"search\t(menu.html)"
-			],
-			[
-				"vis",
-				"visibility"
 			]
 		]
 	},
@@ -682,6 +682,27 @@
 	],
 	"file_history":
 	[
+		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/archive.xsl",
+		"/C/Users/shinman/Desktop/kurtki.txt",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
+		"/C/Users/shinman/Desktop/SOLR ajax.js",
+		"/C/Users/shinman/Desktop/ajax.form.js",
+		"/C/Users/shinman/Downloads/ajax.form.js",
+		"/C/xampp/htdocs/f-alt.org/workspace/pages/newsletter-f-alt.xsl",
+		"/C/xampp/htdocs/f-alt.org/workspace/pages/subscription-check.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/jquery-form/jquery.form.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
+		"/C/xampp/htdocs/f-alt.org/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/nomus.gda.pl/workspace/gulpfile.js",
+		"/C/Users/shinman/Desktop/Gulp Build System/package.json",
+		"/C/Users/shinman/Desktop/yszt 2/package.json",
+		"/C/xampp/htdocs/nomus.gda.pl/workspace/package.json",
+		"/C/Users/shinman/Desktop/yszt/package.json",
+		"/C/Users/shinman/Desktop/Gulp Build System/coffee/components.js",
+		"/C/xampp/htdocs/nomus.gda.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/newsletter.xsl",
 		"/C/Users/shinman/Desktop/MailChimp Singup Form.html",
@@ -696,13 +717,10 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/mailchimp/.gitmodules",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/mailchimp/readme.md",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-link.xsl",
 		"/C/Users/shinman/Downloads/index.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
 		"/C/Users/shinman/Desktop/jquery-ui.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/jquery-ui.min.js",
@@ -727,7 +745,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/jquery-ui.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
 		"/C/Users/shinman/Downloads/jquery-ui-1.12.1.custom/index.html",
 		"/C/Users/shinman/Downloads/jquery-ui-1.12.1.custom/jquery-ui.js",
 		"/C/Users/shinman/Desktop/Nowy folder/package.json",
@@ -792,24 +809,7 @@
 		"/C/Users/shinman/Desktop/nomus.txt",
 		"/C/Users/shinman/Desktop/Yamamoto",
 		"/C/Users/shinman/Desktop/adresy Symphony",
-		"/C/Users/shinman/Downloads/.htaccess",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/wydawnictwa.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
-		"/C/Users/shinman/Desktop/skeczbooki.md",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_fonts.scss",
-		"/Z/MA WWW/font/MArch/MArch-info.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_edukacja-materialy.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_lekcje-muzealne.xsl",
-		"/C/Users/shinman/Desktop/trening/trening.txt",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-aid.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_educational-games.xsl",
-		"/C/Users/shinman/Desktop/trening.txt",
-		"/C/Users/shinman/Downloads/main.css"
+		"/C/Users/shinman/Downloads/.htaccess"
 	],
 	"find":
 	{
@@ -828,6 +828,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console",
+			"id",
+			"h1",
+			"“",
+			"’",
+			"‘",
+			"input",
 			"class",
 			"41",
 			"(41",
@@ -948,14 +955,7 @@
 			"filters",
 			"var ",
 			"lesson",
-			"158, 161, 169",
-			"rgb(255, 94, 87)",
-			"wyklady-dla-mlodziezy",
-			"set_time_limit",
-			"info",
-			"5",
-			"info",
-			"utilities"
+			"158, 161, 169"
 		],
 		"highlight": true,
 		"in_selection": false,
