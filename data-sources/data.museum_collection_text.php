@@ -1,7 +1,7 @@
 <?php
-class datasourcemusem_collection extends SectionDatasource
+class datasourcemuseum_collection_text extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'musem-collection';
+    public $dsParamROOTELEMENT = 'museum-collection-text';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -26,13 +26,13 @@ class datasourcemusem_collection extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Musem collection',
+            'name' => 'Museum collection text',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-12-21T21:34:36+00:00'
+            'release-date' => '2016-12-22T12:25:31+00:00'
         );
     }
     public function getSource()

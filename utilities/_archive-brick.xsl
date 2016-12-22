@@ -7,7 +7,7 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article class="brick {substring(date/date/start, 1, 4)}">
-			<a href="{$root}{$current-path}/{title/@handle}">
+			<a href="{$root}{$current-path}/{title/@handle}/">
 				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<!--<xsl:apply-templates select="subtitle" />-->
 				<!--<xsl:apply-templates select="./category/item" mode="brick" />-->
