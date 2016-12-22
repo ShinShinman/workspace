@@ -1,23 +1,16 @@
 <?php
-class datasourcemedia_contact extends SectionDatasource
+class datasourcemedia_nav extends MultilingualNavigationDatasource
 {
-    public $dsParamROOTELEMENT = 'media-contact';
-    public $dsParamORDER = 'desc';
-    public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '20';
-    public $dsParamSTARTPAGE = '1';
+    public $dsParamROOTELEMENT = 'media-nav';
+    public $dsParamORDER = 'asc';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'system:id';
-    public $dsParamHTMLENCODE = 'no';
-    public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-
-    public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'article: formatted'
-    );
     
+    public $dsParamFILTERS = array(
+        'parent' => '/for-media',
+    );
+
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
@@ -26,18 +19,18 @@ class datasourcemedia_contact extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Media Contact',
+            'name' => 'Media Nav',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-12-22T20:26:35+00:00'
+            'release-date' => '2016-12-22T20:37:28+00:00'
         );
     }
     public function getSource()
     {
-        return '58';
+        return 'navigation';
     }
     public function allowEditorToParse()
     {

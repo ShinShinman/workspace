@@ -25,11 +25,6 @@
 
 <xsl:template match="data">
 	<section class="media">
-		<xsl:apply-templates select="media-contact/entry" />
-	</section>
-</xsl:template>
-
-<xsl:template match="media-contact/entry">
 		<header>
 			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
 			<ul class="inline-list">
@@ -37,9 +32,21 @@
 			</ul>
 		</header>
 		<article>
-			<h1><xsl:value-of select="title/p" /></h1>
-			<xsl:copy-of select="article/node()" />
+			<h1><xsl:value-of select="$page-title" /></h1>
+			<ul>
+				<xsl:apply-templates select="media-downlodables/entry" />
+			</ul>
 		</article>
+		<xsl:apply-templates select="media-contact/entry" />
+	</section>
+</xsl:template>
+
+<xsl:template match="media-downlodables/entry">
+	<li>
+		<a href="{file-link}">
+			<xsl:value-of select="file-name" />
+		</a>
+	</li>
 </xsl:template>
 
 <xsl:template match="media-nav/page">

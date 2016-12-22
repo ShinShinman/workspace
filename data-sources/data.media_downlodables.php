@@ -2,14 +2,14 @@
 class datasourcemedia_downlodables extends SectionDatasource
 {
     public $dsParamROOTELEMENT = 'media-downlodables';
-    public $dsParamORDER = 'desc';
+    public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'system:id';
+    public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
@@ -32,7 +32,7 @@ class datasourcemedia_downlodables extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-12-22T15:35:56+00:00'
+            'release-date' => '2016-12-22T21:13:17+00:00'
         );
     }
     public function getSource()

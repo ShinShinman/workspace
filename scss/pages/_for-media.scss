@@ -1,0 +1,21 @@
+/* FOR MEDIA */
+
+.for-media {
+	.media {
+		@extend .text-column;
+
+		header {
+			h1 {
+				margin-bottom: 12px;
+			}
+		}
+		article ul {
+			width: columns-width(4);
+			float: left;
+			overflow: auto;
+			&.first {
+				margin-right: $gutter;
+			}
+		}
+	}
+}
