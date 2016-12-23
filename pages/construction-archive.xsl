@@ -24,10 +24,12 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<!--<xsl:apply-templates select="newsletter/entry" />-->
 	<section class="archive-text yszt">
 		<header>
 			<h1>Archiwum budowlane</h1>
+			<ul class="inline-list">
+				<xsl:apply-templates select="//ab-nav/page" />
+			</ul>
 		</header>
 		<article>
 			<h1>Wyszukiwarka</h1>
@@ -42,19 +44,13 @@
 	</section>
 </xsl:template>
 
-<xsl:template match="newsletter/entry">
-	<section class="newsletter-text">
-		<header>
-			<h1><xsl:copy-of select="title/p/node()" /></h1>
-		</header>
-		<article>
-			<xsl:copy-of select="info/node()" />
-			<xsl:call-template name="mailchimp-form" />
-			<xsl:copy-of select="unsubscribe-info" />
-		</article>
-	</section>
+<xsl:template match="ab-nav/page">
+	<li>
+		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}">
+			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
+		</a>
+	</li>
 </xsl:template>
-
 
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
