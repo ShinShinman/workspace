@@ -1,0 +1,54 @@
+/* CONSTRUCTION ARCHIVE */
+
+.archive-text {
+	@extend .text-column;
+	margin-bottom: 0 !important;
+
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+	}
+
+	form {
+		margin-top: 24px;
+	}
+	input {
+		border: none;
+		border-bottom: 1px solid black;
+		margin-bottom: 12px;
+		width: 100%;
+		line-height: 1.5;
+
+		&:focus {
+			outline: none;
+			border-color: lightblue;
+		}
+	}
+	.results-found {
+		color: grey;
+	}
+}
+
+.search-results {
+	.tail {
+		overflow: auto;
+		width: columns-width(10);
+
+		p {
+			em {
+				background-color: lightgreen;
+				padding: 0 1px;
+				font-style: normal;
+			}
+			img {
+				max-height: 150px;
+				margin-top: 6px;
+				display: block;
+			}
+		}
+		&:hover {
+			opacity: .6;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+/* CONSTRUCTION ARCHIVE ABOUT */
+
+.archive-about {
+	@extend .text-column;
+
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+	}
+}

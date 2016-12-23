@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"val",
+				"value-of"
+			],
+			[
 				"list-ty",
 				"list-style"
 			],
@@ -510,10 +514,6 @@
 			[
 				"init",
 				"initial\t(index.html)"
-			],
-			[
-				"strip",
-				"stripe\t(main.scss)"
 			]
 		]
 	},
@@ -682,14 +682,24 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-digitizing.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_about-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-ht-search.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_how-to-search.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_downlodables-for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_for-media-downlodables.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_dawnlodables-for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_for-media.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_for-media-contact.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_contact.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_museum-collection.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_collection.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_collections-brick.xsl",
@@ -701,7 +711,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_about-museum.scss",
 		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/archive.xsl",
 		"/C/Users/shinman/Desktop/kurtki.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
@@ -800,16 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/fc/fc-checkout.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-chceckout.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Choose-browser.sublime-build",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/fc-checkout.css",
-		"/C/Users/shinman/Downloads/fc-checkout.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/images/.htaccess",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-demo.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_bookshop-brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_book.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-prize.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-nav.xsl"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss"
 	],
 	"find":
 	{
@@ -828,6 +828,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ab-jak-szukac",
+			"ab-o-archiwum",
+			"media-nav",
+			"yszt-y",
+			"yszt",
+			"media",
+			" \n\t",
+			"\t",
 			"museum",
 			"museum-about/entry",
 			"**",
@@ -947,15 +955,7 @@
 			"exhib-category",
 			"category",
 			"h3",
-			"p",
-			"h1",
-			"(wew.)(\\d+)",
-			"(\\+)\\s(\\d{2,})",
-			"Struktura",
-			"single-aid",
-			"HEAD ",
-			"HEAD",
-			"not"
+			"p"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -963,6 +963,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"search-results",
 			"jQ",
 			"events-archive",
 			"event-archived",
@@ -1059,7 +1060,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 22.0
 	},
 	"input":
 	{

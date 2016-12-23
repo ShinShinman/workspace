@@ -24,9 +24,9 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<section class="archive-text yszt">
+	<section class="archive-text">
 		<header>
-			<h1>Archiwum budowlane</h1>
+			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{//ab-nav/page[@handle = 'search']/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//ab-nav/page" />
 			</ul>
@@ -40,7 +40,7 @@
 		</article>
 	</section>
 	<section>
-		<div class="yszt-y"></div>
+		<div class="search-results"></div>
 	</section>
 </xsl:template>
 
@@ -102,7 +102,7 @@
 						jsonpCallback: 'loadData',
 						success: function(data) {
 						$('.results-found').text('Znaleziono ' + data.response.numFound + ' wyników.');
-							$('.yszt-y').empty();
+							$('.search-results').empty();
 							$.each(data.response.docs, function(i, doc) {
 								//printIt(doc.kolumna2, doc.id, data.highlighting[doc.id].text[0], doc.plik, doc.kolumna41);
 								printResults({
@@ -142,7 +142,7 @@
 					jsonp : 'callback',
 					jsonpCallback: 'loadData',
 					success: function(data) {
-						$('.yszt-y').empty();
+						$('.search-results').empty();
 						//console.log(data.response.docs);
 						$.each(data.response.docs, function(i, doc) {
 							printResults({
@@ -210,7 +210,7 @@
 			function printIt(title, id, discription, img, sygnatura) {
 				var tmp = img.split('.'); //if tmp[1] = 'zip' then 'download'
 				imgURL = 'http://156.17.203.194/media/' + id + '/' + tmp[0] + '-min.' + tmp[1];
-				$('.yszt-y').append
+				$('.search-results').append
 				('<div class="tail">
 					<h2>' + title + '</h2>
 					<p>' + sygnatura + ' [' + id + ']' + '<br />'
@@ -228,7 +228,7 @@
 					+ obj.highlight
 					+ '<img src="' + imgURL + '" /></p>
 				</div>';
-				$('.yszt-y').append(tail);
+				$('.search-results').append(tail);
 			}
 		});
 	</script>
