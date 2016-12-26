@@ -24,6 +24,10 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
+	<xsl:call-template name="search-engine" />
+</xsl:template>
+
+<xsl:template name="search-engine">
 	<section class="archive-text">
 		<header>
 			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{//ab-nav/page[@handle = 'search']/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
@@ -104,7 +108,6 @@
 						$('.results-found').text('Znaleziono ' + data.response.numFound + ' wyników.');
 							$('.search-results').empty();
 							$.each(data.response.docs, function(i, doc) {
-								//printIt(doc.kolumna2, doc.id, data.highlighting[doc.id].text[0], doc.plik, doc.kolumna41);
 								printResults({
 									adres: doc.kolumna2,
 									adresDE: doc.kolumna1,
@@ -207,27 +210,18 @@
 				console.log(data.response);
 			}
 
-			function printIt(title, id, discription, img, sygnatura) {
-				var tmp = img.split('.'); //if tmp[1] = 'zip' then 'download'
-				imgURL = 'http://156.17.203.194/media/' + id + '/' + tmp[0] + '-min.' + tmp[1];
-				$('.search-results').append
-				('<div class="tail">
-					<h2>' + title + '</h2>
-					<p>' + sygnatura + ' [' + id + ']' + '<br />'
-					+ discription + '</p>
-					<p><img src="' + imgURL + '" /></p>
-				</div>');
-			}
-
 			function printResults (obj) {
 				var tmp = obj.image.split('.');
 				var imgURL = 'http://156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
-				var tail = '<div class="tail">
-					<h2>' + obj.adres + '</h2>
-					<p>' <!--+ obj.sygnatura + '<br />'-->
-					+ obj.highlight
-					+ '<img src="' + imgURL + '" /></p>
-				</div>';
+				var path = "<xsl:value-of select="concat($root, '/', //fl-languages/current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/' )" />" + obj.id;
+				var tail = 
+					'<article class="tail">
+						<a href="' + path + '">
+							<h2>' + obj.adres + '</h2>
+							<p>' + obj.highlight
+							+ '<img src="' + imgURL + '" /></p>
+						</a>
+					</article>';
 				$('.search-results').append(tail);
 			}
 		});

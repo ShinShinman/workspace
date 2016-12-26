@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"ca-",
+				"ca-order-response"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"img",
+				"imgURL"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
 				"val",
 				"value-of"
 			],
@@ -16,24 +44,12 @@
 				"value-of"
 			],
 			[
-				"marg",
-				"margin-right"
-			],
-			[
 				"museum",
 				"museum-collection"
 			],
 			[
 				"museum-collec",
 				"museum-collections"
-			],
-			[
-				"mar",
-				"margin-bottom"
-			],
-			[
-				"font",
-				"font-style"
 			],
 			[
 				"inl",
@@ -58,10 +74,6 @@
 			[
 				"valu",
 				"value"
-			],
-			[
-				"te",
-				"text"
 			],
 			[
 				"isoto",
@@ -146,10 +158,6 @@
 			[
 				"in",
 				"inline-block"
-			],
-			[
-				"padd",
-				"padding-left"
 			],
 			[
 				"margi",
@@ -506,14 +514,6 @@
 			[
 				"conta",
 				"container"
-			],
-			[
-				"nano",
-				"nanoscroller"
-			],
-			[
-				"init",
-				"initial\t(index.html)"
 			]
 		]
 	},
@@ -678,21 +678,29 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/events"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/ca-order-response.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
+		"/C/xampp/php/php.ini",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-search.scss",
+		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
+		"/C/Users/shinman/Desktop/email-form.js",
+		"/C/xampp/htdocs/f-alt.org/workspace/pages/xhrsubmit.xsl",
+		"/C/xampp/htdocs/f-alt.org/workspace/pages/subscription-check.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-digitizing.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_about-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-ht-search.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_how-to-search.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_downlodables-for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_for-media-downlodables.scss",
@@ -710,7 +718,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_offer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_about-museum.scss",
-		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/archive.xsl",
 		"/C/Users/shinman/Desktop/kurtki.txt",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/ma.coffee",
@@ -718,7 +725,6 @@
 		"/C/Users/shinman/Desktop/ajax.form.js",
 		"/C/Users/shinman/Downloads/ajax.form.js",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/newsletter-f-alt.xsl",
-		"/C/xampp/htdocs/f-alt.org/workspace/pages/subscription-check.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/jquery-form/jquery.form.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
@@ -804,12 +810,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_news.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/fc/fc-checkout.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/fc-chceckout.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl"
 	],
 	"find":
 	{
@@ -828,6 +829,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"consol",
+			"smtp",
+			"<fieldset>",
+			"ma",
+			"console.log",
+			"? ",
+			"ko",
+			"k",
+			", ",
+			",,,",
+			",,",
+			"422,Magistrat,Technika - ",
+			"h3",
+			"div",
 			"ab-jak-szukac",
 			"ab-o-archiwum",
 			"media-nav",
@@ -941,21 +956,7 @@
 			"filters",
 			"  ",
 			" ",
-			"  ",
-			"getHashFilter",
-			"76",
-			"//Colors",
-			"scss",
-			"owl",
-			"union",
-			"li",
-			"category/item",
-			"ma-button",
-			"language-button",
-			"exhib-category",
-			"category",
-			"h3",
-			"p"
+			"  "
 		],
 		"highlight": true,
 		"in_selection": false,
