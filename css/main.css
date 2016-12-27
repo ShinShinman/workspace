@@ -2633,6 +2633,8 @@ section.maintenance {
   .search-deails li label {
     display: block;
     font-weight: bold; }
+.search-deails article .normal {
+  font-weight: normal; }
 
 /* CONSTRUCTION ARCHIVE SEARCH */
 .archive-text {

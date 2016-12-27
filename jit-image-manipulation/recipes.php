@@ -58,4 +58,30 @@
 		),
 		########
 
+		########
+		array(
+			'mode' => '2',
+			'name' => 'AB-post',
+			'url-parameter' => 'ab-post',
+			'width' => '640',
+			'height' => NULL,
+			'position' => '1',
+			'background' => 'fff',
+			'quality' => NULL,
+			'external' => '1',
+		),
+		########
+
+		########
+		array(
+			'mode' => '1',
+			'name' => 'AB-tail',
+			'url-parameter' => 'ab-tail',
+			'width' => NULL,
+			'height' => '150',
+			'quality' => NULL,
+			'external' => '1',
+		),
+		########
+
 	);

@@ -678,22 +678,26 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/events"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/ca-order-response.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
+		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/events/class.event.section.php",
+		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/class.extensionmanager.php",
+		"/C/Users/shinman/Downloads/author_roles/readme.md",
+		"/C/Users/shinman/Downloads/author_roles/extension.meta.xml",
+		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/email-gateways/email.sendmail.php",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/ca-order-response.xsl",
 		"/C/xampp/php/php.ini",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-search.scss",
-		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/Users/shinman/Desktop/email-form.js",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/xhrsubmit.xsl",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/subscription-check.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-digitizing.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
@@ -805,12 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_character-styles.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education-kids-n-parents.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_utilities.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_news.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_contact.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_terms.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookshop_shipment.xsl"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss"
 	],
 	"find":
 	{
@@ -829,6 +828,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"currentURL",
+			"getParams2",
+			"getParams",
+			"scroll",
+			"escape",
+			"section was created or updated You can view or edit it by going to",
 			"consol",
 			"smtp",
 			"<fieldset>",
@@ -950,13 +955,7 @@
 			"elems",
 			"click",
 			"grid",
-			"isotopeSetup",
-			"console",
-			"filterTriggers",
-			"filters",
-			"  ",
-			" ",
-			"  "
+			"isotopeSetup"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -964,6 +963,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"currentQuery",
+			"encodeURI",
 			"search-results",
 			"jQ",
 			"events-archive",

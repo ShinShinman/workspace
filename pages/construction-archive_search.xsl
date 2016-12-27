@@ -77,6 +77,55 @@
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'white'});
 
+			// INFINITE SCROLL
+			$(window).scroll(function() {
+				if($(window).scrollTop() + $(window).height() == $(document).height()) {
+					loadMore();
+				}
+			})
+
+			var currentQstr = '';
+			var queue = 0;
+
+			var loadMore = function() {
+				var url = 'http://156.17.203.194:8983/solr/archiwum/select?';
+				var params = getParams2(queue).concat(currentQstr);
+				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
+				url = url+urlData;
+				console.log(url);
+
+				$.ajax({
+					url : url,
+					type: 'GET',
+					dataType: 'jsonp',
+					jsonp : 'callback',
+					jsonpCallback: 'loadData',
+					crossDomain: true,
+					scriptCharset: 'utf-8',
+					contentType: 'jsonp; charset=utf-8',
+					success: function(data) {
+					queue = queue + 10;
+						$.each(data.response.docs, function(i, doc) {
+							printResults({
+								adres: doc.kolumna2,
+								adresDE: doc.kolumna1,
+								id: doc.id,
+								sygnatura: doc.kolumna41,
+								nazwa: doc.kolumna24,
+								podpisy: doc.kolumna23,
+								architekt: doc.kolumna3,
+								image: doc.plik,
+								highlight: data.highlighting[doc.id].text[0]
+							})
+						});
+					},
+					error: function(data) {
+						alert("Error\n" + data.reponse);
+					},
+				});
+			};
+
+
 			var delay = (function(){
 				var timer = 0;
 				return function(callback, ms){
@@ -90,13 +139,16 @@
 					return;
 				}
 				delay(function(){
+					queue = 0;
 				  var url = 'http://156.17.203.194:8983/solr/archiwum/select?';
 					var query = $('.search-field').val() + '*';
 					var queryTMP = query.replace(/\s/g, ' AND ');
 					var qstr = 'q=' + encodeURI(queryTMP);
+					currentQstr = qstr;
 					var params = getParams().concat(qstr);
 					var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
-					url = url+urlData;
+					url += urlData;
+					currentQuery = url;
 					console.log(url);
 
 					$.ajax({
@@ -104,6 +156,9 @@
 						type: 'GET',
 						dataType: 'jsonp',
 						jsonpCallback: 'loadData',
+						crossDomain: true,
+						scriptCharset: 'utf-8',
+						contentType: 'jsonp; charset=utf-8',
 						success: function(data) {
 						$('.results-found').text('Znaleziono ' + data.response.numFound + ' wyników.');
 							$('.search-results').empty();
@@ -129,9 +184,12 @@
 			});
 
 			$('.search-form').submit(function(e) {
+				queue = 0;
 				var url = 'http://156.17.203.194:8983/solr/archiwum/select?';
 				var query = $('.search-field').val();
+				var queryTMP = query.replace(/\s/g, ' AND ');
 				var qstr = 'q=' + encodeURI(query);
+				currentQstr = qstr;
 				var params = getParams().concat(qstr);
 				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 				url = url+urlData;
@@ -144,6 +202,9 @@
 					dataType: 'jsonp',
 					jsonp : 'callback',
 					jsonpCallback: 'loadData',
+					crossDomain: true,
+					scriptCharset: 'utf-8',
+					contentType: 'jsonp; charset=utf-8',
 					success: function(data) {
 						$('.search-results').empty();
 						//console.log(data.response.docs);
@@ -166,14 +227,8 @@
 					},
 				});
 
-				var loadData = function(d) {
-					console.log(d);
-				}
-
 				e.preventDefault();
 			});
-
-			$.ajaxSetup({ crossDomain: true, scriptCharset: 'utf-8' , contentType: 'jsonp; charset=utf-8'});
 
 			function getParams () {
 				var params = [
@@ -189,16 +244,15 @@
 				return params;
 			}
 
-			function getParams2 () {
+			function getParams2 (i) {
 				var params = [
 
 					'wt=json',
 					'indent=on',
-					//'hl=true',
-					//'hl.fl=name,features',
+					'hl=true',
 					'fl=id,plik,kolumna*,typid',
 					'rows=10', //ilość odpowiedzi
-					'start=0', // ? nr pierwszej odp.
+					'start=' + i, // ? nr pierwszej odp.
 					'json.wrf=loadData'
 				];
 				return params;
@@ -212,7 +266,7 @@
 
 			function printResults (obj) {
 				var tmp = obj.image.split('.');
-				var imgURL = 'http://156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
+				var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
 				var path = "<xsl:value-of select="concat($root, '/', //fl-languages/current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/' )" />" + obj.id;
 				var tail = 
 					'<article class="tail">

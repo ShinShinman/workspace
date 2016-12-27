@@ -129,7 +129,7 @@
 					if (doc.kolumna44 == 1) materials.push('ołówek') /* materials = materials + ', ołówek'; */
 					if (doc.kolumna45 == 1) materials.push('ozalid') /* materials = materials + ', ozalid'; */
 					if (doc.kolumna46 == 1) materials.push('pastel') /* materials = materials + ', pastel'; */
-					if (doc.kolumna47 == 1) materials.push('światło') /* materials = materials + ', światło'; */
+					if (doc.kolumna47 == 1) materials.push('światłokopia') /* materials = materials + ', światłokopia'; */
 					if (doc.kolumna48 == 1) materials.push('tusz') /* materials = materials + ', tusz'; */
 					if (doc.kolumna49 == 1) materials.push('węgiel') /* materials = materials + ', węgiel'; */
 					materials = materials.toString();
@@ -170,7 +170,7 @@
 
 			function printResults (obj) {
 				var tmp = obj.image.split('.');
-				var imgURL = 'http://156.17.203.194/media/' + obj.id + '/' + obj.image
+				var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + obj.image
 				var tail = 
 					'<article class="tail">
 						<a href="' + obj.id + '">
@@ -180,10 +180,17 @@
 						</a>
 					</article>';
 
+					function replaceEmpty() {
+						$.each(obj, function(i, prop){
+							if(obj[i] == '' || obj[i] == undefined) obj[i] = 'brak';
+						})
+					}
+					replaceEmpty();
+
 				var resultsTemplate =
 					'<article>
 						<h1>' +  obj.nazwa + '</h1>
-						<h2 class="architekt">Architekt projektu ' + obj.architekt + '</h2>
+						<h2 class="architekt">Architekt projektu <span class="normal"> ' + obj.architekt + '</span></h2>
 						<p class="sygnatura"><strong>Sygnatura</strong> ' + obj.sygnatura + '</p>
 						<p class="img"><img src="' + imgURL + '" /></p>
 						<ul>
