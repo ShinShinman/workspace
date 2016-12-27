@@ -1,11 +1,24 @@
 /* CONSTRUCTION ARCHIVE DIGITIZING */
 
-.archive-digitizing {
-	@extend .text-column;
+.digitizing {
+	> header {
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-bottom: $gutter;
+		&.offset {
+			min-height: 125px;
+		}
+	}
 
-	header {
-		h1 {
-			margin-bottom: 12px;
+	.archive-digitizing {
+		@extend .text-column;
+
+		margin-top: 0 !important;
+
+		header {
+			h1 {
+				margin-bottom: 12px;
+			}
 		}
 	}
 }

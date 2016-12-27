@@ -1,10 +1,10 @@
 <?php
-class datasourceab_o_archiwum extends SectionDatasource
+class datasourceab_header_images extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'ab-o-archiwum';
-    public $dsParamORDER = 'desc';
-    public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '20';
+    public $dsParamROOTELEMENT = 'ab-header-images';
+    public $dsParamORDER = 'random';
+    public $dsParamPAGINATERESULTS = 'yes';
+    public $dsParamLIMIT = '1';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
@@ -12,11 +12,13 @@ class datasourceab_o_archiwum extends SectionDatasource
     public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-
+    
+    public $dsParamFILTERS = array(
+        '292' => 'yes',
+    );
+        
     public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'main-image',
-        'article: formatted'
+        'image'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -27,18 +29,18 @@ class datasourceab_o_archiwum extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'AB o archiwum',
+            'name' => 'AB Header Images',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-12-27T16:04:11+00:00'
+            'release-date' => '2016-12-27T20:51:16+00:00'
         );
     }
     public function getSource()
     {
-        return '61';
+        return '65';
     }
     public function allowEditorToParse()
     {

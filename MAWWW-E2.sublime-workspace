@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin-top"
+			],
+			[
 				"ca-",
 				"ca-order-response"
 			],
@@ -18,10 +22,6 @@
 			[
 				"img",
 				"imgURL"
-			],
-			[
-				"marg",
-				"margin-bottom"
 			],
 			[
 				"font",
@@ -682,8 +682,16 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-digitizing.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-search.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-ht-search.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_how-to-search.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_about-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
 		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/events/class.event.section.php",
@@ -693,18 +701,11 @@
 		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/email-gateways/email.sendmail.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/ca-order-response.xsl",
 		"/C/xampp/php/php.ini",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-search.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_pages.scss",
 		"/C/Users/shinman/Desktop/email-form.js",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/xhrsubmit.xsl",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/subscription-check.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-digitizing.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_about-archive.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-ht-search.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_how-to-search.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_downlodables-for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_for-media-downlodables.scss",
@@ -766,7 +767,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_event-archived.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
 		"/C/Users/shinman/Desktop/filtrowanie isotope.txt",

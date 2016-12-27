@@ -24,9 +24,21 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
+	<xsl:choose>
+		<xsl:when test="ab-o-archiwum/entry/main-image">
+			<xsl:apply-templates select="ab-o-archiwum/entry/main-image" />
+		</xsl:when>
+		<xsl:otherwise>
+			<header class="offset" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<section class="archive-about">
 		<xsl:apply-templates select="ab-o-archiwum/entry" />
 	</section>
+</xsl:template>
+
+<xsl:template match="ab-o-archiwum/entry/main-image">
+	<header class="offset" style="background-image: url({$root}/image/post-header{@path}/{filename}); height: {meta/@height}px" />
 </xsl:template>
 
 <xsl:template match="ab-o-archiwum/entry">
@@ -69,7 +81,8 @@
 <xsl:template match="data" mode="js">
 	<script>
 		$(function() {
-			MA.stickyNavSetup({backgroundColor: 'white'});
+			MA.stickyNavSetup({backgroundColor: 'transparent'});
+			MA.api.setNavBackground('.offset');
 		});
 	</script>
 </xsl:template>

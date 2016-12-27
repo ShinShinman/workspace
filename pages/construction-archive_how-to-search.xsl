@@ -24,9 +24,21 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
+	<xsl:choose>
+		<xsl:when test="ab-header-images/entry">
+			<xsl:apply-templates select="ab-header-images/entry" />
+		</xsl:when>
+		<xsl:otherwise>
+			<header class="offset" />
+		</xsl:otherwise>
+	</xsl:choose>
 	<section class="archive-ht-search">
 		<xsl:apply-templates select="ab-jak-szukac/entry" />
 	</section>
+</xsl:template>
+
+<xsl:template match="ab-header-images/entry">
+	<header class="offset" style="background-image: url({$root}/image/post-header{image/@path}/{image/filename}); height: {image/meta/@height}px" />
 </xsl:template>
 
 <xsl:template match="ab-jak-szukac/entry">
@@ -69,7 +81,8 @@
 <xsl:template match="data" mode="js">
 	<script>
 		$(function() {
-			MA.stickyNavSetup({backgroundColor: 'white'});
+			MA.stickyNavSetup({backgroundColor: 'transparent'});
+			MA.api.setNavBackground('.offset');
 		});
 	</script>
 </xsl:template>

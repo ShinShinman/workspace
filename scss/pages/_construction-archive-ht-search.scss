@@ -1,11 +1,24 @@
 /* CONSTRUCTION ARCHIVE HOW TO SEARCH */
 
-.archive-ht-search {
-	@extend .text-column;
+.how-to-search {
+	> header {
+		background-position: center;
+		background-repeat: no-repeat;
+		margin-bottom: $gutter;
+		&.offset {
+			min-height: 125px;
+		}
+	}
 
-	header {
-		h1 {
-			margin-bottom: 12px;
+	.archive-ht-search {
+		@extend .text-column;
+
+		margin-top: 0 !important;
+
+		header {
+			h1 {
+				margin-bottom: 12px;
+			}
 		}
 	}
 }
