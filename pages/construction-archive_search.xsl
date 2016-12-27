@@ -93,7 +93,7 @@
 				  var url = 'http://156.17.203.194:8983/solr/archiwum/select?';
 					var query = $('.search-field').val() + '*';
 					var queryTMP = query.replace(/\s/g, ' AND ');
-					var qstr = 'q=' + escape(queryTMP);
+					var qstr = 'q=' + encodeURI(queryTMP);
 					var params = getParams().concat(qstr);
 					var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 					url = url+urlData;
@@ -131,7 +131,7 @@
 			$('.search-form').submit(function(e) {
 				var url = 'http://156.17.203.194:8983/solr/archiwum/select?';
 				var query = $('.search-field').val();
-				var qstr = 'q=' + escape(query);
+				var qstr = 'q=' + encodeURI(query);
 				var params = getParams().concat(qstr);
 				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 				url = url+urlData;
