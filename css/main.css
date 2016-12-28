@@ -2691,7 +2691,8 @@ section.maintenance {
   .about-archive > header.offset {
     min-height: 125px; }
 .about-archive .archive-about {
-  margin-top: 0 !important; }
+  margin-top: 0 !important;
+  margin-bottom: 250px; }
   .about-archive .archive-about header h1, .about-archive .archive-about header .slide-down a, .slide-down .about-archive .archive-about header a {
     margin-bottom: 12px; }
 
@@ -2703,7 +2704,8 @@ section.maintenance {
   .how-to-search > header.offset {
     min-height: 125px; }
 .how-to-search .archive-ht-search {
-  margin-top: 0 !important; }
+  margin-top: 0 !important;
+  margin-bottom: 250px; }
   .how-to-search .archive-ht-search header h1, .how-to-search .archive-ht-search header .slide-down a, .slide-down .how-to-search .archive-ht-search header a {
     margin-bottom: 12px; }
 
@@ -2715,7 +2717,8 @@ section.maintenance {
   .digitizing > header.offset {
     min-height: 125px; }
 .digitizing .archive-digitizing {
-  margin-top: 0 !important; }
+  margin-top: 0 !important;
+  margin-bottom: 250px; }
   .digitizing .archive-digitizing header h1, .digitizing .archive-digitizing header .slide-down a, .slide-down .digitizing .archive-digitizing header a {
     margin-bottom: 12px; }
 
