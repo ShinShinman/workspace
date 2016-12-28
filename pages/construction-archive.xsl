@@ -48,7 +48,7 @@
 						<input name="send-email[reply-to-name]" value="fields[fname, lname]" type="hidden" />
 						<input name="send-email[subject]" value="Zamówienie do czytelni." type="hidden" />
 						<input name="send-email[body]" value="fields[signature, ab-id]" type="hidden" />
-						<input name="send-email[recipient]" value="shinman" type="hidden" />
+						<input name="send-email[recipient]" value="czytelnia, marta, shinman" type="hidden" />
 						<input name="action[ca-order]" type="submit" />
 				</form>
 			</div>
@@ -96,7 +96,7 @@
 				},
 				error: function(data) {
 					console.log(data.response.status);
-					$('.order-form-container').append('<p class="error">Błąd. Zamówienie nie powiodło się. Prosimy o kontakt <a href="mailto:#">kontakt@--uzupełnić--.pl</a>.</p>');
+					$('.order-form-container').append('<p class="error">Błąd. Zamówienie nie powiodło się. Prosimy o kontakt <a href="mailto:czytelnia@ma.wroc.pl">czytelnia@ma.wroc.pl</a>.</p>');
 				}
 			});
 
@@ -182,7 +182,7 @@
 
 					function replaceEmpty() {
 						$.each(obj, function(i, prop){
-							if(obj[i] == '' || obj[i] == undefined) obj[i] = 'brak';
+							if(obj[i] == '' || obj[i] == undefined || obj[i] == 0) obj[i] = 'brak';
 						})
 					}
 					replaceEmpty();
