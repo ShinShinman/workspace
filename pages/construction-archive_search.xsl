@@ -101,6 +101,7 @@
 			var queue = 0;
 
 			var loadMore = function() {
+				queue = queue + 10;
 				var url = 'http://156.17.203.194:8983/solr/archiwum/select?';
 				var params = getParams2(queue).concat(currentQstr);
 				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
@@ -117,7 +118,6 @@
 					scriptCharset: 'utf-8',
 					contentType: 'jsonp; charset=utf-8',
 					success: function(data) {
-					queue = queue + 10;
 						$.each(data.response.docs, function(i, doc) {
 							printResults({
 								adres: doc.kolumna2,
