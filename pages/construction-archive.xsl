@@ -120,20 +120,102 @@
 				jsonpCallback: 'loadData',
 				success: function(data) {
 					var doc = data.response.docs[0];
-					var materials = [];
-					if (doc.kolumna39 == 1) materials.push('akwarela') /* materials = materials + ', akwarela'; */
-					if (doc.kolumna40 == 1) materials.push('atrament') /* materials = materials + ', atrament'; */
-					if (doc.kolumna41 == 1) materials.push('druk') /* materials = materials + ', druk'; */
-					if (doc.kolumna42 == 1) materials.push('gwasz') /* materials = materials + ', gwasz'; */
-					if (doc.kolumna43 == 1) materials.push('kredka') /* materials = materials + ', kredka'; */
-					if (doc.kolumna44 == 1) materials.push('ołówek') /* materials = materials + ', ołówek'; */
-					if (doc.kolumna45 == 1) materials.push('ozalid') /* materials = materials + ', ozalid'; */
-					if (doc.kolumna46 == 1) materials.push('pastel') /* materials = materials + ', pastel'; */
-					if (doc.kolumna47 == 1) materials.push('światłokopia') /* materials = materials + ', światłokopia'; */
-					if (doc.kolumna48 == 1) materials.push('tusz') /* materials = materials + ', tusz'; */
-					if (doc.kolumna49 == 1) materials.push('węgiel') /* materials = materials + ', węgiel'; */
-					materials = materials.toString();
-					materials = materials.replace(/,/g, ', ');
+					var technic = [];
+					if (doc.kolumna39 == 1) technic.push('akwarela');
+					if (doc.kolumna40 == 1) technic.push('atrament');
+					if (doc.kolumna41 == 1) technic.push('druk');
+					if (doc.kolumna42 == 1) technic.push('gwasz');
+					if (doc.kolumna43 == 1) technic.push('kredka');
+					if (doc.kolumna44 == 1) technic.push('ołówek');
+					if (doc.kolumna45 == 1) technic.push('ozalid');
+					if (doc.kolumna46 == 1) technic.push('pastel');
+					if (doc.kolumna47 == 1) technic.push('światłokopia');
+					if (doc.kolumna48 == 1) technic.push('tusz');
+					if (doc.kolumna49 == 1) technic.push('węgiel');
+					technic = technic.toString();
+					technic = technic.replace(/,/g, ', ');
+
+					var obj;
+					switch (doc.typid) {
+						case 421:
+							obj = {
+								adres: doc.kolumna2,
+								adresDE: doc.kolumna1,
+								architekt: doc.kolumna3,
+								informacje: doc.kolumna4,
+								id: doc.id,
+								sygnatura: doc.kolumna41,
+								nazwa: doc.kolumna24,
+								nazwaDE: doc.kolumna19,
+								podpisy: doc.kolumna23,
+								image: doc.plik,
+								technic: technic
+							};
+							break;
+						case 422:
+							obj = {
+								adres: doc.kolumna2,
+								adresDE: doc.kolumna1,
+								architekt: doc.kolumna3,
+								id: doc.id,
+								sygnatura: doc.kolumna38,
+								nazwa: doc.kolumna21,
+								nazwaDE: doc.kolumna16,
+								podpisy: doc.kolumna20,
+								image: doc.plik,
+								technic: technic
+							};
+							break;
+						case 585:
+							obj = {
+								adres: doc.kolumna2,
+								adresDE: doc.kolumna1,
+								architekt: doc.kolumna3,
+								id: doc.id,
+								sygnatura: doc.kolumna18,
+								nazwa: doc.kolumna16,
+								nazwaDE: doc.kolumna13,
+								podpisy: doc.kolumna15,
+								image: doc.plik,
+								technic: technic
+							};
+							break;
+						case 1448:
+							obj = {
+								adres: doc.kolumna2,
+								adresDE: doc.kolumna1,
+								architekt: doc.kolumna3,
+								id: doc.id,
+								sygnatura: doc.kolumna41,
+								nazwa: doc.kolumna24,
+								nazwaDE: doc.kolumna19,
+								podpisy: doc.kolumna23,
+								image: doc.plik,
+								technic: technic
+							};
+							break;
+						case 1449:
+							obj = {
+								typid: doc.typid,
+								adres: doc.kolumna2,
+								adresDE: doc.kolumna1,
+								chronolog: doc.kolumna3,
+								//architekt: doc.kolumna3,
+								informacje: doc.kolumna4,
+								id: doc.id,
+								sygnatura: doc.kolumna7,
+								nazwa: doc.kolumna6,
+								nazwaDE: doc.kolumna5,
+								podpisy: '',
+								image: doc.plik,
+								technic: technic
+							};
+							break;
+					}
+
+					printResults(obj);
+
+					/*
 					printResults({
 						adres: doc.kolumna2,
 						adresDE: doc.kolumna1,
@@ -144,8 +226,9 @@
 						podpisy: doc.kolumna23,
 						architekt: doc.kolumna3,
 						image: doc.plik,
-						materials: materials
-					})
+						technic: technicd
+					});
+					*/
 				},
 				error: function(data) {
 					alert("Error\n" + data.reponse);
@@ -170,30 +253,34 @@
 
 			function printResults (obj) {
 				var tmp = obj.image.split('.');
-				var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + obj.image
-				var tail = 
-					'<article class="tail">
-						<a href="' + obj.id + '">
-							<h2>' + obj.adres + '</h2>
-							<p>' + obj.highlight
-							+ '<img src="' + imgURL + '" /></p>
-						</a>
-					</article>';
+				var image;
 
-					function replaceEmpty() {
-						$.each(obj, function(i, prop){
-							if(obj[i] == '' || obj[i] == undefined || obj[i] == 0) obj[i] = 'brak';
-						})
-					}
-					replaceEmpty();
+				console.log (tmp[1]);
+				if (tmp[1] == 'jpg') {
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + obj.image;
+					image = '<p class="img"><img src="' + imgURL + '" /></p>';
+				} else {
+					var imgURL = 'http://156.17.203.194/media/' + obj.id + '/' + obj.image;
+					image = '<p class="img"><strong><a href="' + imgURL + '">Materiały do pobrania</a></strong></p>';
+				};
+
+				
+
+				function replaceEmpty() {
+					$.each(obj, function(i, prop){
+						if(obj[i] == '' || obj[i] == undefined || obj[i] == 0) obj[i] = 'brak';
+					})
+				}
+				replaceEmpty();
 
 				var resultsTemplate =
 					'<article>
-						<h1>' +  obj.nazwa + '</h1>
+						<h1 class="donthyphenate">' +  obj.nazwa + '</h1>
 						<h2 class="architekt">Architekt projektu <span class="normal"> ' + obj.architekt + '</span></h2>
-						<p class="sygnatura"><strong>Sygnatura</strong> ' + obj.sygnatura + '</p>
-						<p class="img"><img src="' + imgURL + '" /></p>
-						<ul>
+						<p class="sygnatura"><strong>Sygnatura</strong> ' + obj.sygnatura + '</p>'
+						<!--<p class="img"><img src="' + imgURL + '" /></p>-->
+						+ image +
+						'<ul>
 							<li class="addressPL">
 								<label>Adres</label>'
 								+ obj.adres +
@@ -210,15 +297,17 @@
 								<label>Podpisy na projekcie</label>'
 								+ obj.podpisy +
 							'</li>
-							<li class="materials">
-								<label>Materiały</label>'
-								+ obj.materials +
+							<li class="technic">
+								<label>Technika</label>'
+								+ obj.technic +
 							'</li>
 						</ul>
 					</article>';
 
 				$('.signature').val(obj.sygnatura);
 				$('.search-details-yszt').append(resultsTemplate);
+
+				if(obj.typid == 1449) $('.search-details-yszt .architekt').html('Data <span class="normal"> ' + obj.chronolog + '</span>')
 			}
 
 		})

@@ -682,9 +682,10 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
 		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-ht-search.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-digitizing.scss",
@@ -808,8 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_layout.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_character-styles.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education-kids-n-parents.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_text-column.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss"
 	],
 	"find":
 	{
@@ -828,6 +828,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"materials",
+			"informa",
+			"columns-width",
 			"currentURL",
 			"getParams2",
 			"getParams",
@@ -952,10 +955,7 @@
 			"edu-kids-and-parents",
 			"edu-how-to-order",
 			"header",
-			"elems",
-			"click",
-			"grid",
-			"isotopeSetup"
+			"elems"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -963,6 +963,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"technic",
+			"technicdddddddddddddddddddddddddddddd",
+			"technicd",
+			"technic",
+			"grid-columns",
 			"currentQuery",
 			"encodeURI",
 			"search-results",
@@ -1139,7 +1144,7 @@
 		[
 			[
 				"",
-				"C:\\xampp\\htdocs\\bronislawzelek.com\\workspace\\zelek.sublime-project"
+				"C:\\xampp\\htdocs\\nomus.gda.pl\\workspace\\nomus.sublime-project"
 			]
 		],
 		"width": 380.0
