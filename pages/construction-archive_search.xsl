@@ -279,14 +279,24 @@
 
 			function printResults (obj) {
 				var tmp = obj.image.split('.');
-				var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
+				
+				var image;
+
+				if (tmp[1] == 'jpg') {
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
+					image = '<img src="' + imgURL + '" />';
+				} else {
+					image = '';
+				}
+
 				var path = "<xsl:value-of select="concat($root, '/', //fl-languages/current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/' )" />" + obj.id;
+				
 				var tail = 
 					'<article class="tail">
 						<a href="' + path + '">
 							<h2>' + obj.adres + '</h2>
 							<p>' + obj.highlight
-							+ '<img src="' + imgURL + '" /></p>
+							+ image + '</p>
 						</a>
 					</article>';
 				$('.search-results').append(tail);
