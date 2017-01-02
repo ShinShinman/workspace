@@ -682,6 +682,9 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/email-templates/ab-order/template.plain.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/email-templates/ab-order-confirmation/template.plain.xsl",
+		"/C/xampp/htdocs/symphony2/install/includes/config_default.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
 		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
@@ -806,10 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_layout.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_character-styles.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education-kids-n-parents.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_layout.scss"
 	],
 	"find":
 	{
@@ -828,6 +828,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"order-id",
 			"materials",
 			"informa",
 			"columns-width",
@@ -954,8 +955,7 @@
 			"edu-how-to-order",
 			"edu-kids-and-parents",
 			"edu-how-to-order",
-			"header",
-			"elems"
+			"header"
 		],
 		"highlight": true,
 		"in_selection": false,

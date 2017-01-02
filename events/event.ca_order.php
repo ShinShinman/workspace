@@ -5,7 +5,8 @@ class eventca_order extends SectionEvent
     public $ROOTELEMENT = 'ca-order';
 
     public $eParamFILTERS = array(
-        'send-email'
+        'etm-ab-order',
+				'etm-ab-order-confirmation'
     );
 
     public static function about()
@@ -17,7 +18,7 @@ class eventca_order extends SectionEvent
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-12-25T14:35:38+00:00',
+            'release-date' => '2017-01-02T17:28:08+00:00',
             'trigger-condition' => 'action[ca-order]'
         );
     }
@@ -58,6 +59,9 @@ class eventca_order extends SectionEvent
     &lt;label>Data
         &lt;input name="fields[date]" type="text" />
     &lt;/label>
+    &lt;label>Nr zamówienia
+        &lt;input name="fields[order-id]" type="text" />
+    &lt;/label>
     &lt;label>Imię
         &lt;input name="fields[fname]" type="text" />
     &lt;/label>
@@ -76,37 +80,15 @@ class eventca_order extends SectionEvent
     &lt;label>Informacje dodatkowe
         &lt;input name="fields[informacje-dodatkowe]" type="text" />
     &lt;/label>
+    &lt;label>Zrealizowane
+        &lt;input name="fields[archived]" type="checkbox" value="yes" />
+    &lt;/label>
     &lt;input name="action[ca-order]" type="submit" value="Submit" />
 &lt;/form></code></pre>
                 <p>To edit an existing entry, include the entry ID value of the entry in the form. This is best as a hidden field like so:</p>
                 <pre class="XML"><code>&lt;input name="id" type="hidden" value="23" /></code></pre>
                 <p>To redirect to a different location upon a successful save, include the redirect location in the form. This is best as a hidden field like so, where the value is the URL to redirect to:</p>
-                <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://localhost/ma.wroc.pl/success/" /></code></pre>
-                <h3>Send Notification Email</h3>
-                <p>Upon the event successfully saving the entry, this option takes input from the form and send an email to the desired recipient. <strong>It currently does not work with ‘Allow Multiple’</strong>. The following are the recognised fields:</p>
-                <pre class="XML"><code>send-email[sender-email] // Optional
-send-email[sender-name] // Optional
-send-email[reply-to-email] // Optional
-send-email[reply-to-name] // Optional
-send-email[subject]
-send-email[body]
-send-email[recipient] // list of comma-separated author usernames.</code></pre>
-                <p>All of these fields can be set dynamically using the exact field name of another field in the form as shown below in the example form:</p>
-                <pre class="XML"><code>&lt;form action="" method="post">
-&lt;fieldset>
-&lt;label>Name &lt;input type="text" name="fields[author]" value="" />&lt;/label>
-&lt;label>Email &lt;input type="text" name="fields[email]" value="" />&lt;/label>
-&lt;label>Message &lt;textarea name="fields[message]" rows="5" cols="21">&lt;/textarea>&lt;/label>
-&lt;input name="send-email[sender-email]" value="fields[email]" type="hidden" />
-&lt;input name="send-email[sender-name]" value="fields[author]" type="hidden" />
-&lt;input name="send-email[reply-to-email]" value="fields[email]" type="hidden" />
-&lt;input name="send-email[reply-to-name]" value="fields[author]" type="hidden" />
-&lt;input name="send-email[subject]" value="You are being contacted" type="hidden" />
-&lt;input name="send-email[body]" value="fields[message]" type="hidden" />
-&lt;input name="send-email[recipient]" value="fred" type="hidden" />
-&lt;input id="submit" type="submit" name="action[save-contact-form]" value="Send" />
-&lt;/fieldset>
-&lt;/form></code></pre>';
+                <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://localhost/ma.wroc.pl/success/" /></code></pre>';
     }
 
     public function load()
