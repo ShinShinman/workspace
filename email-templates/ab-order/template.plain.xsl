@@ -23,6 +23,6 @@ Podgląd dokumentu <xsl:value-of select="$root" />/pl/archiwum-budowlane/<xsl:va
 
 Szczegóły zamówienia <xsl:value-of select="$root" />/symphony/publish/ab-zamowienia/edit/<xsl:value-of select="/data/ab-orders/entry/@id" />/
 
-Po zrealizowaniu zamówienia należu je usunąć z systemu.
+Po zrealizowaniu zamówienia należy je usunąć z systemu.
 </xsl:template>
 </xsl:stylesheet>
