@@ -33,15 +33,27 @@
 							<li><a href="{$workspace}/dl/Polityka_prywatnosci_v1_(2in1).pdf" target="_blank">Polityka prywatności</a></li>
 						</ul>
 					</div>
-					<div class="b">
-					<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
-						<ul class="yyy">
+					<div class="b b-side">
+						<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
+						<ul>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Godziny otwarcia</a></li>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ceny biletów</a></li>
+						</ul>
+						<ul class="social">
+							<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">t</a></li>
+							<li><a href="javascript:void(0)" target="_blank">i</a></li>
+							<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="third-column">
+					<div class="b b-side">
+						<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
+						<ul>
+							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Godziny otwarcia</a></li>
+							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ceny biletów</a></li>
+						</ul>
+					</div>
 					<ul class="social">
 						<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">t</a></li>
 						<li><a href="javascript:void(0)" target="_blank">i</a></li>
@@ -74,9 +86,14 @@
 					</div>
 					<div class="b">
 						<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
-						<ul class="yyy">
+						<ul>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Opening hours</a></li>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ticket prices</a></li>
+						</ul>
+						<ul class="social">
+							<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">t</a></li>
+							<li><a href="javascript:void(0)" target="_blank">i</a></li>
+							<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 						</ul>
 					</div>
 				</div>

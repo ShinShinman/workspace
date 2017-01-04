@@ -1,8 +1,8 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
-var rev = require('gulp-rev');
-var revManifest = require('gulp-rev-manifest');
-var fingerprint = require('gulp-fingerprint');
+//var rev = require('gulp-rev');
+//var revManifest = require('gulp-rev-manifest');
+//var fingerprint = require('gulp-fingerprint');
 //var manifest = require('../rev-manifest.json');
 
 // Static server

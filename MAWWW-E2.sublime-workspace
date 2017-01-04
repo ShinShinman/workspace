@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"tex",
+				"text-align"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
 				"marg",
 				"margin-top"
 			],
@@ -22,10 +46,6 @@
 			[
 				"img",
 				"imgURL"
-			],
-			[
-				"font",
-				"font-weight"
 			],
 			[
 				"te",
@@ -80,14 +100,6 @@
 				"isotopeY"
 			],
 			[
-				"back",
-				"background-image"
-			],
-			[
-				"bac",
-				"background-color"
-			],
-			[
 				"exhi",
 				"exhibitions-archive"
 			],
@@ -136,10 +148,6 @@
 				"position"
 			],
 			[
-				"margin",
-				"margin-bottom"
-			],
-			[
 				"book",
 				"bookshop-brick"
 			],
@@ -178,10 +186,6 @@
 			[
 				"imp",
 				"important"
-			],
-			[
-				"fon",
-				"font-family"
 			],
 			[
 				"im",
@@ -510,10 +514,6 @@
 			[
 				"bricks",
 				"bricks-container"
-			],
-			[
-				"conta",
-				"container"
 			]
 		]
 	},
@@ -682,13 +682,22 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/email-templates/ab-order/template.plain.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/email-templates/ab-order-confirmation/template.plain.xsl",
 		"/C/xampp/htdocs/symphony2/install/includes/config_default.php",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
 		"/Z/MA WWW/matex/Etap 3/Archiwum budowlane/nazwy_kolumn.csv",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-ht-search.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-about-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive-digitizing.scss",
@@ -696,7 +705,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_how-to-search.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_about-archive.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_construction-archive.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/events/class.event.section.php",
 		"/C/xampp/htdocs/ma.wroc.pl/symphony/lib/toolkit/class.extensionmanager.php",
@@ -709,7 +717,6 @@
 		"/C/Users/shinman/Desktop/email-form.js",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/xhrsubmit.xsl",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/subscription-check.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_downlodables-for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_for-media-downlodables.scss",
@@ -745,7 +752,6 @@
 		"/C/Users/shinman/Desktop/yszt/package.json",
 		"/C/Users/shinman/Desktop/Gulp Build System/coffee/components.js",
 		"/C/xampp/htdocs/nomus.gda.pl/workspace/coffee/components.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/newsletter.xsl",
 		"/C/Users/shinman/Desktop/MailChimp Singup Form.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_newsletter.scss",
@@ -803,13 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/test.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/ma.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_typography.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/typography/_layout.scss"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl"
 	],
 	"find":
 	{
@@ -828,6 +828,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"right",
+			"yyy",
 			"order-id",
 			"materials",
 			"informa",
@@ -953,9 +955,7 @@
 			"edu-voluntary",
 			"edu-kids-and-parents",
 			"edu-how-to-order",
-			"edu-kids-and-parents",
-			"edu-how-to-order",
-			"header"
+			"edu-kids-and-parents"
 		],
 		"highlight": true,
 		"in_selection": false,

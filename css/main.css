@@ -1755,6 +1755,13 @@ body {
         font-weight: bold; }
       .main-footer .footer .second-column ul {
         text-align: right; }
+      .main-footer .footer .second-column .social {
+        display: none; }
+        .main-footer .footer .second-column .social li {
+          width: 35px;
+          float: left;
+          text-align: left;
+          font-family: 'social'; }
     .main-footer .footer .third-column {
       width: 148.166px; }
       .main-footer .footer .third-column .social li {
@@ -1762,6 +1769,9 @@ body {
         float: right;
         text-align: right;
         font-family: 'social'; }
+      .main-footer .footer .third-column .b-side {
+        text-align: right;
+        display: none; }
 
 /* SMALL FOOTER */
 .small-footer {
@@ -1983,9 +1993,13 @@ body {
   .sticky-nav.extended {
     background-color: black;
     color: white; }
+    .sticky-nav.extended nav ul a .tmp-icon {
+      background-position: center -16px; }
     .sticky-nav.extended nav ul a:hover {
       color: black;
       background-color: white; }
+      .sticky-nav.extended nav ul a:hover .tmp-icon {
+        background-position: center 0; }
     .sticky-nav.extended a.logo:hover {
       color: black;
       background-color: white; }
@@ -2220,6 +2234,7 @@ section:last-of-type {
   margin-bottom: 12px; }
 
 .edu-items {
+  overflow: hidden;
   /* Materia┼éy edukacyjne */
   /* Gry edukacyjne */
   /* Materia┼éy do pobrania */ }
@@ -2233,7 +2248,8 @@ section:last-of-type {
       content: none; }
     .edu-items .edu-categories li {
       float: left;
-      margin-right: 8px; }
+      margin-right: 8px;
+      margin-bottom: 8px; }
       .edu-items .edu-categories li.inactive-filter {
         opacity: 0.4; }
       .edu-items .edu-categories li.label {
@@ -2767,6 +2783,130 @@ section.maintenance {
 [data-fc-store-page] .main-footer {
   position: static; }
 
+/*** MEDIA QUERIES ***/
+/*
+@media all and (min-width: 1080px) {
+	body {
+		background-color: lightgrey;
+	}
+	.row {
+	width: columns-width();
+	} 
+}
+*/
+@media all and (max-width: 1023px) and (min-width: 720px) {
+  /* LAYOUT */
+  .row, .highlight .owl-carousel .item .text-box, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, section {
+    width: 637.664px; }
+
+  .text-column, .article section.post, .edu, .info, .single-lesson, .single-aid, .single-game, .biuletyn, .tenders, .struktura, .important-docs, .bookshop-page, .single-book, .archived-exhibition, .archived-event, .newsletter-text, .museum, .collection section.post, .for-media .media, .contact .media, .downlodables-for-media .media, .search-deails, .search .archive-text, .about-archive .archive-about, .how-to-search .archive-ht-search, .digitizing .archive-digitizing {
+    width: 637.664px; }
+
+  /* STICKY NAV */
+  .nav-stripes .first {
+    width: 474.498px; }
+
+  .sticky-nav {
+    /* MAIN MENU */ }
+    .sticky-nav nav form {
+      width: 392.915px; }
+      .sticky-nav nav form input[type=text] {
+        width: 333.915px; }
+      .sticky-nav nav form input[type=submit] {
+        width: 48px; }
+    .sticky-nav .main-menu .left {
+      margin-left: 0;
+      width: 311.332px; }
+    .sticky-nav .main-menu .right {
+      width: 311.332px; }
+
+  /* FOOTER */
+  .main-footer .footer .first-column {
+    width: 229.749px; }
+    .main-footer .footer .first-column p {
+      margin-left: 81.583px; }
+  .main-footer .footer .second-column {
+    width: 229.749px; }
+    .main-footer .footer .second-column .b-side {
+      display: none; }
+  .main-footer .footer .third-column {
+    width: 148.166px; }
+    .main-footer .footer .third-column .b-side {
+      display: block; }
+
+  /* EDUKACJA */
+  .edu-items .edu-categories {
+    font-size: 14px; } }
+@media all and (max-width: 719px) {
+  section:last-of-type {
+    margin-bottom: 420px; }
+
+  .row, .highlight .owl-carousel .item .text-box, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, section {
+    width: 311.332px; }
+
+  .text-column, .article section.post, .edu, .info, .single-lesson, .single-aid, .single-game, .biuletyn, .tenders, .struktura, .important-docs, .bookshop-page, .single-book, .archived-exhibition, .archived-event, .newsletter-text, .museum, .collection section.post, .for-media .media, .contact .media, .downlodables-for-media .media, .search-deails, .search .archive-text, .about-archive .archive-about, .how-to-search .archive-ht-search, .digitizing .archive-digitizing {
+    width: 311.332px; }
+
+  /* STICKY NAV */
+  .nav-stripes .first {
+    width: 311.332px; }
+  .nav-stripes .second {
+    display: none; }
+
+  .sticky-nav {
+    /* MAIN MENU */ }
+    .sticky-nav nav form {
+      display: none;
+      width: 392.915px; }
+      .sticky-nav nav form input[type=text] {
+        width: 333.915px; }
+      .sticky-nav nav form input[type=submit] {
+        width: 48px; }
+    .sticky-nav nav .trigger-buttons {
+      margin-left: 81.583px; }
+    .sticky-nav nav ul {
+      float: right; }
+    .sticky-nav .main-menu .left {
+      margin-left: 0;
+      width: 311.332px; }
+    .sticky-nav .main-menu .right {
+      width: 311.332px; }
+
+  /* HIGHLIGHT */
+  .highlight .owl-carousel .item .text-box h1, .highlight .owl-carousel .item .text-box .slide-down a, .slide-down .highlight .owl-carousel .item .text-box a {
+    width: 311.332px;
+    font-size: 34px; }
+  .highlight .owl-carousel .item .text-box p {
+    width: 311.332px;
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 12px; }
+  .highlight .owl-carousel .item .text-box .icon {
+    font-size: inherit; }
+
+  /* FOOTER */
+  .main-footer .footer .second-column {
+    width: 311.332px; }
+    .main-footer .footer .second-column p {
+      text-align: left; }
+    .main-footer .footer .second-column ul {
+      text-align: left; }
+    .main-footer .footer .second-column .a, .main-footer .footer .second-column .b, .main-footer .footer .second-column .a {
+      width: 148.166px; }
+    .main-footer .footer .second-column .social {
+      display: block; }
+  .main-footer .footer .third-column {
+    display: none;
+    width: 311.332px; }
+
+  /* ARTICLE */
+  .article section.post article iframe {
+    width: 311.332px;
+    height: 175px; }
+
+  /* SEARCH */
+  .search .search-results .tail {
+    width: 311.332px; } }
 /* 
  *  Core Owl Carousel CSS File
  */

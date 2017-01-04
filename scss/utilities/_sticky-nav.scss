@@ -178,10 +178,24 @@
 	&.extended {
 		background-color: black;
 		color: white;
-		nav ul a:hover {
-			color: black;
-			background-color: white;
-		}
+			nav ul {
+				a {
+					.tmp-icon {
+						background-position: center -16px;
+					}
+
+					&:hover {
+						color: black;
+						background-color: white;
+
+						.tmp-icon { // skosować po zamianie ikony koszyka na font
+							background-position: center 0;
+						}
+					}
+				}
+			}
+
+
 		a.logo:hover {
 			color: black;
 			background-color: white;

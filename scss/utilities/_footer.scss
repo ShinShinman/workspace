@@ -56,6 +56,15 @@
 			ul {
 				text-align: right;
 			}
+			.social {
+				display: none;
+				li {
+					width: 35px;
+					float: left;
+					text-align: left;
+					font-family: 'social';
+				}
+			}
 		}
 		.third-column {
 			@extend .stripe;
@@ -68,6 +77,10 @@
 					text-align: right;
 					font-family: 'social';
 				}
+			}
+			.b-side {
+				text-align: right;
+				display: none;
 			}
 		}
 	}

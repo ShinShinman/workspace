@@ -10,7 +10,9 @@
 }
 */
 
-@media all and (max-width: 1079px) and (min-width: 720px) {
+@media all and (max-width: 1023px) and (min-width: 720px) {
+
+	/* LAYOUT */
 	.row {
 		width: columns-width(8);
 	}
@@ -37,6 +39,17 @@
 				}
 			}
 		}
+
+		/* MAIN MENU */
+		.main-menu {
+			.left {
+				margin-left: 0;
+				width: columns-width(4);
+			}
+			.right {
+				width: columns-width(4);
+			}
+		}
 	}
 
 	/* FOOTER */
@@ -51,9 +64,26 @@
 			}
 			.second-column {
 				width: columns-width(3);
+
+				.b-side {
+					display: none;
+				}
 			}
 			.third-column {
 				width: columns-width(2);
+
+				.b-side {
+					display: block;
+				}
+			}
+		}
+	}
+
+	/* EDUKACJA */
+	.edu-items {
+		.edu-categories {
+			font-size: 14px;
+			li {
 			}
 		}
 	}
@@ -61,6 +91,9 @@
 
 
 @media all and (max-width: 719px) {
+	section:last-of-type {
+		margin-bottom: 420px;
+	}
 	.row {
 		width: columns-width(4);
 	}
@@ -94,6 +127,21 @@
 			.trigger-buttons {
 				margin-left: columns-width(1) + $gutter;
 			}
+
+			ul {
+				float: right;
+			}
+		}
+
+		/* MAIN MENU */
+		.main-menu {
+			.left {
+				margin-left: 0;
+				width: columns-width(4);
+			}
+			.right {
+				width: columns-width(4);
+			}
 		}
 	}
 
@@ -107,11 +155,13 @@
 				.text-box {
 					h1 {
 						width: columns-width(4);
+						font-size: 34px;
 					}
 					p {
 						width: columns-width(4);
 						font-size: 21px;
 						font-weight: bold;
+						margin-bottom: 12px;
 					}
 					.icon {
 						font-size: inherit;
@@ -123,11 +173,49 @@
 
 	/* FOOTER */
 	.main-footer {
-		display: none;
 		.footer {
 			.first-column {}
-			.second-column {}
-			.third-column {}
+			.second-column {
+				width: columns-width(4);
+
+				p {
+					text-align: left;
+				}
+				ul {
+					text-align: left;
+				}
+				.a, .b {
+					width: columns-width(2);
+				}
+				.social {
+					display: block;
+				}
+			}
+			.third-column {
+				display: none;
+				width: columns-width(4);
+			}
+		}
+	}
+
+	/* ARTICLE */
+	.article {
+		section.post {
+			article {
+				iframe {
+					width: columns-width(4);
+					height: 175px;
+				}
+			}
+		}
+	}
+
+	/* SEARCH */
+	.search {
+		.search-results {
+			.tail {
+				width: columns-width(4);
+			}
 		}
 	}
 }
