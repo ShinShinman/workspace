@@ -1651,7 +1651,8 @@ body {
     opacity: 1; }
 
 .bricks-container {
-  min-height: 200px; }
+  min-height: 200px;
+  overflow: hidden; }
 
 .brick {
   width: 311.332px;

@@ -47,7 +47,7 @@
 	</xsl:template>
 
 	<xsl:template match="cover-image">
-		<img src="{$root}/image/bookstore-thumbnail{@path}/{filename}" />
+		<img class="lazy" data-original="{$root}/image/bookstore-thumbnail{@path}/{filename}" width="320" height="340" alt="{../title}" />
 	</xsl:template>
 
 

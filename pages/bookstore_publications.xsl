@@ -134,6 +134,13 @@
 
 <xsl:template match="data" mode="js">
 	<script>
+		$(function() {
+			var lazyImgs = $("img.lazy");
+			lazyImgs.lazyload({
+				threshold: 1000,
+				failure_limit : 1000
+			});
+		});
 		$(window).load(function() {
 			MA.iS();
 		});

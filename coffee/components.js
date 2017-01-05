@@ -8,4 +8,5 @@
 // @koala-append "jquery-ui/ui/widgets/slider.js"
 // @koala-append "jQuery-ui-Slider-Pips/dist/jquery-ui-slider-pips.min.js"
 // @koala-append "jquery-form/jquery.form.js"
+// @koala-append "jquery-lazyload/jquery.lazyload.js"
 // @koala-append "js/ma.js"

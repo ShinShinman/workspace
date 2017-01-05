@@ -682,6 +682,11 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
@@ -741,7 +746,6 @@
 		"/C/Users/shinman/Desktop/ajax.form.js",
 		"/C/Users/shinman/Downloads/ajax.form.js",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/newsletter-f-alt.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower_components/jquery-form/jquery.form.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
 		"/C/xampp/htdocs/f-alt.org/workspace/utilities/master.xsl",
@@ -764,8 +768,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/MAWWW-E2.sublime-project",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/mailchimp/.gitmodules",
 		"/C/xampp/htdocs/ma.wroc.pl/extensions/mailchimp/readme.md",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_fc-link.xsl",
 		"/C/Users/shinman/Downloads/index.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/main.min.js",
@@ -781,7 +783,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
 		"/C/Users/shinman/Desktop/filtrowanie isotope.txt",
 		"/C/xampp/htdocs/f-alt.org/workspace/pages/news.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/vendor/jquery-ui.css",
@@ -808,8 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl"
 	],
 	"find":
 	{
