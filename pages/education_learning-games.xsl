@@ -106,7 +106,14 @@
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+	<xsl:choose>
+		<xsl:when test="$title">
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle, '/')" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template name="language-button">
