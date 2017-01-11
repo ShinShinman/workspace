@@ -682,6 +682,7 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_collection.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
@@ -735,7 +736,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_for-media-contact.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_contact.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_museum-collection.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_collection.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_collections-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_museum-about.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
