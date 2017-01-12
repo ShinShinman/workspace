@@ -682,10 +682,10 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
@@ -828,6 +828,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"lesson",
+			"single",
+			"lesson",
+			"edu-lesson",
 			"right",
 			"yyy",
 			"order-id",
@@ -951,11 +955,7 @@
 			"dzieci",
 			"wyklady-dla-mlodziezy",
 			"h3",
-			"edu-aid-categories/entry",
-			"edu-voluntary",
-			"edu-kids-and-parents",
-			"edu-how-to-order",
-			"edu-kids-and-parents"
+			"edu-aid-categories/entry"
 		],
 		"highlight": true,
 		"in_selection": false,
