@@ -94,7 +94,7 @@
 		<xsl:choose>
 				<xsl:when test="entry">
 					<div class="bricks-container">
-						<xsl:apply-templates select="./entry" />
+						<xsl:apply-templates select="./entry[title/@handle != $title]" />
 					</div>
 				</xsl:when>
 				<xsl:otherwise>

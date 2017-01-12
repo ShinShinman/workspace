@@ -104,7 +104,7 @@
 			</xsl:choose>
 		</header>
 		<div class="bricks-container">
-			<xsl:apply-templates select="./entry" />
+			<xsl:apply-templates select="./entry[title/@handle != $title]" />
 		</div>
 	</section>
 </xsl:template>

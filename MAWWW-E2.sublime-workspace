@@ -682,12 +682,14 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_collection.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_collection.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
@@ -805,11 +807,9 @@
 		"/Z/Gulp Build System/todo.md",
 		"/C/Users/shinman/Desktop/image compression/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc/_card.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_terms.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/home.xsl"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl"
 	],
 	"find":
 	{
