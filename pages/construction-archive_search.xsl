@@ -76,10 +76,10 @@
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/en/info/" class="icon">E</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/pl/informacje/" class="icon">P</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>

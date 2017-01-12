@@ -104,10 +104,10 @@
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/en/bookshop/" class="icon">E</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/pl/wydawnictwa/" class="icon">P</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
@@ -125,6 +125,13 @@
 
 <xsl:template match="data" mode="js">
 	<script>
+		$(function() {
+			var lazyImgs = $("img.lazy");
+			lazyImgs.lazyload({
+				threshold: 1000,
+				failure_limit : 1000
+			});
+		});
 		$(window).load(function() {
 			MA.iS();
 		});

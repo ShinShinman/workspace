@@ -21,7 +21,7 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:include href="../utilities/master.xsl"/>
+<xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
 	<section class="tenders">
@@ -71,6 +71,18 @@
 
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+</xsl:template>
+
+<xsl:template name="language-button">
+	<xsl:param name="lang" />
+	<xsl:choose>
+		<xsl:when test="$lang = 'pl'">
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">E</a>
+		</xsl:when>
+		<xsl:otherwise>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">P</a>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="data" mode="js">
