@@ -9,7 +9,7 @@
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
 		<article class="book brick {category/item/bookshop-category/@handle}">
-			<a href="{$root}{$current-path}/{title/@handle}">
+			<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang = //current-language/@handle]/@handle}/{title/@handle}">
 				<div class="bookshop-brick-header">
 					<h1 class="donthyphenate">
 						<!--<xsl:apply-templates select="badge" />-->
