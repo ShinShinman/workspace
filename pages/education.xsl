@@ -23,6 +23,8 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_edu-brick.xsl"/>
+<xsl:include href="../utilities/_edu-nav.xsl"/>
+<xsl:include href="../utilities/_lang-button.xsl"/>
 
 <xsl:template match="data">
 	<xsl:apply-templates select="edu-header/entry" />
@@ -45,11 +47,7 @@
 </xsl:template>
 
 <xsl:template match="edu-nav/page">
-	<li>
-		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = 'pl']/@handle}/{item[@lang = 'pl']/@handle}">
-			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
-		</a>
-	</li>
+	<xsl:call-template name="edu-nav" />
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
@@ -57,6 +55,10 @@
 </xsl:template>
 
 <xsl:template name="language-button">
+	<xsl:call-template name="lang-button">
+		<xsl:with-param name="lang" select="//current-language/@handle" />
+	</xsl:call-template>
+	<!--
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
@@ -66,6 +68,7 @@
 			<a href="{$root}/pl/edukacja/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
+	-->
 </xsl:template>
 
 <xsl:template match="data" mode="js">

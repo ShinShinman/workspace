@@ -178,17 +178,15 @@
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/en" class="icon">E</a>
+			<a href="{$root}/en/" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/pl" class="icon">P</a>
+			<a href="{$root}/pl/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="data" mode="language-button">
-	<xsl:value-of select="concat($root, '/en')" />
-</xsl:template>
+
 
 <xsl:template match="//dont-hyphenate/entry/item">
 	Hyphenator.addExceptions('<xsl:value-of select="./@lang" />', '<xsl:value-of select="." />');

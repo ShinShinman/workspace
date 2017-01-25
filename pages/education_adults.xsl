@@ -23,6 +23,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_edu-brick.xsl"/>
+<xsl:include href="../utilities/_edu-nav.xsl"/>
 
 <xsl:template match="data">
 	<!--<xsl:apply-templates select="edu-adults/entry" />
@@ -80,11 +81,7 @@
 </xsl:template>
 
 <xsl:template match="edu-nav/page">
-	<li>
-		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}">
-			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
-		</a>
-	</li>
+	<xsl:call-template name="edu-nav" />
 </xsl:template>
 
 <xsl:template match="edu-lectures">

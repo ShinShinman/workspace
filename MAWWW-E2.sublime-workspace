@@ -682,6 +682,18 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/extensions/page_lhandles/extension.meta.xml",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_lang-button.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_order.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-nav.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/newsletter.xsl",
@@ -710,11 +722,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_history-of-the-museum.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum_offer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/about-museum.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_kids-n-parents.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_adults.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_learning-games.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_courseware.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_schools.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/article.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
@@ -802,14 +809,7 @@
 		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/vendor/jquery-ui.css",
 		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/index.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.css",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/jquery-ui.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/koala-config.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.min.js",
-		"/C/Users/shinman/Downloads/jquery-ui-1.12.1.custom/index.html",
-		"/C/Users/shinman/Downloads/jquery-ui-1.12.1.custom/jquery-ui.js",
-		"/C/Users/shinman/Desktop/Nowy folder/package.json",
-		"/C/Users/shinman/AppData/Roaming/Sublime Text 3/Packages/User/Snippets/lipsum.sublime-snippet"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.css"
 	],
 	"find":
 	{
@@ -828,6 +828,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"//current-language/@handle",
 			"language-button",
 			"lesson",
 			"single",
@@ -954,8 +955,7 @@
 			"dzieci",
 			"255, 94, 87",
 			"dzieci",
-			"wyklady-dla-mlodziezy",
-			"h3"
+			"wyklady-dla-mlodziezy"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -963,6 +963,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$lang",
 			"technic",
 			"technicdddddddddddddddddddddddddddddd",
 			"technicd",
