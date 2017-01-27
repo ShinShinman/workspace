@@ -51,7 +51,7 @@
 			<li><a href="javascript:void(0)" class="active"><xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" /></a></li>
 		</xsl:when>
 		<xsl:otherwise>
-			<li><a href="{$root}/{//fl-languages/current-language/@handle}/bip/{item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" /></a></li>
+			<li><a href="{$root}/{//fl-languages/current-language/@handle}/bip/{item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" /></a></li>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>

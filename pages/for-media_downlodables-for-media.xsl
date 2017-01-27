@@ -43,7 +43,7 @@
 
 <xsl:template match="media-downlodables/entry">
 	<li>
-		<a href="{file-link}">
+		<a href="{file-link}" target="_blank">
 			<xsl:value-of select="file-name" />
 		</a>
 	</li>
