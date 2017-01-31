@@ -682,6 +682,8 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
@@ -706,8 +708,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_about-archive.xsl",

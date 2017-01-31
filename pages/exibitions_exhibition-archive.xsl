@@ -74,7 +74,7 @@
 		</xsl:call-template>
 		<xsl:text>–</xsl:text>
 		<xsl:call-template name="format-date">
-			<xsl:with-param name="date" select="start"/>
+			<xsl:with-param name="date" select="end"/>
 			<xsl:with-param name="format" select="'x.N.Y'"/>
 		</xsl:call-template>
 </xsl:template>
