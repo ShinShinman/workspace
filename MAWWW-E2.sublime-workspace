@@ -682,6 +682,10 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
+		"/C/xampp/htdocs/test/workspace/.htaccess",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
@@ -708,8 +712,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_about-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_how-to-search.xsl",
@@ -726,7 +728,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_news.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
@@ -808,8 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
 		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/vendor/jquery-ui.css",
-		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/index.html",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/fc-checkout.css"
+		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/index.html"
 	],
 	"find":
 	{

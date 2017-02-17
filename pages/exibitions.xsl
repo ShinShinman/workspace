@@ -27,8 +27,10 @@
 	<section class="exhibitions">
 		<nav class="big-nav">
 			<h1 class="donthyphenate"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wystawy']" />
+			<!--
 			<xsl:text> /</xsl:text>
 			<a href="{//dictionary/entry/word[@handle-pl = 'archiwum-wystaw']/@handle}/"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'archiwum-wystaw']" /></a>
+			-->
 		</h1>
 	</nav>
 	<ul class="inline-list filters">
