@@ -24,6 +24,7 @@ class datasourceexhibition_archived extends SectionDatasource
         'subtitle: formatted',
         'article: formatted',
         'date',
+        'show-only-year',
         'downloadables'
     );
     
@@ -51,7 +52,7 @@ class datasourceexhibition_archived extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-11-28T21:39:34+00:00'
+            'release-date' => '2017-02-21T13:05:01+00:00'
         );
     }
     public function getSource()

@@ -21,7 +21,8 @@ class datasourceevents_archive extends SectionDatasource
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
         'cover-image',
-        'date'
+        'date',
+        'show-only-year'
     );
     
     public function __construct($env = null, $process_params = true)
@@ -38,7 +39,7 @@ class datasourceevents_archive extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.6.3',
-            'release-date' => '2016-11-30T15:49:15+00:00'
+            'release-date' => '2017-02-21T13:45:03+00:00'
         );
     }
     public function getSource()

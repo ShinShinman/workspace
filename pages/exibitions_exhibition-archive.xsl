@@ -61,22 +61,32 @@
 </xsl:template>
 
 <xsl:template match="date[@type = 'exact']">
-		<xsl:call-template name="format-date">
-			<xsl:with-param name="date" select="start"/>
-			<xsl:with-param name="format" select="'x.N.Y'"/>
-		</xsl:call-template>
+	<xsl:call-template name="format-date">
+		<xsl:with-param name="date" select="start"/>
+		<xsl:with-param name="format" select="'x.N.Y'"/>
+	</xsl:call-template>
 </xsl:template>
 
 <xsl:template match="date[@type = 'range']">
-		<xsl:call-template name="format-date">
-			<xsl:with-param name="date" select="start"/>
-			<xsl:with-param name="format" select="'x.N.Y'"/>
-		</xsl:call-template>
-		<xsl:text>–</xsl:text>
-		<xsl:call-template name="format-date">
-			<xsl:with-param name="date" select="end"/>
-			<xsl:with-param name="format" select="'x.N.Y'"/>
-		</xsl:call-template>
+	<xsl:choose>
+		<xsl:when test="../../show-only-year = 'Yes'">
+			<xsl:call-template name="format-date">
+				<xsl:with-param name="date" select="start"/>
+				<xsl:with-param name="format" select="'Y'"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:call-template name="format-date">
+				<xsl:with-param name="date" select="start"/>
+				<xsl:with-param name="format" select="'x.N.Y'"/>
+			</xsl:call-template>
+			<xsl:text>–</xsl:text>
+			<xsl:call-template name="format-date">
+				<xsl:with-param name="date" select="end"/>
+				<xsl:with-param name="format" select="'x.N.Y'"/>
+			</xsl:call-template>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="downloadables">

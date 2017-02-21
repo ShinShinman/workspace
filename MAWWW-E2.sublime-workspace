@@ -682,12 +682,13 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/test/workspace/.htaccess",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events_events-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
@@ -764,7 +765,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_museum-collection.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_collections-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_museum-about.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_archive-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_about-museum.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/archive.xsl",
 		"/C/Users/shinman/Desktop/kurtki.txt",
