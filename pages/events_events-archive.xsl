@@ -136,6 +136,13 @@
 <xsl:template match="data" mode="js">
 	<!--<script src="{$workspace}/js/jquery-ui.min.js" ></script>-->
 	<script>
+		$(function() {
+			var lazyImgs = $("img.lazy");
+			lazyImgs.lazyload({
+				threshold: 1000,
+				failure_limit : 1000
+			});
+		});
 		$(window).load(function() {
 			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" />]});
 		});

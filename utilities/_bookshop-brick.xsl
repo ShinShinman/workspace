@@ -50,8 +50,6 @@
 		<img class="lazy" data-original="{$root}/image/bookstore-thumbnail{@path}/{filename}" width="320" height="340" alt="{../title}" />
 	</xsl:template>
 
-
-
 	<xsl:template match="category/item" mode="brick">
 		<p class="category"><xsl:value-of select="exhib-category" /><xsl:value-of select="event-category" /></p>
 	</xsl:template>

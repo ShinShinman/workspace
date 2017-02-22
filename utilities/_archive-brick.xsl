@@ -80,7 +80,7 @@
 	</xsl:template>
 
 	<xsl:template match="cover-image">
-		<img src="{$root}/image/post-thumbnail{@path}/{filename}" />
+		<img class="lazy" data-original="{$root}/image/post-thumbnail{@path}/{filename}" width="320" height="340" alt="{../title}" />
 	</xsl:template>
 
 </xsl:stylesheet>
