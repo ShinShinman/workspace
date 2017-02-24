@@ -682,6 +682,7 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions_exhibition-archive.xsl",
@@ -717,7 +718,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_digitizing.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_how-to-search.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive_search.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_contact.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_terms.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_shipment.xsl",
@@ -813,7 +813,7 @@
 	],
 	"find":
 	{
-		"height": 33.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
