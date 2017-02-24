@@ -290,7 +290,7 @@
 								+ obj.adresDE +
 							'</li>
 							<li class="objNameDE">
-								<label>Niemiecka nazwa objeku</label>'
+								<label>Niemiecka nazwa obieku</label>'
 								+ obj.nazwaDE +
 							'</li>
 							<li class="signatures">
