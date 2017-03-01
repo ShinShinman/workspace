@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"bac",
+				"background-color"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
 				"book",
 				"bookshop-book"
 			],
@@ -14,10 +22,6 @@
 			[
 				"tex",
 				"text-align"
-			],
-			[
-				"bac",
-				"background"
 			],
 			[
 				"back",
@@ -510,10 +514,6 @@
 			[
 				"target",
 				"target"
-			],
-			[
-				"bricks",
-				"bricks-container"
 			]
 		]
 	},
@@ -682,6 +682,9 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/construction-archive.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_bookshop-brick.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore_publications.xsl",
@@ -730,9 +733,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_brick.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/main.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_sticky-nav.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",

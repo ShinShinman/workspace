@@ -44,6 +44,9 @@
 							<li><a href="javascript:void(0)" target="_blank">i</a></li>
 							<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 						</ul>
+						<ul class="newsletter">
+							<li><a href="{$root}/{//current-language/@handle}/newsletter/">Newsletter</a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="third-column">
@@ -58,6 +61,9 @@
 						<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">t</a></li>
 						<li><a href="javascript:void(0)" target="_blank">i</a></li>
 						<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
+					</ul>
+					<ul class="newsletter">
+						<li><a href="{$root}/{//current-language/@handle}/newsletter/">Newsletter</a></li>
 					</ul>
 				</div>
 			</section>
@@ -102,6 +108,9 @@
 						<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">t</a></li>
 						<li><a href="javascript:void(0)" target="_blank">i</a></li>
 						<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
+					</ul>
+					<ul class="newsletter">
+						<li><a href="{$root}/{//current-language/@handle}/newsletter/">Newsletter</a></li>
 					</ul>
 				</div>
 			</section>

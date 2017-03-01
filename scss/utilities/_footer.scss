@@ -58,6 +58,7 @@
 			}
 			.social {
 				display: none;
+				height: 16px;
 				li {
 					width: 35px;
 					float: left;
@@ -65,12 +66,20 @@
 					font-family: 'social';
 				}
 			}
+			.newsletter {
+				display: none;
+			}
 		}
 		.third-column {
 			@extend .stripe;
 			width: columns-width(2);
 
+			ul {
+				text-align: right;
+			}
+
 			.social {
+				height: 16px;
 				li {
 					width: 35px;
 					float: right;
