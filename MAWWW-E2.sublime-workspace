@@ -678,7 +678,8 @@
 	},
 	"expanded_folders":
 	[
-		"/C/xampp/htdocs/ma.wroc.pl/workspace"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities"
 	],
 	"file_history":
 	[
@@ -828,6 +829,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"javascript:void(0)",
 			"//current-language/@handle",
 			"language-button",
 			"lesson",
@@ -954,8 +956,7 @@
 			"255, 94, 87",
 			"dzieci",
 			"255, 94, 87",
-			"dzieci",
-			"wyklady-dla-mlodziezy"
+			"dzieci"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -963,6 +964,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"https://www.youtube.com/channel/UCgaGcndBKY4ZtkXxwUmAasw",
 			"$lang",
 			"technic",
 			"technicdddddddddddddddddddddddddddddd",
@@ -1109,7 +1111,7 @@
 	"project": "MAWWW-E2.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
