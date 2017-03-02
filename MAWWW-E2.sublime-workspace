@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"include",
+				"includePaths"
+			],
+			[
 				"bac",
 				"background-color"
 			],
@@ -510,10 +514,6 @@
 			[
 				"temp",
 				"template\t(home.xsl)"
-			],
-			[
-				"target",
-				"target"
 			]
 		]
 	},
@@ -682,6 +682,15 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/bronislawzelek.com/workspace/gulpfile.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components4gulp.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
+		"/C/Users/shinman/Desktop/Gulp Build System/gulpfile.js",
+		"/C/Users/shinman/Desktop/Gulp Build System/coffee/components.js",
+		"/C/Users/shinman/Desktop/Gulp Rev/package.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
+		"/C/Users/shinman/Desktop/Gulp Rev/gulpfile.js",
+		"/C/Users/shinman/Desktop/Gulp Build System/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
@@ -694,7 +703,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/events.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/exibitions.xsl",
 		"/C/xampp/htdocs/test/workspace/.htaccess",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_wazne-dokumenty.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_struktura-organizacyjna.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bip_przetargi.xsl",
@@ -737,7 +745,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_highlight.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_highlight.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_education.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/email-templates/ab-order/template.plain.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/email-templates/ab-order-confirmation/template.plain.xsl",
 		"/C/xampp/htdocs/symphony2/install/includes/config_default.php",
@@ -777,11 +784,9 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/bower.json",
 		"/C/xampp/htdocs/f-alt.org/workspace/utilities/master.xsl",
 		"/C/xampp/htdocs/nomus.gda.pl/workspace/gulpfile.js",
-		"/C/Users/shinman/Desktop/Gulp Build System/package.json",
 		"/C/Users/shinman/Desktop/yszt 2/package.json",
 		"/C/xampp/htdocs/nomus.gda.pl/workspace/package.json",
 		"/C/Users/shinman/Desktop/yszt/package.json",
-		"/C/Users/shinman/Desktop/Gulp Build System/coffee/components.js",
 		"/C/xampp/htdocs/nomus.gda.pl/workspace/coffee/components.js",
 		"/C/Users/shinman/Desktop/MailChimp Singup Form.html",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_newsletter.scss",
@@ -804,12 +809,7 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_event-archived.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
-		"/C/Users/shinman/Desktop/filtrowanie isotope.txt",
-		"/C/xampp/htdocs/f-alt.org/workspace/pages/news.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/main.css",
-		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/package.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/vendor/jquery-ui.css",
-		"/C/Users/shinman/Desktop/jquery-ui-1.12.1.custom/index.html"
+		"/C/Users/shinman/Desktop/filtrowanie isotope.txt"
 	],
 	"find":
 	{
@@ -828,6 +828,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
+			"// @koala-append \"",
+			"\"",
+			"// @koala-append \"",
 			"-->",
 			"<!--",
 			"javascript:void(0)",
@@ -951,11 +955,7 @@
 			"255, 120, 0",
 			"56, 56, 56",
 			"216, 228, 111",
-			"255, 0, 255",
-			"255, 94, 87",
-			"255, 239, 36",
-			"255, 94, 87",
-			"dzieci"
+			"255, 0, 255"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -963,6 +963,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"//=require ",
+			"//=require",
 			"https://www.youtube.com/channel/UCgaGcndBKY4ZtkXxwUmAasw",
 			"$lang",
 			"technic",
