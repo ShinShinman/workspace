@@ -33,7 +33,7 @@
 			<h1><xsl:copy-of select="title/p/node()" /></h1>
 			<ul class="inline-list">
 				<li>
-					<a href="http://wroc.us14.list-manage.com/unsubscribe?u=603554c72cd4cbcf0d6b22244&amp;id=9561c3dfb6" target="_blank">Rezygnacja</a>
+					<a href="http://wroc.us14.list-manage.com/unsubscribe?u=603554c72cd4cbcf0d6b22244&amp;id=9561c3dfb6" target="_blank"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'rezygnacja']" /></a>
 				</li>
 			</ul>
 		</header>

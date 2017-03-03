@@ -682,6 +682,7 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/newsletter.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/_media-queries.scss",
@@ -713,7 +714,6 @@
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/education_voluntary.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_edu-nav.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/informacje.xsl",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/newsletter.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media_contact.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/for-media.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/pages/bookstore.xsl",
