@@ -359,14 +359,12 @@ class MA
 			minwordlength: 8
 		})
 		Hyphenator.run()
-		console.log 'MA initiated.'
 
 
 window.MA = new MA()
 
 # jQuery
 $ ->
-	console.log 'DOM is ready!'
 	window.MA.init()
 
 	# kids-n-parents -> Warsztaty

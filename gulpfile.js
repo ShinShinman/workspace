@@ -92,7 +92,10 @@ gulp.task('scripts', function() {
 	.pipe(uglyfly())
 	.pipe(rename('main.min.js'))
 	.pipe(sourcemaps.write('./'))
-	.pipe(gulp.dest('./js/'));
+	.pipe(gulp.dest('./js/'))
+	.pipe(browserSync.reload({
+		stream: true
+	}));
 });
 
 gulp.task('browserSync', function(){
@@ -105,6 +108,6 @@ gulp.task('default', ['browserSync', 'sass'], function() {
     gulp.watch('scss/**/*.scss', ['sass']);
     gulp.watch('css/**/*.css', ['minifyCss']);
     gulp.watch('coffee/**/*.coffee', ['coffee']);
-    gulp.watch('coffee/components/*.js', ['scripts']);
+    gulp.watch('coffee/js/*.js', ['scripts']);
     gulp.watch('index.html', browserSync.reload);
 });

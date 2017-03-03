@@ -388,8 +388,7 @@
         defaultlanguage: 'pl',
         minwordlength: 8
       });
-      Hyphenator.run();
-      return console.log('MA initiated.');
+      return Hyphenator.run();
     };
 
     return MA;
@@ -400,7 +399,6 @@
 
   $(function() {
     var wBtn, wMore;
-    console.log('DOM is ready!');
     window.MA.init();
     wBtn = $('.kids-n-parents a.workshop');
     wMore = $('.kids-n-parents .more');
