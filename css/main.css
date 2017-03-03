@@ -462,7 +462,8 @@ th {
 /* support: IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
-  filter: inherit; }
+  -webkit-filter: inherit;
+          filter: inherit; }
 
 .ui-slider-horizontal {
   height: .8em; }
@@ -1267,7 +1268,6 @@ a.ui-button:active,
   /* support: IE8 */ }
 
 .ui-widget-shadow {
-  -webkit-box-shadow: -4px -4px 4px #aaaaaa;
   box-shadow: -4px -4px 4px #aaaaaa; }
 
 /*! jQuery-ui-Slider-Pips - v1.11.4 - 2016-09-04
@@ -1370,8 +1370,7 @@ a.ui-button:active,
 .ui-slider-float .ui-slider-handle.ui-state-focus .ui-slider-tip-label,
 .ui-slider-float .ui-slider-handle:focus .ui-slider-tip,
 .ui-slider-float .ui-slider-handle.ui-state-focus .ui-slider-tip-label,
-.ui-slider-float .ui-slider-handle:focus .ui-slider-tip-label
-.ui-slider-float .ui-slider-handle.ui-state-focus .ui-slider-tip-label {
+.ui-slider-float .ui-slider-handle:focus .ui-slider-tip-label .ui-slider-float .ui-slider-handle.ui-state-focus .ui-slider-tip-label {
   outline: none; }
 
 /* style tooltips on handles and on labels */
@@ -1574,10 +1573,10 @@ body {
   min-height: 100vh;
   overflow: auto;
   /*
-  padding-bottom: 200px;
-  */ }
+	padding-bottom: 200px;
+	*/ }
 
-/* Przerobi─ç AKTUALNO┼ÜCI na komponent i INFO-BANNER chyba te┼╝ */
+/* Przerobić AKTUALNOŚCI na komponent i INFO-BANNER chyba też */
 /* INFO-BANNER */
 .info-banner {
   color: white;
@@ -1586,8 +1585,8 @@ body {
   .info-banner p {
     margin-bottom: 0; }
 
-/* BIG-NAV POJAWIA SI─ś W WYSTAWACH, WYDZRZENIACH, ARCHIWUM I (chyba bez odpowiedniej klasy) W KSI─śGARNI /*
-/* przenie┼Ť─ç z pages/*** do globalnych styli */
+/* BIG-NAV POJAWIA SIĘ W WYSTAWACH, WYDZRZENIACH, ARCHIWUM I (chyba bez odpowiedniej klasy) W KSIĘGARNI /*
+/* przenieść z pages/*** do globalnych styli */
 .big-nav a {
   color: #999999; }
   .big-nav a:hover {
@@ -1597,7 +1596,7 @@ body {
     color: black;
     opacity: 1; }
 
-/* Wy┼é─ůczony button w sklepie. Chyba do globalnych... */
+/* Wyłączony button w sklepie. Chyba do globalnych... */
 .button.disabled {
   background-color: #c1c8d0 !important;
   color: #737373 !important;
@@ -1618,9 +1617,11 @@ body {
 .book.brick .bookshop-brick-header {
   height: 165px;
   overflow: hidden; }
+
 .book.brick .bookshop-brick-img {
   height: 330px;
   overflow: hidden; }
+
 .book.brick .button {
   display: inline-block;
   text-align: center;
@@ -1686,11 +1687,11 @@ body {
     margin: 10px 0; }
     .brick .dashed svg {
       /*
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      */
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			*/
       height: 1px;
       display: block; }
     .brick .dashed path {
@@ -1858,6 +1859,7 @@ body {
         background: black;
         display: block;
         -webkit-backface-visibility: visible;
+        -webkit-transition: opacity 0.25s;
         transition: opacity 0.25s; }
       .highlight .owl-dots .owl-dot.active {
         opacity: 0.6; }
@@ -1872,7 +1874,8 @@ body {
   width: 100%; }
   .slide-down a {
     display: inline-block;
-    transform: rotate(90deg); }
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); }
 
 .news > h1, .slide-down .news > a {
   margin-bottom: 24px; }
@@ -1887,6 +1890,7 @@ body {
 
 .floater > *, .main-footer .footer > *, .small-footer .footer > *, .nav-stripes > *, .sticky-nav nav > *, .sticky-nav .main-menu > * {
   float: left; }
+
 .floater:after, .main-footer .footer:after, .small-footer .footer:after, .nav-stripes:after, .sticky-nav nav:after, .sticky-nav .main-menu:after {
   clear: left;
   content: "";
@@ -1944,6 +1948,7 @@ body {
     color: magenta; }
   .sticky-nav nav form {
     opacity: 0;
+    -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
     margin-right: 15px;
     width: 719.247px; }
@@ -2022,42 +2027,49 @@ body {
   src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 @font-face {
   font-family: 'Maison';
   src: url("../fonts/maisonweb-regular.eot");
   src: url("../fonts/maisonweb-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/maisonweb-regular.woff") format("woff"), url("../fonts/maisonweb-regular.ttf") format("truetype"), url("../fonts/maisonweb-regular.svg#maisonweb-regular") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 @font-face {
   font-family: 'Maison';
   src: url("../fonts/maisonweb-italic.eot");
   src: url("../fonts/maisonweb-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/maisonweb-italic.woff") format("woff"), url("../fonts/maisonweb-italic.ttf") format("truetype"), url("../fonts/maisonweb-italic.svg#maisonweb-italic") format("svg");
   font-weight: normal;
   font-style: italic; }
+
 @font-face {
   font-family: 'Maison';
   src: url("../fonts/maisonweb-bold.eot");
   src: url("../fonts/maisonweb-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/maisonweb-bold.woff") format("woff"), url("../fonts/maisonweb-bold.ttf") format("truetype"), url("../fonts/maisonweb-bold.svg#mmaisonweb-bold") format("svg");
   font-weight: bold;
   font-style: normal; }
+
 @font-face {
   font-family: 'Maison';
   src: url("../fonts/maisonweb-light.eot");
   src: url("../fonts/maisonweb-light.eot?#iefix") format("embedded-opentype"), url("../fonts/maisonweb-light.woff") format("woff"), url("../fonts/maisonweb-light.ttf") format("truetype"), url("../fonts/maisonweb-light.svg#maisonweb-light") format("svg");
   font-weight: 300;
   font-style: normal; }
+
 @font-face {
   font-family: 'MArch';
   src: url("../fonts/march-regular-180816.eot");
   src: url("../fonts/march-regular-180816.eot?#iefix") format("embedded-opentype"), url("../fonts/march-regular-180816.woff") format("woff"), url("../fonts/march-regular-180816.ttf") format("truetype"), url("../fonts/march-regular-180816.svg#march-regular") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 @font-face {
   font-family: 'social';
   src: url("../fonts/social.eot");
   src: url("../fonts/social.eot?#iefix") format("embedded-opentype"), url("../fonts/social.woff") format("woff"), url("../fonts/social.ttf") format("truetype"), url("../fonts/social.svg#social") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 /* Headres sizes */
 .reset, p, .typo-h1, h1, .slide-down a, .typo-h2, h2, .sticky-nav .main-menu .left ul > li > a, .text-column article h1, .article section.post article h1, .edu article h1, .info article h1, .single-lesson article h1, .single-aid article h1, .single-game article h1, .biuletyn article h1, .tenders article h1, .struktura article h1, .important-docs article h1, .bookshop-page article h1, .single-book article h1, .archived-exhibition article h1, .archived-event article h1, .newsletter-text article h1, .museum article h1, .collection section.post article h1, .for-media .media article h1, .contact .media article h1, .downlodables-for-media .media article h1, .search-deails article h1, .search .archive-text article h1, .about-archive .archive-about article h1, .how-to-search .archive-ht-search article h1, .digitizing .archive-digitizing article h1, .text-column article .slide-down a, .slide-down .text-column article a, .article section.post article .slide-down a, .slide-down .article section.post article a, .edu article .slide-down a, .slide-down .edu article a, .info article .slide-down a, .slide-down .info article a, .single-lesson article .slide-down a, .slide-down .single-lesson article a, .single-aid article .slide-down a, .slide-down .single-aid article a, .single-game article .slide-down a, .slide-down .single-game article a, .biuletyn article .slide-down a, .slide-down .biuletyn article a, .tenders article .slide-down a, .slide-down .tenders article a, .struktura article .slide-down a, .slide-down .struktura article a, .important-docs article .slide-down a, .slide-down .important-docs article a, .bookshop-page article .slide-down a, .slide-down .bookshop-page article a, .single-book article .slide-down a, .slide-down .single-book article a, .archived-exhibition article .slide-down a, .slide-down .archived-exhibition article a, .archived-event article .slide-down a, .slide-down .archived-event article a, .newsletter-text article .slide-down a, .slide-down .newsletter-text article a, .museum article .slide-down a, .slide-down .museum article a, .collection section.post article .slide-down a, .slide-down .collection section.post article a, .for-media .media article .slide-down a, .slide-down .for-media .media article a, .contact .media article .slide-down a, .slide-down .contact .media article a, .downlodables-for-media .media article .slide-down a, .slide-down .downlodables-for-media .media article a, .search-deails article .slide-down a, .slide-down .search-deails article a, .search .archive-text article .slide-down a, .slide-down .search .archive-text article a, .about-archive .archive-about article .slide-down a, .slide-down .about-archive .archive-about article a, .how-to-search .archive-ht-search article .slide-down a, .slide-down .how-to-search .archive-ht-search article a, .digitizing .archive-digitizing article .slide-down a, .slide-down .digitizing .archive-digitizing article a, .typo-h3, h3, .text-column article h2, .article section.post article h2, .edu article h2, .info article h2, .single-lesson article h2, .single-aid article h2, .single-game article h2, .biuletyn article h2, .tenders article h2, .struktura article h2, .important-docs article h2, .bookshop-page article h2, .single-book article h2, .archived-exhibition article h2, .archived-event article h2, .newsletter-text article h2, .museum article h2, .collection section.post article h2, .for-media .media article h2, .contact .media article h2, .downlodables-for-media .media article h2, .search-deails article h2, .search .archive-text article h2, .about-archive .archive-about article h2, .how-to-search .archive-ht-search article h2, .digitizing .archive-digitizing article h2, .text-column article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .text-column article ul > li > a, .article section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post article ul > li > a, .edu article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .edu article ul > li > a, .info article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .info article ul > li > a, .single-lesson article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson article ul > li > a, .single-aid article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-aid article ul > li > a, .single-game article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-game article ul > li > a, .biuletyn article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .biuletyn article ul > li > a, .tenders article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .tenders article ul > li > a, .struktura article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .struktura article ul > li > a, .important-docs article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .important-docs article ul > li > a, .bookshop-page article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .bookshop-page article ul > li > a, .single-book article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-book article ul > li > a, .archived-exhibition article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .archived-exhibition article ul > li > a, .archived-event article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .archived-event article ul > li > a, .newsletter-text article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .newsletter-text article ul > li > a, .museum article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .museum article ul > li > a, .collection section.post article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .collection section.post article ul > li > a, .for-media .media article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .for-media .media article ul > li > a, .contact .media article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .contact .media article ul > li > a, .downlodables-for-media .media article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .downlodables-for-media .media article ul > li > a, .search-deails article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .search-deails article ul > li > a, .search .archive-text article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .search .archive-text article ul > li > a, .about-archive .archive-about article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .about-archive .archive-about article ul > li > a, .how-to-search .archive-ht-search article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .how-to-search .archive-ht-search article ul > li > a, .digitizing .archive-digitizing article .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .digitizing .archive-digitizing article ul > li > a, .typo-h4, h4, .text-column article h3, .article section.post article h3, .edu article h3, .info article h3, .single-lesson article h3, .single-aid article h3, .single-game article h3, .biuletyn article h3, .tenders article h3, .struktura article h3, .important-docs article h3, .bookshop-page article h3, .single-book article h3, .archived-exhibition article h3, .archived-event article h3, .newsletter-text article h3, .museum article h3, .collection section.post article h3, .for-media .media article h3, .contact .media article h3, .downlodables-for-media .media article h3, .search-deails article h3, .search .archive-text article h3, .about-archive .archive-about article h3, .how-to-search .archive-ht-search article h3, .digitizing .archive-digitizing article h3 {
   margin: 0;
@@ -2106,6 +2118,7 @@ ul.inline-list {
     float: left;
     margin-right: 16px;
     font-weight: bold; }
+
 ul.category-list {
   margin-bottom: 6px; }
 
@@ -2121,7 +2134,7 @@ a {
   a.active {
     opacity: 0.6; }
 
-/* Brakuj─ůce spacje przed italikami i boldem */
+/* Brakujące spacje przed italikami i boldem */
 a:before, em:before, strong:before {
   content: " "; }
 
@@ -2135,10 +2148,11 @@ a:before, em:before, strong:before {
 
 section:not(.highlight):first-of-type {
   margin-top: 135px; }
+
 section:last-of-type {
   margin-bottom: 250px; }
 
-/* Szeroko┼Ť─ç kolumny tekstowej */
+/* Szerokość kolumny tekstowej */
 .text-column, .article section.post, .edu, .info, .single-lesson, .single-aid, .single-game, .biuletyn, .tenders, .struktura, .important-docs, .bookshop-page, .single-book, .archived-exhibition, .archived-event, .newsletter-text, .museum, .collection section.post, .for-media .media, .contact .media, .downlodables-for-media .media, .search-deails, .search .archive-text, .about-archive .archive-about, .how-to-search .archive-ht-search, .digitizing .archive-digitizing {
   width: 637.664px;
   margin-top: 0;
@@ -2210,12 +2224,16 @@ section:last-of-type {
   margin-bottom: 15px; }
   .article > header.offset {
     min-height: 125px; }
+
 .article section.post header h1, .article section.post header .slide-down a, .slide-down .article section.post header a {
   text-transform: uppercase; }
+
 .article section.post header h2, .article section.post header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .article section.post header ul > li > a {
   margin-bottom: 7px; }
+
 .article section.post header .date, .article section.post header .brick .dashed p, .brick .dashed .article section.post header p {
   color: red; }
+
 .article section.post header ul {
   display: block;
   overflow: auto;
@@ -2223,12 +2241,15 @@ section:last-of-type {
   .article section.post header ul > li {
     float: left;
     margin: 3px 15px 3px 0; }
+
 .article section.post header .event-list a:after {
   content: " > "; }
+
 .article section.post article p.caption {
   font-size: 14px;
   color: grey;
   margin-top: -24px; }
+
 .article section.post article iframe {
   width: 638px;
   height: 360px; }
@@ -2236,16 +2257,18 @@ section:last-of-type {
 /* EDU */
 .edu header h1, .edu header .slide-down a, .slide-down .edu header a {
   margin-bottom: 12px; }
+
 .edu article ul {
   list-style: disc; }
+
 .edu article li {
   margin-bottom: 12px; }
 
 .edu-items {
   overflow: hidden;
-  /* Materia┼éy edukacyjne */
+  /* Materiały edukacyjne */
   /* Gry edukacyjne */
-  /* Materia┼éy do pobrania */ }
+  /* Materiały do pobrania */ }
   .edu-items header {
     margin-bottom: 12px; }
     .edu-items header h1, .edu-items header .slide-down a, .slide-down .edu-items header a {
@@ -2340,6 +2363,7 @@ li.wyklady-dla-mlodziezy {
 /* EXHIBITIONS */
 .exhibitions > h1, .slide-down .exhibitions > a {
   margin-bottom: 24px; }
+
 .exhibitions .big-nav a {
   color: #999999; }
   .exhibitions .big-nav a:hover {
@@ -2357,33 +2381,42 @@ li.wyklady-dla-mlodziezy {
 /* LESSON */
 .single-lesson header h1, .single-lesson header .slide-down a, .slide-down .single-lesson header a {
   margin-bottom: 6px; }
+
 .single-lesson header h2, .single-lesson header .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .single-lesson header ul > li > a {
   margin-bottom: 6px; }
+
 .single-lesson header .edu-categories span {
   display: inline-block; }
+
 .single-lesson header .category-list {
   margin-bottom: 12px;
   font-weight: bold; }
+
 .single-lesson header .przedszkola {
   color: white;
   background-color: #3abb4a;
   padding: 0 6px; }
+
 .single-lesson header .klasy-0-3 {
   color: white;
   background-color: #3abb4a;
   padding: 0 6px; }
+
 .single-lesson header .klasy-4-6 {
   color: white;
   background-color: #6f9bff;
   padding: 0 6px; }
+
 .single-lesson header .gimnazjum {
   color: white;
   background-color: #d45fc5;
   padding: 0 6px; }
+
 .single-lesson header .szkoly-ponadgimnazjalne {
   color: white;
   background-color: #38bfac;
   padding: 0 6px; }
+
 .single-lesson header .wyklady-dla-mlodziezy {
   color: white;
   background-color: #ff5e57;
@@ -2392,16 +2425,20 @@ li.wyklady-dla-mlodziezy {
 /* EDU AID */
 .single-aid header h1, .single-aid header .slide-down a, .slide-down .single-aid header a {
   margin-bottom: 12px; }
+
 .single-aid header .edu-categories span {
   display: inline-block; }
+
 .single-aid header .dla-dzieci {
   color: white;
   background-color: #9ea1a9;
   padding: 0 6px; }
+
 .single-aid header .dla-nauczycieli {
   color: white;
   background-color: #565656;
   padding: 0 6px; }
+
 .single-aid header .gry {
   color: white;
   background-color: red;
@@ -2410,6 +2447,7 @@ li.wyklady-dla-mlodziezy {
 /* EDU GAMES */
 .single-game header h1, .single-game header .slide-down a, .slide-down .single-game header a {
   margin-bottom: 12px; }
+
 .single-game header .edu-categories span {
   display: inline-block; }
 
@@ -2445,6 +2483,7 @@ section.maintenance {
 
 .single-book p.author {
   margin-bottom: 12px; }
+
 .single-book .button {
   display: inline-block;
   text-align: center;
@@ -2474,9 +2513,11 @@ section.maintenance {
   .exhibition-archive .big-nav a.active {
     color: black;
     opacity: 1; }
+
 .exhibition-archive .legend {
   margin-top: 12px;
   margin-bottom: 36px; }
+
 .exhibition-archive .slider.ui-slider.ui-slider-pips {
   font-family: inherit;
   height: 5px;
@@ -2512,9 +2553,11 @@ section.maintenance {
   .events-archive .big-nav a.active {
     color: black;
     opacity: 1; }
+
 .events-archive .legend {
   margin-top: 12px;
   margin-bottom: 36px; }
+
 .events-archive .slider.ui-slider.ui-slider-pips {
   font-family: inherit;
   height: 5px;
@@ -2586,6 +2629,7 @@ section.maintenance {
 /* FOR MEDIA */
 .for-media .media header h1, .for-media .media header .slide-down a, .slide-down .for-media .media header a {
   margin-bottom: 12px; }
+
 .for-media .media article ul {
   width: 311.332px;
   float: left;
@@ -2596,6 +2640,7 @@ section.maintenance {
 /* FOR MEDIA */
 .contact .media header h1, .contact .media header .slide-down a, .slide-down .contact .media header a {
   margin-bottom: 12px; }
+
 .contact .media article ul {
   width: 311.332px;
   float: left;
@@ -2606,18 +2651,21 @@ section.maintenance {
 /* FOR MEDIA */
 .downlodables-for-media .media header h1, .downlodables-for-media .media header .slide-down a, .slide-down .downlodables-for-media .media header a {
   margin-bottom: 12px; }
+
 .downlodables-for-media .media article ul {
   list-style: disc; }
 
 /* CONSTRUCTION ARCHIVE SEARCH DETAILS */
 .search-deails header h1, .search-deails header .slide-down a, .slide-down .search-deails header a {
   margin-bottom: 12px; }
+
 .search-deails header .order-form-container {
   display: none; }
   .search-deails header .order-form-container .success {
     color: #06af43; }
   .search-deails header .order-form-container .error {
     color: red; }
+
 .search-deails header .order-form {
   width: 392.915px;
   overflow: auto; }
@@ -2652,11 +2700,13 @@ section.maintenance {
       width: 392.915px;
       height: 65px;
       padding: 0; }
+
 .search-deails li {
   margin-bottom: 24px; }
   .search-deails li label {
     display: block;
     font-weight: bold; }
+
 .search-deails article .normal {
   font-weight: normal; }
 
@@ -2667,6 +2717,7 @@ section.maintenance {
   margin-bottom: 15px; }
   .search > header.offset {
     min-height: 125px; }
+
 .search .archive-text {
   margin-top: 0 !important;
   margin-bottom: 0 !important; }
@@ -2685,6 +2736,7 @@ section.maintenance {
       border-color: lightgreen; }
   .search .archive-text .results-found {
     color: grey; }
+
 .search .search-results .tail {
   overflow: auto;
   width: 800.83px; }
@@ -2701,6 +2753,7 @@ section.maintenance {
 
 .search-deails header h1, .search-deails header .slide-down a, .slide-down .search-deails header a {
   margin-bottom: 12px; }
+
 .search-deails li {
   margin-bottom: 24px; }
   .search-deails li label {
@@ -2714,6 +2767,7 @@ section.maintenance {
   margin-bottom: 15px; }
   .about-archive > header.offset {
     min-height: 125px; }
+
 .about-archive .archive-about {
   margin-top: 0 !important;
   margin-bottom: 250px; }
@@ -2727,6 +2781,7 @@ section.maintenance {
   margin-bottom: 15px; }
   .how-to-search > header.offset {
     min-height: 125px; }
+
 .how-to-search .archive-ht-search {
   margin-top: 0 !important;
   margin-bottom: 250px; }
@@ -2740,6 +2795,7 @@ section.maintenance {
   margin-bottom: 15px; }
   .digitizing > header.offset {
     min-height: 125px; }
+
 .digitizing .archive-digitizing {
   margin-top: 0 !important;
   margin-bottom: 250px; }
@@ -2757,31 +2813,41 @@ section.maintenance {
 
 #fc div, #fc span, #fc h2, #fc .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left #fc ul > li > a, #fc h3, #fc h4, #fc h5, #fc p, #fc a, #fc table *, #fc button, #fc address {
   font-family: "Maison", sans-serif !important; }
+
 #fc .fc-fixed-button-right .fc-btn-action {
   background: magenta !important; }
+
 #fc .fc-fixed-button-left .fc-btn-action {
   background-color: #f0f0f0 !important; }
+
 #fc .fc-cart__item__quantity .fc-form-control {
   border: none !important;
   background-color: #f0f0f0 !important;
   box-shadow: none !important; }
+
 #fc .fc-order-quantity {
   font-weight: normal !important; }
+
 #fc .fc-form-control {
   font-family: "Maison" !important;
   border-radius: 0 !important; }
+
 #fc .fc-button {
   border-radius: 0 !important; }
+
 #fc .fc-transaction__shipping-address {
   border-radius: 0 !important;
   margin-left: 0 !important; }
+
 #fc .fc-subtotal__label {
   padding-left: 0 !important; }
+
 #fc .fc-action--checkout--button {
   border-radius: 0 !important;
   border: none !important;
   background: magenta !important;
   text-shadow: none !important; }
+
 #fc .fc-messages__empty-notification {
   border-radius: 0 !important;
   background-color: #f0f0f0 !important; }
@@ -2806,14 +2872,11 @@ section.maintenance {
   /* LAYOUT */
   .row, .highlight .owl-carousel .item .text-box, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, section {
     width: 637.664px; }
-
   .text-column, .article section.post, .edu, .info, .single-lesson, .single-aid, .single-game, .biuletyn, .tenders, .struktura, .important-docs, .bookshop-page, .single-book, .archived-exhibition, .archived-event, .newsletter-text, .museum, .collection section.post, .for-media .media, .contact .media, .downlodables-for-media .media, .search-deails, .search .archive-text, .about-archive .archive-about, .how-to-search .archive-ht-search, .digitizing .archive-digitizing {
     width: 637.664px; }
-
   /* STICKY NAV */
   .nav-stripes .first {
     width: 474.498px; }
-
   .sticky-nav {
     /* MAIN MENU */ }
     .sticky-nav nav form {
@@ -2827,7 +2890,6 @@ section.maintenance {
       width: 311.332px; }
     .sticky-nav .main-menu .right {
       width: 311.332px; }
-
   /* FOOTER */
   .main-footer .footer .first-column {
     width: 229.749px; }
@@ -2841,26 +2903,22 @@ section.maintenance {
     width: 148.166px; }
     .main-footer .footer .third-column .b-side {
       display: block; }
-
   /* EDUKACJA */
   .edu-items .edu-categories {
     font-size: 14px; } }
+
 @media all and (max-width: 719px) {
   section:last-of-type {
     margin-bottom: 420px; }
-
   .row, .highlight .owl-carousel .item .text-box, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, section {
     width: 311.332px; }
-
   .text-column, .article section.post, .edu, .info, .single-lesson, .single-aid, .single-game, .biuletyn, .tenders, .struktura, .important-docs, .bookshop-page, .single-book, .archived-exhibition, .archived-event, .newsletter-text, .museum, .collection section.post, .for-media .media, .contact .media, .downlodables-for-media .media, .search-deails, .search .archive-text, .about-archive .archive-about, .how-to-search .archive-ht-search, .digitizing .archive-digitizing {
     width: 311.332px; }
-
   /* STICKY NAV */
   .nav-stripes .first {
     width: 311.332px; }
   .nav-stripes .second {
     display: none; }
-
   .sticky-nav {
     /* MAIN MENU */ }
     .sticky-nav nav form {
@@ -2879,7 +2937,6 @@ section.maintenance {
       width: 311.332px; }
     .sticky-nav .main-menu .right {
       width: 311.332px; }
-
   /* HIGHLIGHT */
   .highlight .owl-carousel .item .text-box h1, .highlight .owl-carousel .item .text-box .slide-down a, .slide-down .highlight .owl-carousel .item .text-box a {
     width: 311.332px;
@@ -2891,7 +2948,6 @@ section.maintenance {
     margin-bottom: 12px; }
   .highlight .owl-carousel .item .text-box .icon {
     font-size: inherit; }
-
   /* FOOTER */
   .main-footer .footer .second-column {
     width: 311.332px; }
@@ -2906,15 +2962,14 @@ section.maintenance {
   .main-footer .footer .third-column {
     display: none;
     width: 311.332px; }
-
   /* ARTICLE */
   .article section.post article iframe {
     width: 311.332px;
     height: 175px; }
-
   /* SEARCH */
   .search .search-results .tail {
     width: 311.332px; } }
+
 /* 
  *  Core Owl Carousel CSS File
  */
@@ -2960,7 +3015,6 @@ section.maintenance {
     cursor: pointer;
     cursor: hand;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
@@ -3004,7 +3058,8 @@ section.maintenance {
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .ps-container {
       overflow: auto !important; } }
-  .ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail {
+  .ps-container.ps-active-x > .ps-scrollbar-x-rail,
+  .ps-container.ps-active-y > .ps-scrollbar-y-rail {
     display: block;
     background-color: transparent; }
   .ps-container.ps-in-scrolling {
@@ -3024,6 +3079,7 @@ section.maintenance {
     position: absolute;
     /* please don't change 'position' */
     opacity: 0;
+    -webkit-transition: background-color .2s linear, opacity .2s linear;
     transition: background-color .2s linear, opacity .2s linear;
     bottom: 0px;
     /* there must be 'bottom' for ps-scrollbar-x-rail */
@@ -3033,7 +3089,8 @@ section.maintenance {
       /* please don't change 'position' */
       background-color: #aaa;
       border-radius: 6px;
-      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
       bottom: 2px;
       /* there must be 'bottom' for ps-scrollbar-x */
       height: 6px; }
@@ -3044,6 +3101,7 @@ section.maintenance {
     position: absolute;
     /* please don't change 'position' */
     opacity: 0;
+    -webkit-transition: background-color .2s linear, opacity .2s linear;
     transition: background-color .2s linear, opacity .2s linear;
     right: 0;
     /* there must be 'right' for ps-scrollbar-y-rail */
@@ -3053,7 +3111,8 @@ section.maintenance {
       /* please don't change 'position' */
       background-color: #aaa;
       border-radius: 6px;
-      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+      transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
       right: 2px;
       /* there must be 'right' for ps-scrollbar-y */
       width: 6px; }
