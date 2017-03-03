@@ -8,6 +8,8 @@ var coffee = require('gulp-coffee');
 var browserSync = require('browser-sync').create();
 var include = require('gulp-include');
 var uglyfly = require('gulp-uglyfly');
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
 
 gulp.task('sass', function() {
 	return gulp.src('scss/main.scss')
@@ -38,6 +40,36 @@ gulp.task('minifyCss', function() {
 	.pipe(browserSync.reload({
 		stream: true
 	}));
+});
+
+gulp.task('revision', function() {
+	return gulp.src('./css/main.css')
+		.pipe(rev())
+		.pipe(gulp.dest('./css/'))
+		.pipe(rev.manifest({
+			merge: true
+		}))
+		.pipe(gulp.dest('./'));
+});
+
+gulp.task('revision-js', function() {
+	return gulp.src('./js/main.min.js')
+		.pipe(rev())
+		.pipe(gulp.dest('./js/'))
+		.pipe(rev.manifest({
+			merge: true
+		}))
+		.pipe(gulp.dest('./'));
+});
+
+gulp.task('revreplace', ['revision'], function() {
+	var manifest = gulp.src('./rev-manifest.json');
+	return gulp.src('./utilities/master.xsl.html')
+		.pipe(revReplace({manifest: manifest}))
+		.pipe(rename({
+			suffix: '-dist'
+		}))
+		.pipe(gulp.dest('./utilities/'));
 });
 
 gulp.task('coffee', function() {

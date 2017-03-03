@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"scr",
+				"script\tTag"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
 				"include",
 				"includePaths"
 			],
@@ -408,10 +416,6 @@
 				"stickyNavSetup"
 			],
 			[
-				"scr",
-				"scrollTop"
-			],
-			[
 				"nor",
 				"normal\t(_headers.scss)"
 			],
@@ -510,10 +514,6 @@
 			[
 				"ty",
 				"type\t(master.xsl)"
-			],
-			[
-				"temp",
-				"template\t(home.xsl)"
 			]
 		]
 	},
@@ -682,14 +682,18 @@
 	],
 	"file_history":
 	[
+		"/C/Users/shinman/Desktop/Gulp Rev/gulpfile.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/index.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/rev-manifest.json",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/master-dist.xsl",
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/css/rev-manifest.json",
 		"/C/xampp/htdocs/bronislawzelek.com/workspace/gulpfile.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/components4gulp.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/gulpfile.js",
 		"/C/Users/shinman/Desktop/Gulp Build System/gulpfile.js",
 		"/C/Users/shinman/Desktop/Gulp Build System/coffee/components.js",
 		"/C/Users/shinman/Desktop/Gulp Rev/package.json",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/package.json",
-		"/C/Users/shinman/Desktop/Gulp Rev/gulpfile.js",
 		"/C/Users/shinman/Desktop/Gulp Build System/package.json",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/utilities/_footer.xsl",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/utilities/_footer.scss",
@@ -805,11 +809,7 @@
 		"/C/Users/shinman/Desktop/jquery-ui.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/jquery-ui.min.js",
 		"/C/xampp/htdocs/ma.wroc.pl/workspace/js/jquery-ui-slider-pips.min.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_event-archived.scss",
-		"/C/xampp/htdocs/ma.wroc.pl/workspace/scss/pages/_exhibitions-archive.scss",
-		"/C/Users/shinman/Desktop/filtrowanie isotope.txt"
+		"/C/xampp/htdocs/ma.wroc.pl/workspace/coffee/js/ma.js"
 	],
 	"find":
 	{
@@ -828,6 +828,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".js",
 			"\"",
 			"// @koala-append \"",
 			"\"",
@@ -954,8 +955,7 @@
 			"51, 153, 255",
 			"255, 120, 0",
 			"56, 56, 56",
-			"216, 228, 111",
-			"255, 0, 255"
+			"216, 228, 111"
 		],
 		"highlight": true,
 		"in_selection": false,
