@@ -15,14 +15,6 @@
 			</xsl:choose>
 		</xsl:variable>
 
-		<script>
-			console.log('<xsl:value-of select="$tmp-prize" />');
-		</script>
-<!--
-		<script>
-			console.log('<xsl:value-of select="title/p" />: <xsl:value-of select="$prize" /> (<xsl:value-of select="substring-before($prize, ' ')" />)');
-		</script>
--->
 		<xsl:variable name="currency">
 			<xsl:choose>
 				<xsl:when test="//current-language/@handle = 'pl'">
