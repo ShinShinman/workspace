@@ -108,7 +108,14 @@
 
 			<ul>
 				<!--<li><a href="javascript:void(0);" class="icon search-trigger">S</a></li>--> <!-- To jest trigger wyszykiwarki i w przyszłości powinien być przeniesiony z inne miejsce-->
-				<li class="cart"><a href="https://ma.foxycart.com/cart?cart=view"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a></li>
+				<li class="cart">
+					<xsl:call-template name="cart-button">
+						<xsl:with-param name="lang" select="//fl-languages/current-language/@language" />
+					</xsl:call-template>
+					<!--
+						<a href="https://ma.foxycart.com/cart?cart=view"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
+					-->
+				</li>
 				<li>
 					<xsl:call-template name="language-button">
 						<xsl:with-param name="lang" select="//fl-languages/current-language/@language" />
@@ -172,6 +179,19 @@
 
 <xsl:template match="blank">
 	<xsl:attribute name="target">_blank</xsl:attribute>
+</xsl:template>
+
+<xsl:template name="cart-button">
+	<xsl:param name="lang" />
+	<xsl:choose>
+		<xsl:when test="$lang = 'pl'">
+			<a href="https://ma.foxycart.com/cart?cart=view&amp;template_set=DEFAULT"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
+		</xsl:when>
+		<xsl:otherwise>
+			<a href="https://ma.foxycart.com/cart?cart=view&amp;template_set=en&amp;locale=en_PL"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
+		</xsl:otherwise>
+	</xsl:choose>
+	
 </xsl:template>
 
 <xsl:template name="language-button">
