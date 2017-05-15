@@ -1,7 +1,7 @@
 {
   "name": "mawebsite",
-  "version": "2.0.1",
-  "description": "Zmiana waluty w sklepie i poprawki do Etapu 3",
+  "version": "2.0.2",
+  "description": "Nowa podstrona w dziale Dla muzeum – Nagrody",
   "author": "Olaf Schindler",
   "license": "MIT",
   "repository": "https://github.com/ShinShinman/MAWWW.git",
