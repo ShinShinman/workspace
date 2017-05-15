@@ -2626,6 +2626,13 @@ section.maintenance {
   .collection > header.offset {
     min-height: 125px; }
 
+/* ABOUT MUSEUM pages */
+.museum article ul {
+  list-style: disc; }
+
+.museum article .social {
+  font-family: 'social'; }
+
 /* FOR MEDIA */
 .for-media .media header h1, .for-media .media header .slide-down a, .slide-down .for-media .media header a {
   margin-bottom: 12px; }
