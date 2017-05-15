@@ -109,5 +109,6 @@ gulp.task('default', ['browserSync', 'sass'], function() {
     gulp.watch('css/**/*.css', ['minifyCss']);
     gulp.watch('coffee/**/*.coffee', ['coffee']);
     gulp.watch('coffee/js/*.js', ['scripts']);
+    gulp.watch('pages/*.xsl', browserSync.reload);
     gulp.watch('index.html', browserSync.reload);
 });
