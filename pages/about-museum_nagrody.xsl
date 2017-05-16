@@ -46,14 +46,14 @@
 		<xsl:when test="file-link">
 			<li>
 				<a href="{file-link}" target="_blank">
-					<xsl:value-of select="file-name" />
+					<xsl:copy-of select="file-name/p/node()" />
 				</a>
 				<span class="social">ś</span>
 			</li>
 		</xsl:when>
 		<xsl:otherwise>
 			<li>
-				<xsl:value-of select="file-name" />
+				<xsl:copy-of select="file-name/p/node()" />
 			</li>
 		</xsl:otherwise>
 	</xsl:choose>
