@@ -2190,7 +2190,7 @@ section:last-of-type {
   border-top-style: solid;
   padding-top: 5px; }
 
-.color-label, .tag, .event, .oppening, .edu-items li.przedszkola, .edu-items li.klasy-0-3, .edu-items li.klasy-4-6, .edu-items li.gimnazjum, .edu-items li.szkoly-ponadgimnazjalne, .edu-items li.wyklady-dla-mlodziezy, .edu-items li.dzieci, .edu-items li.nauczyciele, .edu-items li.dorosli, .edu-items li.gry-on-line, .edu-items li.gry-planszowe, .edu-items li.gry-terenowe, .edu-items li.dla-dzieci, .edu-items li.dla-nauczycieli, .edu-items li.gry, li.wyklady-dla-mlodziezy {
+.color-label, .tag, .event, .oppening, .edu-items li.przedszkola, .edu-items li.klasy-0-3, .edu-items li.klasy-4-6, .edu-items li.klasy-7-8, .edu-items li.szkoly-srednie, .edu-items li.wyklady-dla-mlodziezy, .edu-items li.dzieci, .edu-items li.nauczyciele, .edu-items li.dorosli, .edu-items li.gry-on-line, .edu-items li.gry-planszowe, .edu-items li.gry-terenowe, .edu-items li.dla-dzieci, .edu-items li.dla-nauczycieli, .edu-items li.gry, li.wyklady-dla-mlodziezy {
   color: white;
   font-weight: normal;
   padding: 0 6px; }
@@ -2302,13 +2302,13 @@ section:last-of-type {
     border-color: #6f9bff; }
   .edu-items li.klasy-4-6 {
     background-color: #6f9bff; }
-  .edu-items .gimnazjum h1, .edu-items .gimnazjum .slide-down a, .slide-down .edu-items .gimnazjum a {
+  .edu-items .klasy-7-8 h1, .edu-items .klasy-7-8 .slide-down a, .slide-down .edu-items .klasy-7-8 a {
     border-color: #d45fc5; }
-  .edu-items li.gimnazjum {
+  .edu-items li.klasy-7-8 {
     background-color: #d45fc5; }
-  .edu-items .szkoly-ponadgimnazjalne h1, .edu-items .szkoly-ponadgimnazjalne .slide-down a, .slide-down .edu-items .szkoly-ponadgimnazjalne a {
+  .edu-items .szkoly-srednie h1, .edu-items .szkoly-srednie .slide-down a, .slide-down .edu-items .szkoly-srednie a {
     border-color: #38bfac; }
-  .edu-items li.szkoly-ponadgimnazjalne {
+  .edu-items li.szkoly-srednie {
     background-color: #38bfac; }
   .edu-items .wyklady-dla-mlodziezy h1, .edu-items .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-items .wyklady-dla-mlodziezy a {
     border-color: #ff5e57; }
