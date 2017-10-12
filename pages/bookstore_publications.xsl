@@ -83,6 +83,12 @@
 	<section class="bookshop-nav">
 		<header>
 			<xsl:call-template name="bookshop-nav" />
+			
+			<div class="info-banner">
+				<p>Customs from abroad are asked for using the English version of bookstore website.</p>
+				<p>Osoby dokonujące zakupów z zagranicy prosimy o skorzystanie z angielskiej wersji strony księgarni. </p>
+			</div>
+
 			<ul class="inline-list filters">
 				<xsl:apply-templates select="bookshop-categories/entry" />
 				<li class="show-all">

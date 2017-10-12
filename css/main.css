@@ -2481,6 +2481,16 @@ section.maintenance {
 .bookshop-nav nav h1, .bookshop-nav nav .slide-down a, .slide-down .bookshop-nav nav a {
   margin-bottom: 24px; }
 
+.publications .info-banner {
+  font-weight: bold;
+  color: black;
+  background-color: magenta;
+  margin-bottom: 24px; }
+  .publications .info-banner p {
+    margin-bottom: 24px; }
+    .publications .info-banner p:last-of-type {
+      margin-bottom: 0; }
+
 .single-book p.author {
   margin-bottom: 12px; }
 
