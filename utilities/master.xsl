@@ -46,7 +46,7 @@
 
 			<xsl:apply-templates mode="meta-tags"/>
 
-			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css" />
+			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=2.0.3" />
 
 			<xsl:call-template name="favicon" />
 
