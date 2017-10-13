@@ -85,7 +85,7 @@
 			<xsl:call-template name="bookshop-nav" />
 			
 			<div class="info-banner">
-				<p>Customs from abroad are asked for using the English version of bookstore website.</p>
+				<p>Customers from abroad are kindly requested to use the English version of the bookstore website.</p>
 				<p>Osoby dokonujące zakupów z zagranicy prosimy o skorzystanie z angielskiej wersji strony księgarni. </p>
 			</div>
 
