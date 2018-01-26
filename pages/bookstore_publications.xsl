@@ -84,10 +84,7 @@
 		<header>
 			<xsl:call-template name="bookshop-nav" />
 			
-			<div class="info-banner">
-				<p>Customers from abroad are kindly requested to use the English version of the bookstore website.</p>
-				<p>Osoby dokonujące zakupów z zagranicy prosimy o skorzystanie z angielskiej wersji strony księgarni. </p>
-			</div>
+			<xsl:apply-templates select="bookshop-infobanner/entry" />
 
 			<ul class="inline-list filters">
 				<xsl:apply-templates select="bookshop-categories/entry" />
@@ -100,6 +97,12 @@
 			<xsl:apply-templates select="bookshop-items/entry" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="bookshop-infobanner/entry">
+	<div class="info-banner">
+		<xsl:copy-of select="msg/node()" />
+	</div>
 </xsl:template>
 
 <xsl:template match="bookshop-categories/entry">
