@@ -26,7 +26,7 @@
 <xsl:template match="data">
 <section class="search-deails">
 		<header>
-			<h1>Adres obiektu</h1>
+			<h1>Wybrany obiekt</h1>
 			<ul class="inline-list">
 				<li><a class="order-button" href="javascript:void(0)">Zamów do czytelni</a></li>
 				<li><a href="http://156.17.203.194/pl/pl/pdf/?id={$id}">Wydrukuj PDF</a></li>
