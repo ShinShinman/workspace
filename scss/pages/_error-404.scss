@@ -1,0 +1,9 @@
+/* 404 page */
+
+.e404 {
+	@extend .text-column;
+
+	.error {
+		margin-bottom: 0;
+	}
+}
