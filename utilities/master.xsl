@@ -130,7 +130,7 @@
 			<div class="left small-stripe">
 				<ul>
 					<xsl:apply-templates select="//main-menu/entry/links/item" />
-					<li><a href="https://ewejsciowki.pl/embedded/repertuar/924" onclick="MA.api.closeMenu();">Bilety</a></li>
+					<li><a href="https://ewejsciowki.pl/embedded/repertuar/924" onclick="MA.api.closeMenu();">eWejściówki</a></li>
 				</ul>
 			</div>
 			<div class="right small-stripe">
