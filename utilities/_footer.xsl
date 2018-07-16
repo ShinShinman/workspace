@@ -30,7 +30,7 @@
 						<ul>
 							<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
 							<li>+48 71 344 82 79 wew.15</li><br />
-							<li><a href="{$workspace}/dl/Polityka_prywatnosci_v1_(2in1).pdf" target="_blank">Polityka prywatności</a></li>
+							<li><a href="{$workspace}/dl/Polityka_Prywanosci_MA.pdf" target="_blank">Polityka prywatności</a></li>
 						</ul>
 					</div>
 					<div class="b b-side">
@@ -89,7 +89,7 @@
 						<ul>
 							<li><a href="mailto:bookstore@ma.wroc.pl">bookstore@ma.wroc.pl</a></li>
 							<li>+48 71 344 82 79 wew.15</li><br />
-							<li><a href="{$workspace}/dl/EN_Polityka_prywatnosci_v1_(2in1).pdf" target="_blank">Privacy policy</a></li>
+							<li><a href="{$workspace}/dl/Polityka_Prywanosci_MA.pdf" target="_blank">Privacy policy</a></li>
 						</ul>
 					</div>
 					<div class="b">
