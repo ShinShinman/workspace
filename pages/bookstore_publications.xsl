@@ -156,4 +156,19 @@
 	</script>
 </xsl:template>
 
+<xsl:template match="data" mode="meta-tags">
+	<xsl:if test="//ip-localisation/geobytesinternet != 'PL' and //current-language/@handle != 'en'">
+		<meta http-equiv="refresh" content="0; url={$root}/en/bookstore/publications/" />
+	</xsl:if>
+	<!--
+	<xsl:choose>
+		<xsl:when test="//ip-localisation/geobytesinternet = 'PL'">
+		</xsl:when>
+		<xsl:otherwise>
+			<meta http-equiv="refresh" content="0; url={$root}/en/bookstore/publications/" />
+		</xsl:otherwise>
+	</xsl:choose>
+-->
+</xsl:template>
+
 </xsl:stylesheet>
