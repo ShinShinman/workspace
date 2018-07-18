@@ -28,6 +28,11 @@
 <xsl:template match="data">
 	<xsl:choose>
 		<xsl:when test="$title">
+			<xsl:if test="edu-workshop/error">
+				<script>
+					window.location.replace('<xsl:value-of select="$root"/>/error/');
+				</script>
+			</xsl:if>
 			<xsl:apply-templates select="edu-workshop/entry" />
 		</xsl:when>
 		<xsl:otherwise>

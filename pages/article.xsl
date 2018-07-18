@@ -28,6 +28,13 @@
 <xsl:template match="data">
 	<xsl:apply-templates select="exhibition/entry" />
 	<xsl:apply-templates select="event/entry" />
+
+	<xsl:if test="exhibition/error and event/error">
+		<script>
+			window.location.replace('<xsl:value-of select="$root"/>/error/');
+		</script>
+	</xsl:if>
+
 	<xsl:call-template name="news" />
 </xsl:template>
 
