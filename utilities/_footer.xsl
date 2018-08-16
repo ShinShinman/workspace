@@ -42,7 +42,7 @@
 						<ul class="social">
 							<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">&#xe800;</a></li>
 							<li><a href="https://www.youtube.com/channel/UCgaGcndBKY4ZtkXxwUmAasw" target="_blank">y</a></li>
-							<!--<li><a href="javascript:void(0)" target="_blank">i</a></li>-->
+							<li><a href="https://www.instagram.com/muzeum.architektury/" target="_blank">i</a></li>
 							<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 						</ul>
 						<ul class="newsletter">
@@ -61,7 +61,7 @@
 					<ul class="social">
 						<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">&#xe800;</a></li>
 						<li><a href="https://www.youtube.com/channel/UCgaGcndBKY4ZtkXxwUmAasw" target="_blank">y</a></li>
-						<!--<li><a href="javascript:void(0)" target="_blank">i</a></li>-->
+						<li><a href="https://www.instagram.com/muzeum.architektury/" target="_blank">i</a></li>
 						<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 					</ul>
 					<ul class="newsletter">
@@ -101,7 +101,7 @@
 						<ul class="social">
 							<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">&#xe800;</a></li>
 							<li><a href="https://www.youtube.com/channel/UCgaGcndBKY4ZtkXxwUmAasw" target="_blank">y</a></li>
-							<!--<li><a href="javascript:void(0)" target="_blank">i</a></li>-->
+							<li><a href="https://www.instagram.com/muzeum.architektury/" target="_blank">i</a></li>
 							<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 						</ul>
 					</div>
@@ -110,7 +110,7 @@
 					<ul class="social">
 						<li><a href="https://twitter.com/Arch_Muzeum" target="_blank">&#xe800;</a></li>
 						<li><a href="https://www.youtube.com/channel/UCgaGcndBKY4ZtkXxwUmAasw" target="_blank">y</a></li>
-						<!--<li><a href="javascript:void(0)" target="_blank">i</a></li>-->
+						<li><a href="https://www.instagram.com/muzeum.architektury/" target="_blank">i</a></li>
 						<li><a href="https://www.facebook.com/MuzeumArchitektury" target="_blank">f</a></li>
 					</ul>
 					<ul class="newsletter">
