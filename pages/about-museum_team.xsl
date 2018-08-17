@@ -24,37 +24,18 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<xsl:apply-templates select="struktura-organizacyjna/entry" />
-</xsl:template>
-
-<xsl:template match="struktura-organizacyjna/entry">
-	<section class="struktura">
+	<section class="museum-team">
 		<header>
-			<img src="{$workspace}/images/bip_logo.png" />
-			<h1>Biuletyn Informacji Publicznej</h1>
+			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
 			<ul class="inline-list">
-				<xsl:apply-templates select="//bip-nav/page" />
+				<xsl:apply-templates select="//museum-nav/page" />
 			</ul>
 		</header>
 		<article>
-			<!--
-			<xsl:copy-of select="article/node()" />
-			-->
-			<h1>Struktura organizacyjna</h1>
+			<h1><xsl:value-of select="//plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<xsl:apply-templates select="//team-divisions/entry" />
 		</article>
 	</section>
-</xsl:template>
-
-<xsl:template match="bip-nav/page">
-	<xsl:choose>
-		<xsl:when test="@handle = $current-page">
-			<li><a href="javascript:void(0)" class="active"><xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" /></a></li>
-		</xsl:when>
-		<xsl:otherwise>
-			<li><a href="{$root}/{//fl-languages/current-language/@handle}/bip/{item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" /></a></li>
-		</xsl:otherwise>
-	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="team-divisions/entry">
@@ -74,6 +55,14 @@
 	</ul>
 </xsl:template>
 
+<xsl:template match="museum-nav/page">
+	<li>
+		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}">
+			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
+		</a>
+	</li>
+</xsl:template>
+
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
 </xsl:template>
@@ -82,10 +71,10 @@
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">E</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">P</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
@@ -94,13 +83,12 @@
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'white'});
-
+			
 			//Rozwijana lista -> struktura organizacyjna
 			var divButtons = $(".div-button")
 			divButtons.click(function(e){
 				$("."+$(this).data("div")).slideToggle();
 			})
-
 		});
 	</script>
 </xsl:template>
