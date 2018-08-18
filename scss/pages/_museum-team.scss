@@ -1,6 +1,6 @@
 /* MUSEUM TEAM */
 
-.museum-team {
+.museum.team {
 	@extend .text-column;
 	
 	article {
@@ -10,6 +10,11 @@
 			cursor: pointer;
 			margin-bottom: 16px;
 		}
+
+		ul {
+			list-style: none;
+		}
+		
 		.division {
 			display: none;
 		}

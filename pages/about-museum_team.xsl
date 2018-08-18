@@ -24,7 +24,7 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<section class="museum-team">
+	<section class="museum team">
 		<header>
 			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
 			<ul class="inline-list">
