@@ -16,7 +16,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 				-->
-				<xsl:apply-templates select="bookshop-nav/page" />
+				<xsl:apply-templates select="bookshop-nav/page[not(types/type='JSON')]" />
 			</h1>
 		</nav>
 	</xsl:template>
@@ -30,7 +30,7 @@
 				<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" /></a>
 			</xsl:otherwise>
 		</xsl:choose>
-		<xsl:if test="following-sibling::page[1]">
+		<xsl:if test="following-sibling::page[2]">
 			<xsl:text> /</xsl:text>
 		</xsl:if>
 	</xsl:template>
