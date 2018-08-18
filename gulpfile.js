@@ -110,5 +110,6 @@ gulp.task('default', ['browserSync', 'sass'], function() {
     gulp.watch('coffee/**/*.coffee', ['coffee']);
     gulp.watch('coffee/js/*.js', ['scripts']);
     gulp.watch('pages/*.xsl', browserSync.reload);
+    gulp.watch('utilities/*.xsl', browserSync.reload);
     gulp.watch('index.html', browserSync.reload);
 });
