@@ -9,19 +9,19 @@
 		<article>
 			<xsl:attribute name="class">brick <xsl:apply-templates select="category/item" /></xsl:attribute>
 			<xsl:choose>
-				<xsl:when test="name(..) = 'edu-lessons'">
+				<xsl:when test="../section/@handle = 'lessons'">
 					<xsl:call-template name="lesson" />
 				</xsl:when>
-				<xsl:when test="name(..) = 'edu-aid'">
+				<xsl:when test="../section/@handle = 'lessons-aid'">
 					<xsl:call-template name="aid" />
 				</xsl:when>
-				<xsl:when test="name(..) = 'edu-games'">
+				<xsl:when test="../section/@handle = 'edu-games'">
 					<xsl:call-template name="games" />
 				</xsl:when>
-				<xsl:when test="name(..) = 'edu-workshops'">
+				<xsl:when test="../section/@handle = 'edu-workshops'">
 					<xsl:call-template name="workshops" />
 				</xsl:when>
-				<xsl:when test="name(..) = 'edu-lectures'">
+				<xsl:when test="../section/@handle = 'edu-lectures'">
 					<xsl:call-template name="lectures" />
 				</xsl:when>
 			</xsl:choose>
@@ -44,7 +44,6 @@
 	</xsl:template>
 
 	<xsl:template name="aid">
-
 		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/materialy-edukacyjne/{title/@handle}">
 			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 			<!--<p class="category">Edukacja</p>-->
@@ -54,7 +53,6 @@
 	</xsl:template>
 
 	<xsl:template name="games">
-
 		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/gry-edukacyjne/{title/@handle}">
 			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 			<!--<p class="category">Edukacja</p>-->
@@ -64,7 +62,6 @@
 	</xsl:template>
 
 	<xsl:template name="workshops">
-
 		<a href="{$root}/{title/@lang}/{//dictionary/entry/word[@handle-pl = 'edukacja']}/dzieci-i-rodzice/{title/@handle}">
 			<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 			<p class="category">Edukacja</p>

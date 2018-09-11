@@ -1947,7 +1947,6 @@ body {
     font-weight: bold;
     color: magenta; }
   .sticky-nav nav form {
-    opacity: 0;
     -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
     margin-right: 15px;
@@ -2190,7 +2189,7 @@ section:last-of-type {
   border-top-style: solid;
   padding-top: 5px; }
 
-.color-label, .tag, .event, .oppening, .edu-items li.przedszkola, .edu-items li.klasy-0-3, .edu-items li.klasy-4-6, .edu-items li.klasy-7-8, .edu-items li.szkoly-srednie, .edu-items li.wyklady-dla-mlodziezy, .edu-items li.dzieci, .edu-items li.nauczyciele, .edu-items li.dorosli, .edu-items li.gry-on-line, .edu-items li.gry-planszowe, .edu-items li.gry-terenowe, .edu-items li.dla-dzieci, .edu-items li.dla-nauczycieli, .edu-items li.gry, li.wyklady-dla-mlodziezy {
+.color-label, .tag, .event, .oppening, .edu-items li.przedszkola, .bricks-container li.przedszkola, .edu-items li.klasy-0-3, .bricks-container li.klasy-0-3, .edu-items li.klasy-4-6, .bricks-container li.klasy-4-6, .edu-items li.klasy-7-8, .bricks-container li.klasy-7-8, .edu-items li.szkoly-srednie, .bricks-container li.szkoly-srednie, .edu-items li.wyklady-dla-mlodziezy, .bricks-container li.wyklady-dla-mlodziezy, .edu-items li.dzieci, .bricks-container li.dzieci, .edu-items li.nauczyciele, .bricks-container li.nauczyciele, .edu-items li.dorosli, .bricks-container li.dorosli, .edu-items li.gry-on-line, .bricks-container li.gry-on-line, .edu-items li.gry-planszowe, .bricks-container li.gry-planszowe, .edu-items li.gry-terenowe, .bricks-container li.gry-terenowe, .edu-items li.dla-dzieci, .bricks-container li.dla-dzieci, .edu-items li.dla-nauczycieli, .bricks-container li.dla-nauczycieli, .edu-items li.gry, .bricks-container li.gry, li.wyklady-dla-mlodziezy {
   color: white;
   font-weight: normal;
   padding: 0 6px; }
@@ -2264,91 +2263,91 @@ section:last-of-type {
 .edu article li {
   margin-bottom: 12px; }
 
-.edu-items {
+.edu-items, .bricks-container {
   overflow: hidden;
   /* Materiały edukacyjne */
   /* Gry edukacyjne */
   /* Materiały do pobrania */ }
-  .edu-items header {
+  .edu-items header, .bricks-container header {
     margin-bottom: 12px; }
-    .edu-items header h1, .edu-items header .slide-down a, .slide-down .edu-items header a {
+    .edu-items header h1, .edu-items header .slide-down a, .slide-down .edu-items header a, .bricks-container header h1, .bricks-container header .slide-down a, .slide-down .bricks-container header a {
       margin-bottom: 24px; }
-  .edu-items .edu-categories {
+  .edu-items .edu-categories, .bricks-container .edu-categories {
     overflow: auto; }
-    .edu-items .edu-categories a:before {
+    .edu-items .edu-categories a:before, .bricks-container .edu-categories a:before {
       content: none; }
-    .edu-items .edu-categories li {
+    .edu-items .edu-categories li, .bricks-container .edu-categories li {
       float: left;
       margin-right: 8px;
       margin-bottom: 8px; }
-      .edu-items .edu-categories li.inactive-filter {
+      .edu-items .edu-categories li.inactive-filter, .bricks-container .edu-categories li.inactive-filter {
         opacity: 0.4; }
-      .edu-items .edu-categories li.label {
+      .edu-items .edu-categories li.label, .bricks-container .edu-categories li.label {
         color: black; }
-      .edu-items .edu-categories li .clear-filter {
+      .edu-items .edu-categories li .clear-filter, .bricks-container .edu-categories li .clear-filter {
         margin-left: 5px;
         border-left: white 1px solid;
         padding-left: 5px;
         display: none; }
-  .edu-items .przedszkola h1, .edu-items .przedszkola .slide-down a, .slide-down .edu-items .przedszkola a {
+  .edu-items .przedszkola h1, .edu-items .przedszkola .slide-down a, .slide-down .edu-items .przedszkola a, .bricks-container .przedszkola h1, .bricks-container .przedszkola .slide-down a, .slide-down .bricks-container .przedszkola a {
     border-color: #3abb4a; }
-  .edu-items li.przedszkola {
+  .edu-items li.przedszkola, .bricks-container li.przedszkola {
     background-color: #3abb4a; }
-  .edu-items .klasy-0-3 h1, .edu-items .klasy-0-3 .slide-down a, .slide-down .edu-items .klasy-0-3 a {
+  .edu-items .klasy-0-3 h1, .edu-items .klasy-0-3 .slide-down a, .slide-down .edu-items .klasy-0-3 a, .bricks-container .klasy-0-3 h1, .bricks-container .klasy-0-3 .slide-down a, .slide-down .bricks-container .klasy-0-3 a {
     border-color: #3abb4a; }
-  .edu-items li.klasy-0-3 {
+  .edu-items li.klasy-0-3, .bricks-container li.klasy-0-3 {
     background-color: #3abb4a; }
-  .edu-items .klasy-4-6 h1, .edu-items .klasy-4-6 .slide-down a, .slide-down .edu-items .klasy-4-6 a {
+  .edu-items .klasy-4-6 h1, .edu-items .klasy-4-6 .slide-down a, .slide-down .edu-items .klasy-4-6 a, .bricks-container .klasy-4-6 h1, .bricks-container .klasy-4-6 .slide-down a, .slide-down .bricks-container .klasy-4-6 a {
     border-color: #6f9bff; }
-  .edu-items li.klasy-4-6 {
+  .edu-items li.klasy-4-6, .bricks-container li.klasy-4-6 {
     background-color: #6f9bff; }
-  .edu-items .klasy-7-8 h1, .edu-items .klasy-7-8 .slide-down a, .slide-down .edu-items .klasy-7-8 a {
+  .edu-items .klasy-7-8 h1, .edu-items .klasy-7-8 .slide-down a, .slide-down .edu-items .klasy-7-8 a, .bricks-container .klasy-7-8 h1, .bricks-container .klasy-7-8 .slide-down a, .slide-down .bricks-container .klasy-7-8 a {
     border-color: #d45fc5; }
-  .edu-items li.klasy-7-8 {
+  .edu-items li.klasy-7-8, .bricks-container li.klasy-7-8 {
     background-color: #d45fc5; }
-  .edu-items .szkoly-srednie h1, .edu-items .szkoly-srednie .slide-down a, .slide-down .edu-items .szkoly-srednie a {
+  .edu-items .szkoly-srednie h1, .edu-items .szkoly-srednie .slide-down a, .slide-down .edu-items .szkoly-srednie a, .bricks-container .szkoly-srednie h1, .bricks-container .szkoly-srednie .slide-down a, .slide-down .bricks-container .szkoly-srednie a {
     border-color: #38bfac; }
-  .edu-items li.szkoly-srednie {
+  .edu-items li.szkoly-srednie, .bricks-container li.szkoly-srednie {
     background-color: #38bfac; }
-  .edu-items .wyklady-dla-mlodziezy h1, .edu-items .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-items .wyklady-dla-mlodziezy a {
+  .edu-items .wyklady-dla-mlodziezy h1, .edu-items .wyklady-dla-mlodziezy .slide-down a, .slide-down .edu-items .wyklady-dla-mlodziezy a, .bricks-container .wyklady-dla-mlodziezy h1, .bricks-container .wyklady-dla-mlodziezy .slide-down a, .slide-down .bricks-container .wyklady-dla-mlodziezy a {
     border-color: #ff5e57; }
-  .edu-items li.wyklady-dla-mlodziezy {
+  .edu-items li.wyklady-dla-mlodziezy, .bricks-container li.wyklady-dla-mlodziezy {
     background-color: #ff5e57; }
-  .edu-items .dzieci h1, .edu-items .dzieci .slide-down a, .slide-down .edu-items .dzieci a {
+  .edu-items .dzieci h1, .edu-items .dzieci .slide-down a, .slide-down .edu-items .dzieci a, .bricks-container .dzieci h1, .bricks-container .dzieci .slide-down a, .slide-down .bricks-container .dzieci a {
     border-color: #c4a7da; }
-  .edu-items li.dzieci {
+  .edu-items li.dzieci, .bricks-container li.dzieci {
     background-color: #c4a7da; }
-  .edu-items .nauczyciele h1, .edu-items .nauczyciele .slide-down a, .slide-down .edu-items .nauczyciele a {
+  .edu-items .nauczyciele h1, .edu-items .nauczyciele .slide-down a, .slide-down .edu-items .nauczyciele a, .bricks-container .nauczyciele h1, .bricks-container .nauczyciele .slide-down a, .slide-down .bricks-container .nauczyciele a {
     border-color: #c3c3c3; }
-  .edu-items li.nauczyciele {
+  .edu-items li.nauczyciele, .bricks-container li.nauczyciele {
     background-color: #c3c3c3; }
-  .edu-items .dorosli h1, .edu-items .dorosli .slide-down a, .slide-down .edu-items .dorosli a {
+  .edu-items .dorosli h1, .edu-items .dorosli .slide-down a, .slide-down .edu-items .dorosli a, .bricks-container .dorosli h1, .bricks-container .dorosli .slide-down a, .slide-down .bricks-container .dorosli a {
     border-color: #525252; }
-  .edu-items li.dorosli {
+  .edu-items li.dorosli, .bricks-container li.dorosli {
     background-color: #525252; }
-  .edu-items .gry-on-line h1, .edu-items .gry-on-line .slide-down a, .slide-down .edu-items .gry-on-line a {
+  .edu-items .gry-on-line h1, .edu-items .gry-on-line .slide-down a, .slide-down .edu-items .gry-on-line a, .bricks-container .gry-on-line h1, .bricks-container .gry-on-line .slide-down a, .slide-down .bricks-container .gry-on-line a {
     border-color: #75baff; }
-  .edu-items li.gry-on-line {
+  .edu-items li.gry-on-line, .bricks-container li.gry-on-line {
     background-color: #75baff; }
-  .edu-items .gry-planszowe h1, .edu-items .gry-planszowe .slide-down a, .slide-down .edu-items .gry-planszowe a {
+  .edu-items .gry-planszowe h1, .edu-items .gry-planszowe .slide-down a, .slide-down .edu-items .gry-planszowe a, .bricks-container .gry-planszowe h1, .bricks-container .gry-planszowe .slide-down a, .slide-down .bricks-container .gry-planszowe a {
     border-color: #e2d538; }
-  .edu-items li.gry-planszowe {
+  .edu-items li.gry-planszowe, .bricks-container li.gry-planszowe {
     background-color: #e2d538; }
-  .edu-items .gry-terenowe h1, .edu-items .gry-terenowe .slide-down a, .slide-down .edu-items .gry-terenowe a {
+  .edu-items .gry-terenowe h1, .edu-items .gry-terenowe .slide-down a, .slide-down .edu-items .gry-terenowe a, .bricks-container .gry-terenowe h1, .bricks-container .gry-terenowe .slide-down a, .slide-down .bricks-container .gry-terenowe a {
     border-color: #4cb87b; }
-  .edu-items li.gry-terenowe {
+  .edu-items li.gry-terenowe, .bricks-container li.gry-terenowe {
     background-color: #4cb87b; }
-  .edu-items .dla-dzieci h1, .edu-items .dla-dzieci .slide-down a, .slide-down .edu-items .dla-dzieci a {
+  .edu-items .dla-dzieci h1, .edu-items .dla-dzieci .slide-down a, .slide-down .edu-items .dla-dzieci a, .bricks-container .dla-dzieci h1, .bricks-container .dla-dzieci .slide-down a, .slide-down .bricks-container .dla-dzieci a {
     border-color: #9ea1a9; }
-  .edu-items li.dla-dzieci {
+  .edu-items li.dla-dzieci, .bricks-container li.dla-dzieci {
     background-color: #9ea1a9; }
-  .edu-items .dla-nauczycieli h1, .edu-items .dla-nauczycieli .slide-down a, .slide-down .edu-items .dla-nauczycieli a {
+  .edu-items .dla-nauczycieli h1, .edu-items .dla-nauczycieli .slide-down a, .slide-down .edu-items .dla-nauczycieli a, .bricks-container .dla-nauczycieli h1, .bricks-container .dla-nauczycieli .slide-down a, .slide-down .bricks-container .dla-nauczycieli a {
     border-color: #565656; }
-  .edu-items li.dla-nauczycieli {
+  .edu-items li.dla-nauczycieli, .bricks-container li.dla-nauczycieli {
     background-color: #565656; }
-  .edu-items .gry h1, .edu-items .gry .slide-down a, .slide-down .edu-items .gry a {
+  .edu-items .gry h1, .edu-items .gry .slide-down a, .slide-down .edu-items .gry a, .bricks-container .gry h1, .bricks-container .gry .slide-down a, .slide-down .bricks-container .gry a {
     border-color: red; }
-  .edu-items li.gry {
+  .edu-items li.gry, .bricks-container li.gry {
     background-color: red; }
 
 .wyklady-dla-mlodziezy h1, .wyklady-dla-mlodziezy .slide-down a, .slide-down .wyklady-dla-mlodziezy a {
@@ -2829,6 +2828,17 @@ section.maintenance {
   margin-bottom: 250px; }
   .digitizing .archive-digitizing header h1, .digitizing .archive-digitizing header .slide-down a, .slide-down .digitizing .archive-digitizing header a {
     margin-bottom: 12px; }
+
+/* MAIN SEARCH */
+.search header form input[type=text] {
+  border: none;
+  border-bottom: solid 4px;
+  outline: none;
+  width: 100%;
+  text-align: center; }
+
+.search article {
+  margin-bottom: 24px; }
 
 /* 404 page */
 .e404 .error {
