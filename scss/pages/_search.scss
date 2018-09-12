@@ -1,0 +1,20 @@
+/* MAIN SEARCH */
+
+.search {
+
+	header {
+		form {
+			input[type=text] {
+				border: none;
+				border-bottom: solid 4px;
+				outline: none;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+	
+	article {
+		margin-bottom: 24px;
+	}
+}

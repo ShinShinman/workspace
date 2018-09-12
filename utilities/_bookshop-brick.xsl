@@ -7,9 +7,19 @@
 
 	<xsl:template name="bookshop-brick">
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
+		<xsl:variable name="subsite">
+			<xsl:choose>
+				<xsl:when test="$lang = 'pl'">
+					<xsl:text>ksiegarnia/wydawnictwa</xsl:text>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:text>bookstore/publications</xsl:text>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
 
 		<article class="book brick {category/item/bookshop-category/@handle}">
-			<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang = //current-language/@handle]/@handle}/{title/@handle}">
+			<a href="{$root}/{//current-language/@handle}/{$subsite}/{title/@handle}">
 				<div class="bookshop-brick-header">
 					<h1 class="donthyphenate">
 						<!--<xsl:apply-templates select="badge" />-->
