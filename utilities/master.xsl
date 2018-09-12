@@ -85,6 +85,16 @@
 </xsl:template>
 
 <xsl:template name="sticky-nav">
+	<xsl:variable name="subsite">
+		<xsl:choose>
+			<xsl:when test="//current-language/@handle = 'pl'">
+				<xsl:text>wyszukiwarka</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>search</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
 
 	<div class="sticky-nav donthyphenate" data-state="collapsed">
 
@@ -101,7 +111,7 @@
 				<xsl:text>M</xsl:text>
 			</a>
 			<!-- To należy przerobić po przeniesieniu triggera wyszukiwarki -->
-			<form id="search-form" action="{$root}/{//current-language/@handle}/wyszukiwarka/" method="get">
+			<form id="search-form" action="{$root}/{//current-language/@handle}/{$subsite}/" method="get">
 				<input type="text" name="keywords" placeholder="Wyszukaj…" autocomplete="off" value="{//params/url-keywords}" />
 				<input type="hidden" name="sort" value="score-recency" />
 				<input type="hidden" name="per-page" value="10" />

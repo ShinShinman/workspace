@@ -5,9 +5,19 @@
 
 	<xsl:template name="collections-brick">
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
+		<xsl:variable name="subsite">
+			<xsl:choose>
+				<xsl:when test="$lang = 'pl'">
+					<xsl:text>o-muzeum/zbiory-muzeum</xsl:text>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:text>about-museum/collection</xsl:text>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
 
 		<article class="brick">
-			<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{title/@handle}/">
+			<a href="{$root}/{//fl-languages/current-language/@handle}/{$subsite}/{title/@handle}/">
 				<h1 class="donthyphenate"><xsl:value-of select="title" /></h1>
 				<xsl:apply-templates select="subtitle" />
 				<xsl:copy-of select="lead/node()" />
