@@ -114,6 +114,12 @@
 				border-right: none;
 				height: 46px;
 				padding: 0 5px;
+				&:focus {
+					&::-webkit-input-placeholder { color: transparent; }
+					&:-moz-placeholder { color: transparent; }
+					&::-moz-placeholder { color: transparent; }
+					&:-ms-input-placeholder { color: transparent; }
+				}
 			}
 		}
 

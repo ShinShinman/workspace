@@ -11,20 +11,3 @@
 .bookshop-page {
 	@extend .text-column;
 }
-
-.publications {
-	.info-banner {
-		font-weight: bold;
-		color: black;
-		background-color: magenta;
-		margin-bottom: $global-margin;
-
-		p {
-			margin-bottom: $global-margin;
-
-			&:last-of-type {
-				margin-bottom: 0;
-			}
-		}
-	}
-}

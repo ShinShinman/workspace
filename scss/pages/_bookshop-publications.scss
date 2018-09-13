@@ -1,0 +1,41 @@
+/* BOOKSHOP PUBLICATIONS */
+
+.publications {
+	.info-banner {
+		font-weight: bold;
+		color: black;
+		background-color: magenta;
+		margin-bottom: $global-margin;
+
+		p {
+			margin-bottom: $global-margin;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.bookshop-nav {
+		.filters {
+			.search {
+				float: right;
+				width: columns-width(4);
+				margin-right: 0;
+				input[type = text] {
+					width: columns-width(4) - 12px;
+					border: solid 1px black;
+					outline: none;
+					padding-left: 5px;
+					padding-right: 5px;
+					&:focus {
+						&::-webkit-input-placeholder { color: transparent; }
+						&:-moz-placeholder { color: transparent; }
+						&::-moz-placeholder { color: transparent; }
+						&:-ms-input-placeholder { color: transparent; }
+					}
+				}
+			}
+		}
+	}
+}

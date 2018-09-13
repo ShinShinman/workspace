@@ -1964,6 +1964,14 @@ body {
       border-right: none;
       height: 46px;
       padding: 0 5px; }
+      .sticky-nav nav form input[type=text]:focus::-webkit-input-placeholder {
+        color: transparent; }
+      .sticky-nav nav form input[type=text]:focus:-moz-placeholder {
+        color: transparent; }
+      .sticky-nav nav form input[type=text]:focus::-moz-placeholder {
+        color: transparent; }
+      .sticky-nav nav form input[type=text]:focus:-ms-input-placeholder {
+        color: transparent; }
   .sticky-nav nav input[type=submit] {
     width: 48px;
     border-left: none; }
@@ -2480,6 +2488,7 @@ section.maintenance {
 .bookshop-nav nav h1, .bookshop-nav nav .slide-down a, .slide-down .bookshop-nav nav a {
   margin-bottom: 24px; }
 
+/* BOOKSHOP PUBLICATIONS */
 .publications .info-banner {
   font-weight: bold;
   color: black;
@@ -2489,6 +2498,25 @@ section.maintenance {
     margin-bottom: 24px; }
     .publications .info-banner p:last-of-type {
       margin-bottom: 0; }
+
+.publications .bookshop-nav .filters .search {
+  float: right;
+  width: 311.332px;
+  margin-right: 0; }
+  .publications .bookshop-nav .filters .search input[type=text] {
+    width: 299.332px;
+    border: solid 1px black;
+    outline: none;
+    padding-left: 5px;
+    padding-right: 5px; }
+    .publications .bookshop-nav .filters .search input[type=text]:focus::-webkit-input-placeholder {
+      color: transparent; }
+    .publications .bookshop-nav .filters .search input[type=text]:focus:-moz-placeholder {
+      color: transparent; }
+    .publications .bookshop-nav .filters .search input[type=text]:focus::-moz-placeholder {
+      color: transparent; }
+    .publications .bookshop-nav .filters .search input[type=text]:focus:-ms-input-placeholder {
+      color: transparent; }
 
 .single-book p.author {
   margin-bottom: 12px; }
