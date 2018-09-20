@@ -27,6 +27,7 @@
 <xsl:include href="../utilities/_fc-link.xsl" />
 
 <xsl:template match="data">
+	<!--
 	<xsl:choose>
 		<xsl:when test="$title">
 			<xsl:if test="bookshop-book/error">
@@ -40,6 +41,7 @@
 			<xsl:call-template name="bookshop" />
 		</xsl:otherwise>
 	</xsl:choose>
+	-->
 </xsl:template>
 
 <xsl:template match="bookshop-book/entry">
@@ -144,6 +146,31 @@
 </xsl:template>
 
 <xsl:template match="data" mode="meta-tags">
+	<xsl:variable name="lang">
+		<xsl:value-of select="//current-language/@handle" />
+	</xsl:variable>
+
+	<xsl:variable name="subpage">
+		<xsl:choose>
+			<xsl:when test="$lang = 'pl'">
+				<xsl:text>wydawnictwa</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>publications</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+
+	<xsl:choose>
+		<xsl:when test="$title">
+			<meta http-equiv="refresh" content="0; url={$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{$subpage}/{$title}/" />	
+		</xsl:when>
+		<xsl:otherwise>
+			<meta http-equiv="refresh" content="0; url={$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{$subpage}/" />
+		</xsl:otherwise>
+	</xsl:choose>
+
+
 	<!--<xsl:if test="//ip-localisation/geobytesinternet != 'PL' and //current-language/@handle != 'en'">
 		<meta http-equiv="refresh" content="0; url={$root}/en/bookstore/publications/" />
 	</xsl:if>-->

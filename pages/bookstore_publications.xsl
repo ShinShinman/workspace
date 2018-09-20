@@ -201,6 +201,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="meta-tags">
+
 	<!--<xsl:if test="//ip-localisation/geobytesinternet != 'PL' and //current-language/@handle != 'en'">
 		<meta http-equiv="refresh" content="0; url={$root}/en/bookstore/publications/" />
 	</xsl:if>-->
