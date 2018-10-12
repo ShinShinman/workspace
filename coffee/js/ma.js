@@ -368,6 +368,40 @@
       });
     };
 
+    MA.prototype.getCountryCode = function(lang, url) {
+      var apiKey;
+      apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4";
+      $.ajax({
+        url: "https://api.ipdata.co/country_code?api-key=" + apiKey,
+        type: 'GET',
+        dataType: 'text',
+        error: function(jqXHR, textStatus, errorThrown) {
+          return console.log("AJAX Error: " + textStatus);
+        },
+        success: function(data, textStatus, jqXHR) {
+          if (data !== 'PL' && lang !== 'en') {
+            return window.location.replace("" + url);
+          }
+        }
+      });
+    };
+
+    MA.prototype.getCurrentLimit = function() {
+      var apiKey;
+      apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4";
+      $.ajax({
+        url: "https://api.ipdata.co/count?api-key=" + apiKey,
+        type: "GET",
+        dataType: "text",
+        error: function(jqXHR, textStatus, errorThrown) {
+          return console.log("AJAX Error: " + textStatus);
+        },
+        success: function(data, textStatus, jqXHR) {
+          return console.log("Dziś użyto usługi " + data + " razy. Dziś możesz z niej skorzystać jeszcze " + (1500 - data) + " razy.");
+        }
+      });
+    };
+
     apiTest = function() {
       return console.log('Public API available!');
     };

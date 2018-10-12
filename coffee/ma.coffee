@@ -337,6 +337,32 @@ class MA
 				.slider 'float'
 				updateLegend $('.slider').slider('values', 0), $('.slider').slider('values', 1)
 
+	getCountryCode: (lang, url) ->
+		apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4"
+		$.ajax
+			url: "https://api.ipdata.co/country_code?api-key=#{apiKey}" 
+			type: 'GET'
+			dataType: 'text'
+			error: (jqXHR, textStatus, errorThrown) ->
+				console.log "AJAX Error: #{textStatus}"
+			success: (data, textStatus, jqXHR) ->
+				#console.log "Successful AJAX call: #{data}"
+				if data isnt 'PL' and lang isnt 'en'
+					window.location.replace "#{url}"
+		return
+
+	getCurrentLimit: ->
+		apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4"
+		$.ajax
+			url: "https://api.ipdata.co/count?api-key=#{apiKey}"
+			type: "GET"
+			dataType: "text"
+			error: (jqXHR, textStatus, errorThrown) ->
+				console.log "AJAX Error: #{textStatus}"
+			success: (data, textStatus, jqXHR) ->
+				console.log "Dziś użyto usługi #{data} razy. Dziś możesz z niej skorzystać jeszcze #{1500-data} razy."
+		return 				
+
 	apiTest = ->
   	console.log 'Public API available!'
 
