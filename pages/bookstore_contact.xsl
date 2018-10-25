@@ -58,14 +58,6 @@
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/')" />
 </xsl:template>
 
-<!--
-<xsl:template match="data" mode="meta-tags">
-	<xsl:if test="//ip-localisation/geobytesinternet != 'PL' and //current-language/@handle != 'en'">
-		<meta http-equiv="refresh" content="0; url={$root}/en/bookstore/contact/" />
-	</xsl:if>
-</xsl:template>
--->
-
 <xsl:template match="data" mode="js">
 
 	<script>
