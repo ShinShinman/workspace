@@ -8,7 +8,7 @@
 
 		<article class="brick {category/item/exhib-category/@handle}">
 			<a href="{$root}/{title/@lang}/{//dictionary//word[@handle-pl = 'artykul']/@handle}/{title/@handle}">
-				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
+				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:copy-of select="title[1]/p/node()" /></h1>
 				<xsl:apply-templates select="subtitle" />
 				<xsl:apply-templates select="./category/item" mode="brick" />
 				<xsl:apply-templates select="./date" />

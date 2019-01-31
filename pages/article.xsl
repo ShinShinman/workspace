@@ -52,7 +52,7 @@
 			<ul class="category-list">
 				<xsl:apply-templates select="category/item" />
 			</ul>
-			<h1><xsl:value-of select="title" /></h1>
+			<h1><xsl:copy-of select="title[1]/p/node()" /></h1>
 			<xsl:apply-templates select="subtitle" />
 			<h3 class="date"><xsl:copy-of select="date/p/node()" /></h3>
 			

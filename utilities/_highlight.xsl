@@ -16,7 +16,7 @@
 		<a href="{article-link}">
 			<div class="item" style="background-image: url({$workspace}{image/@path}/{image/filename});">
 				<div class="text-box">
-					<h1><xsl:value-of select="title" /></h1>
+					<h1><xsl:copy-of select="title[1]/p/node()" /></h1>
 					<xsl:copy-of select="text-box/node()" />
 					<!--<h3><a href="#"><span class="icon">F</span> Zapowiedź wystawy</a></h3>-->
 				</div>
