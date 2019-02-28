@@ -139,17 +139,23 @@
 			</ul>
 		</nav>
 
+		<!-- MAIN-MENU POWINNO BYĆ OSOBNYM MODUŁEM W UTILITIES! -->
 		<div class="main-menu">
 			<div class="left small-stripe">
 				<ul>
 					<xsl:apply-templates select="//main-menu/entry/links/item" />
-					<li><a href="https://ewejsciowki.pl/embedded/repertuar/924" onclick="MA.api.closeMenu();">eWejściówki</a></li>
+					
+					<!-- PRZENIEŚĆ TO CO NIŻEJ DO OSOBNEGO TEMPLATE -->
+					<li><a href="https://ewejsciowki.pl/embedded/repertuar/924" onclick="MA.api.closeMenu();">Kup bilety online</a></li>
+					<!---->
+
 				</ul>
 			</div>
 			<div class="right small-stripe">
 				<xsl:copy-of select="//main-menu/entry/prawa-kolumna" />
 			</div>
 		</div>
+		<!-- TU KONIEC MODUŁU MAIN-MENU -->
 
 	</div>
 
