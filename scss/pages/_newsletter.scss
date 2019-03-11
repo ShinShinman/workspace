@@ -4,15 +4,18 @@
 	@extend .text-column;
 
 	.subscribe-form {
-		width: columns-width(5);
+		
 		margin-bottom: 24px;
 		overflow: auto;
 
 		fieldset {
 			border: none;
-			width: 100%;
 			margin: 0;
 			padding: 0;
+		}
+
+		fieldset.main-form {
+			width: columns-width(5);
 		}
 
 		input {
@@ -33,11 +36,6 @@
 			&.lname {
 				width: columns-width(3);
 			}
-			&.rodo {
-				margin-right: 12px;
-				margin-top: 2px;
-				float: left;
-			}
 			&[type = "email"] {
 				width: columns-width(5);
 			}
@@ -47,12 +45,24 @@
 				float: right;
 			}
 		}
-		p.rodo {
-			font-size: 12px;
 
-			&.label {
-				font-weight: bold;
-				margin-bottom: 0;
+		fieldset.rodo-consent {
+			margin-top: 1rem;
+			input {
+				&.rodo {
+					margin-right: 12px;
+					margin-top: 2px;
+					margin-bottom: 0;
+					float: left;
+				}
+			}
+			p.rodo {
+				font-size: 12px;
+
+				&.label {
+					font-weight: bold;
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
