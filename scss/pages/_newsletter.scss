@@ -33,6 +33,11 @@
 			&.lname {
 				width: columns-width(3);
 			}
+			&.rodo {
+				margin-right: 12px;
+				margin-top: 2px;
+				float: left;
+			}
 			&[type = "email"] {
 				width: columns-width(5);
 			}
@@ -40,6 +45,14 @@
 				background-color: black;
 				color: white;
 				float: right;
+			}
+		}
+		p.rodo {
+			font-size: 12px;
+
+			&.label {
+				font-weight: bold;
+				margin-bottom: 0;
 			}
 		}
 	}

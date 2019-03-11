@@ -65,6 +65,9 @@
 				<input type="text" value="" name="FNAME" id="mce-FNAME" class="fname" placeholder="Imię" />
 				<input type="text" value="" name="LNAME" id="mce-LNAME" class="lname" placeholder="Nazwisko" />
 				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email*" />
+				<input type="checkbox" name="mailchimp-name" id="mailchimp-id" value="yes" class="rodo" />
+				<p class="rodo label">Zgoda na przetwarzanie danych osobowych dla subskrybentów newslettera</p>
+				<p class="rodo">Wyrażam zgodę na przetwarzanie moich danych osobowych przez Muzeum Architektury we Wrocławiu, ul. Bernardyńska 5, 50-156 Wrocław w celach: prowadzenia działań  marketingowych promujących prowadzoną działalność z wykorzystaniem adresów e-mail w przepadku subskrybentów newslettera. Dane w tym celu przetwarzane będą na podstawie art. 6 ust. 1 lit. a) RODO.  Osoba, której dane dotyczą, ma prawo dostępu do treści swoich danych osobowych oraz prawo ich sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych, prawo wniesienia sprzeciwu, prawo do cofnięcia zgody w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem. W celu realizacji uprawnień, osoba której dane dotyczą może wysłać stosowną wiadomość e-mail na adres: iod@ma.wroc.pl</p>
 				<input type="hidden" name="list" value="9561c3dfb6" />
 				<input type="submit" value="Wyślij" name="subscribe" id="mc-embedded-subscribe" class="button" />
 				<div id="mce-responses" class="clear">

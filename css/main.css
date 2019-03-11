@@ -2644,12 +2644,21 @@ section.maintenance {
       margin-right: 10px; }
     .newsletter-text .subscribe-form input.lname {
       width: 229.749px; }
+    .newsletter-text .subscribe-form input.rodo {
+      margin-right: 12px;
+      margin-top: 2px;
+      float: left; }
     .newsletter-text .subscribe-form input[type="email"] {
       width: 392.915px; }
     .newsletter-text .subscribe-form input[type="submit"] {
       background-color: black;
       color: white;
       float: right; }
+  .newsletter-text .subscribe-form p.rodo {
+    font-size: 12px; }
+    .newsletter-text .subscribe-form p.rodo.label {
+      font-weight: bold;
+      margin-bottom: 0; }
 
 /* ABOUT MUSEUM pages */
 .museum header h1, .museum header .slide-down a, .slide-down .museum header a {
