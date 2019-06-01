@@ -46,24 +46,9 @@
 </xsl:template>
 
 <xsl:template name="mailchimp-form">
-<!--
-	<div class="subscribe-form">
-		<form method="post" action="" enctype="multipart/form-data">
-			<fieldset>
-				<input type="text" value="" name="merge[FNAME]" class="fname" placeholder="Imię" />
-				<input type="text" value="" name="merge[LNAME]" class="lname" placeholder="Nazwisko" />
-				<input type="email" value="" name="email" placeholder="Email*" />
-				<input type="hidden" name="list" value="9561c3dfb6" />
-				<input type="submit" value="Wyślij" name="action[signup]" />
-			</fieldset>
-		</form>
-	</div>
--->
-
 	<xsl:call-template name="singup-form">
 		<xsl:with-param name="lang" select="//current-language/@handle" />
 	</xsl:call-template>
-	
 </xsl:template>
 
 <xsl:template name="singup-form">
