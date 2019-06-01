@@ -3050,7 +3050,15 @@ section.maintenance {
     height: 175px; }
   /* SEARCH */
   .search .search-results .tail {
-    width: 311.332px; } }
+    width: 311.332px; }
+  /* PAGE: NEWSLETTER */
+  .newsletter .subscribe-form fieldset.main-form {
+    width: 311.332px; }
+    .newsletter .subscribe-form fieldset.main-form input {
+      float: none;
+      width: 311.332px; }
+      .newsletter .subscribe-form fieldset.main-form input[type="submit"] {
+        margin-top: 12px; } }
 
 /* 
  *  Core Owl Carousel CSS File

@@ -218,5 +218,20 @@
 			}
 		}
 	}
+	/* PAGE: NEWSLETTER */ //1.06.2019
+	.newsletter {
+		.subscribe-form {
+			fieldset.main-form {
+				width: columns-width(4); 
+				input {
+					float: none;
+					width: columns-width(4);
+					&[type = "submit"] {
+						margin-top: 12px;
+					}
+				}
+			}
+		}
+	}
 }
 
