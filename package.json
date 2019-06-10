@@ -1,7 +1,7 @@
 {
   "name": "mawebsite",
-  "version": "3.0.3",
-  "description": "O muzeum/Zespół – dolny margines",
+  "version": "3.0.4",
+  "description": "AB – główna wyszukiwarka ukryta na stronie z wyszukiwarką AB",
   "author": "Olaf Schindler",
   "license": "MIT",
   "repository": "https://github.com/ShinShinman/MAWWW.git",

@@ -93,7 +93,7 @@
 
 		form {
 
-			//opacity: 0;
+			//visibility: hidden;
 			@include defaulf-transition(opacity);
 
 			margin-right: $gutter;
