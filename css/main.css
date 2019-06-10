@@ -2778,45 +2778,50 @@ section.maintenance {
   font-weight: normal; }
 
 /* CONSTRUCTION ARCHIVE SEARCH */
-.search > header {
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-bottom: 15px; }
-  .search > header.offset {
-    min-height: 125px; }
-
-.search .archive-text {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important; }
-  .search .archive-text header h1, .search .archive-text header .slide-down a, .slide-down .search .archive-text header a {
-    margin-bottom: 12px; }
-  .search .archive-text form {
-    margin-top: 24px; }
-  .search .archive-text input {
-    border: none;
-    border-bottom: 1px solid black;
-    margin-bottom: 12px;
-    width: 100%;
-    line-height: 1.5; }
-    .search .archive-text input:focus {
-      outline: none;
-      border-color: lightgreen; }
-  .search .archive-text .results-found {
-    color: grey; }
-
-.search .search-results .tail {
-  overflow: auto;
-  width: 800.83px; }
-  .search .search-results .tail a {
-    display: block; }
-  .search .search-results .tail p em {
-    background-color: lightgreen;
-    padding: 0 1px;
-    font-style: normal; }
-  .search .search-results .tail p img {
-    max-height: 150px;
-    margin-top: 6px;
-    display: block; }
+.search {
+  /*****
+	Ukrywam główną wyszukiwarkę na stronie AB search [/archiwum-budowlane/wyszukiwarka/] żeby nie myliła się z wyszukiwarką Archiwum i w ten sposób nie wprowadzała w bąd. [10/06/2019]
+	*****/
+  /***** Koniec fragmentu o wyszukiwarce *****/ }
+  .search .sticky-nav nav form#search-form {
+    visibility: hidden; }
+  .search > header {
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 15px; }
+    .search > header.offset {
+      min-height: 125px; }
+  .search .archive-text {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; }
+    .search .archive-text header h1, .search .archive-text header .slide-down a, .slide-down .search .archive-text header a {
+      margin-bottom: 12px; }
+    .search .archive-text form {
+      margin-top: 24px; }
+    .search .archive-text input {
+      border: none;
+      border-bottom: 1px solid black;
+      margin-bottom: 12px;
+      width: 100%;
+      line-height: 1.5; }
+      .search .archive-text input:focus {
+        outline: none;
+        border-color: lightgreen; }
+    .search .archive-text .results-found {
+      color: grey; }
+  .search .search-results .tail {
+    overflow: auto;
+    width: 800.83px; }
+    .search .search-results .tail a {
+      display: block; }
+    .search .search-results .tail p em {
+      background-color: lightgreen;
+      padding: 0 1px;
+      font-style: normal; }
+    .search .search-results .tail p img {
+      max-height: 150px;
+      margin-top: 6px;
+      display: block; }
 
 .search-deails header h1, .search-deails header .slide-down a, .slide-down .search-deails header a {
   margin-bottom: 12px; }

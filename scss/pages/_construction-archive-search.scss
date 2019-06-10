@@ -1,6 +1,19 @@
 /* CONSTRUCTION ARCHIVE SEARCH */
 
 .search {
+
+	/*****
+	Ukrywam główną wyszukiwarkę na stronie AB search [/archiwum-budowlane/wyszukiwarka/] żeby nie myliła się z wyszukiwarką Archiwum i w ten sposób nie wprowadzała w bąd. [10/06/2019]
+	*****/
+	.sticky-nav {
+		nav {
+			form#search-form {
+				visibility: hidden;
+			}
+		}
+	}
+	/***** Koniec fragmentu o wyszukiwarce *****/
+
 	> header {
 		background-position: center;
 		background-repeat: no-repeat;
