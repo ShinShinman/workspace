@@ -1,7 +1,7 @@
 {
 	"name": "mawebsite",
-	"version": "3.0.4",
-	"description": "AB – główna wyszukiwarka ukryta na stronie z wyszukiwarką AB",
+	"version": "3.0.5",
+	"description": "AB – zmiany w odpowiedzi SOLR",
 	"author": "Olaf Schindler",
 	"license": "MIT",
 	"repository": "https://github.com/ShinShinman/MAWWW.git",
