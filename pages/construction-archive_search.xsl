@@ -278,17 +278,18 @@
 			}
 
 			function printResults (obj) {
-				var tmp = obj.image.split('.');
-				
+				var imageList = obj.image.split(';');
 				var image;
 
-				if (tmp[1] == 'jpg') {
-					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
-					image = '<img src="' + imgURL + '" />';
+				if(imageList.length <xsl:text disable-output-escaping="yes">&gt;</xsl:text> 1) {
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + imageList[0];
 				} else {
-					image = '';
+					var tmp = obj.image.split('.');
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
 				}
+				image = '<img src="' + imgURL + '" />';
 
+					
 				var path = "<xsl:value-of select="concat($root, '/', //fl-languages/current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/' )" />" + obj.id;
 				
 				var tail = 

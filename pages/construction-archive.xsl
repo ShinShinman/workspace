@@ -252,19 +252,15 @@
 			}
 
 			function printResults (obj) {
-				var tmp = obj.image.split('.');
+				var imageList = obj.image.split(';');
 				var image;
 
-				console.log (tmp[1]);
-				if (tmp[1] == 'jpg') {
-					var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + obj.image;
-					image = '<p class="img"><img src="' + imgURL + '" /></p>';
+				if(imageList.length <xsl:text disable-output-escaping="yes">&gt;</xsl:text> 1) {
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + imageList[1];
 				} else {
-					var imgURL = 'http://156.17.203.194/media/' + obj.id + '/' + obj.image;
-					image = '<p class="img"><strong><a href="' + imgURL + '">Materiały do pobrania</a></strong></p>';
-				};
-
-				
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + obj.image;
+				}
+				image = '<p class="img"><img src="' + imgURL + '" /></p>';
 
 				function replaceEmpty() {
 					$.each(obj, function(i, prop){
