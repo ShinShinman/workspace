@@ -90,12 +90,12 @@
 				url: '<xsl:value-of select="$root" />/ca-order-response/',
 				clearForm: true,
 				success: function(data) {
-					//console.log(data.response.status);
+					console.log(data.response.status);
 					$('.order-form').slideUp();
 					$('.order-form-container').append('<p>Zamówinie wysłano</p>');
 				},
 				error: function(data) {
-					//console.log(data.response.status);
+					console.log(data.response.status);
 					$('.order-form-container').append('<p class="error">Błąd. Zamówienie nie powiodło się. Prosimy o kontakt <a href="mailto:czytelnia@ma.wroc.pl">czytelnia@ma.wroc.pl</a>.</p>');
 				}
 			});
@@ -109,8 +109,7 @@
 			var params = getParams().concat(qstr);
 			var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 			url = url+urlData;
-			//console.log(url);
-			MA.urlSOLR = url;
+			console.log(url);
 
 			
 			$.ajax({
@@ -237,7 +236,7 @@
 			});
 
 			var loadData = function(d) {
-				//console.log(d);
+				console.log(d);
 			}
 
 			function getParams () {
@@ -254,16 +253,10 @@
 
 			function printResults (obj) {
 				var imageList = obj.image.split(';');
-				var image, minList, bigList;
-				var suffix = '-min';
-
-				function findPic(pic) {
-					return !pic.includes(suffix);
-				}
-				bigList = imageList.filter(findPic);	// (2) ["dwa.jpg", "trzy.jpg"]
+				var image;
 
 				if(imageList.length <xsl:text disable-output-escaping="yes">&gt;</xsl:text> 1) {
-					var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + bigList[0];
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + imageList[1];
 				} else {
 					var imgURL = '<xsl:value-of select="$root" />/image/ab-post/156.17.203.194/media/' + obj.id + '/' + obj.image;
 				}

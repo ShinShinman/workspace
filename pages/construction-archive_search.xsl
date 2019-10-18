@@ -106,8 +106,7 @@
 				var params = getParams2(queue).concat(currentQstr);
 				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 				url = url+urlData;
-				//console.log(url);
-				MA.urlSOLR = url;
+				console.log(url);
 
 				$.ajax({
 					url : url,
@@ -163,8 +162,7 @@
 					var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 					url += urlData;
 					currentQuery = url;
-					//console.log(url);
-					MA.urlSOLR = url;
+					console.log(url);
 
 					$.ajax({
 						url : url,
@@ -208,8 +206,7 @@
 				var params = getParams().concat(qstr);
 				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 				url = url+urlData;
-				//console.log(url);
-				MA.urlSOLR = url;
+				console.log(url);
 
 				
 				$.ajax({
@@ -282,16 +279,10 @@
 
 			function printResults (obj) {
 				var imageList = obj.image.split(';');
-				var image, minList, bigList;
-				var suffix = '-min';
-
-				function findMin(pic) {
-					return pic.includes(suffix);
-				}
-				minList = imageList.filter(findMin);	//(2) ["raz-min.jpg", "cztery-min.jpg"]
+				var image;
 
 				if(imageList.length <xsl:text disable-output-escaping="yes">&gt;</xsl:text> 1) {
-					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + minList[0];
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + imageList[0];
 				} else {
 					var tmp = obj.image.split('.');
 					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
