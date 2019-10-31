@@ -25,29 +25,33 @@
 
 <xsl:template match="data">
 	<section class="coll">
-		<!-- <xsl:apply-templates select="museum-about/entry" /> -->
-		
 		<header>
 			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//collection-nav/page" />
 			</ul>
 		</header>
-		
+		<xsl:apply-templates select="collection-about/entry" />
 	</section>
 </xsl:template>
 
-<xsl:template match="museum-about/entry">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
-		<article>
-			<h1><xsl:value-of select="title/p" /></h1>
-			<xsl:copy-of select="article/node()" />
-		</article>
+<xsl:template match="collection-about/entry">
+	<article>
+		<h1><xsl:value-of select="title/p" /></h1>
+		<xsl:copy-of select="article/node()" />
+	</article>
+</xsl:template>
+
+<xsl:template name="TEMPORARY">
+	<header>
+		<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
+		<ul class="inline-list">
+			<xsl:apply-templates select="//collection-nav/page" />
+		</ul>
+	</header>
+	<article>
+		<xsl:apply-templates select="collection/entry[1]" />
+	</article>
 </xsl:template>
 
 <xsl:template match="collection-nav/page">
@@ -56,6 +60,47 @@
 			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
 		</a>
 	</li>
+</xsl:template>
+
+<xsl:template match="collection/entry">
+	<h1 class="donthyphenate"><xsl:value-of select="object-name" /></h1>
+	<h2 class="donthyphenate"><xsl:value-of select="authors" /></h2>
+	<h3><xsl:value-of select="dates" /></h3>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<xsl:apply-templates select="images/file" />
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+	<div class="swiper-pagination"><span class="bullet" /></div>
+	<ul class="project-description">
+		<li><xsl:value-of select="place" /></li>
+		<li><xsl:value-of select="address" /><xsl:apply-templates select="address-cyrillic" /></li>
+		<ul class="project-details">
+			<li><xsl:value-of select="projec-content" /></li>
+			<li><xsl:value-of select="project-remarks" /></li>
+		</ul>
+		<ul class="project-details">
+			<li><span class="signature"><strong>Sygnatura</strong></span><xsl:value-of select="signature" /></li>
+			<li><xsl:value-of select="material" /></li>
+			<li><xsl:value-of select="technics" /></li>
+			<li><xsl:value-of select="dimensions" /></li>
+		</ul>
+	</ul>
+	<!-- <p><xsl:value-of select="place" /></p>
+	<p><xsl:value-of select="address" /><xsl:apply-templates select="address-cyrillic" /></p> -->
+</xsl:template>
+
+<xsl:template match="images/file">
+	<div class="swiper-slide">
+		<!-- <img src="{$workspace}{@path}/{filename}" alt=""/> -->
+		<img src="{$root}/image/1/0/540{@path}/{filename}" alt=""/>
+	</div>
+</xsl:template>
+
+<xsl:template match="address-cyrillic">
+	<span class="cyrillic"><xsl:text> </xsl:text><xsl:value-of select="." /></span>
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
@@ -75,10 +120,42 @@
 </xsl:template>
 
 <xsl:template match="data" mode="js">
+
+	<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+	<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'white'});
+
+			console.log(($(window).width()-638)/2);
+	
+			//SWIPER
+			var mySwiper = new Swiper ('.swiper-container', {
+				spaceBetween: 30,
+				slidesPerView: 'auto',
+				// centeredSlides: true,
+				grabCursor: true,
+				// zoom: true,
+				// loop: true,
+				slidesOffsetBefore: 250,
+				//
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+					renderBulet: function (index, className) {
+						return '<span class="' + className + '">' + i + '</span>';
+					},
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				}
+			})
 		});
+
+		$(window).load(function() {
+
+		})
 	</script>
 </xsl:template>
 

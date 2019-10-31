@@ -1,0 +1,77 @@
+/* ABOUT MUSEUM pages */
+
+.coll {
+	@extend .text-column;
+
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+	}
+
+	article {
+		h3 {
+			margin-bottom: $global-margin;
+		}
+	}
+
+	.swiper-container {
+		height: 540px;
+		margin-bottom: $global-margin/2;
+
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+
+		.swiper-slide {
+			height: 540px;
+			width: auto !important;
+			opacity: 0.25;
+			transition: opacity 1s ease 0s;
+
+			img {
+			}
+		}
+		.swiper-slide-active {
+			opacity: 1;
+		}
+	}
+
+	.swiper-pagination {
+		position: relative;
+		text-align: left;
+		margin-bottom: $global-margin;
+		
+		.swiper-pagination-bullet {
+			width: 66px;
+			height: 10px;
+			margin-right: 15px;
+			border-radius: unset;
+		}
+		.swiper-pagination-bullet-active {
+			background-color: black;
+		}
+	}
+
+	.project-description {
+		overflow: auto;
+
+		.project-details {
+			width: columns-width(4);
+			float: left;
+			margin-top: $global-margin;
+			margin-right: $gutter;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			.signature {
+				padding-right: $gutter;
+			}
+		}
+	}
+}

@@ -47,6 +47,7 @@
 			<xsl:apply-templates mode="meta-tags"/>
 
 			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.0.4" />
+			<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/css/swiper.css" />
 
 			<xsl:call-template name="favicon" />
 
