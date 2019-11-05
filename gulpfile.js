@@ -24,7 +24,9 @@ function styles() {
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css'))
-		.pipe(browserSync.reload({ stream: true }))
+		// .pipe(browserSync.reload())
+		// .pipe(browserSync.stream({match: './css/main.css'}))
+		// .pipe(browserSync.stream())
 }
 
 function coffeeScript() {
@@ -43,7 +45,8 @@ function scripts() {
 		.pipe(rename('main.min.js'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./js'))
-		.pipe(browserSync.reload({ stream: true }))
+		// .pipe(browserSync.reload({ stream: true }))
+		.pipe(browserSync.stream())
 }
 
 // var cbString = new Date().getTime().toString().slice(-6);
@@ -63,13 +66,19 @@ function bs() {
 function watchFiles() {
 	bs();
 	gulp.watch(['./scss/**/*.scss'],
-		gulp.series(styles)
+		gulp.series(styles, function reloading(done) {
+			browserSync.reload();
+			done();
+		})
 	);
 	gulp.watch(['./coffee/**/*.coffee'], 
 		gulp.series(coffeeScript, scripts)
 	);
 	gulp.watch(['pages/*.xsl', 'utilities/*.xsl'],
-		gulp.series(browserSync.reload)
+		gulp.series(function reloading(done) {
+			browserSync.reload();
+			done();
+		})
 	);
 }
 

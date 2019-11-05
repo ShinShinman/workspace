@@ -2,10 +2,293 @@
   var MA;
 
   MA = (function() {
+    /*
+    hlHeight = $('.owl-carousel').height()
+    MA.settings.highlightVisible = true
+    dirCount = [0, 0]
+    direction = ''
+
+    $(window).scroll ->
+    	dirCount.pop()
+    	dirCount.push($(window).scrollTop())
+    	dirCount.reverse()
+    	direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
+    	console.log direction
+
+     * Highligt in!
+    	if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
+    		MA.settings.highlightVisible = true
+    		stickyNavSetup({
+    			backgroundColor: 'transparent'
+    			})
+    		console.log 'Highligt in!'
+
+     * Highligt out!
+    	if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
+    		MA.settings.highlightVisible = false
+    		stickyNavSetup({
+    			backgroundColor: 'white'
+    			})
+    		console.log 'Highligt out!'
+     */
     var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
 
-    function MA() {}
+    class MA {
+      setupHighlight() {
+        var items;
+        MA.settings.highlightOn = true;
+        items = $('.owl-carousel .item').length;
+        $('.owl-carousel').owlCarousel({
+          loop: items > 1,
+          items: 1,
+          dots: true,
+          smartSpeed: 1000,
+          autoplay: true,
+          autoplayTimeout: 7000,
+          smartSpeed: 800
+        });
+        // autoplayHoverPause: true
+        stickyNavSetup({
+          backgroundColor: 'transparent'
+        });
+        $('.slide-down a').click(function() {
+          var hlHeight;
+          hlHeight = $('.owl-carousel').height() - 125;
+          console.log('Click!');
+          return $('html, body').animate({
+            scrollTop: hlHeight
+          }, 800);
+        });
+        setNavBackground('.owl-carousel');
+      }
 
+      stickyNavSetup(options) {
+        var settings;
+        settings = $.extend({
+          //defaults
+          color: 'black',
+          backgroundColor: 'white'
+        }, options);
+        return MA.settings.stickyNav.css({
+          'color': settings.color,
+          'backgroundColor': settings.backgroundColor
+        });
+      }
+
+      iS(options) {
+        var clear, filterIsotope, filterTriggers, filters, getHashFilter, onHashchange, settings, showAll, updateLegend;
+        settings = $.extend({
+          //defaults
+          grid: MA.settings.grid,
+          item: MA.settings.gridItem,
+          slider: false,
+          sliderItem: $('.slider'),
+          sliderRange: [1965, 2016]
+        }, options);
+        settings.grid.isotope({
+          itemSelector: settings.gridItem,
+          masonry: {
+            gutter: 15
+          }
+        });
+        //filtrowanie przyciskami
+        getHashFilter = function() {
+          var hash, hashFilter, matches;
+          hash = location.hash;
+          // get filter=filterName
+          matches = location.hash.match(/filter=([^&]+)/i);
+          hashFilter = matches && matches[1];
+          return hashFilter && decodeURIComponent(hashFilter);
+        };
+        filters = $('.filters li');
+        filterTriggers = $('.filters li a:not(.clear-filter)');
+        clear = $('.filters li a.clear-filter');
+        showAll = $('.filters li.show-all');
+        clear.click(function(e) {
+          e.preventDefault();
+          filters.removeClass('inactive-filter');
+          $(this).hide();
+          history.pushState('', document.title, window.location.pathname);
+          return settings.grid.isotope({
+            filter: '*'
+          });
+        });
+        showAll.click(function(e) {
+          e.preventDefault();
+          filters.removeClass('inactive-filter');
+          history.pushState('', document.title, window.location.pathname);
+          return settings.grid.isotope({
+            filter: '*'
+          });
+        });
+        filterTriggers.click(function(e) {
+          e.preventDefault();
+          filters.addClass('inactive-filter');
+          $(this).parent().removeClass('inactive-filter');
+          filters.find('.clear-filter').hide();
+          $(this).parent().find('.clear-filter').show();
+          return location.hash = 'filter=' + encodeURIComponent($(this).data('filter'));
+        });
+        onHashchange = function() {
+          var hashFilter;
+          hashFilter = getHashFilter();
+          if (!hashFilter) {
+            return;
+          }
+          // filter isotope
+          filters.addClass('inactive-filter');
+          filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show();
+          return settings.grid.isotope({
+            filter: '.' + hashFilter
+          });
+        };
+        $(window).on('hashchange', onHashchange);
+        // trigger event handler to init Isotope
+        onHashchange();
+        //filtrowanie sliderem
+        updateLegend = function(sYear, eYear) {
+          return $('.legend span').text(' ' + sYear + '–' + eYear);
+        };
+        filterIsotope = function(sYear, eYear) {
+          var value;
+          value = $('.brick').filter(function(index) {
+            var $this, matcharr, year;
+            $this = $(this);
+            matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
+            if (matcharr) {
+              year = parseInt(matcharr[1]);
+              if (year >= sYear && year <= eYear) {
+                return true;
+              } else {
+                return false;
+              }
+            } else {
+              return false;
+            }
+          });
+          return settings.grid.isotope({
+            filter: value
+          });
+        };
+        if (settings.slider) {
+          $('.slider').slider({
+            range: true,
+            min: settings.sliderRange[0],
+            max: settings.sliderRange[1],
+            values: [settings.sliderRange[0], settings.sliderRange[1]],
+            stop: function(e, ui) {
+              filterIsotope(ui.values[0], ui.values[1]);
+              return updateLegend(ui.values[0], ui.values[1]);
+            }
+          }).slider('pips', {
+            step: 5
+          }).slider('float');
+          return updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+        }
+      }
+
+      iSl(options) { //ta metoda nie jest uzywana, przeniosłem ją do MA.iS(), do usunięcia
+        var filterIsotope, settings, updateLegend;
+        settings = $.extend({
+          //defaults
+          grid: MA.settings.grid,
+          slider: $('.slider'),
+          sliderRange: [1965, 2016]
+        }, options);
+        updateLegend = function(sYear, eYear) {
+          return $('.legend span').text(' ' + sYear + '–' + eYear);
+        };
+        filterIsotope = function(sYear, eYear) {
+          var value;
+          value = $('.brick').filter(function(index) {
+            var $this, matcharr, year;
+            $this = $(this);
+            matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
+            if (matcharr) {
+              year = parseInt(matcharr[1]);
+              if (year >= sYear && year <= eYear) {
+                return true;
+              } else {
+                return false;
+              }
+            } else {
+              return false;
+            }
+          });
+          return $('.bricks-container').isotope({
+            filter: value
+          });
+        };
+        return $.getScript('../../../workspace/js/jquery-ui.min.js', function() {
+          return $.getScript('../../../workspace/js/jquery-ui-slider-pips.min.js', function() {
+            $('.slider').slider({
+              range: true,
+              min: settings.sliderRange[0],
+              max: settings.sliderRange[1],
+              values: [settings.sliderRange[0], settings.sliderRange[1]],
+              stop: function(e, ui) {
+                filterIsotope(ui.values[0], ui.values[1]);
+                return updateLegend(ui.values[0], ui.values[1]);
+              }
+            }).slider('pips', {
+              step: 5
+            }).slider('float');
+            return updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+          });
+        });
+      }
+
+      getCountryCode(lang, url) {
+        var apiKey;
+        apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4";
+        $.ajax({
+          url: `https://api.ipdata.co/country_code?api-key=${apiKey}`,
+          type: 'GET',
+          dataType: 'text',
+          error: function(jqXHR, textStatus, errorThrown) {
+            return console.log(`AJAX Error: ${textStatus}`);
+          },
+          success: function(data, textStatus, jqXHR) {
+            //console.log "Successful AJAX call: #{data}"
+            if (data !== 'PL' && lang !== 'en') {
+              return window.location.replace(`${url}`);
+            }
+          }
+        });
+      }
+
+      getCurrentLimit() {
+        var apiKey;
+        apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4";
+        $.ajax({
+          url: `https://api.ipdata.co/count?api-key=${apiKey}`,
+          type: "GET",
+          dataType: "text",
+          error: function(jqXHR, textStatus, errorThrown) {
+            return console.log(`AJAX Error: ${textStatus}`);
+          },
+          success: function(data, textStatus, jqXHR) {
+            return console.log(`Dziś użyto usługi ${data} razy. Dziś możesz z niej skorzystać jeszcze ${1500 - data} razy.`);
+          }
+        });
+      }
+
+      // Initialize
+      init() {
+        searchToggle(searchTrigger, searchForm);
+        menuToggle(menuTrigger, mainMenu);
+        //isotopeSetup(grid, gridItem) # poprawić --> nie na wszystkich stronach
+        Hyphenator.config({
+          orphancontrol: 2,
+          defaultlanguage: 'pl',
+          minwordlength: 8
+        });
+        return Hyphenator.run();
+      }
+
+    };
+
+    // Menu vars
     searchForm = $('#search-form');
 
     searchTrigger = $('.search-trigger');
@@ -14,10 +297,12 @@
 
     mainMenu = $('.main-menu');
 
+    // Isotope grid vars
     grid = $('.bricks-container');
 
     gridItem = '.brick';
 
+    // Scope problems
     MA.settings = {
       stickyNav: $('.sticky-nav'),
       searchForm: $('#search-form'),
@@ -31,6 +316,7 @@
       highlightVisible: false
     };
 
+    // Private methods
     searchToggle = function(trigger, target) {
       return trigger.click(function() {
         return target.css('opacity', function(i, opacity) {
@@ -71,6 +357,7 @@
         color: 'black',
         backgroundColor: 'transparent'
       });
+      // backgroundColor: if MA.settings.highlightVisible then 'transparent' else 'white'
       trigger.text('g');
     };
 
@@ -100,6 +387,7 @@
     stickyNavSetup = function(options) {
       var settings;
       settings = $.extend({
+        //defaults
         color: 'black',
         backgroundColor: 'white'
       }, options);
@@ -119,74 +407,19 @@
         dirCount.push($(window).scrollTop());
         dirCount.reverse();
         direction = dirCount[0] > dirCount[1] ? 'down' : 'up';
+        // Highligt in!
         if ($(window).scrollTop() < offset && !MA.settings.mainMenuOpened) {
           stickyNavSetup({
             backgroundColor: 'transparent'
           });
         }
+        // Highligt out!
         if ($(window).scrollTop() >= offset && !MA.settings.mainMenuOpened) {
           return stickyNavSetup({
             backgroundColor: 'white'
           });
         }
       });
-    };
-
-    MA.prototype.setupHighlight = function() {
-      var items;
-      MA.settings.highlightOn = true;
-      items = $('.owl-carousel .item').length;
-      $('.owl-carousel').owlCarousel({
-        loop: items > 1,
-        items: 1,
-        dots: true,
-        smartSpeed: 1000,
-        autoplay: true,
-        autoplayTimeout: 7000,
-        smartSpeed: 800
-      });
-      stickyNavSetup({
-        backgroundColor: 'transparent'
-      });
-      $('.slide-down a').click(function() {
-        var hlHeight;
-        hlHeight = $('.owl-carousel').height() - 125;
-        console.log('Click!');
-        return $('html, body').animate({
-          scrollTop: hlHeight
-        }, 800);
-      });
-      setNavBackground('.owl-carousel');
-
-      /*
-      		hlHeight = $('.owl-carousel').height()
-      		MA.settings.highlightVisible = true
-      		dirCount = [0, 0]
-      		direction = ''
-      
-      		$(window).scroll ->
-      			dirCount.pop()
-      			dirCount.push($(window).scrollTop())
-      			dirCount.reverse()
-      			direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-      			console.log direction
-      
-      			 * Highligt in!
-      			if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
-      				MA.settings.highlightVisible = true
-      				stickyNavSetup({
-      					backgroundColor: 'transparent'
-      					})
-      				console.log 'Highligt in!'
-      
-      			 * Highligt out!
-      			if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
-      				MA.settings.highlightVisible = false
-      				stickyNavSetup({
-      					backgroundColor: 'white'
-      					})
-      				console.log 'Highligt out!'
-       */
     };
 
     isScrolledIntoView = function(elem) {
@@ -200,212 +433,11 @@
       return (elemBottom <= docViewBottom) && (elemTop >= docViewTop);
     };
 
-    MA.prototype.stickyNavSetup = function(options) {
-      var settings;
-      settings = $.extend({
-        color: 'black',
-        backgroundColor: 'white'
-      }, options);
-      return MA.settings.stickyNav.css({
-        'color': settings.color,
-        'backgroundColor': settings.backgroundColor
-      });
-    };
-
-    MA.prototype.iS = function(options) {
-      var clear, filterIsotope, filterTriggers, filters, getHashFilter, onHashchange, settings, showAll, updateLegend;
-      settings = $.extend({
-        grid: MA.settings.grid,
-        item: MA.settings.gridItem,
-        slider: false,
-        sliderItem: $('.slider'),
-        sliderRange: [1965, 2016]
-      }, options);
-      settings.grid.isotope({
-        itemSelector: settings.gridItem,
-        masonry: {
-          gutter: 15
-        }
-      });
-      getHashFilter = function() {
-        var hash, hashFilter, matches;
-        hash = location.hash;
-        matches = location.hash.match(/filter=([^&]+)/i);
-        hashFilter = matches && matches[1];
-        return hashFilter && decodeURIComponent(hashFilter);
-      };
-      filters = $('.filters li');
-      filterTriggers = $('.filters li a:not(.clear-filter)');
-      clear = $('.filters li a.clear-filter');
-      showAll = $('.filters li.show-all');
-      clear.click(function(e) {
-        e.preventDefault();
-        filters.removeClass('inactive-filter');
-        $(this).hide();
-        history.pushState('', document.title, window.location.pathname);
-        return settings.grid.isotope({
-          filter: '*'
-        });
-      });
-      showAll.click(function(e) {
-        e.preventDefault();
-        filters.removeClass('inactive-filter');
-        history.pushState('', document.title, window.location.pathname);
-        return settings.grid.isotope({
-          filter: '*'
-        });
-      });
-      filterTriggers.click(function(e) {
-        e.preventDefault();
-        filters.addClass('inactive-filter');
-        $(this).parent().removeClass('inactive-filter');
-        filters.find('.clear-filter').hide();
-        $(this).parent().find('.clear-filter').show();
-        return location.hash = 'filter=' + encodeURIComponent($(this).data('filter'));
-      });
-      onHashchange = function() {
-        var hashFilter;
-        hashFilter = getHashFilter();
-        if (!hashFilter) {
-          return;
-        }
-        filters.addClass('inactive-filter');
-        filters.parent().find('.' + hashFilter).removeClass('inactive-filter').find('.clear-filter').show();
-        return settings.grid.isotope({
-          filter: '.' + hashFilter
-        });
-      };
-      $(window).on('hashchange', onHashchange);
-      onHashchange();
-      updateLegend = function(sYear, eYear) {
-        return $('.legend span').text(' ' + sYear + '–' + eYear);
-      };
-      filterIsotope = function(sYear, eYear) {
-        var value;
-        value = $('.brick').filter(function(index) {
-          var $this, matcharr, year;
-          $this = $(this);
-          matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
-          if (matcharr) {
-            year = parseInt(matcharr[1]);
-            if (year >= sYear && year <= eYear) {
-              return true;
-            } else {
-              return false;
-            }
-          } else {
-            return false;
-          }
-        });
-        return settings.grid.isotope({
-          filter: value
-        });
-      };
-      if (settings.slider) {
-        $('.slider').slider({
-          range: true,
-          min: settings.sliderRange[0],
-          max: settings.sliderRange[1],
-          values: [settings.sliderRange[0], settings.sliderRange[1]],
-          stop: function(e, ui) {
-            filterIsotope(ui.values[0], ui.values[1]);
-            return updateLegend(ui.values[0], ui.values[1]);
-          }
-        }).slider('pips', {
-          step: 5
-        }).slider('float');
-        return updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
-      }
-    };
-
-    MA.prototype.iSl = function(options) {
-      var filterIsotope, settings, updateLegend;
-      settings = $.extend({
-        grid: MA.settings.grid,
-        slider: $('.slider'),
-        sliderRange: [1965, 2016]
-      }, options);
-      updateLegend = function(sYear, eYear) {
-        return $('.legend span').text(' ' + sYear + '–' + eYear);
-      };
-      filterIsotope = function(sYear, eYear) {
-        var value;
-        value = $('.brick').filter(function(index) {
-          var $this, matcharr, year;
-          $this = $(this);
-          matcharr = $this.attr('class').match(/brick\s([0-9]*)/);
-          if (matcharr) {
-            year = parseInt(matcharr[1]);
-            if (year >= sYear && year <= eYear) {
-              return true;
-            } else {
-              return false;
-            }
-          } else {
-            return false;
-          }
-        });
-        return $('.bricks-container').isotope({
-          filter: value
-        });
-      };
-      return $.getScript('../../../workspace/js/jquery-ui.min.js', function() {
-        return $.getScript('../../../workspace/js/jquery-ui-slider-pips.min.js', function() {
-          $('.slider').slider({
-            range: true,
-            min: settings.sliderRange[0],
-            max: settings.sliderRange[1],
-            values: [settings.sliderRange[0], settings.sliderRange[1]],
-            stop: function(e, ui) {
-              filterIsotope(ui.values[0], ui.values[1]);
-              return updateLegend(ui.values[0], ui.values[1]);
-            }
-          }).slider('pips', {
-            step: 5
-          }).slider('float');
-          return updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
-        });
-      });
-    };
-
-    MA.prototype.getCountryCode = function(lang, url) {
-      var apiKey;
-      apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4";
-      $.ajax({
-        url: "https://api.ipdata.co/country_code?api-key=" + apiKey,
-        type: 'GET',
-        dataType: 'text',
-        error: function(jqXHR, textStatus, errorThrown) {
-          return console.log("AJAX Error: " + textStatus);
-        },
-        success: function(data, textStatus, jqXHR) {
-          if (data !== 'PL' && lang !== 'en') {
-            return window.location.replace("" + url);
-          }
-        }
-      });
-    };
-
-    MA.prototype.getCurrentLimit = function() {
-      var apiKey;
-      apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4";
-      $.ajax({
-        url: "https://api.ipdata.co/count?api-key=" + apiKey,
-        type: "GET",
-        dataType: "text",
-        error: function(jqXHR, textStatus, errorThrown) {
-          return console.log("AJAX Error: " + textStatus);
-        },
-        success: function(data, textStatus, jqXHR) {
-          return console.log("Dziś użyto usługi " + data + " razy. Dziś możesz z niej skorzystać jeszcze " + (1500 - data) + " razy.");
-        }
-      });
-    };
-
     apiTest = function() {
       return console.log('Public API available!');
     };
 
+    // Public API
     MA.prototype.api = {
       apiTest: apiTest,
       openMenu: openMenu,
@@ -414,26 +446,17 @@
       isotopeSetup: isotopeSetup
     };
 
-    MA.prototype.init = function() {
-      searchToggle(searchTrigger, searchForm);
-      menuToggle(menuTrigger, mainMenu);
-      Hyphenator.config({
-        orphancontrol: 2,
-        defaultlanguage: 'pl',
-        minwordlength: 8
-      });
-      return Hyphenator.run();
-    };
-
     return MA;
 
-  })();
+  }).call(this);
 
   window.MA = new MA();
 
+  // jQuery
   $(function() {
     var wBtn, wMore;
     window.MA.init();
+    // kids-n-parents -> Warsztaty
     wBtn = $('.kids-n-parents a.workshop');
     wMore = $('.kids-n-parents .more');
     return wBtn.click(function(e) {

@@ -364,7 +364,7 @@ class MA
 		return 				
 
 	apiTest = ->
-  	console.log 'Public API available!'
+		console.log 'Public API available!'
 
 	# Public API
 	api:

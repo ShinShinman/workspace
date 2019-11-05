@@ -448,7 +448,6 @@ th {
   width: 1.2em;
   height: 1.2em;
   cursor: default;
-  -ms-touch-action: none;
   touch-action: none; }
 
 .ui-slider .ui-slider-range {
@@ -462,7 +461,8 @@ th {
 /* support: IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
-  filter: inherit; }
+  -webkit-filter: inherit;
+          filter: inherit; }
 
 .ui-slider-horizontal {
   height: .8em; }
@@ -1392,9 +1392,13 @@ a.ui-button:active,
   font-size: 12px;
   opacity: 0;
   color: #333;
+  -webkit-transition-property: opacity, top, visibility;
   transition-property: opacity, top, visibility;
+  -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
+  -webkit-transition-duration: 200ms, 200ms, 0ms;
   transition-duration: 200ms, 200ms, 0ms;
+  -webkit-transition-delay: 0ms, 0ms, 200ms;
   transition-delay: 0ms, 0ms, 200ms; }
 
 /* show the tooltip on hover or focus */
@@ -1408,7 +1412,9 @@ a.ui-button:active,
   opacity: 1;
   top: -30px;
   visibility: visible;
+  -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
+  -webkit-transition-delay: 200ms, 200ms, 0ms;
   transition-delay: 200ms, 200ms, 0ms; }
 
 /* put label tooltips below slider */
@@ -1466,8 +1472,11 @@ a.ui-button:active,
   margin-left: 0px;
   left: -60px;
   color: #333;
+  -webkit-transition-duration: 200ms, 200ms, 0;
   transition-duration: 200ms, 200ms, 0;
+  -webkit-transition-property: opacity, left, visibility;
   transition-property: opacity, left, visibility;
+  -webkit-transition-delay: 0, 0, 200ms;
   transition-delay: 0, 0, 200ms; }
 
 .ui-slider-vertical.ui-slider-float .ui-slider-handle:hover .ui-slider-tip,
@@ -1849,6 +1858,7 @@ body {
         background: black;
         display: block;
         -webkit-backface-visibility: visible;
+        -webkit-transition: opacity 0.25s;
         transition: opacity 0.25s; }
       .highlight .owl-dots .owl-dot.active {
         opacity: 0.6; }
@@ -1863,7 +1873,8 @@ body {
   width: 100%; }
   .slide-down a {
     display: inline-block;
-    transform: rotate(90deg); }
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); }
 
 .news > h1, .slide-down .news > a {
   margin-bottom: 24px; }
@@ -1935,6 +1946,7 @@ body {
     font-weight: bold;
     color: magenta; }
   .sticky-nav nav form {
+    -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
     margin-right: 15px;
     width: 719.247px; }
@@ -2896,6 +2908,7 @@ section.maintenance {
     height: 540px;
     width: auto !important;
     opacity: 0.25;
+    -webkit-transition: opacity 1s ease 0s;
     transition: opacity 1s ease 0s; }
   .coll .swiper-container .swiper-slide-active {
     opacity: 1; }
@@ -3164,6 +3177,7 @@ section.maintenance {
     user-select: none; }
   .owl-carousel.owl-grab {
     cursor: move;
+    cursor: -webkit-grab;
     cursor: -o-grab;
     cursor: -ms-grab;
     cursor: grab; }
@@ -3177,7 +3191,6 @@ section.maintenance {
   display: block; }
 
 .ps-container {
-  -ms-touch-action: auto;
   touch-action: auto;
   overflow: hidden !important;
   -ms-overflow-style: none; }
@@ -3208,6 +3221,7 @@ section.maintenance {
     position: absolute;
     /* please don't change 'position' */
     opacity: 0;
+    -webkit-transition: background-color .2s linear, opacity .2s linear;
     transition: background-color .2s linear, opacity .2s linear;
     bottom: 0px;
     /* there must be 'bottom' for ps-scrollbar-x-rail */
@@ -3217,6 +3231,7 @@ section.maintenance {
       /* please don't change 'position' */
       background-color: #aaa;
       border-radius: 6px;
+      -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
       transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
       bottom: 2px;
       /* there must be 'bottom' for ps-scrollbar-x */
@@ -3228,6 +3243,7 @@ section.maintenance {
     position: absolute;
     /* please don't change 'position' */
     opacity: 0;
+    -webkit-transition: background-color .2s linear, opacity .2s linear;
     transition: background-color .2s linear, opacity .2s linear;
     right: 0;
     /* there must be 'right' for ps-scrollbar-y-rail */
@@ -3237,6 +3253,7 @@ section.maintenance {
       /* please don't change 'position' */
       background-color: #aaa;
       border-radius: 6px;
+      -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
       transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
       right: 2px;
       /* there must be 'right' for ps-scrollbar-y */
@@ -3268,5 +3285,3 @@ section.maintenance {
     opacity: 0.9; }
     .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
       background-color: #999; }
-
-/*# sourceMappingURL=main.css.map */
