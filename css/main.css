@@ -2715,11 +2715,12 @@ section.maintenance {
     margin-right: 15px; }
 
 /* FOR MEDIA */
-.downlodables-for-media .media header h1, .downlodables-for-media .media header .slide-down a, .slide-down .downlodables-for-media .media header a {
-  margin-bottom: 12px; }
-
-.downlodables-for-media .media article ul {
-  list-style: disc; }
+.downlodables-for-media .media {
+  margin-bottom: 250px; }
+  .downlodables-for-media .media header h1, .downlodables-for-media .media header .slide-down a, .slide-down .downlodables-for-media .media header a {
+    margin-bottom: 12px; }
+  .downlodables-for-media .media article ul {
+    list-style: disc; }
 
 /* CONSTRUCTION ARCHIVE SEARCH DETAILS */
 .search-deails header h1, .search-deails header .slide-down a, .slide-down .search-deails header a {
@@ -2888,7 +2889,17 @@ section.maintenance {
 .e404 .error {
   margin-bottom: 0; }
 
-/* ABOUT MUSEUM pages */
+/* COLLECTION pages */
+body.downloads > header, body.search > header, body.collection > header {
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 15px; }
+  body.downloads > header.offset, body.search > header.offset, body.collection > header.offset {
+    min-height: 125px; }
+
+.coll:not(.collection-item) {
+  margin-top: 0 !important; }
+
 .coll header h1, .coll header .slide-down a, .slide-down .coll header a {
   margin-bottom: 12px; }
 
@@ -2927,6 +2938,8 @@ section.maintenance {
 
 .coll .project-description {
   overflow: auto; }
+  .coll .project-description .cyrillic {
+    font-family: 'Roboto', sans-serif; }
   .coll .project-description .project-details {
     width: 311.332px;
     float: left;
@@ -2936,6 +2949,23 @@ section.maintenance {
       margin-right: 0; }
     .coll .project-description .project-details .signature {
       padding-right: 15px; }
+
+.coll .collection-search form {
+  margin-top: 24px; }
+
+.coll .collection-search input {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 6px;
+  width: 100%;
+  line-height: 1.5; }
+  .coll .collection-search input:focus {
+    outline: none;
+    border-color: lightgreen; }
+
+.coll .collection-search .results-found {
+  color: grey;
+  font-size: 14px; }
 
 [data-fc-sidecart] {
   background-color: white !important; }

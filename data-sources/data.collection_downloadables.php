@@ -1,8 +1,8 @@
 <?php
 
-class datasourcecollection extends SectionDatasource
+class datasourcecollection_downloadables extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'collection';
+    public $dsParamROOTELEMENT = 'collection-downloadables';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -10,30 +10,18 @@ class datasourcecollection extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'system:id';
+    public $dsParamSORT = 'order';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
+    
 
-    public $dsParamFILTERS = array(
-        '370' => 'yes',
-    );
+    
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'signature',
-        'authors',
-        'object-name: formatted',
-        'place',
-        'address',
-        'address-cyrillic',
-        'projec-content: formatted',
-        'project-remarks: formatted',
-        'dates',
-        'material',
-        'technics',
-        'dimensions',
-        'publish',
-        'images'
+        'file-name: formatted',
+        'file-link: formatted'
     );
+    
 
     public function __construct($env = null, $process_params = true)
     {
@@ -44,19 +32,19 @@ class datasourcecollection extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Collection',
+            'name' => 'Collection downloadables',
             'author' => array(
                 'name' => 'Olaf Schindler',
-                'website' => 'http://ma.wroc.pl',
+                'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-10-30T15:32:54+00:00'
+            'release-date' => '2019-11-06T13:00:46+00:00'
         );
     }
 
     public function getSource()
     {
-        return '70';
+        return '71';
     }
 
     public function allowEditorToParse()

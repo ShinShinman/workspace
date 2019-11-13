@@ -32,7 +32,7 @@
 			</ul>
 		</header>
 		<article>
-			<h1><xsl:value-of select="$page-title" /></h1>
+			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<ul>
 				<xsl:apply-templates select="media-downlodables/entry" />
 			</ul>

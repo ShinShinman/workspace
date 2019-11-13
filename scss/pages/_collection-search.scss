@@ -1,0 +1,25 @@
+// COLLECTION SEARCH //
+
+.coll {
+	.collection-search {
+		form {
+			margin-top: 24px;
+		}
+		input {
+			border: none;
+			border-bottom: 1px solid black;
+			margin-bottom: 6px;
+			width: 100%;
+			line-height: 1.5;
+
+			&:focus {
+				outline: none;
+				border-color: lightgreen;
+			}
+		}
+		.results-found {
+			color: grey;
+			font-size: 14px;
+		}
+	}
+}

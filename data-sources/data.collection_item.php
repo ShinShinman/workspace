@@ -1,22 +1,25 @@
 <?php
 
-class datasourcecollection extends SectionDatasource
+class datasourcecollection_item extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'collection';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'collection-item';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '20';
+    public $dsParamLIMIT = '5';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
+    public $dsParamREQUIREDPARAM = '$signature';
     public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
+    
 
     public $dsParamFILTERS = array(
-        '370' => 'yes',
+        '358' => '{$signature}',
     );
+        
 
     public $dsParamINCLUDEDELEMENTS = array(
         'signature',
@@ -31,9 +34,9 @@ class datasourcecollection extends SectionDatasource
         'material',
         'technics',
         'dimensions',
-        'publish',
         'images'
     );
+    
 
     public function __construct($env = null, $process_params = true)
     {
@@ -44,13 +47,13 @@ class datasourcecollection extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Collection',
+            'name' => 'Collection item',
             'author' => array(
                 'name' => 'Olaf Schindler',
-                'website' => 'http://ma.wroc.pl',
+                'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-10-30T15:32:54+00:00'
+            'release-date' => '2019-11-13T15:38:35+00:00'
         );
     }
 

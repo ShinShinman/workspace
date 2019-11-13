@@ -47,7 +47,6 @@
 			<xsl:apply-templates mode="meta-tags"/>
 
 			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.0.5" />
-			<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/css/swiper.css" />
 
 			<xsl:call-template name="favicon" />
 
@@ -227,8 +226,6 @@
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
-
-
 
 <xsl:template match="//dont-hyphenate/entry/item">
 	Hyphenator.addExceptions('<xsl:value-of select="./@lang" />', '<xsl:value-of select="." />');

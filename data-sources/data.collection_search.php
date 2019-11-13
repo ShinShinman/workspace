@@ -1,23 +1,35 @@
 <?php
 
-class datasourcecollection_downlodables extends SectionDatasource
+class datasourcecollection_search extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'collection-downlodables';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'collection-search';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamREQUIREDPARAM = '$url-keywords';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
+    
+
+    public $dsParamFILTERS = array(
+        '370' => 'yes',
+        '378' => '{$url-keywords}',
+    );
+        
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'file-name: formatted',
-        'file-link: formatted'
+        'signature',
+        'authors',
+        'object-name: formatted',
+        'dates',
+        'images'
     );
+    
 
     public function __construct($env = null, $process_params = true)
     {
@@ -28,19 +40,19 @@ class datasourcecollection_downlodables extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Collection downlodables',
+            'name' => 'Collection Search',
             'author' => array(
                 'name' => 'Olaf Schindler',
-                'website' => 'http://ma.wroc.pl',
+                'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-10-30T14:48:12+00:00'
+            'release-date' => '2019-11-12T14:52:36+00:00'
         );
     }
 
     public function getSource()
     {
-        return '71';
+        return '70';
     }
 
     public function allowEditorToParse()

@@ -1,8 +1,28 @@
-/* ABOUT MUSEUM pages */
+/* COLLECTION pages */
+
+//all Collecion pages
+body {
+	&.downloads, &.search, &.collection {
+		> header {
+			background-position: center;
+			background-repeat: no-repeat;
+			margin-bottom: $gutter;
+			&.offset {
+				min-height: 125px;
+			}
+		}
+	}
+
+}
 
 .coll {
 	@extend .text-column;
 	
+
+	&:not(.collection-item) {
+		margin-top: 0 !important;
+	}
+
 	header {
 		h1 {
 			margin-bottom: 12px;
@@ -58,6 +78,10 @@
 
 	.project-description {
 		overflow: auto;
+
+		.cyrillic {
+			font-family: 'Roboto', sans-serif;
+		}
 
 		.project-details {
 			width: columns-width(4);
