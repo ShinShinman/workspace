@@ -38,13 +38,22 @@
 		<article class="collection-search">
 			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<form class="search-form" action="">
-				<input class="search-field" type="text" name="keywords" placeholder="Zacznij pisać aby rozpocząć wyszukiwanie" autofocus=""/>
+				<input class="search-field" type="text" name="keywords" autofocus="" placeholder="Wyszukaj">
+					<xsl:attribute name="value">
+						<xsl:apply-templates select="//params/url-keywords" />
+						<!-- <xsl:call-template name="placeholder" /> -->
+					</xsl:attribute>
+				</input>
 				<input type="hidden" name="sections" value="kolekcja" />
 			</form>
-			<xsl:call-template name="count-results" />
+			<xsl:call-template name="count-results">
+				<xsl:with-param name="count" select="string(count(//collection-search/entry))" />
+			</xsl:call-template>
 		</article>
 	</section>
 	<section>
+		<!-- Sprawdzić czy są wyniki wyszukiwania -->
+		<!-- //collection-search/error[node() = 'No records found.'] -->
 		<div class="bricks-container search-results">
 			<xsl:apply-templates select="collection-search/entry" />
 		</div>
@@ -59,13 +68,49 @@
 	</li>
 </xsl:template>
 
+<xsl:template match="params/url-keywords">
+	<xsl:value-of select="." />
+</xsl:template>
+
+<xsl:template name="placeholder">
+	<xsl:choose>
+		<xsl:when test="collection-search/error">
+			<xsl:text>Wyszukaj</xsl:text>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="//params/url-keywords" />
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
 <xsl:template name="count-results">
+	<xsl:param name="count" />
+	<xsl:variable name="last-digit">
+		<xsl:value-of select="substring($count, string-length($count), 1)" />
+	</xsl:variable>
+	<xsl:variable name="grammar">
+		<xsl:choose>
+			<xsl:when test="$last-digit = '1'">
+				<xsl:text>obiekt</xsl:text>
+			</xsl:when>
+			<xsl:when test="$last-digit = '2' or '3' or '4'">
+				<xsl:text>obiekty</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>obiektów</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+
+	<script>console.log(<xsl:value-of select="$last-digit" />);</script>
+	<script>console.log('<xsl:value-of select="$grammar" />');</script>
+
 	<xsl:choose>
 		<xsl:when test="collection-search/error">
 			<p class="results-found">Udostepniamy ponad 1&nbsp;000 obiektów</p>
 		</xsl:when>
 		<xsl:otherwise>
-			<p class="results-found">Znaleziono <xsl:value-of select="count(//collection-search/entry)" /> obiektów</p>
+			<p class="results-found">Znaleziono <xsl:value-of select="concat(count(//collection-search/entry), ' ', $grammar)" /></p>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>

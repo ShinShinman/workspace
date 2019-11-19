@@ -84,4 +84,16 @@
 		),
 		########
 
+		########
+		array(
+			'mode' => '1',
+			'name' => 'Collection gallery',
+			'url-parameter' => 'collection-gallery',
+			'width' => NULL,
+			'height' => '540',
+			'quality' => NULL,
+			'external' => '0',
+		),
+		########
+
 	);

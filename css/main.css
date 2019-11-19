@@ -2907,22 +2907,25 @@ body.downloads > header, body.search > header, body.collection > header {
   margin-bottom: 24px; }
 
 .coll .swiper-container {
-  height: 540px;
-  margin-bottom: 12px;
-  width: 100vw;
   position: relative;
+  height: 540px;
+  width: 100vw;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
-  margin-right: -50vw; }
+  margin-right: -50vw;
+  margin-bottom: 12px; }
   .coll .swiper-container .swiper-slide {
-    height: 540px;
-    width: auto !important;
-    opacity: 0.25;
-    -webkit-transition: opacity 1s ease 0s;
-    transition: opacity 1s ease 0s; }
-  .coll .swiper-container .swiper-slide-active {
-    opacity: 1; }
+    background-color: grey;
+    width: auto; }
+
+.coll .swiper-button-prev {
+  left: 20px;
+  color: black; }
+
+.coll .swiper-button-next {
+  right: 20px;
+  color: black; }
 
 .coll .swiper-pagination {
   position: relative;

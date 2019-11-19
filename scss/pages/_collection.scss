@@ -36,28 +36,29 @@ body {
 	}
 
 	.swiper-container {
-		height: 540px;
-		margin-bottom: $global-margin/2;
-
-		width: 100vw;
 		position: relative;
+		height: 540px;
+		width: 100vw;
 		left: 50%;
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+		margin-bottom: $global-margin/2;
 
 		.swiper-slide {
-			height: 540px;
-			width: auto !important;
-			opacity: 0.25;
-			transition: opacity 1s ease 0s;
+			background-color: grey;
+			width: auto;
+			
+		}
+	}
 
-			img {
-			}
-		}
-		.swiper-slide-active {
-			opacity: 1;
-		}
+	.swiper-button-prev {
+		left: 20px;
+		color: black;
+	}
+	.swiper-button-next {
+		right: 20px;
+		color: black;
 	}
 
 	.swiper-pagination {

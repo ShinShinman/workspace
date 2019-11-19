@@ -91,8 +91,10 @@
 			<div class="swiper-wrapper">
 				<xsl:apply-templates select="images/file" />
 			</div>
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+			<xsl:if test="count(images/file) > 1">
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</xsl:if>
 		</div>
 		<div class="swiper-pagination"><span class="bullet" /></div>
 		<ul class="project-description">
@@ -103,22 +105,29 @@
 				<li><xsl:value-of select="project-remarks" /></li>
 			</ul>
 			<ul class="project-details">
-				<li><span class="signature"><strong>Sygnatura</strong></span><xsl:value-of select="signature" /></li>
-				<li><xsl:value-of select="material" /></li>
-				<li><xsl:value-of select="technics" /></li>
+				<li><span class="signature"><strong><xsl:value-of select="//dictionary//word[@handle-en = 'signature']" /></strong></span><xsl:value-of select="signature" /></li>
+				<xsl:if test="//current-language/@handle = 'pl'">
+					<li><xsl:value-of select="material" /></li>
+					<li><xsl:value-of select="technics" /></li>
+				</xsl:if>
 				<li><xsl:value-of select="dimensions" /></li>
 			</ul>
 		</ul>
-		<!-- <p><xsl:value-of select="place" /></p>
-		<p><xsl:value-of select="address" /><xsl:apply-templates select="address-cyrillic" /></p> -->
 	</article>
 </xsl:template>
 
 <xsl:template match="images/file">
 	<div class="swiper-slide">
-		<!-- <img src="{$workspace}{@path}/{filename}" alt=""/> -->
-		<img src="{$root}/image/1/0/540{@path}/{filename}" alt=""/>
+		<img src="{$root}/image/collection-gallery{@path}/{filename}">
+			<xsl:attribute name="alt">
+				<xsl:apply-templates select="//collection-item/entry" mode="alt" />
+			</xsl:attribute>
+		</img>
 	</div>
+</xsl:template>
+
+<xsl:template match="//collection-item/entry" mode="alt">
+	<xsl:value-of select="concat(authors, ', ', object-name, ', ', dates)" />
 </xsl:template>
 
 <xsl:template match="address-cyrillic">
@@ -149,30 +158,40 @@
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
 			MA.api.setNavBackground('.offset');
-	
-			//SWIPER
-			var mySwiper = new Swiper ('.swiper-container', {
-				spaceBetween: 30,
+
+			var swiperSlides = $('.swiper-container .swiper-slide');
+			var swiperOptions = {
+				speed: 500,
 				slidesPerView: 'auto',
-				// centeredSlides: true,
-				grabCursor: true,
-				// zoom: true,
-				// loop: true,
-				slidesOffsetBefore: 250,
-				//
+				spaceBetween: 30,
+				centerInsufficientSlides: true,
 				pagination: {
 					el: '.swiper-pagination',
-					clickable: true,
-					renderBulet: function (index, className) {
-						return '<span class="' + className + '">' + i + '</span>';
-					},
-				},
-				navigation: {
-					nextEl: '.swiper-button-next',
-					prevEl: '.swiper-button-prev',
+					clickable: true
 				}
-			})
+			};
+
+			if(swiperSlides.length <xsl:text disable-output-escaping="yes">&gt;</xsl:text> 1) {
+				$.extend(swiperOptions,
+					{
+						slidesOffsetBefore: 250,
+						loop: true,
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+						}
+					}
+				);
+			} 
+	
+			var gallery = new Swiper('.swiper-container', swiperOptions);
+
+			if(gallery.slides.length == 1) {
+				console.log('Ilość slajdów: ' + gallery.slides.length);
+				console.log('Ukryj nawigację!')
+			}
 		});
+
 
 		$(window).load(function() {
 
