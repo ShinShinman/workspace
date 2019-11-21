@@ -2723,6 +2723,13 @@ section.maintenance {
     list-style: disc; }
 
 /* CONSTRUCTION ARCHIVE SEARCH DETAILS */
+/*****
+	Ukrywam główną wyszukiwarkę na stronie z opisem obiektu AB [/archiwum-budowlane/{ID}/] żeby nie myliła się z wyszukiwarką Archiwum i w ten sposób nie wprowadzała w bąd. [10/06/2019]
+	*****/
+.construction-archive.construction-archive .sticky-nav nav form#search-form {
+  visibility: hidden; }
+
+/***** Koniec fragmentu o wyszukiwarce *****/
 .search-deails header h1, .search-deails header .slide-down a, .slide-down .search-deails header a {
   margin-bottom: 12px; }
 
@@ -2890,12 +2897,17 @@ section.maintenance {
   margin-bottom: 0; }
 
 /* COLLECTION pages */
-body.downloads > header, body.search > header, body.collection > header {
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-bottom: 15px; }
-  body.downloads > header.offset, body.search > header.offset, body.collection > header.offset {
-    min-height: 125px; }
+body.collection.downloads, body.collection.search, body.collection.collection {
+  /***** Ukrywam glowna wyszukiwarkę na wszystkich stronach Kolekcji *****/
+  /***** Koniec fragmentu o wyszukiwarce *****/ }
+  body.collection.downloads .sticky-nav nav form#search-form, body.collection.search .sticky-nav nav form#search-form, body.collection.collection .sticky-nav nav form#search-form {
+    visibility: hidden; }
+  body.collection.downloads > header, body.collection.search > header, body.collection.collection > header {
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 15px; }
+    body.collection.downloads > header.offset, body.collection.search > header.offset, body.collection.collection > header.offset {
+      min-height: 125px; }
 
 .coll:not(.collection-item) {
   margin-top: 0 !important; }
@@ -2916,7 +2928,6 @@ body.downloads > header, body.search > header, body.collection > header {
   margin-right: -50vw;
   margin-bottom: 12px; }
   .coll .swiper-container .swiper-slide {
-    background-color: grey;
     width: auto; }
 
 .coll .swiper-button-prev {
@@ -2947,7 +2958,8 @@ body.downloads > header, body.search > header, body.collection > header {
     width: 311.332px;
     float: left;
     margin-top: 24px;
-    margin-right: 15px; }
+    margin-right: 15px;
+    margin-bottom: 0; }
     .coll .project-description .project-details:last-of-type {
       margin-right: 0; }
     .coll .project-description .project-details .signature {
@@ -3070,12 +3082,10 @@ body.downloads > header, body.search > header, body.collection > header {
   .main-footer .footer .third-column {
     width: 148.166px; }
     .main-footer .footer .third-column .b-side {
-      display: block; }
-  /* EDUKACJA */
-  .edu-items .edu-categories {
-    font-size: 14px; } }
+      display: block; } }
 
 @media all and (max-width: 719px) {
+  /* LAYOUT */
   section:last-of-type {
     margin-bottom: 420px; }
   .row, .highlight .owl-carousel .item .text-box, .nav-stripes, .sticky-nav nav, .sticky-nav .main-menu, section {
@@ -3136,8 +3146,40 @@ body.downloads > header, body.search > header, body.collection > header {
     height: 175px; }
   /* SEARCH */
   .search .search-results .tail {
-    width: 311.332px; }
-  /* PAGE: NEWSLETTER */
+    width: 311.332px; } }
+
+/*** MEDIA QUERIES for COLLECTION PAGES ***/
+@media all and (max-width: 1023px) and (min-width: 720px) {
+  .swiper-container .swiper-button-prev, .swiper-container .swiper-button-next {
+    display: none; } }
+
+@media all and (max-width: 719px) {
+  /*** Ukrywa naglowek z obrazkiem na wszystkich stronach Kollekcji ***/
+  .collection header.offset {
+    display: none; }
+  .collection section.coll {
+    margin-top: 135px !important; }
+  .collection .swiper-container {
+    position: static;
+    left: initial;
+    right: initial;
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-right: 0; }
+    .collection .swiper-container .swiper-button-prev, .collection .swiper-container .swiper-button-next {
+      display: none; }
+    .collection .swiper-container .swiper-slide {
+      width: 100%;
+      height: auto; } }
+
+/*** Media Querires for EDUKATION ***/
+@media all and (max-width: 1023px) and (min-width: 720px) {
+  .edu-items .edu-categories {
+    font-size: 14px; } }
+
+/* PAGE: NEWSLETTER */
+@media all and (max-width: 719px) {
   .newsletter .subscribe-form fieldset.main-form {
     width: 311.332px; }
     .newsletter .subscribe-form fieldset.main-form input {

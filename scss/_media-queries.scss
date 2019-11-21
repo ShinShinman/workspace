@@ -78,19 +78,12 @@
 			}
 		}
 	}
-
-	/* EDUKACJA */
-	.edu-items {
-		.edu-categories {
-			font-size: 14px;
-			li {
-			}
-		}
-	}
 }
 
 
 @media all and (max-width: 719px) {
+
+	/* LAYOUT */
 	section:last-of-type {
 		margin-bottom: 420px;
 	}
@@ -218,20 +211,8 @@
 			}
 		}
 	}
-	/* PAGE: NEWSLETTER */ //1.06.2019
-	.newsletter {
-		.subscribe-form {
-			fieldset.main-form {
-				width: columns-width(4); 
-				input {
-					float: none;
-					width: columns-width(4);
-					&[type = "submit"] {
-						margin-top: 12px;
-					}
-				}
-			}
-		}
-	}
 }
 
+@import 'media-queries/collection.mq';
+@import 'media-queries/education.mq';
+@import 'media-queries/newsletter.mq';

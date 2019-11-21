@@ -1,0 +1,41 @@
+/*** MEDIA QUERIES for COLLECTION PAGES ***/
+
+@media all and (max-width: 1023px) and (min-width: 720px) {
+	.swiper-container {
+		.swiper-button-prev, .swiper-button-next {
+			display: none;
+		}
+	}
+}
+
+@media all and (max-width: 719px) {
+	/*** Ukrywa naglowek z obrazkiem na wszystkich stronach Kollekcji ***/
+	.collection {
+		header.offset {
+			display: none;
+		}
+		section.coll {
+			margin-top: 135px !important;
+		}
+
+		//Galeria na stronie obiektu
+		.swiper-container {
+			position: static;
+			left: initial;
+			right: initial;
+			width: 100%;
+			height: auto;
+			margin-left: 0;
+			margin-right: 0;
+
+			.swiper-button-prev, .swiper-button-next {
+				display: none;
+			}
+
+			.swiper-slide {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}

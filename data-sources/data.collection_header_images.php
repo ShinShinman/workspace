@@ -40,7 +40,7 @@ class datasourcecollection_header_images extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-12T16:43:57+00:00'
+            'release-date' => '2019-11-20T14:12:29+00:00'
         );
     }
 

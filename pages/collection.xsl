@@ -151,15 +151,16 @@
 </xsl:template>
 
 <xsl:template match="data" mode="js">
-
-	<script src="https://unpkg.com/swiper/js/swiper.js"></script>
-	<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
 			MA.api.setNavBackground('.offset');
 
+			var viewPortWidth = document.documentElement.clientWidth;
 			var swiperSlides = $('.swiper-container .swiper-slide');
+			var smallScreen = (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 770</xsl:text>) ? true : false;
+
 			var swiperOptions = {
 				speed: 500,
 				slidesPerView: 'auto',
@@ -171,10 +172,10 @@
 				}
 			};
 
-			if(swiperSlides.length <xsl:text disable-output-escaping="yes">&gt;</xsl:text> 1) {
+			if(<xsl:text disable-output-escaping="yes">(swiperSlides.length &gt; 1) &amp;&amp; !smallScreen</xsl:text>) {
 				$.extend(swiperOptions,
 					{
-						slidesOffsetBefore: 250,
+						slidesOffsetBefore: (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 1132</xsl:text>) ? 150 : 250,
 						loop: true,
 						navigation: {
 							nextEl: '.swiper-button-next',
@@ -182,20 +183,10 @@
 						}
 					}
 				);
-			} 
+			}
 	
 			var gallery = new Swiper('.swiper-container', swiperOptions);
-
-			if(gallery.slides.length == 1) {
-				console.log('Ilość slajdów: ' + gallery.slides.length);
-				console.log('Ukryj nawigację!')
-			}
 		});
-
-
-		$(window).load(function() {
-
-		})
 	</script>
 </xsl:template>
 

@@ -1,8 +1,18 @@
 /* COLLECTION pages */
 
 //all Collecion pages
-body {
+body.collection {
 	&.downloads, &.search, &.collection {
+		/***** Ukrywam glowna wyszukiwarkę na wszystkich stronach Kolekcji *****/
+		.sticky-nav {
+			nav {
+				form#search-form {
+					visibility: hidden;
+				}
+			}
+		}
+		/***** Koniec fragmentu o wyszukiwarce *****/
+
 		> header {
 			background-position: center;
 			background-repeat: no-repeat;
@@ -18,7 +28,6 @@ body {
 .coll {
 	@extend .text-column;
 	
-
 	&:not(.collection-item) {
 		margin-top: 0 !important;
 	}
@@ -46,7 +55,6 @@ body {
 		margin-bottom: $global-margin/2;
 
 		.swiper-slide {
-			background-color: grey;
 			width: auto;
 			
 		}
@@ -89,6 +97,7 @@ body {
 			float: left;
 			margin-top: $global-margin;
 			margin-right: $gutter;
+			margin-bottom: 0;
 
 			&:last-of-type {
 				margin-right: 0;

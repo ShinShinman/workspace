@@ -41,7 +41,6 @@
 				<input class="search-field" type="text" name="keywords" autofocus="" placeholder="Wyszukaj">
 					<xsl:attribute name="value">
 						<xsl:apply-templates select="//params/url-keywords" />
-						<!-- <xsl:call-template name="placeholder" /> -->
 					</xsl:attribute>
 				</input>
 				<input type="hidden" name="sections" value="kolekcja" />
@@ -52,8 +51,7 @@
 		</article>
 	</section>
 	<section>
-		<!-- Sprawdzić czy są wyniki wyszukiwania -->
-		<!-- //collection-search/error[node() = 'No records found.'] -->
+		<xsl:apply-templates select="collection-search/error[node() = 'No records found.']" />
 		<div class="bricks-container search-results">
 			<xsl:apply-templates select="collection-search/entry" />
 		</div>
@@ -70,17 +68,6 @@
 
 <xsl:template match="params/url-keywords">
 	<xsl:value-of select="." />
-</xsl:template>
-
-<xsl:template name="placeholder">
-	<xsl:choose>
-		<xsl:when test="collection-search/error">
-			<xsl:text>Wyszukaj</xsl:text>
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:value-of select="//params/url-keywords" />
-		</xsl:otherwise>
-	</xsl:choose>
 </xsl:template>
 
 <xsl:template name="count-results">
@@ -102,15 +89,23 @@
 		</xsl:choose>
 	</xsl:variable>
 
-	<script>console.log(<xsl:value-of select="$last-digit" />);</script>
-	<script>console.log('<xsl:value-of select="$grammar" />');</script>
-
 	<xsl:choose>
 		<xsl:when test="collection-search/error">
 			<p class="results-found">Udostepniamy ponad 1&nbsp;000 obiektów</p>
 		</xsl:when>
 		<xsl:otherwise>
 			<p class="results-found">Znaleziono <xsl:value-of select="concat(count(//collection-search/entry), ' ', $grammar)" /></p>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template match="collection-search/error[. = 'No records found.']">
+	<xsl:choose>
+		<xsl:when test="//current-language/@handle = 'pl'">
+			<h1>Nie znaleziono wyników.</h1>
+		</xsl:when>
+		<xsl:otherwise>
+			<h1><xsl:value-of select="." /></h1>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
@@ -127,9 +122,28 @@
 </xsl:template>
 
 <xsl:template match="images">
-	<!-- <figure> -->
-		<img src="{$root}/image/post-thumbnail{file/@path}/{file/filename}" />
-	<!-- </figure> -->
+	<xsl:variable name="ratio">
+		<xsl:value-of select="file/meta/@width div 320" />
+	</xsl:variable>
+	<!-- Wersja dla jQuery-lazyload [https://appelsiini.net/projects/lazyload/v1/] -->
+	<img class="lazy"
+			 width="320"
+			 height="{floor(file/meta/@height div $ratio)}"
+			 alt="{../authors}, {../object-name}"
+			 data-original="{$root}/image/post-thumbnail{file/@path}/{file/filename}" />
+
+<!-- Wersja dla vanilla-lazyload [https://github.com/verlok/lazyload] -->
+<!-- 
+	<img class="lazy"
+			 width="320"
+			 height="{floor(file/meta/@height div $ratio)}"
+			 style="width: 320px; height: {floor(file/meta/@height div $ratio)}px"
+			 data-src="{$root}/image/post-thumbnail{file/@path}/{file/filename}"
+			 data-srcset="{$root}/image/post-thumbnail{file/@path}/{file/filename},
+			 							{$root}/image/1/640/0{file/@path}/{file/filename} 2x,
+			 							{$root}/image/1/960/0{file/@path}/{file/filename} 3x"
+			 alt="{../authors}, {../object-name}" />
+ -->
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
@@ -153,6 +167,15 @@
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
 			MA.api.setNavBackground('.offset');
+
+			var lazyImgs = $('img.lazy');
+			lazyImgs.lazyload({
+				threshold: 1000,
+				failure_limit : 1000
+			});
+<!-- 			var lazyImgs = new LazyLoad({
+				elements_selector: 'img.lazy'
+			}) -->
 		});
 		$(window).load(function() {
 			MA.iS();

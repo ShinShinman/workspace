@@ -22,6 +22,7 @@
 		"gulp-sourcemaps": "^2.6.5",
 		"gulp-terser": "^1.2.0",
 		"jquery-lazyload": "^1.9.7",
-		"node-sass": "^4.13.0"
+		"node-sass": "^4.13.0",
+		"vanilla-lazyload": "^12.3.0"
 	}
 }

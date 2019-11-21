@@ -1,5 +1,19 @@
 /* CONSTRUCTION ARCHIVE SEARCH DETAILS */
 
+/*****
+	Ukrywam główną wyszukiwarkę na stronie z opisem obiektu AB [/archiwum-budowlane/{ID}/] żeby nie myliła się z wyszukiwarką Archiwum i w ten sposób nie wprowadzała w bąd. [10/06/2019]
+	*****/
+.construction-archive.construction-archive {
+	.sticky-nav {
+		nav {
+			form#search-form {
+				visibility: hidden;
+			}
+		}
+	}
+}
+/***** Koniec fragmentu o wyszukiwarce *****/
+
 .search-deails {
 	@extend .text-column;
 
