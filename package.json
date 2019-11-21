@@ -1,7 +1,7 @@
 {
 	"name": "mawebsite",
-	"version": "3.0.5",
-	"description": "AB – zmiany w odpowiedzi SOLR",
+	"version": "3.1.0",
+	"description": "Kolekcja – nowy dział na stronie, udostępnione 1160 obiektów",
 	"author": "Olaf Schindler",
 	"license": "MIT",
 	"repository": "https://github.com/ShinShinman/MAWWW.git",
@@ -22,7 +22,6 @@
 		"gulp-sourcemaps": "^2.6.5",
 		"gulp-terser": "^1.2.0",
 		"jquery-lazyload": "^1.9.7",
-		"node-sass": "^4.13.0",
-		"vanilla-lazyload": "^12.3.0"
+		"node-sass": "^4.13.0"
 	}
 }
