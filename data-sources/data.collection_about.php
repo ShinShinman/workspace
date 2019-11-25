@@ -10,14 +10,19 @@ class datasourcecollection_about extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
+    public $dsParamNEGATEPARAM = '$signature';
     public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
+    
+
+    
 
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
         'article: formatted'
     );
+    
 
     public function __construct($env = null, $process_params = true)
     {
@@ -31,10 +36,10 @@ class datasourcecollection_about extends SectionDatasource
             'name' => 'Collection About',
             'author' => array(
                 'name' => 'Olaf Schindler',
-                'website' => 'http://ma.wroc.pl',
+                'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-10-30T14:55:24+00:00'
+            'release-date' => '2019-11-25T15:16:38+00:00'
         );
     }
 

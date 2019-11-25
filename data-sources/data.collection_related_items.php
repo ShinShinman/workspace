@@ -1,26 +1,24 @@
 <?php
 
-class datasourcecollection_item extends SectionDatasource
+class datasourcecollection_related_items extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'collection-item';
-    public $dsParamORDER = 'desc';
+    public $dsParamROOTELEMENT = 'collection-related-items';
+    public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '5';
+    public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '$signature';
-    public $dsParamPARAMOUTPUT = array(
-        'related-items'
-        );
-    public $dsParamSORT = 'system:id';
+    public $dsParamREQUIREDPARAM = '$ds-collection-item';
+    public $dsParamSORT = 'signature';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
     public $dsParamFILTERS = array(
-        '358' => '{$signature}',
+        '358' => 'regexp: {$ds-collection-item}',
+        '370' => 'yes',
     );
         
 
@@ -28,15 +26,7 @@ class datasourcecollection_item extends SectionDatasource
         'signature',
         'authors',
         'object-name: formatted',
-        'place',
-        'address',
-        'address-cyrillic',
-        'projec-content: formatted',
-        'project-remarks: formatted',
         'dates',
-        'material',
-        'technics',
-        'dimensions',
         'images'
     );
     
@@ -44,19 +34,19 @@ class datasourcecollection_item extends SectionDatasource
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
-        $this->_dependencies = array();
+        $this->_dependencies = array('$ds-collection-item');
     }
 
     public function about()
     {
         return array(
-            'name' => 'Collection item',
+            'name' => 'Collection related items',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-25T15:05:52+00:00'
+            'release-date' => '2019-11-25T19:17:44+00:00'
         );
     }
 

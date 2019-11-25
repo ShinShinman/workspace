@@ -23,6 +23,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
+<xsl:include href="../utilities/_collection-brick.xsl"/>
 
 <xsl:template match="data">
 	<xsl:choose>
@@ -80,6 +81,9 @@
 		</header>
 		<xsl:apply-templates select="entry[1]" />
 	</section>
+	<xsl:if test="count(//collection-related-items/entry[not(signature = //collection-item/entry/signature)]) &gt; 0">
+		<xsl:apply-templates select="//collection-related-items" />
+	</xsl:if>
 </xsl:template>
 
 <xsl:template match="collection-item/entry">
@@ -134,6 +138,19 @@
 	<span class="cyrillic"><xsl:text> </xsl:text><xsl:value-of select="." /></span>
 </xsl:template>
 
+<xsl:template match="collection-related-items">
+	<section class="relaed-items">
+		<h1>Powiązane obiekty</h1>
+		<div class="bricks-container">
+			<xsl:apply-templates select="//collection-related-items/entry[not(signature = //collection-item/entry/signature)]" />
+		</div>
+	</section>
+</xsl:template>
+
+<xsl:template match="collection-related-items/entry">
+	<xsl:call-template name="collection-brick" />
+</xsl:template>
+
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
 </xsl:template>
@@ -184,8 +201,17 @@
 					}
 				);
 			}
-	
 			var gallery = new Swiper('.swiper-container', swiperOptions);
+
+			var lazyImgs = $('img.lazy');
+			lazyImgs.lazyload({
+				threshold: 1000,
+				failure_limit : 1000
+			});
+		});
+
+		$(window).load(function() {
+			MA.iS();
 		});
 	</script>
 </xsl:template>

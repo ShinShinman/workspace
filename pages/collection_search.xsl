@@ -23,6 +23,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
+<xsl:include href="../utilities/_collection-brick.xsl"/>
 
 <xsl:template match="data">
 	<xsl:call-template name="image-header">
@@ -111,14 +112,7 @@
 </xsl:template>
 
 <xsl:template match="collection-search/entry">
-	<article class="brick">
-		<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{signature/@handle}">
-			<h1 class="donthyphenate"><xsl:value-of select="object-name" /></h1>
-			<h2 class="donthyphenate"><xsl:value-of select="authors" /></h2>
-			<p><xsl:value-of select="dates" /></p>
-			<xsl:apply-templates select="images" />
-		</a>
-	</article>
+	<xsl:call-template name="collection-brick" />
 </xsl:template>
 
 <xsl:template match="images">
@@ -173,10 +167,8 @@
 				threshold: 1000,
 				failure_limit : 1000
 			});
-<!-- 			var lazyImgs = new LazyLoad({
-				elements_selector: 'img.lazy'
-			}) -->
 		});
+		
 		$(window).load(function() {
 			MA.iS();
 		});

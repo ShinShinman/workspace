@@ -3,7 +3,7 @@
 class datasourcecollection_search extends SectionDatasource
 {
     public $dsParamROOTELEMENT = 'collection-search';
-    public $dsParamORDER = 'desc';
+    public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
@@ -11,7 +11,7 @@ class datasourcecollection_search extends SectionDatasource
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
     public $dsParamREQUIREDPARAM = '$url-keywords';
-    public $dsParamSORT = 'system:id';
+    public $dsParamSORT = 'signature';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
@@ -46,7 +46,7 @@ class datasourcecollection_search extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-12T14:52:36+00:00'
+            'release-date' => '2019-11-25T13:17:06+00:00'
         );
     }
 

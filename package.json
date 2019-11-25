@@ -1,7 +1,7 @@
 {
 	"name": "mawebsite",
-	"version": "3.1.0",
-	"description": "Kolekcja – nowy dział na stronie, udostępnione 1160 obiektów",
+	"version": "3.1.1",
+	"description": "Kolekcja – Powiązane obiekty",
 	"author": "Olaf Schindler",
 	"license": "MIT",
 	"repository": "https://github.com/ShinShinman/MAWWW.git",
