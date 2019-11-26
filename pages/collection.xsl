@@ -140,7 +140,7 @@
 
 <xsl:template match="collection-related-items">
 	<section class="relaed-items">
-		<h1>Powiązane obiekty</h1>
+		<h1><xsl:value-of select="//dictionary//word[@handle-en = 'related-items']" /></h1>
 		<div class="bricks-container">
 			<xsl:apply-templates select="//collection-related-items/entry[not(signature = //collection-item/entry/signature)]" />
 		</div>
@@ -157,12 +157,18 @@
 
 <xsl:template name="language-button">
 	<xsl:param name="lang" />
+	<xsl:variable name="sig">
+		<xsl:if test="$signature">
+			<xsl:value-of select="$signature" /><xsl:text>/</xsl:text>
+		</xsl:if>
+	</xsl:variable>
+
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">E</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{$sig}" class="icon">E</a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/" class="icon">P</a>
+			<a href="{$root}/{//supported-languages/item[@handle != //current-language/@handle]/@handle}/{//plh-page/page/item[@lang != //current-language/@handle]/@handle}/{$sig}" class="icon">P</a>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>

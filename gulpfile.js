@@ -52,6 +52,7 @@ function scripts() {
 // var cbString = new Date().getTime().toString().slice(-6);
 var cbString = packageInfo.version;
 function cacheBust() {
+	console.log('Aktualna wersja: ' + cbString);
 	return gulp.src('./utilities/master.xsl')
 		.pipe(relpace(/v=(\d+\.*)+/g, 'v=' + cbString))
 		.pipe(gulp.dest('./utilities'));

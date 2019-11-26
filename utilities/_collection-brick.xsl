@@ -5,7 +5,7 @@
 
 	<xsl:template name="collection-brick">
 		<article class="brick">
-			<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{signature/@handle}">
+			<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{signature/@handle}/">
 				<h1 class="donthyphenate"><xsl:value-of select="object-name" /></h1>
 				<h2 class="donthyphenate"><xsl:value-of select="authors" /></h2>
 				<p><xsl:value-of select="dates" /></p>

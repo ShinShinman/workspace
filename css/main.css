@@ -2920,7 +2920,7 @@ body.collection.downloads, body.collection.search, body.collection.collection {
 
 .coll .swiper-container {
   position: relative;
-  height: 540px;
+  max-height: 540px;
   width: 100vw;
   left: 50%;
   right: 50%;
@@ -2928,7 +2928,9 @@ body.collection.downloads, body.collection.search, body.collection.collection {
   margin-right: -50vw;
   margin-bottom: 12px; }
   .coll .swiper-container .swiper-slide {
-    width: auto; }
+    width: auto;
+    max-width: 90%;
+    max-height: 540px; }
 
 .coll .swiper-button-prev {
   left: 20px;

@@ -10,14 +10,14 @@ class datasourcecollection_related_items extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamREQUIREDPARAM = '$ds-collection-item';
+    public $dsParamREQUIREDPARAM = '$ds-collection-item.related-items';
     public $dsParamSORT = 'signature';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
     public $dsParamFILTERS = array(
-        '358' => 'regexp: {$ds-collection-item}',
+        '358' => 'regexp: {$ds-collection-item.related-items}',
         '370' => 'yes',
     );
         
@@ -34,7 +34,7 @@ class datasourcecollection_related_items extends SectionDatasource
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
-        $this->_dependencies = array('$ds-collection-item');
+        $this->_dependencies = array('$ds-collection-item.related-items');
     }
 
     public function about()
@@ -46,7 +46,7 @@ class datasourcecollection_related_items extends SectionDatasource
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-25T19:17:44+00:00'
+            'release-date' => '2019-11-26T10:42:09+00:00'
         );
     }
 

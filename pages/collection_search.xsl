@@ -81,7 +81,13 @@
 			<xsl:when test="$last-digit = '1'">
 				<xsl:text>obiekt</xsl:text>
 			</xsl:when>
-			<xsl:when test="$last-digit = '2' or '3' or '4'">
+			<xsl:when test="$last-digit = '2'">
+				<xsl:text>obiekty</xsl:text>
+			</xsl:when>
+			<xsl:when test="$last-digit = '3'">
+				<xsl:text>obiekty</xsl:text>
+			</xsl:when>
+			<xsl:when test="$last-digit = '4'">
 				<xsl:text>obiekty</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>

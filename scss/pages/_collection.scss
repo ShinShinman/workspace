@@ -46,7 +46,8 @@ body.collection {
 
 	.swiper-container {
 		position: relative;
-		height: 540px;
+		// height: 540px;
+		max-height: 540px;
 		width: 100vw;
 		left: 50%;
 		right: 50%;
@@ -56,7 +57,8 @@ body.collection {
 
 		.swiper-slide {
 			width: auto;
-			
+			max-width: 90%;
+			max-height: 540px;
 		}
 	}
 
