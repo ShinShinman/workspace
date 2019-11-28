@@ -31,6 +31,7 @@
 	<xsl:include href="_brick.xsl" />
 	<xsl:include href="_date-time.xsl" />
 	<xsl:include href="_footer.xsl" />
+	<xsl:include href="_analitics.xsl" />
 
 	<xsl:template match="/">
 
@@ -49,6 +50,8 @@
 			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.1.1" />
 
 			<xsl:call-template name="favicon" />
+
+			<xsl:call-template name="analitics" />
 
 			<script src="//cdn.foxycart.com/ma/loader.js" async="" defer=""></script>
 			<script src="https://ewejsciowki.pl/embedded_static/embedded.js"></script>
