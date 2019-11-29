@@ -19,6 +19,7 @@ function styles() {
 		.pipe(sourcemaps.init())
 		.pipe(sass({ includePaths: ['bower_components', 'npm_modules'] }).on('error', sass.logError))
 		.pipe(autoprefixer())
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css'))
 		.pipe(cleanCss())
 		.pipe(rename({ suffix: '.min' }))
@@ -52,7 +53,7 @@ function scripts() {
 // var cbString = new Date().getTime().toString().slice(-6);
 var cbString = packageInfo.version;
 function cacheBust() {
-	console.log('Aktualna wersja: ' + cbString);
+	console.log('Aktualna wersja: ' + cbString + ', ' + packageInfo.description);
 	return gulp.src('./utilities/master.xsl')
 		.pipe(relpace(/v=(\d+\.*)+/g, 'v=' + cbString))
 		.pipe(gulp.dest('./utilities'));
