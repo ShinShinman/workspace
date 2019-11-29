@@ -100,20 +100,29 @@
 				<div class="swiper-button-next"></div>
 			</xsl:if>
 		</div>
-		<div class="swiper-pagination"><span class="bullet" /></div>
-		<ul class="project-description">
-			<li><xsl:value-of select="place" /></li>
+		<xsl:if test="count(images/file) > 1">
+			<div class="swiper-pagination"><span class="bullet" /></div>
+		</xsl:if>
+		<ul class="project-description donthyphenate">
+			<li><strong><xsl:value-of select="place" /></strong></li>
 			<li><xsl:value-of select="address" /><xsl:apply-templates select="address-cyrillic" /></li>
 			<ul class="project-details">
 				<li><xsl:value-of select="projec-content" /></li>
 				<li><xsl:value-of select="project-remarks" /></li>
 			</ul>
 			<ul class="project-details">
-				<li><span class="signature"><strong><xsl:value-of select="//dictionary//word[@handle-en = 'signature']" /></strong></span><xsl:value-of select="signature" /></li>
-				<xsl:if test="//current-language/@handle = 'pl'">
-					<li><xsl:value-of select="material" /></li>
-					<li><xsl:value-of select="technics" /></li>
-				</xsl:if>
+				<li class="label"><span><xsl:value-of select="//dictionary//word[@handle-en = 'inventory-number']" /></span></li>
+				<li class="signature"><xsl:value-of select="signature" /></li>
+				<xsl:choose>
+					<xsl:when test="//current-language/@handle = 'pl'">
+						<li><xsl:value-of select="material" /></li>
+						<li><xsl:value-of select="technics" /></li>
+					</xsl:when>
+					<xsl:otherwise>
+						<li><xsl:value-of select="material-en" /></li>
+						<li><xsl:value-of select="technics-en" /></li>
+					</xsl:otherwise>
+				</xsl:choose>
 				<li><xsl:value-of select="dimensions" /></li>
 			</ul>
 		</ul>
@@ -188,21 +197,21 @@
 				speed: 500,
 				slidesPerView: 'auto',
 				spaceBetween: 30,
-				centerInsufficientSlides: true,
-				pagination: {
-					el: '.swiper-pagination',
-					clickable: true
-				}
+				centerInsufficientSlides: true
 			};
 
 			if(<xsl:text disable-output-escaping="yes">(swiperSlides.length &gt; 1) &amp;&amp; !smallScreen</xsl:text>) {
 				$.extend(swiperOptions,
 					{
-						slidesOffsetBefore: (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 1132</xsl:text>) ? 150 : 250,
+						<!-- slidesOffsetBefore: (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 1132</xsl:text>) ? 150 : 250, -->
 						loop: true,
 						navigation: {
 							nextEl: '.swiper-button-next',
 							prevEl: '.swiper-button-prev',
+						},
+						pagination: {
+							el: '.swiper-pagination',
+							clickable: true
 						}
 					}
 				);

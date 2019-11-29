@@ -89,25 +89,33 @@ body.collection {
 
 	.project-description {
 		overflow: auto;
+		margin-top: $global-margin;
 
 		.cyrillic {
 			font-family: 'Roboto', sans-serif;
 		}
 
 		.project-details {
-			width: columns-width(4);
 			float: left;
 			margin-top: $global-margin;
 			margin-right: $gutter;
 			margin-bottom: 0;
 
+			width: columns-width(4);
+			margin-right: columns-width(1) + $gutter;
+
 			&:last-of-type {
+				width: columns-width(3);
 				margin-right: 0;
 			}
 
 			.signature {
-				padding-right: $gutter;
+				margin-bottom: $global-margin;
 			}
+		}
+
+		.label {
+			font-weight: bold;
 		}
 	}
 }

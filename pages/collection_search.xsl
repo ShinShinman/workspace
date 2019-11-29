@@ -98,7 +98,10 @@
 
 	<xsl:choose>
 		<xsl:when test="collection-search/error">
-			<p class="results-found">Udostepniamy ponad 1&nbsp;000 obiektów</p>
+			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/?keywords=Wiktoria+Frydecka">Wiktoria Frydecka</a>, <a href="{$current-url}/?keywords=Andrzej+Frydecki">Andrzej Frydecki</a>, <a href="{$current-url}/?keywords=Maria+Molicka">Maria Molicka</a>, <a href="{$current-url}/?keywords=Witold+Molicki">Witold Molicki</a>, <a href="{$current-url}/?keywords=Tadeusz+Teodorowicz-Todorowski">Tadeusz Teodorowicz-Todorowski</a></p>
+<!-- 
+			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: Wiktoria Frydecka&nbsp;(1901–1992), Andrzej Frydecki&nbsp;(1903–1989), Maria Molicka&nbsp;(1931–2014), Witold Molicki&nbsp;(1930–2013), Tadeusz Teodorowicz-Todorowski&nbsp;(1907–2001)</p>
+			 -->
 		</xsl:when>
 		<xsl:otherwise>
 			<p class="results-found">Znaleziono <xsl:value-of select="concat(count(//collection-search/entry), ' ', $grammar)" /></p>

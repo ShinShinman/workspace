@@ -2953,19 +2953,24 @@ body.collection.downloads, body.collection.search, body.collection.collection {
     background-color: black; }
 
 .coll .project-description {
-  overflow: auto; }
+  overflow: auto;
+  margin-top: 24px; }
   .coll .project-description .cyrillic {
     font-family: 'Roboto', sans-serif; }
   .coll .project-description .project-details {
-    width: 311.332px;
     float: left;
     margin-top: 24px;
     margin-right: 15px;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    width: 311.332px;
+    margin-right: 81.583px; }
     .coll .project-description .project-details:last-of-type {
+      width: 229.749px;
       margin-right: 0; }
     .coll .project-description .project-details .signature {
-      padding-right: 15px; }
+      margin-bottom: 24px; }
+  .coll .project-description .label {
+    font-weight: bold; }
 
 .coll .collection-search form {
   margin-top: 24px; }
@@ -2979,6 +2984,8 @@ body.collection.downloads, body.collection.search, body.collection.collection {
   .coll .collection-search input:focus {
     outline: none;
     border-color: lightgreen; }
+  .coll .collection-search input:-webkit-autofill, .coll .collection-search input -webkit-autofill:hover, .coll .collection-search input -webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px #f0f0f0 inset !important; }
 
 .coll .collection-search .results-found {
   color: grey;
@@ -3362,3 +3369,5 @@ body.collection.downloads, body.collection.search, body.collection.collection {
     opacity: 0.9; }
     .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
       background-color: #999; }
+
+/*# sourceMappingURL=main.css.map */
