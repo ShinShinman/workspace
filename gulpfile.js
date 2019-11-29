@@ -23,7 +23,7 @@ function styles() {
 		.pipe(gulp.dest('./css'))
 		.pipe(cleanCss())
 		.pipe(rename({ suffix: '.min' }))
-		.pipe(sourcemaps.write('.'))
+		// .pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./css'))
 		// .pipe(browserSync.reload())
 		// .pipe(browserSync.stream({match: './css/main.css'}))

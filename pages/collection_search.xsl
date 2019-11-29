@@ -44,6 +44,7 @@
 						<xsl:apply-templates select="//params/url-keywords" />
 					</xsl:attribute>
 				</input>
+				<input type="submit" value="&rarr;" class="icon"/>
 				<input type="hidden" name="sections" value="kolekcja" />
 			</form>
 			<xsl:call-template name="count-results">
