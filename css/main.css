@@ -2562,7 +2562,8 @@ section.maintenance {
   margin-bottom: 48px; }
   .exhibition-archive .slider.ui-slider.ui-slider-pips .ui-slider-range {
     background-color: #5160ff;
-    background-image: none; }
+    background-image: none;
+    height: 6px; }
   .exhibition-archive .slider.ui-slider.ui-slider-pips .ui-slider-handle {
     border: none;
     border-radius: 0;
@@ -2602,7 +2603,8 @@ section.maintenance {
   margin-bottom: 48px; }
   .events-archive .slider.ui-slider.ui-slider-pips .ui-slider-range {
     background-color: #5160ff;
-    background-image: none; }
+    background-image: none;
+    height: 6px; }
   .events-archive .slider.ui-slider.ui-slider-pips .ui-slider-handle {
     border: none;
     border-radius: 0;

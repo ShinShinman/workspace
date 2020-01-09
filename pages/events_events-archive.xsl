@@ -114,7 +114,7 @@
 				<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
 			</h1>
 		</nav>
-		<h2 class="legend">Wydarzenia z lat&nbsp;<span><xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
+		<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='events-from']" />&nbsp;<span><xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
 		<div class="slider"></div>
 		<div class="bricks-container">
 			<xsl:apply-templates select="events-archive/entry" />
