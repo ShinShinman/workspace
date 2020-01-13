@@ -4,36 +4,39 @@ class datasourcecollection extends SectionDatasource
 {
     public $dsParamROOTELEMENT = 'collection';
     public $dsParamORDER = 'asc';
-    public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '20';
+    public $dsParamPAGINATERESULTS = 'yes';
+    public $dsParamLIMIT = '100';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'system:id';
+    public $dsParamSORT = 'signature';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
+    
 
-    public $dsParamFILTERS = array(
-        '370' => 'yes',
-    );
+    
 
     public $dsParamINCLUDEDELEMENTS = array(
         'signature',
         'authors',
-        'object-name: formatted',
+        'object-name: unformatted',
         'place',
         'address',
         'address-cyrillic',
-        'projec-content: formatted',
-        'project-remarks: formatted',
+        'projec-content: unformatted',
+        'project-remarks: unformatted',
         'dates',
         'material',
+        'material-en',
         'technics',
+        'technics-en',
         'dimensions',
         'publish',
-        'images'
+        'images',
+        'related-items'
     );
+    
 
     public function __construct($env = null, $process_params = true)
     {
@@ -47,10 +50,10 @@ class datasourcecollection extends SectionDatasource
             'name' => 'Collection',
             'author' => array(
                 'name' => 'Olaf Schindler',
-                'website' => 'http://ma.wroc.pl',
+                'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-10-30T15:32:54+00:00'
+            'release-date' => '2020-01-12T11:03:45+00:00'
         );
     }
 
