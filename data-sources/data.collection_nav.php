@@ -1,38 +1,18 @@
 <?php
 
-class datasourceevents extends SectionDatasource
+require_once(EXTENSIONS.'/page_lhandles/lib/class.datasource.MultilingualNavigation.php');
+
+class datasourcecollection_nav extends MultilingualNavigationDatasource
 {
-    public $dsParamROOTELEMENT = 'events';
+    public $dsParamROOTELEMENT = 'collection-nav';
     public $dsParamORDER = 'asc';
-    public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '20';
-    public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
-    public $dsParamHTMLENCODE = 'no';
-    public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-    
 
     public $dsParamFILTERS = array(
-        '56' => 'yes',
+        'parent' => '/collection',
     );
-        
-
-    public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'lead: formatted',
-        'inline-images',
-        'article: formatted',
-        'category',
-        'cover-image',
-        'date: formatted',
-        'kalendar'
-    );
-    
 
     public function __construct($env = null, $process_params = true)
     {
@@ -43,19 +23,19 @@ class datasourceevents extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Events',
+            'name' => 'Collection Nav',
             'author' => array(
                 'name' => 'Olaf Schindler',
-                'website' => 'http://localhost/ma.wroc.pl',
+                'website' => 'http://ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-28T13:36:21+00:00'
+            'release-date' => '2019-10-18T13:49:35+00:00'
         );
     }
 
     public function getSource()
     {
-        return '11';
+        return 'navigation';
     }
 
     public function allowEditorToParse()

@@ -1,8 +1,8 @@
 <?php
 
-class datasourceevents extends SectionDatasource
+class datasourcecollection_related_items extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'events';
+    public $dsParamROOTELEMENT = 'collection-related-items';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -10,52 +10,49 @@ class datasourceevents extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamREQUIREDPARAM = '$ds-collection-item.related-items';
+    public $dsParamSORT = 'signature';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
     public $dsParamFILTERS = array(
-        '56' => 'yes',
+        '358' => 'regexp: {$ds-collection-item.related-items}',
+        '370' => 'yes',
     );
         
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'lead: formatted',
-        'inline-images',
-        'article: formatted',
-        'category',
-        'cover-image',
-        'date: formatted',
-        'kalendar'
+        'signature',
+        'authors',
+        'object-name: formatted',
+        'dates',
+        'images'
     );
     
 
     public function __construct($env = null, $process_params = true)
     {
         parent::__construct($env, $process_params);
-        $this->_dependencies = array();
+        $this->_dependencies = array('$ds-collection-item.related-items');
     }
 
     public function about()
     {
         return array(
-            'name' => 'Events',
+            'name' => 'Collection related items',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-28T13:36:21+00:00'
+            'release-date' => '2019-11-26T10:42:09+00:00'
         );
     }
 
     public function getSource()
     {
-        return '11';
+        return '70';
     }
 
     public function allowEditorToParse()

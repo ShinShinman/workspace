@@ -1,36 +1,26 @@
 <?php
 
-class datasourceevents extends SectionDatasource
+class datasourcecollection_about extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'events';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'collection-about';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamNEGATEPARAM = '$signature';
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
-    public $dsParamFILTERS = array(
-        '56' => 'yes',
-    );
-        
+    
 
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'lead: formatted',
-        'inline-images',
-        'article: formatted',
-        'category',
-        'cover-image',
-        'date: formatted',
-        'kalendar'
+        'article: formatted'
     );
     
 
@@ -43,19 +33,19 @@ class datasourceevents extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Events',
+            'name' => 'Collection About',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-28T13:36:21+00:00'
+            'release-date' => '2019-11-25T15:16:38+00:00'
         );
     }
 
     public function getSource()
     {
-        return '11';
+        return '69';
     }
 
     public function allowEditorToParse()

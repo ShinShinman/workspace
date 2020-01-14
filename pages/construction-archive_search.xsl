@@ -22,16 +22,13 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:import href="../utilities/master.xsl"/>
+<xsl:include href="../utilities/_image-header.xsl"/>
 
 <xsl:template match="data">
-	<xsl:choose>
-		<xsl:when test="ab-header-images/entry">
-			<xsl:apply-templates select="ab-header-images/entry" />
-		</xsl:when>
-		<xsl:otherwise>
-			<header class="offset" />
-		</xsl:otherwise>
-	</xsl:choose>
+	<xsl:call-template name="image-header">
+		<xsl:with-param name="parent-node" select="ab-header-images" />
+	</xsl:call-template>
+	
 	<xsl:call-template name="search-engine" />
 </xsl:template>
 
@@ -278,17 +275,18 @@
 			}
 
 			function printResults (obj) {
-				var tmp = obj.image.split('.');
-				
+				var imageList = obj.image.split(';');
 				var image;
 
-				if (tmp[1] == 'jpg') {
-					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
-					image = '<img src="' + imgURL + '" />';
+				if(imageList.length <xsl:text disable-output-escaping="yes">&gt;</xsl:text> 1) {
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + imageList[0];
 				} else {
-					image = '';
+					var tmp = obj.image.split('.');
+					var imgURL = '<xsl:value-of select="$root" />/image/ab-tail/156.17.203.194/media/' + obj.id + '/' + tmp[0] + '-min.' + tmp[1];
 				}
+				image = '<img src="' + imgURL + '" />';
 
+					
 				var path = "<xsl:value-of select="concat($root, '/', //fl-languages/current-language/@handle, '/', //plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle, '/' )" />" + obj.id;
 				
 				var tail = 

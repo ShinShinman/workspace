@@ -24,6 +24,7 @@
 			$this->_formatters = array (
 				'ttf_wiszce_ziomy' => 'Wiszce ziomy',
 				'markdown_extra_with_smartypants' => 'Markdown Extra (With SmartyPants)',
+				'ttf_plac_ulica_i_aleja' => 'Plac ulica i aleja',
 			);;
 
 		}
@@ -37,8 +38,8 @@
 					'email' => 'studio@orkana39.pl'
 				),
 				'version' => '1.4',
-				'release-date' => '2016-01-20T18:07:22+00:00',
-				'description' => 'Formatting text in the following order: Wiszce ziomy → Markdown Extra (With SmartyPants)',
+				'release-date' => '2019-11-29T10:46:39+00:00',
+				'description' => 'Formatting text in the following order: Wiszce ziomy → Markdown Extra (With SmartyPants) → Plac ulica i aleja',
 				'templatedtextformatters-version' => '1.11', // required
 				'templatedtextformatters-type' => 'chain' // required
 			);

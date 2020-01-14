@@ -33,6 +33,20 @@
 		########
 		array(
 			'mode' => '2',
+			'name' => 'Post thumbnail',
+			'url-parameter' => 'post-thumbnail',
+			'width' => '320',
+			'height' => NULL,
+			'position' => '5',
+			'background' => 'fff',
+			'quality' => NULL,
+			'external' => '0',
+		),
+		########
+
+		########
+		array(
+			'mode' => '2',
 			'name' => 'Bookstore thumbnail',
 			'url-parameter' => 'bookstore-thumbnail',
 			'width' => '320',
@@ -72,13 +86,11 @@
 
 		########
 		array(
-			'mode' => '2',
-			'name' => 'Post thumbnail',
-			'url-parameter' => 'post-thumbnail',
-			'width' => '320',
-			'height' => NULL,
-			'position' => '5',
-			'background' => 'fff',
+			'mode' => '1',
+			'name' => 'Collection gallery',
+			'url-parameter' => 'collection-gallery',
+			'width' => NULL,
+			'height' => '540',
 			'quality' => NULL,
 			'external' => '0',
 		),

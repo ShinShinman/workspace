@@ -1,8 +1,8 @@
 <?php
 
-class datasourceevents extends SectionDatasource
+class datasourcecollection_downloadables extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'events';
+    public $dsParamROOTELEMENT = 'collection-downloadables';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -15,22 +15,11 @@ class datasourceevents extends SectionDatasource
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
-    public $dsParamFILTERS = array(
-        '56' => 'yes',
-    );
-        
+    
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'lead: formatted',
-        'inline-images',
-        'article: formatted',
-        'category',
-        'cover-image',
-        'date: formatted',
-        'kalendar'
+        'file-name: formatted',
+        'file-link: formatted'
     );
     
 
@@ -43,19 +32,19 @@ class datasourceevents extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Events',
+            'name' => 'Collection downloadables',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-28T13:36:21+00:00'
+            'release-date' => '2019-11-06T13:00:46+00:00'
         );
     }
 
     public function getSource()
     {
-        return '11';
+        return '71';
     }
 
     public function allowEditorToParse()

@@ -22,16 +22,23 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:import href="../utilities/master.xsl"/>
+<xsl:include href="../utilities/_image-header.xsl"/>
 
 <xsl:template match="data">
-	<xsl:choose>
+
+	<xsl:call-template name="image-header">
+		<xsl:with-param name="parent-node" select="ab-header-images" />
+	</xsl:call-template>
+
+<!-- 	<xsl:choose>
 		<xsl:when test="ab-header-images/entry">
 			<xsl:apply-templates select="ab-header-images/entry" />
 		</xsl:when>
 		<xsl:otherwise>
 			<header class="offset" />
 		</xsl:otherwise>
-	</xsl:choose>
+	</xsl:choose> -->
+	
 	<section class="archive-digitizing">
 		<xsl:apply-templates select="ab-digitalizacja/entry" />
 	</section>

@@ -1,36 +1,45 @@
 <?php
 
-class datasourceevents extends SectionDatasource
+class datasourcecollection_item extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'events';
-    public $dsParamORDER = 'asc';
+    public $dsParamROOTELEMENT = 'collection-item';
+    public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
-    public $dsParamLIMIT = '20';
+    public $dsParamLIMIT = '5';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamREQUIREDPARAM = '$signature';
+    public $dsParamPARAMOUTPUT = array(
+        'related-items'
+        );
+    public $dsParamSORT = 'system:id';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
     public $dsParamFILTERS = array(
-        '56' => 'yes',
+        '358' => '{$signature}',
     );
         
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'lead: formatted',
-        'inline-images',
-        'article: formatted',
-        'category',
-        'cover-image',
-        'date: formatted',
-        'kalendar'
+        'signature',
+        'authors',
+        'object-name: formatted',
+        'place',
+        'address',
+        'address-cyrillic',
+        'projec-content: formatted',
+        'project-remarks: formatted',
+        'dates',
+        'material',
+        'material-en',
+        'technics',
+        'technics-en',
+        'dimensions',
+        'images'
     );
     
 
@@ -43,19 +52,19 @@ class datasourceevents extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Events',
+            'name' => 'Collection item',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-28T13:36:21+00:00'
+            'release-date' => '2019-11-28T15:53:52+00:00'
         );
     }
 
     public function getSource()
     {
-        return '11';
+        return '70';
     }
 
     public function allowEditorToParse()

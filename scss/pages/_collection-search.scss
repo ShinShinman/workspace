@@ -1,0 +1,50 @@
+// COLLECTION SEARCH //
+
+.coll {
+	.collection-search {
+		form {
+			margin-top: 24px;
+			position: relative;
+		}
+		input {
+			border: none;
+			border-bottom: 1px solid black;
+			margin-bottom: 6px;
+			line-height: 1.5;
+
+			&[type = text] {
+				width:100%;
+				
+				&:focus {
+					outline: none;
+					border-color: lightgreen;
+				}
+			}
+
+			&[type = submit] {
+				@include hide-text;
+				position: absolute;
+				right: 0;
+				width: 21px;
+				height: 21px;
+				padding: 0;
+				margin-right: 2px;
+				border: none;
+				background-color: white;
+				background-image: url($css-images-path + 'search.svg');
+				background-repeat: no-repeat;
+				background-position: 0 0;
+			}
+
+
+			// &:-internal-autofill-selected {
+			&:-webkit-autofill, -webkit-autofill:hover, -webkit-autofill:focus {
+				-webkit-box-shadow: 0 0 0 30px #f0f0f0 inset !important;
+			}
+		}
+		.results-found {
+			color: grey;
+			font-size: 14px;
+		}
+	}
+}

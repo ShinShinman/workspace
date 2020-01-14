@@ -1,0 +1,121 @@
+/* COLLECTION pages */
+
+//all Collecion pages
+body.collection {
+	&.downloads, &.search, &.collection {
+		/***** Ukrywam glowna wyszukiwarkę na wszystkich stronach Kolekcji *****/
+		.sticky-nav {
+			nav {
+				form#search-form {
+					visibility: hidden;
+				}
+			}
+		}
+		/***** Koniec fragmentu o wyszukiwarce *****/
+
+		> header {
+			background-position: center;
+			background-repeat: no-repeat;
+			margin-bottom: $gutter;
+			&.offset {
+				min-height: 125px;
+			}
+		}
+	}
+
+}
+
+.coll {
+	@extend .text-column;
+	
+	&:not(.collection-item) {
+		margin-top: 0 !important;
+	}
+
+	header {
+		h1 {
+			margin-bottom: 12px;
+		}
+	}
+
+	article {
+		h3 {
+			margin-bottom: $global-margin;
+		}
+	}
+
+	.swiper-container {
+		position: relative;
+		// height: 540px;
+		max-height: 540px;
+		width: 100vw;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		margin-bottom: $global-margin/2;
+
+		.swiper-slide {
+			width: auto;
+			max-width: 90%;
+			max-height: 540px;
+		}
+	}
+
+	.swiper-button-prev {
+		left: 20px;
+		color: black;
+	}
+	.swiper-button-next {
+		right: 20px;
+		color: black;
+	}
+
+	.swiper-pagination {
+		position: relative;
+		text-align: left;
+		margin-bottom: $global-margin;
+		
+		.swiper-pagination-bullet {
+			width: 66px;
+			height: 10px;
+			margin-right: 15px;
+			border-radius: unset;
+		}
+		.swiper-pagination-bullet-active {
+			background-color: black;
+		}
+	}
+
+	.project-description {
+		overflow: auto;
+		margin-top: $global-margin;
+
+		.cyrillic {
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.project-details {
+			float: left;
+			margin-top: $global-margin;
+			margin-right: $gutter;
+			margin-bottom: 0;
+
+			width: columns-width(4);
+			margin-right: columns-width(1) + $gutter;
+
+			&:last-of-type {
+				width: columns-width(3);
+				margin-right: 0;
+			}
+
+			.signature {
+				margin-bottom: $global-margin;
+			}
+		}
+
+		.label {
+			font-weight: bold;
+		}
+	}
+}

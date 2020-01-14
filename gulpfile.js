@@ -1,115 +1,92 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
-var cleanCss = require('gulp-clean-css');
-var rename = require('gulp-rename');
-var coffee = require('gulp-coffee');
-var browserSync = require('browser-sync').create();
-var include = require('gulp-include');
-var uglyfly = require('gulp-uglyfly');
-var rev = require('gulp-rev');
-var revReplace = require('gulp-rev-replace');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const cleanCss = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const browserSync = require('browser-sync').create();
+const relpace = require('gulp-replace');
+const coffee = require('gulp-coffee');
+const include = require('gulp-include');
+const terser = require('gulp-terser');
 
-gulp.task('sass', function() {
-	return gulp.src('scss/main.scss')
+const packageInfo = require('./package.json');
+
+sass.compiler = require('node-sass');
+
+function styles() {
+	return gulp.src('./scss/main.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass({
-			includePaths: ['./bower_components', './npm_modules']
-		}).on('error', sass.logError))
+		.pipe(sass({ includePaths: ['bower_components', 'npm_modules'] }).on('error', sass.logError))
 		.pipe(autoprefixer())
-		//.pipe(cleanCss())
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('./css/'))
-		/*
-		.pipe(browserSync.reload({
-			stream: true
-		}));
-		*/
-});
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./css'))
+		.pipe(cleanCss())
+		.pipe(rename({ suffix: '.min' }))
+		// .pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./css'))
+		// .pipe(browserSync.reload())
+		// .pipe(browserSync.stream({match: './css/main.css'}))
+		// .pipe(browserSync.stream())
+}
 
-gulp.task('minifyCss', function() {
-	return gulp.src('css/main.css')
-	.pipe(sourcemaps.init())
-	.pipe(cleanCss())
-	.pipe(rename({
-		suffix: '.min'
-	}))
-	.pipe(sourcemaps.write('./'))
-	.pipe(gulp.dest('./css/'))
-	.pipe(browserSync.reload({
-		stream: true
-	}));
-});
+function coffeeScript() {
+	return gulp.src('./coffee/ma.coffee')
+		.pipe(sourcemaps.init())
+		.pipe(coffee().on('error', console.log))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./coffee/js'))
+}
 
-gulp.task('revision', function() {
-	return gulp.src('./css/main.css')
-		.pipe(rev())
-		.pipe(gulp.dest('./css/'))
-		.pipe(rev.manifest({
-			merge: true
-		}))
-		.pipe(gulp.dest('./'));
-});
+function scripts() {
+	return gulp.src('./coffee/components4gulp.js')
+		.pipe(sourcemaps.init())
+		.pipe(include().on('error', console.log))
+		.pipe(terser())
+		.pipe(rename('main.min.js'))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./js'))
+		// .pipe(browserSync.reload({ stream: true }))
+		.pipe(browserSync.stream())
+}
 
-gulp.task('revision-js', function() {
-	return gulp.src('./js/main.min.js')
-		.pipe(rev())
-		.pipe(gulp.dest('./js/'))
-		.pipe(rev.manifest({
-			merge: true
-		}))
-		.pipe(gulp.dest('./'));
-});
+// var cbString = new Date().getTime().toString().slice(-6);
+var cbString = packageInfo.version;
+function cacheBust() {
+	console.log('Aktualna wersja: ' + cbString + ', ' + packageInfo.description);
+	return gulp.src('./utilities/master.xsl')
+		.pipe(relpace(/v=(\d+\.*)+/g, 'v=' + cbString))
+		.pipe(gulp.dest('./utilities'));
+}
 
-gulp.task('revreplace', ['revision'], function() {
-	var manifest = gulp.src('./rev-manifest.json');
-	return gulp.src('./utilities/master.xsl.html')
-		.pipe(revReplace({manifest: manifest}))
-		.pipe(rename({
-			suffix: '-dist'
-		}))
-		.pipe(gulp.dest('./utilities/'));
-});
-
-gulp.task('coffee', function() {
-	return gulp.src('coffee/ma.coffee')
-	.pipe(sourcemaps.init())
-	.pipe(coffee().on('error', console.log))
-	.pipe(sourcemaps.write('./'))
-	.pipe(gulp.dest('coffee/js/'))
-	/*
-	.pipe(browserSync.reload({
-		stream: true
-	}));
-	*/
-});
-
-gulp.task('scripts', function() {
-	return gulp.src('coffee/components4gulp.js')
-	.pipe(sourcemaps.init())
-	.pipe(include()).on('error', console.log)
-	.pipe(uglyfly())
-	.pipe(rename('main.min.js'))
-	.pipe(sourcemaps.write('./'))
-	.pipe(gulp.dest('./js/'))
-	.pipe(browserSync.reload({
-		stream: true
-	}));
-});
-
-gulp.task('browserSync', function(){
+function bs() {
 	browserSync.init({
 		proxy: 'localhost/ma.wroc.pl/'
 	});
-});
+}
 
-gulp.task('default', ['browserSync', 'sass'], function() {
-    gulp.watch('scss/**/*.scss', ['sass']);
-    gulp.watch('css/**/*.css', ['minifyCss']);
-    gulp.watch('coffee/**/*.coffee', ['coffee']);
-    gulp.watch('coffee/js/*.js', ['scripts']);
-    gulp.watch('pages/*.xsl', browserSync.reload);
-    gulp.watch('utilities/*.xsl', browserSync.reload);
-    gulp.watch('index.html', browserSync.reload);
-});
+function watchFiles() {
+	bs();
+	gulp.watch(['./scss/**/*.scss'],
+		gulp.series(styles, function reloading(done) {
+			browserSync.reload();
+			done();
+		})
+	);
+	gulp.watch(['./coffee/**/*.coffee'], 
+		gulp.series(coffeeScript, scripts)
+	);
+	gulp.watch(['pages/*.xsl', 'utilities/*.xsl'],
+		gulp.series(function reloading(done) {
+			browserSync.reload();
+			done();
+		})
+	);
+}
+
+exports.cacheBust = cacheBust;
+exports.default = gulp.series(
+	coffeeScript,
+	gulp.parallel(styles, scripts, cacheBust),
+	watchFiles
+);

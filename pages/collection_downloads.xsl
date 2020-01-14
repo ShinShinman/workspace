@@ -22,26 +22,37 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:import href="../utilities/master.xsl"/>
+<xsl:include href="../utilities/_image-header.xsl"/>
 
 <xsl:template match="data">
-	<section class="media">
+	<xsl:call-template name="image-header">
+		<xsl:with-param name="parent-node" select="collection-header-images" />
+	</xsl:call-template>
+	<section class="coll">
 		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
+			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
 			<ul class="inline-list">
-				<xsl:apply-templates select="//media-nav/page" />
+				<xsl:apply-templates select="//collection-nav/page" />
 			</ul>
 		</header>
 		<article>
 			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<ul>
-				<xsl:apply-templates select="media-downlodables/entry" />
+				<xsl:apply-templates select="collection-downloadables/entry" />
 			</ul>
 		</article>
-		<xsl:apply-templates select="media-contact/entry" />
 	</section>
 </xsl:template>
 
-<xsl:template match="media-downlodables/entry">
+<xsl:template match="collection-nav/page">
+	<li>
+		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}/">
+			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
+		</a>
+	</li>
+</xsl:template>
+
+<xsl:template match="collection-downloadables/entry">
 	<li>
 		<a href="{file-link}" target="_blank">
 			<xsl:value-of select="file-name" />
@@ -49,16 +60,8 @@
 	</li>
 </xsl:template>
 
-<xsl:template match="media-nav/page">
-	<li>
-		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}">
-			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
-		</a>
-	</li>
-</xsl:template>
-
 <xsl:template match="data" mode="ma-button">
-	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
+	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/')" />
 </xsl:template>
 
 <xsl:template name="language-button">
@@ -76,7 +79,8 @@
 <xsl:template match="data" mode="js">
 	<script>
 		$(function() {
-			MA.stickyNavSetup({backgroundColor: 'white'});
+			MA.stickyNavSetup({backgroundColor: 'transparent'});
+			MA.api.setNavBackground('.offset');
 		});
 	</script>
 </xsl:template>

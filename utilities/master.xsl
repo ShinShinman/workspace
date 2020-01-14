@@ -31,6 +31,7 @@
 	<xsl:include href="_brick.xsl" />
 	<xsl:include href="_date-time.xsl" />
 	<xsl:include href="_footer.xsl" />
+	<xsl:include href="_analitics.xsl" />
 
 	<xsl:template match="/">
 
@@ -46,15 +47,17 @@
 
 			<xsl:apply-templates mode="meta-tags"/>
 
-			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.0.4" />
+			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.1.3" />
 
 			<xsl:call-template name="favicon" />
+
+			<xsl:call-template name="analitics" />
 
 			<script src="//cdn.foxycart.com/ma/loader.js" async="" defer=""></script>
 			<script src="https://ewejsciowki.pl/embedded_static/embedded.js"></script>
 		</head>
 
-    <body class="{$current-page} hyphenate">
+    <body class="{$root-page} {$current-page} hyphenate">
 			<!--[if lt IE 7]>
 				<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 			<![endif]-->
@@ -67,7 +70,7 @@
 				<xsl:with-param name="lang" select="//current-language/@handle" />
 			</xsl:call-template>
 
-			<script src="{$workspace}/js/main.min.js?v=3.0.4" ></script>
+			<script src="{$workspace}/js/main.min.js?v=3.1.3" ></script>
 			<script>
 				$(function(){
 					<xsl:apply-templates select="//dont-hyphenate/entry/item" />
@@ -226,8 +229,6 @@
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
-
-
 
 <xsl:template match="//dont-hyphenate/entry/item">
 	Hyphenator.addExceptions('<xsl:value-of select="./@lang" />', '<xsl:value-of select="." />');

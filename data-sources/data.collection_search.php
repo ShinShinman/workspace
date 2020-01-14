@@ -1,8 +1,8 @@
 <?php
 
-class datasourceevents extends SectionDatasource
+class datasourcecollection_search extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'events';
+    public $dsParamROOTELEMENT = 'collection-search';
     public $dsParamORDER = 'asc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -10,27 +10,24 @@ class datasourceevents extends SectionDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
-    public $dsParamSORT = 'order';
+    public $dsParamREQUIREDPARAM = '$url-keywords';
+    public $dsParamSORT = 'object-name';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
     public $dsParamFILTERS = array(
-        '56' => 'yes',
+        '370' => 'yes',
+        '378' => '{$url-keywords}',
     );
         
 
     public $dsParamINCLUDEDELEMENTS = array(
-        'title: formatted',
-        'subtitle: formatted',
-        'main-image',
-        'lead: formatted',
-        'inline-images',
-        'article: formatted',
-        'category',
-        'cover-image',
-        'date: formatted',
-        'kalendar'
+        'signature',
+        'authors',
+        'object-name: formatted',
+        'dates',
+        'images'
     );
     
 
@@ -43,19 +40,19 @@ class datasourceevents extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Events',
+            'name' => 'Collection Search',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-11-28T13:36:21+00:00'
+            'release-date' => '2019-11-27T14:54:13+00:00'
         );
     }
 
     public function getSource()
     {
-        return '11';
+        return '70';
     }
 
     public function allowEditorToParse()
