@@ -122,9 +122,16 @@
 		-->
 		<div class="slider"></div>
 		<div class="bricks-container">
+			<!-- <xsl:apply-templates select="exhibitions-2016-archive/entry">
+				<xsl:sort select="title" />
+			</xsl:apply-templates> -->
 			<xsl:apply-templates select="exhibitions-archive/entry" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="exhibitions-2016-archive/entry">
+	<xsl:call-template name="archive-brick" />
 </xsl:template>
 
 <xsl:template match="exhibitions-archive/entry">

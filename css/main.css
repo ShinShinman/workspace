@@ -2025,6 +2025,10 @@ body {
     .sticky-nav.extended ul {
       margin-bottom: 24px; }
 
+.archive.brick {
+  height: 450px;
+  overflow: hidden; }
+
 /* Typography */
 /* Fonts */
 @font-face {

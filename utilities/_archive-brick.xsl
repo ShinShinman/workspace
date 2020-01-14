@@ -6,13 +6,14 @@
 	<xsl:template name="archive-brick">
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
-		<article class="brick {substring(date/date/start, 1, 4)}">
+		<article class="archive brick {substring(date/date/start, 1, 4)}">
 			<a href="{$root}{$current-path}/{title/@handle}/">
 				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<!--<xsl:apply-templates select="subtitle" />-->
 				<!--<xsl:apply-templates select="./category/item" mode="brick" />-->
 				<xsl:apply-templates select="./date" />
 				<!--<xsl:copy-of select="lead/node()" />-->
+				
 				<xsl:choose>
 					<xsl:when test="cover-image">
 						<xsl:apply-templates select="cover-image" />
@@ -21,6 +22,7 @@
 						<img src="{$root}/image/post-thumbnail/images/archive/archive.jpg" />
 					</xsl:otherwise>
 				</xsl:choose>
+				
 			</a>
 		</article>
 
@@ -80,7 +82,16 @@
 	</xsl:template>
 
 	<xsl:template match="cover-image">
-		<img class="lazy" data-original="{$root}/image/post-thumbnail{@path}/{filename}" width="320" height="340" alt="{../title}" />
+		<xsl:variable name="ratio">
+			<xsl:value-of select="meta/@width div 320" />
+		</xsl:variable>
+		<img 
+			class="lazy" 
+			data-original="{$root}/image/post-thumbnail{@path}/{filename}" 
+			width="320" 
+			height="{floor(meta/@height div $ratio)}" 
+			alt="{../title}" 
+		/>
 	</xsl:template>
 
 </xsl:stylesheet>
