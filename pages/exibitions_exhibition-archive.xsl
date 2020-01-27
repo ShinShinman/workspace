@@ -28,12 +28,13 @@
 <xsl:template match="data">
 	<xsl:choose>
 		<xsl:when test="$title">
-			<xsl:if test="exhibition-archived/error">
+			<xsl:if test="exhibition-archived/error and exhibition-2016-archived/error">
 				<script>
 					window.location.replace('<xsl:value-of select="$root"/>/error/');
 				</script>
 			</xsl:if>
 			<xsl:apply-templates select="exhibition-archived/entry" />
+			<xsl:apply-templates select="exhibition-2016-archived/entry" />
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:call-template name="exhibitions-archive" />
@@ -41,7 +42,7 @@
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="exhibition-archived/entry">
+<xsl:template match="exhibition-archived/entry | exhibition-2016-archived/entry">
 	<section class="archived-exhibition">
 		<header class="donthyphenate">
 			<ul class="category-list">
@@ -50,8 +51,8 @@
 			<h1><xsl:value-of select="title/p" /></h1>
 			<xsl:apply-templates select="subtitle" />
 			<h3 class="date">
-				<xsl:apply-templates select="date/date[@type = 'exact']" />
-				<xsl:apply-templates select="date/date[@type = 'range']" />
+				<xsl:apply-templates select=".//date[@type = 'exact'][1]" />
+				<xsl:apply-templates select=".//date[@type = 'range']" />
 			</h3>
 		</header>
 		<article>
@@ -122,9 +123,7 @@
 		-->
 		<div class="slider"></div>
 		<div class="bricks-container">
-			<!-- <xsl:apply-templates select="exhibitions-2016-archive/entry">
-				<xsl:sort select="title" />
-			</xsl:apply-templates> -->
+			<xsl:apply-templates select="exhibitions-2016-archive/entry" />
 			<xsl:apply-templates select="exhibitions-archive/entry" />
 		</div>
 	</section>
@@ -161,7 +160,10 @@
 			});
 		});
 		$(window).load(function() {
+			<!-- 
 			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />]});
+			-->
+			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-2016-archive/entry[1]/calendar/date/start, 1, 4)" />]});
 		});
 	</script>
 </xsl:template>

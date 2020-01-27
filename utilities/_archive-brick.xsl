@@ -6,12 +6,12 @@
 	<xsl:template name="archive-brick">
 		<xsl:param name="lang" select="//fl-languages/current-language/@language" />
 
-		<article class="archive brick {substring(date/date/start, 1, 4)}">
+		<article class="archive brick {substring(.//date/start, 1, 4)}">
 			<a href="{$root}{$current-path}/{title/@handle}/">
 				<h1 class="donthyphenate"><xsl:apply-templates select="badge" /><xsl:value-of select="title" /></h1>
 				<!--<xsl:apply-templates select="subtitle" />-->
 				<!--<xsl:apply-templates select="./category/item" mode="brick" />-->
-				<xsl:apply-templates select="./date" />
+				<xsl:apply-templates select="./date | ./calendar" />
 				<!--<xsl:copy-of select="lead/node()" />-->
 				
 				<xsl:choose>
@@ -36,13 +36,13 @@
 		<p class="category"><xsl:value-of select="exhib-category" /><xsl:value-of select="event-category" /></p>
 	</xsl:template>
 
-	<xsl:template match="entry/date">
+	<xsl:template match="entry/date | entry/calendar">
 		<div class="dashed">
 			<svg>
 				<path d="M0 0 H 300" />
 			</svg>
 			<p>
-				<xsl:apply-templates select="date[@type = 'exact']" />
+				<xsl:apply-templates select="date[@type = 'exact'][1]" />
 				<xsl:apply-templates select="date[@type = 'range']" />
 			</p>
 			<svg>
@@ -72,7 +72,7 @@
 					<xsl:with-param name="date" select="start"/>
 					<xsl:with-param name="format" select="'x.N.Y'"/>
 				</xsl:call-template>
-				<xsl:text>–</xsl:text>
+				<xsl:text>–000</xsl:text>
 				<xsl:call-template name="format-date">
 					<xsl:with-param name="date" select="end"/>
 					<xsl:with-param name="format" select="'x.N.Y'"/>
