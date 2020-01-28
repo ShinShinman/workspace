@@ -24,6 +24,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:import href="../utilities/_archive-brick.xsl"/>
+<xsl:import href="../utilities/_quick-filter.xsl"/>
 
 <xsl:template match="data">
 	<xsl:choose>
@@ -108,20 +109,25 @@
 
 <xsl:template name="exhibitions-archive">
 	<section class="archive">
-		<nav class="big-nav">
-			<h1 class="donthyphenate">
-				<a href="{$root}/{////fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
-				<xsl:text> /</xsl:text>
-				<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
-			</h1>
-		</nav>
-		<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='exhibitions-from']" />&nbsp;<span><xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
-		<!--
-		<ul class="inline-list filters">
-			<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
-		</ul>
-		-->
-		<div class="slider"></div>
+		<header>
+			<nav class="big-nav">
+				<h1 class="donthyphenate">
+					<a href="{$root}/{////fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
+					<xsl:text> /</xsl:text>
+					<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
+				</h1>
+			</nav>
+			<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='exhibitions-from']" />&nbsp;<span><xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
+			
+			<ul class="inline-list filters">
+				<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
+				<li class="search">
+					<xsl:call-template name="quick-filter" />
+				</li>
+			</ul>
+			
+			<div class="slider"></div>
+		</header>
 		<div class="bricks-container">
 			<xsl:apply-templates select="exhibitions-2016-archive/entry" />
 			<xsl:apply-templates select="exhibitions-archive/entry" />
@@ -163,7 +169,7 @@
 			<!-- 
 			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />]});
 			-->
-			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-2016-archive/entry[1]/calendar/date/start, 1, 4)" />]});
+			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-2016-archive/entry[1]/calendar/date/start, 1, 4)" />],quickSearch:true});
 		});
 	</script>
 </xsl:template>

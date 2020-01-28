@@ -209,6 +209,7 @@ class MA
 			slider: false
 			sliderItem: $('.slider')
 			sliderRange: [1965, 2016]
+			quickSearch: false
 			, options
 
 		settings.grid.isotope
@@ -297,6 +298,44 @@ class MA
 				step: 5
 			.slider 'float'
 			updateLegend $('.slider').slider('values', 0), $('.slider').slider('values', 1)
+
+		#filtrowanie przez QuickSearch
+		qSOn = () -> #QuickSearhOn
+			# QuickSearch
+			yt = $ '.filters .search input[type = text]'
+			qsRegex = undefined
+			grid = $ '.bricks-container'
+
+			debounce = (fn, threshold) ->
+				timeout = undefined
+				treshold = treshold | 100
+				return debounced = () ->
+					clearTimeout timeout
+					args = arguments
+					_this = this
+					delayed = () -> 
+						fn.apply _this, args
+						return
+					timeout = setTimeout delayed, threshold
+					return
+
+			yt.keyup debounce () ->
+				tmp = yt.val().split(' ')
+				$.each tmp, (i, v) ->
+					tmp[i] = '(?=.*' + v + ')'
+				
+				searchStr = tmp.join('')
+				qsRegExp = new RegExp searchStr + '.*', 'gi'
+				grid.isotope
+					filter: ->
+						$(this).text().match(qsRegExp)
+			, 200
+
+		if settings.quickSearch
+			qSOn()
+			console.log 'Quick Search is on'
+			return
+
 
 	iSl: (options) -> #ta metoda nie jest uzywana, przeniosłem ją do MA.iS(), do usunięcia
 		settings = $.extend

@@ -76,14 +76,15 @@
       }
 
       iS(options) {
-        var clear, filterIsotope, filterTriggers, filters, getHashFilter, onHashchange, settings, showAll, updateLegend;
+        var clear, filterIsotope, filterTriggers, filters, getHashFilter, onHashchange, qSOn, settings, showAll, updateLegend;
         settings = $.extend({
           //defaults
           grid: MA.settings.grid,
           item: MA.settings.gridItem,
           slider: false,
           sliderItem: $('.slider'),
-          sliderRange: [1965, 2016]
+          sliderRange: [1965, 2016],
+          quickSearch: false
         }, options);
         settings.grid.isotope({
           itemSelector: settings.gridItem,
@@ -183,7 +184,48 @@
           }).slider('pips', {
             step: 5
           }).slider('float');
-          return updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+          updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+        }
+        //filtrowanie przez QuickSearch
+        qSOn = function() { //QuickSearhOn
+          var debounce, qsRegex, yt;
+          // QuickSearch
+          yt = $('.filters .search input[type = text]');
+          qsRegex = void 0;
+          grid = $('.bricks-container');
+          debounce = function(fn, threshold) {
+            var debounced, timeout, treshold;
+            timeout = void 0;
+            treshold = treshold | 100;
+            return debounced = function() {
+              var _this, args, delayed;
+              clearTimeout(timeout);
+              args = arguments;
+              _this = this;
+              delayed = function() {
+                fn.apply(_this, args);
+              };
+              timeout = setTimeout(delayed, threshold);
+            };
+          };
+          return yt.keyup(debounce(function() {
+            var qsRegExp, searchStr, tmp;
+            tmp = yt.val().split(' ');
+            $.each(tmp, function(i, v) {
+              return tmp[i] = '(?=.*' + v + ')';
+            });
+            searchStr = tmp.join('');
+            qsRegExp = new RegExp(searchStr + '.*', 'gi');
+            return grid.isotope({
+              filter: function() {
+                return $(this).text().match(qsRegExp);
+              }
+            });
+          }, 200));
+        };
+        if (settings.quickSearch) {
+          qSOn();
+          console.log('Quick Search is on');
         }
       }
 
