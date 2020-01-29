@@ -15,7 +15,10 @@
 			</xsl:choose>
 		</xsl:variable>
 
-		<input type="text" placeholder="{$placeholder}" />
+		<form class="quick-filter" action="javascript:void(0);">
+			<input type="search" placeholder="{$placeholder}" />
+			<input type="reset" value="×" alt="clear" />
+		</form>
 	
 	</xsl:template>
 

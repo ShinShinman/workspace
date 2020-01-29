@@ -1,0 +1,19 @@
+.quick-filter {
+	position: relative;
+	[type="search"] {
+		box-sizing: border-box;
+		width: 100%;
+	}
+	[type="reset"] {
+		position: absolute;
+		right: 2px;
+		top: 2px;
+		border: none;
+		outline: none;
+
+		&:hover {
+			background-color: black;
+			color: white;
+		}
+	}
+}

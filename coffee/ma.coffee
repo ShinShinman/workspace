@@ -302,7 +302,9 @@ class MA
 		#filtrowanie przez QuickSearch
 		qSOn = () -> #QuickSearhOn
 			# QuickSearch
-			yt = $ '.filters .search input[type = text]'
+			form = $ '.filters .search form' 
+			yt = $ '.filters .search input[type = search]'
+			clearBtn = $ '.filters .search input[type = reset]'
 			qsRegex = undefined
 			grid = $ '.bricks-container'
 
@@ -330,6 +332,16 @@ class MA
 					filter: ->
 						$(this).text().match(qsRegExp)
 			, 200
+
+			form.on 'reset', (e) ->
+				setTimeout ->
+					grid.isotope
+						filter: ''
+					if settings.slider
+						settings.sliderItem.slider 'values', [settings.sliderRange[0], settings.sliderRange[1]]
+						updateLegend settings.sliderRange[0], settings.sliderRange[1]
+					return
+				return
 
 		if settings.quickSearch
 			qSOn()

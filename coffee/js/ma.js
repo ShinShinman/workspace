@@ -188,9 +188,11 @@
         }
         //filtrowanie przez QuickSearch
         qSOn = function() { //QuickSearhOn
-          var debounce, qsRegex, yt;
+          var clearBtn, debounce, form, qsRegex, yt;
           // QuickSearch
-          yt = $('.filters .search input[type = text]');
+          form = $('.filters .search form');
+          yt = $('.filters .search input[type = search]');
+          clearBtn = $('.filters .search input[type = reset]');
           qsRegex = void 0;
           grid = $('.bricks-container');
           debounce = function(fn, threshold) {
@@ -208,7 +210,7 @@
               timeout = setTimeout(delayed, threshold);
             };
           };
-          return yt.keyup(debounce(function() {
+          yt.keyup(debounce(function() {
             var qsRegExp, searchStr, tmp;
             tmp = yt.val().split(' ');
             $.each(tmp, function(i, v) {
@@ -222,6 +224,17 @@
               }
             });
           }, 200));
+          return form.on('reset', function(e) {
+            setTimeout(function() {
+              grid.isotope({
+                filter: ''
+              });
+              if (settings.slider) {
+                settings.sliderItem.slider('values', [settings.sliderRange[0], settings.sliderRange[1]]);
+                updateLegend(settings.sliderRange[0], settings.sliderRange[1]);
+              }
+            });
+          });
         };
         if (settings.quickSearch) {
           qSOn();

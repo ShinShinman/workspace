@@ -2030,6 +2030,21 @@ body {
   overflow: hidden;
   margin-bottom: 96px; }
 
+.quick-filter {
+  position: relative; }
+  .quick-filter [type="search"] {
+    box-sizing: border-box;
+    width: 100%; }
+  .quick-filter [type="reset"] {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    border: none;
+    outline: none; }
+    .quick-filter [type="reset"]:hover {
+      background-color: black;
+      color: white; }
+
 /* Typography */
 /* Fonts */
 @font-face {
