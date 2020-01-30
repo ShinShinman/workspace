@@ -118,6 +118,8 @@
 				</h1>
 			</nav>
 			<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='exhibitions-from']" />&nbsp;<span><xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
+
+			<div class="slider"></div>
 			
 			<ul class="inline-list filters">
 				<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
@@ -125,8 +127,6 @@
 					<xsl:call-template name="quick-filter" />
 				</li>
 			</ul>
-			
-			<div class="slider"></div>
 		</header>
 		<div class="bricks-container">
 			<xsl:apply-templates select="exhibitions-2016-archive/entry" />
@@ -166,9 +166,6 @@
 			});
 		});
 		$(window).load(function() {
-			<!-- 
-			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />]});
-			-->
 			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-2016-archive/entry[1]/calendar/date/start, 1, 4)" />],quickSearch:true});
 		});
 	</script>

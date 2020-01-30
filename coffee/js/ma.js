@@ -84,7 +84,8 @@
           slider: false,
           sliderItem: $('.slider'),
           sliderRange: [1965, 2016],
-          quickSearch: false
+          quickSearch: false,
+          quickSearchField: $('.filters .search input[type = search]')
         }, options);
         settings.grid.isotope({
           itemSelector: settings.gridItem,
@@ -118,9 +119,13 @@
           e.preventDefault();
           filters.removeClass('inactive-filter');
           history.pushState('', document.title, window.location.pathname);
-          return settings.grid.isotope({
+          settings.grid.isotope({
             filter: '*'
           });
+          if (settings.slider) {
+            settings.sliderItem.slider('values', [settings.sliderRange[0], settings.sliderRange[1]]);
+            return updateLegend(settings.sliderRange[0], settings.sliderRange[1]);
+          }
         });
         filterTriggers.click(function(e) {
           e.preventDefault();
@@ -152,6 +157,7 @@
         };
         filterIsotope = function(sYear, eYear) {
           var value;
+          settings.quickSearchField.val('');
           value = $('.brick').filter(function(index) {
             var $this, matcharr, year;
             $this = $(this);
@@ -188,13 +194,11 @@
         }
         //filtrowanie przez QuickSearch
         qSOn = function() { //QuickSearhOn
-          var clearBtn, debounce, form, qsRegex, yt;
+          var clearBtn, debounce, form, qsRegex;
           // QuickSearch
           form = $('.filters .search form');
-          yt = $('.filters .search input[type = search]');
           clearBtn = $('.filters .search input[type = reset]');
           qsRegex = void 0;
-          grid = $('.bricks-container');
           debounce = function(fn, threshold) {
             var debounced, timeout, treshold;
             timeout = void 0;
@@ -210,24 +214,27 @@
               timeout = setTimeout(delayed, threshold);
             };
           };
-          yt.keyup(debounce(function() {
+          return settings.quickSearchField.keyup(debounce(function() {
             var qsRegExp, searchStr, tmp;
-            tmp = yt.val().split(' ');
+            tmp = settings.quickSearchField.val().split(' ');
             $.each(tmp, function(i, v) {
               return tmp[i] = '(?=.*' + v + ')';
             });
             searchStr = tmp.join('');
             qsRegExp = new RegExp(searchStr + '.*', 'gi');
-            return grid.isotope({
+            return settings.grid.isotope({
               filter: function() {
                 return $(this).text().match(qsRegExp);
               }
             });
           }, 200));
-          return form.on('reset', function(e) {
+        };
+        if (settings.quickSearch) {
+          qSOn();
+          $('.filters .search form').on('reset', function(e) {
             setTimeout(function() {
-              grid.isotope({
-                filter: ''
+              settings.grid.isotope({
+                filter: '*'
               });
               if (settings.slider) {
                 settings.sliderItem.slider('values', [settings.sliderRange[0], settings.sliderRange[1]]);
@@ -235,9 +242,10 @@
               }
             });
           });
-        };
-        if (settings.quickSearch) {
-          qSOn();
+          settings.quickSearchField.focus(function() {
+            settings.sliderItem.slider('values', [settings.sliderRange[0], settings.sliderRange[1]]);
+            return updateLegend(settings.sliderRange[0], settings.sliderRange[1]);
+          });
           console.log('Quick Search is on');
         }
       }

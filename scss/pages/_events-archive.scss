@@ -20,6 +20,14 @@
 		margin-bottom: 36px;
 	}
 
+	.filters {
+		.search {
+			width: columns-width(4);
+			margin-right: 0;
+			float: right;
+		}
+	}
+
 	.slider.ui-slider.ui-slider-pips {
 		font-family: inherit;
 		height: 5px;

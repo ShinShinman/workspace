@@ -24,6 +24,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:import href="../utilities/_archive-brick.xsl"/>
+<xsl:import href="../utilities/_quick-filter.xsl"/>
 
 <xsl:template match="data">
 	<xsl:choose>
@@ -117,6 +118,12 @@
 		</nav>
 		<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='events-from']" />&nbsp;<span><xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
 		<div class="slider"></div>
+		<ul class="inline-list filters">
+				<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
+				<li class="search">
+					<xsl:call-template name="quick-filter" />
+				</li>
+			</ul>
 		<div class="bricks-container">
 			<xsl:apply-templates select="events-2016-archive/entry" />
 			<xsl:apply-templates select="events-archive/entry" />
@@ -155,7 +162,7 @@
 			});
 		});
 		$(window).load(function() {
-			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-2016-archive/entry[1]/calendar/date/start, 1, 4)" />]});
+			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-2016-archive/entry[1]/calendar/date/start, 1, 4)" />],quickSearch:true});
 		});
 	</script>
 </xsl:template>

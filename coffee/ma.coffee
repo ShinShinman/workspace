@@ -210,6 +210,7 @@ class MA
 			sliderItem: $('.slider')
 			sliderRange: [1965, 2016]
 			quickSearch: false
+			quickSearchField: $('.filters .search input[type = search]')
 			, options
 
 		settings.grid.isotope
@@ -245,6 +246,9 @@ class MA
 			history.pushState '', document.title, window.location.pathname
 			settings.grid.isotope
 				filter: '*'
+			if settings.slider
+						settings.sliderItem.slider 'values', [settings.sliderRange[0], settings.sliderRange[1]]
+						updateLegend settings.sliderRange[0], settings.sliderRange[1]
 
 		filterTriggers.click (e) ->
 			e.preventDefault()
@@ -273,6 +277,7 @@ class MA
 				$('.legend span').text(' ' + sYear + '–' + eYear)
 
 		filterIsotope = (sYear, eYear) ->
+			settings.quickSearchField.val('')
 			value = $('.brick').filter( (index) ->
 				$this = $(this)
 				matcharr = $this.attr('class').match(/brick\s([0-9]*)/)
@@ -303,10 +308,8 @@ class MA
 		qSOn = () -> #QuickSearhOn
 			# QuickSearch
 			form = $ '.filters .search form' 
-			yt = $ '.filters .search input[type = search]'
 			clearBtn = $ '.filters .search input[type = reset]'
 			qsRegex = undefined
-			grid = $ '.bricks-container'
 
 			debounce = (fn, threshold) ->
 				timeout = undefined
@@ -321,30 +324,32 @@ class MA
 					timeout = setTimeout delayed, threshold
 					return
 
-			yt.keyup debounce () ->
-				tmp = yt.val().split(' ')
+			settings.quickSearchField.keyup debounce () ->
+				tmp = settings.quickSearchField.val().split(' ')
 				$.each tmp, (i, v) ->
 					tmp[i] = '(?=.*' + v + ')'
 				
 				searchStr = tmp.join('')
 				qsRegExp = new RegExp searchStr + '.*', 'gi'
-				grid.isotope
+				settings.grid.isotope
 					filter: ->
 						$(this).text().match(qsRegExp)
 			, 200
 
-			form.on 'reset', (e) ->
+		if settings.quickSearch
+			qSOn()
+			$('.filters .search form').on 'reset', (e) ->
 				setTimeout ->
-					grid.isotope
-						filter: ''
+					settings.grid.isotope
+						filter: '*'
 					if settings.slider
 						settings.sliderItem.slider 'values', [settings.sliderRange[0], settings.sliderRange[1]]
 						updateLegend settings.sliderRange[0], settings.sliderRange[1]
 					return
 				return
-
-		if settings.quickSearch
-			qSOn()
+			settings.quickSearchField.focus ->
+				settings.sliderItem.slider 'values', [settings.sliderRange[0], settings.sliderRange[1]]
+				updateLegend settings.sliderRange[0], settings.sliderRange[1]
 			console.log 'Quick Search is on'
 			return
 
