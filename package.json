@@ -1,7 +1,7 @@
 {
 	"name": "mawebsite",
-	"version": "3.1.4",
-	"description": "Wystawy, Wydarzenia – pierwsza wersja archiwum",
+	"version": "3.1.5",
+	"description": "Archiwum Wystaw i Wydarzeń – QuickSearch",
 	"author": "Olaf Schindler",
 	"license": "MIT",
 	"repository": "https://github.com/ShinShinman/MAWWW.git",
