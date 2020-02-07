@@ -28,7 +28,7 @@
 </xsl:template>
 
 <xsl:template match="accessibility/entry">
-	<section class="accessibility">
+	<section class="access">
 		<header>
 			<h1><xsl:value-of select="title" /></h1>
 		</header>
