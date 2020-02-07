@@ -24,22 +24,22 @@
 <xsl:import href="../utilities/master.xsl"/>
 
 <xsl:template match="data">
-	<section class="events">
-		<nav class="big-nav">
-			<h1>
-				<xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wydarzenia']" />
-				<xsl:text> /</xsl:text>
-				<a href="{//dictionary/entry/word[@handle-pl = 'archiwum-wydarzen']/@handle}/"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'archiwum-wydarzen']" /></a>
-			</h1>
-		</nav>
-		<div class="bricks-container">
-			<xsl:apply-templates select="events/entry" />
-		</div>
+	<xsl:apply-templates select="accessibility/entry" />
+</xsl:template>
+
+<xsl:template match="accessibility/entry">
+	<section class="access">
+		<header>
+			<h1><xsl:value-of select="title" /></h1>
+		</header>
+		<article>
+			<xsl:copy-of select="article/node()" />
+		</article>
 	</section>
 </xsl:template>
 
-<xsl:template match="events/entry">
-	<xsl:call-template name="brick" />
+<xsl:template match="data" mode="ma-button">
+	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />
 </xsl:template>
 
 <xsl:template name="language-button">
@@ -56,8 +56,8 @@
 
 <xsl:template match="data" mode="js">
 	<script>
-		$(window).load(function() {
-			MA.iS();
+		$(function() {
+			MA.stickyNavSetup({backgroundColor: 'white'});
 		});
 	</script>
 </xsl:template>

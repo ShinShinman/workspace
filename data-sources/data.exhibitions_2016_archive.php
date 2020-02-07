@@ -1,8 +1,8 @@
 <?php
 
-class datasourceexhibitions_archive extends SectionDatasource
+class datasourceexhibitions_2016_archive extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'exhibitions-archive';
+    public $dsParamROOTELEMENT = 'exhibitions-2016-archive';
     public $dsParamORDER = 'desc';
     public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '20';
@@ -11,21 +11,21 @@ class datasourceexhibitions_archive extends SectionDatasource
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
     public $dsParamNEGATEPARAM = '$title';
-    public $dsParamSORT = 'date';
+    public $dsParamSORT = 'calendar';
     public $dsParamHTMLENCODE = 'no';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
     public $dsParamFILTERS = array(
-        '222' => 'yes',
+        '118' => 'yes',
     );
         
 
     public $dsParamINCLUDEDELEMENTS = array(
         'title: formatted',
         'cover-image',
-        'date',
-        'show-only-year'
+        'calendar',
+        'downlodables'
     );
     
 
@@ -38,19 +38,19 @@ class datasourceexhibitions_archive extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Exhibitions archive',
+            'name' => 'Exhibitions 2016+ Archive',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2020-01-14T15:08:16+00:00'
+            'release-date' => '2020-01-27T15:54:26+00:00'
         );
     }
 
     public function getSource()
     {
-        return '48';
+        return '1';
     }
 
     public function allowEditorToParse()

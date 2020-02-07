@@ -209,6 +209,8 @@ class MA
 			slider: false
 			sliderItem: $('.slider')
 			sliderRange: [1965, 2016]
+			quickSearch: false
+			quickSearchField: $('.filters .search input[type = search]')
 			, options
 
 		settings.grid.isotope
@@ -244,6 +246,9 @@ class MA
 			history.pushState '', document.title, window.location.pathname
 			settings.grid.isotope
 				filter: '*'
+			if settings.slider
+						settings.sliderItem.slider 'values', [settings.sliderRange[0], settings.sliderRange[1]]
+						updateLegend settings.sliderRange[0], settings.sliderRange[1]
 
 		filterTriggers.click (e) ->
 			e.preventDefault()
@@ -272,6 +277,7 @@ class MA
 				$('.legend span').text(' ' + sYear + '–' + eYear)
 
 		filterIsotope = (sYear, eYear) ->
+			settings.quickSearchField.val('')
 			value = $('.brick').filter( (index) ->
 				$this = $(this)
 				matcharr = $this.attr('class').match(/brick\s([0-9]*)/)
@@ -297,6 +303,56 @@ class MA
 				step: 5
 			.slider 'float'
 			updateLegend $('.slider').slider('values', 0), $('.slider').slider('values', 1)
+
+		#filtrowanie przez QuickSearch
+		qSOn = () -> #QuickSearhOn
+			# QuickSearch
+			form = $ '.filters .search form' 
+			clearBtn = $ '.filters .search input[type = reset]'
+			qsRegex = undefined
+
+			debounce = (fn, threshold) ->
+				timeout = undefined
+				treshold = treshold | 100
+				return debounced = () ->
+					clearTimeout timeout
+					args = arguments
+					_this = this
+					delayed = () -> 
+						fn.apply _this, args
+						return
+					timeout = setTimeout delayed, threshold
+					return
+
+			settings.quickSearchField.keyup debounce () ->
+				tmp = settings.quickSearchField.val().split(' ')
+				$.each tmp, (i, v) ->
+					tmp[i] = '(?=.*' + v + ')'
+				
+				searchStr = tmp.join('')
+				qsRegExp = new RegExp searchStr + '.*', 'gi'
+				settings.grid.isotope
+					filter: ->
+						$(this).text().match(qsRegExp)
+			, 200
+
+		if settings.quickSearch
+			qSOn()
+			$('.filters .search form').on 'reset', (e) ->
+				setTimeout ->
+					settings.grid.isotope
+						filter: '*'
+					if settings.slider
+						settings.sliderItem.slider 'values', [settings.sliderRange[0], settings.sliderRange[1]]
+						updateLegend settings.sliderRange[0], settings.sliderRange[1]
+					return
+				return
+			settings.quickSearchField.focus ->
+				settings.sliderItem.slider 'values', [settings.sliderRange[0], settings.sliderRange[1]]
+				updateLegend settings.sliderRange[0], settings.sliderRange[1]
+			console.log 'Quick Search is on'
+			return
+
 
 	iSl: (options) -> #ta metoda nie jest uzywana, przeniosłem ją do MA.iS(), do usunięcia
 		settings = $.extend
