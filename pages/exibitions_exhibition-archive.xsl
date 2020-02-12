@@ -24,16 +24,18 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:import href="../utilities/_archive-brick.xsl"/>
+<xsl:import href="../utilities/_quick-filter.xsl"/>
 
 <xsl:template match="data">
 	<xsl:choose>
 		<xsl:when test="$title">
-			<xsl:if test="exhibition-archived/error">
+			<xsl:if test="exhibition-archived/error and exhibition-2016-archived/error">
 				<script>
 					window.location.replace('<xsl:value-of select="$root"/>/error/');
 				</script>
 			</xsl:if>
 			<xsl:apply-templates select="exhibition-archived/entry" />
+			<xsl:apply-templates select="exhibition-2016-archived/entry" />
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:call-template name="exhibitions-archive" />
@@ -41,7 +43,7 @@
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="exhibition-archived/entry">
+<xsl:template match="exhibition-archived/entry | exhibition-2016-archived/entry">
 	<section class="archived-exhibition">
 		<header class="donthyphenate">
 			<ul class="category-list">
@@ -50,8 +52,8 @@
 			<h1><xsl:value-of select="title/p" /></h1>
 			<xsl:apply-templates select="subtitle" />
 			<h3 class="date">
-				<xsl:apply-templates select="date/date[@type = 'exact']" />
-				<xsl:apply-templates select="date/date[@type = 'range']" />
+				<xsl:apply-templates select=".//date[@type = 'exact'][1]" />
+				<xsl:apply-templates select=".//date[@type = 'range']" />
 			</h3>
 		</header>
 		<article>
@@ -107,24 +109,34 @@
 
 <xsl:template name="exhibitions-archive">
 	<section class="archive">
-		<nav class="big-nav">
-			<h1 class="donthyphenate">
-				<a href="{$root}/{////fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
-				<xsl:text> /</xsl:text>
-				<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
-			</h1>
-		</nav>
-		<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='exhibitions-from']" />&nbsp;<span><xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
-		<!--
-		<ul class="inline-list filters">
-			<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
-		</ul>
-		-->
-		<div class="slider"></div>
+		<header>
+			<nav class="big-nav">
+				<h1 class="donthyphenate">
+					<a href="{$root}/{////fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
+					<xsl:text> /</xsl:text>
+					<a href="javascript:void(0)" class="active"><xsl:value-of select="//plh-page/page/page/item[@lang = //fl-languages/current-language/@handle]" /></a>
+				</h1>
+			</nav>
+			<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='exhibitions-from']" />&nbsp;<span><xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
+
+			<div class="slider"></div>
+			
+			<ul class="inline-list filters">
+				<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
+				<li class="search">
+					<xsl:call-template name="quick-filter" />
+				</li>
+			</ul>
+		</header>
 		<div class="bricks-container">
+			<xsl:apply-templates select="exhibitions-2016-archive/entry" />
 			<xsl:apply-templates select="exhibitions-archive/entry" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="exhibitions-2016-archive/entry">
+	<xsl:call-template name="archive-brick" />
 </xsl:template>
 
 <xsl:template match="exhibitions-archive/entry">
@@ -154,7 +166,7 @@
 			});
 		});
 		$(window).load(function() {
-			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-archive/entry[1]/date/date/start, 1, 4)" />]});
+			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//exhibitions-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//exhibitions-2016-archive/entry[1]/calendar/date/start, 1, 4)" />],quickSearch:true});
 		});
 	</script>
 </xsl:template>

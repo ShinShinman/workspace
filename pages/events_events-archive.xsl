@@ -24,16 +24,18 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:import href="../utilities/_archive-brick.xsl"/>
+<xsl:import href="../utilities/_quick-filter.xsl"/>
 
 <xsl:template match="data">
 	<xsl:choose>
 		<xsl:when test="$title">
-			<xsl:if test="event-archived/error">
+			<xsl:if test="event-archived/error and event-2016-archived/error">
 				<script>
 					window.location.replace('<xsl:value-of select="$root"/>/error/');
 				</script>
 			</xsl:if>
 			<xsl:apply-templates select="event-archived/entry" />
+			<xsl:apply-templates select="event-2016-archived/entry" />
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:call-template name="events-archive" />
@@ -41,7 +43,7 @@
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="event-archived/entry">
+<xsl:template match="event-archived/entry | event-2016-archived/entry">
 	<section class="archived-event">
 		<header class="donthyphenate">
 			<ul class="category-list">
@@ -50,8 +52,8 @@
 			<h1><xsl:value-of select="title/p" /></h1>
 			<xsl:apply-templates select="subtitle" />
 			<h3 class="date">
-				<xsl:apply-templates select="date/date[@type = 'exact']" />
-				<xsl:apply-templates select="date/date[@type = 'range']" />
+				<xsl:apply-templates select=".//date[@type = 'exact'][1]" />
+				<xsl:apply-templates select=".//date[@type = 'range']" />
 			</h3>
 		</header>
 		<article>
@@ -116,10 +118,21 @@
 		</nav>
 		<h2 class="legend"><xsl:value-of select="//dictionary//word[@handle-en='events-from']" />&nbsp;<span><xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />–<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" /></span></h2>
 		<div class="slider"></div>
+		<ul class="inline-list filters">
+				<li class="show-all"><a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a></li>
+				<li class="search">
+					<xsl:call-template name="quick-filter" />
+				</li>
+			</ul>
 		<div class="bricks-container">
+			<xsl:apply-templates select="events-2016-archive/entry" />
 			<xsl:apply-templates select="events-archive/entry" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="events-2016-archive/entry">
+	<xsl:call-template name="archive-brick" />
 </xsl:template>
 
 <xsl:template match="events-archive/entry">
@@ -149,7 +162,7 @@
 			});
 		});
 		$(window).load(function() {
-			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-archive/entry[1]/date/date/start, 1, 4)" />]});
+			MA.iS({slider:true,sliderRange:[<xsl:value-of select="substring(//events-archive/entry[last()]/date/date/start, 1, 4)" />,<xsl:value-of select="substring(//events-2016-archive/entry[1]/calendar/date/start, 1, 4)" />],quickSearch:true});
 		});
 	</script>
 </xsl:template>

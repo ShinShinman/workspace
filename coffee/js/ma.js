@@ -76,14 +76,16 @@
       }
 
       iS(options) {
-        var clear, filterIsotope, filterTriggers, filters, getHashFilter, onHashchange, settings, showAll, updateLegend;
+        var clear, filterIsotope, filterTriggers, filters, getHashFilter, onHashchange, qSOn, settings, showAll, updateLegend;
         settings = $.extend({
           //defaults
           grid: MA.settings.grid,
           item: MA.settings.gridItem,
           slider: false,
           sliderItem: $('.slider'),
-          sliderRange: [1965, 2016]
+          sliderRange: [1965, 2016],
+          quickSearch: false,
+          quickSearchField: $('.filters .search input[type = search]')
         }, options);
         settings.grid.isotope({
           itemSelector: settings.gridItem,
@@ -117,9 +119,13 @@
           e.preventDefault();
           filters.removeClass('inactive-filter');
           history.pushState('', document.title, window.location.pathname);
-          return settings.grid.isotope({
+          settings.grid.isotope({
             filter: '*'
           });
+          if (settings.slider) {
+            settings.sliderItem.slider('values', [settings.sliderRange[0], settings.sliderRange[1]]);
+            return updateLegend(settings.sliderRange[0], settings.sliderRange[1]);
+          }
         });
         filterTriggers.click(function(e) {
           e.preventDefault();
@@ -151,6 +157,7 @@
         };
         filterIsotope = function(sYear, eYear) {
           var value;
+          settings.quickSearchField.val('');
           value = $('.brick').filter(function(index) {
             var $this, matcharr, year;
             $this = $(this);
@@ -183,7 +190,63 @@
           }).slider('pips', {
             step: 5
           }).slider('float');
-          return updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+          updateLegend($('.slider').slider('values', 0), $('.slider').slider('values', 1));
+        }
+        //filtrowanie przez QuickSearch
+        qSOn = function() { //QuickSearhOn
+          var clearBtn, debounce, form, qsRegex;
+          // QuickSearch
+          form = $('.filters .search form');
+          clearBtn = $('.filters .search input[type = reset]');
+          qsRegex = void 0;
+          debounce = function(fn, threshold) {
+            var debounced, timeout, treshold;
+            timeout = void 0;
+            treshold = treshold | 100;
+            return debounced = function() {
+              var _this, args, delayed;
+              clearTimeout(timeout);
+              args = arguments;
+              _this = this;
+              delayed = function() {
+                fn.apply(_this, args);
+              };
+              timeout = setTimeout(delayed, threshold);
+            };
+          };
+          return settings.quickSearchField.keyup(debounce(function() {
+            var qsRegExp, searchStr, tmp;
+            tmp = settings.quickSearchField.val().split(' ');
+            $.each(tmp, function(i, v) {
+              return tmp[i] = '(?=.*' + v + ')';
+            });
+            searchStr = tmp.join('');
+            qsRegExp = new RegExp(searchStr + '.*', 'gi');
+            return settings.grid.isotope({
+              filter: function() {
+                return $(this).text().match(qsRegExp);
+              }
+            });
+          }, 200));
+        };
+        if (settings.quickSearch) {
+          qSOn();
+          $('.filters .search form').on('reset', function(e) {
+            setTimeout(function() {
+              settings.grid.isotope({
+                filter: '*'
+              });
+              if (settings.slider) {
+                settings.sliderItem.slider('values', [settings.sliderRange[0], settings.sliderRange[1]]);
+                updateLegend(settings.sliderRange[0], settings.sliderRange[1]);
+              }
+            });
+          });
+          settings.quickSearchField.focus(function() {
+            settings.sliderItem.slider('values', [settings.sliderRange[0], settings.sliderRange[1]]);
+            return updateLegend(settings.sliderRange[0], settings.sliderRange[1]);
+          });
+          console.log('Quick Search is on');
         }
       }
 

@@ -1,0 +1,13 @@
+/* ACCESSIBILITY */
+
+.access {
+	@extend .text-column;
+
+	article {
+		.article-anchor {
+			padding-top: 120px;
+			margin-top: -144px;
+		}
+
+	}
+}

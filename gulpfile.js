@@ -53,7 +53,7 @@ function scripts() {
 // var cbString = new Date().getTime().toString().slice(-6);
 var cbString = packageInfo.version;
 function cacheBust() {
-	console.log('Aktualna wersja: ' + cbString + ', ' + packageInfo.description);
+	console.log('%cAktualna wersja: ' + cbString + ', ' + packageInfo.description, 'color: lightpink');
 	return gulp.src('./utilities/master.xsl')
 		.pipe(relpace(/v=(\d+\.*)+/g, 'v=' + cbString))
 		.pipe(gulp.dest('./utilities'));

@@ -25,6 +25,7 @@
 <xsl:include href="../utilities/_bookshop-nav.xsl" />
 <xsl:include href="../utilities/_bookshop-brick.xsl" />
 <xsl:include href="../utilities/_fc-link.xsl" />
+<xsl:include href="../utilities/_quick-filter.xsl" />
 
 <xsl:template match="data">
 	<xsl:choose>
@@ -97,7 +98,7 @@
 					<a href="javascript:void(0)"><xsl:value-of select="//dictionary/entry/word[@handle-pl = 'wszystkie']" /></a>
 				</li>
 				<li class="search">
-					<input type="text" placeholder="Szybkie wyszukiwanie" />
+					<xsl:call-template name="quick-filter" />
 				</li>
 			</ul>
 		</header>
@@ -160,45 +161,9 @@
 				threshold: 1000,
 				failure_limit : 1000
 			});
-
-			/*** Search ***/
-			var yt = $('.filters .search input[type = text]');
-			var qsRegex;
-			var grid = $('.bricks-container');
-
-			yt.keyup(debounce(function() {
-				var tmp = yt.val().split(' ');
-				$.each(tmp, function(i, v) {
-					tmp[i] = '(?=.*' + v + ')';
-				});
-				searchStr = tmp.join('');
-				//qsRegex = new RegExp(yt.val(), 'gi');
-				qsRegex = new RegExp(searchStr + '.*', 'gi');
-				grid.isotope({
-					filter: function() {
-						return $(this).text().match(qsRegex);
-					}
-				});
-			}, 200));
-
-			// debounce so filtering doesn't happen every millisecond
-			function debounce( fn, threshold ) {
-				var timeout;
-				threshold = threshold || 100;
-				return function debounced() {
-					clearTimeout( timeout );
-					var args = arguments;
-					var _this = this;
-					function delayed() {
-						fn.apply( _this, args );
-					}
-					timeout = setTimeout( delayed, threshold );
-				};
-			}
-
 		});
 		$(window).load(function() {
-			MA.iS();
+			MA.iS({quickSearch:true});
 		});
 	</script>
 </xsl:template>
