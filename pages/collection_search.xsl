@@ -177,6 +177,63 @@
 				threshold: 1000,
 				failure_limit : 1000
 			});
+
+			<!-- var url = 'http://156.17.251.36:59190/ma-kolekcja/items/kolekcja'; -->
+			<!-- var url = 'http://localhost:4081/ma-kolekcja/items/kolekcja'; -->
+			var url = 'https://api.ipify.org?format=jsonp';
+
+			$.ajax({
+				url: url,
+				crossDomain: true,
+				dataType: 'jsonp',
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(data) {
+					console.log('ERROR');
+					console.log(data);
+				}
+			});
+
+
+<!-- 
+			$.ajax({
+				url : url,
+				type: 'GET',
+				dataType: 'jsonp',
+				jsonp : 'callback',
+				// jsonpCallback: 'loadData',
+				crossDomain: true,
+				scriptCharset: 'utf-8',
+				contentType: 'jsonp; charset=utf-8',
+				success: function(data) {
+					console.log(data);
+					$.each(data.response.docs, function(i, doc) {
+						printResults({
+							adres: doc.kolumna2,
+							adresDE: doc.kolumna1,
+							id: doc.id,
+							sygnatura: doc.kolumna41,
+							nazwa: doc.kolumna24,
+							podpisy: doc.kolumna23,
+							architekt: doc.kolumna3,
+							image: doc.plik,
+							highlight: data.highlighting[doc.id].text[0]
+						})
+					});
+				},
+				error: function(data) {
+					console.log('Error')
+					console.log(data);
+				},
+			});
+
+			function loadData () {
+				console.log('*');
+				console.log(data.response);
+			}
+ -->
+
 		});
 		
 		$(window).load(function() {

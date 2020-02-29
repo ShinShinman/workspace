@@ -1,17 +1,17 @@
 <?php
 
-class datasourcecollection extends SectionDatasource
+class datasourcecollection_data extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'collection';
+    public $dsParamROOTELEMENT = 'collection-data';
     public $dsParamORDER = 'asc';
-    public $dsParamPAGINATERESULTS = 'yes';
+    public $dsParamPAGINATERESULTS = 'no';
     public $dsParamLIMIT = '100';
     public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
     public $dsParamSORT = 'signature';
-    public $dsParamHTMLENCODE = 'no';
+    public $dsParamHTMLENCODE = 'yes';
     public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
@@ -47,13 +47,13 @@ class datasourcecollection extends SectionDatasource
     public function about()
     {
         return array(
-            'name' => 'Collection',
+            'name' => 'Collection Data',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2020-01-12T11:03:45+00:00'
+            'release-date' => '2020-02-27T18:07:41+00:00'
         );
     }
 
