@@ -38,16 +38,20 @@
 </xsl:template>
 
 <xsl:template name="csv">
-	<xsl:text>sygnatura@autorzy@nazwa-obiektu-pl@nazwa-obiektu-en@miejscowosc@adres@adres-cyrylica@zawartosc-projektu-pl@zawartosc-projektu-en@uwagi-pl@uwagi-en@dates@tworzywo@tworzywo-en@technika@technika-en@wymiary@obrazy@powiazane-obiekty@publikuj&#xa;</xsl:text>
+	<xsl:text>sygnatura@sygnatura_slug@autorzy@nazwa_obiektu_pl@nazwa_obiektu_en@miejscowosc@adres@adres_cyrylica@zawartosc_projektu_pl@zawartosc_projektu_en@uwagi_pl@uwagi_en@datowanie@tworzywo@tworzywo_en@technika@technika_en@wymiary@obrazy@powiazane_obiekty@publikuj&#xa;</xsl:text>
 	<xsl:apply-templates select="collection-data/entry" mode="csv" />
 </xsl:template>
 
 <xsl:template match="collection-data/entry" mode="csv" >
-	<xsl:value-of select="signature" />@<xsl:value-of select="authors" />@<xsl:value-of select="object-name" />@<xsl:value-of select="object-name-en" />@<xsl:value-of select="place" />@<xsl:value-of select="address" />@<xsl:value-of select="address-cyrilic" />@<xsl:value-of select="projec-content" />@<xsl:value-of select="projec-content-en" />@<xsl:value-of select="project-remarks" />@<xsl:value-of select="project-remarks-en" />@<xsl:value-of select="dates" />@<xsl:value-of select="material" />@<xsl:value-of select="material-en" />@<xsl:value-of select="technics" />@<xsl:value-of select="technics-en" />@<xsl:value-of select="dimensions" />@<xsl:apply-templates select="images/file" />@<xsl:value-of select="related-items" />@<xsl:value-of select="publish" /><xsl:text>&#xa;</xsl:text>
+	<xsl:value-of select="signature" />@<xsl:value-of select="signature/@handle" />@<xsl:value-of select="authors" />@<xsl:value-of select="object-name/item[@lang='pl']" />@<xsl:value-of select="object-name/item[@lang='en']" />@<xsl:value-of select="place" />@<xsl:value-of select="address" />@<xsl:value-of select="address-cyrillic" />@<xsl:value-of select="projec-content/item[@lang='pl']" />@<xsl:value-of select="projec-content/item[@lang='en']" />@<xsl:value-of select="project-remarks/item[@lang='pl']" />@<xsl:value-of select="project-remarks/item[@lang='en']" />@<xsl:value-of select="dates" />@<xsl:value-of select="material" />@<xsl:value-of select="material-en" />@<xsl:value-of select="technics" />@<xsl:value-of select="technics-en" />@<xsl:value-of select="dimensions" />@<xsl:apply-templates select="images/file" />@<xsl:value-of select="related-items/@handle" />@<xsl:value-of select="publish" /><xsl:text>&#xa;</xsl:text>
 </xsl:template>
 
 <xsl:template match="images/file">
 	<xsl:value-of select="filename" /><xsl:text>,</xsl:text>
+</xsl:template>
+
+<xsl:template match="images/file[position() = last()]">
+	<xsl:value-of select="filename" />
 </xsl:template>
 
 <xsl:template name="json">
