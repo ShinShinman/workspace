@@ -45,6 +45,7 @@
 				<xsl:otherwise>
 					<xsl:call-template name="fc-link">
 						<xsl:with-param name="prize" select="prize" />
+						<xsl:with-param name="weight" select="weight" />
 					</xsl:call-template>
 				</xsl:otherwise>
 			</xsl:choose>

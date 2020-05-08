@@ -61,6 +61,7 @@
 				<xsl:otherwise>
 					<xsl:call-template name="fc-link">
 						<xsl:with-param name="prize" select="prize" />
+						<xsl:with-param name="weight" select="weight" />
 					</xsl:call-template>
 				</xsl:otherwise>
 			</xsl:choose>
@@ -154,7 +155,7 @@
 	<script>
 		$(function() {
 
-			MA.getCountryCode('<xsl:value-of select="//current-language/@handle" />', '<xsl:value-of select="$root" />/en/bookstore/publications/');
+			<!-- MA.getCountryCode('<xsl:value-of select="//current-language/@handle" />', '<xsl:value-of select="$root" />/en/bookstore/publications/'); -->
 
 			var lazyImgs = $("img.lazy");
 			lazyImgs.lazyload({

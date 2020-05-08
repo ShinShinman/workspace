@@ -5,13 +5,32 @@
 
 	<xsl:template name="fc-link">
 		<xsl:param name="prize" />
+		<xsl:param name="weight" />
 
 		<xsl:variable name="tmp-prize">
-			<xsl:value-of select="substring-before($prize, ' ')" />
 			<xsl:choose>
-				<xsl:when test="string-length(substring-before($prize, ' ')) &lt; 3">
+				<xsl:when test="substring-before($prize, ' ') != ''">
+					<xsl:value-of select="substring-before($prize, ' ')" />
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="$prize" />
+				</xsl:otherwise>
+			</xsl:choose>
+			<xsl:choose>
+				<xsl:when test="substring-before($prize, ',') = ''">
 					<xsl:text>,00</xsl:text>
 				</xsl:when>
+			</xsl:choose>
+		</xsl:variable>
+
+		<xsl:variable name="fc-weight">
+			<xsl:choose>
+				<xsl:when test="$weight">
+					<xsl:value-of select="$weight" />
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:text>1</xsl:text>
+				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
 
@@ -44,7 +63,7 @@
 			<xsl:value-of select="$currency" />
 		</xsl:variable>
 
-		<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}&amp;{$template-set}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url({$root}/workspace/images/koszyk.svg)"/></a>
+		<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}&amp;weight={$fc-weight}&amp;{$template-set}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url({$root}/workspace/images/koszyk.svg)"/></a>
 	</xsl:template>
 
 </xsl:stylesheet>
