@@ -53,7 +53,7 @@
 						</ul>
 					</div>
 					<div class="b b-side">
-						<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
+						<p><a href="mailto:muzeum@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
 						<ul>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Godziny otwarcia</a></li>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ceny biletów</a></li>
@@ -71,7 +71,7 @@
 				</div>
 				<div class="third-column">
 					<div class="b b-side">
-						<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
+						<p><a href="mailto:muzeum@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
 						<ul>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Godziny otwarcia</a></li>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ceny biletów</a></li>
@@ -112,7 +112,7 @@
 						</ul>
 					</div>
 					<div class="b">
-						<p><a href="mailto:muzuem@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
+						<p><a href="mailto:muzeum@ma.wroc.pl">muzeum@ma.wroc.pl</a></p>
 						<ul>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#godziny-otwarcia">Opening hours</a></li>
 							<li><a href="{$root}/{//current-language/@handle}/{//dictionary/entry/word[@handle-pl = 'informacje']}/#ceny-biletow">Ticket prices</a></li>

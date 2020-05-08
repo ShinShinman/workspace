@@ -46,10 +46,14 @@
 		</header>
 		<article>
 			<h1><xsl:value-of select="//ab-nav/page[@handle = 'search']/item[@lang = //fl-languages/current-language/@handle]" /></h1>
+<!-- 
 			<form class="search-form">
 				<input class="search-field" type="text" placeholder="Zacznij pisać aby rozpocząć wyszukiwanie" autofocus=""/>
 			</form>
 			<p class="results-found"></p>
+			 -->
+
+			 <p><strong>Z powodu awarii technicznej wyszukiwarka Archiwum Budowlanego będzie niedostepna do odwołania.</strong></p>
 		</article>
 	</section>
 	<section>
@@ -103,7 +107,7 @@
 				var params = getParams2(queue).concat(currentQstr);
 				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 				url = url+urlData;
-				console.log(url);
+				<!-- console.log(url); -->
 
 				$.ajax({
 					url : url,
@@ -159,7 +163,7 @@
 					var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 					url += urlData;
 					currentQuery = url;
-					console.log(url);
+					<!-- console.log(url); -->
 
 					$.ajax({
 						url : url,
@@ -203,7 +207,7 @@
 				var params = getParams().concat(qstr);
 				var urlData = params.join('<xsl:text disable-output-escaping="yes">&amp;</xsl:text>');
 				url = url+urlData;
-				console.log(url);
+				<!-- console.log(url); -->
 
 				
 				$.ajax({
@@ -217,7 +221,7 @@
 					contentType: 'jsonp; charset=utf-8',
 					success: function(data) {
 						$('.search-results').empty();
-						//console.log(data.response.docs);
+						<!-- //console.log(data.response.docs); -->
 						$.each(data.response.docs, function(i, doc) {
 							printResults({
 								adres: doc.kolumna2,
@@ -270,8 +274,7 @@
 
 
 			function loadData () {
-				console.log('*');
-				console.log(data.response);
+				<!-- console.log(data.response); -->
 			}
 
 			function printResults (obj) {
