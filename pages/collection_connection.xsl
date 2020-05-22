@@ -26,6 +26,22 @@
 <xsl:include href="../utilities/_connection-brick.xsl"/>
 
 <xsl:template match="data">
+	<xsl:choose>
+		<xsl:when test="$signature">
+			<xsl:if test="collection-item/error">
+				<script>
+					window.location.replace('<xsl:value-of select="$root"/>/error/');
+				</script>
+			</xsl:if>
+			<xsl:apply-templates select="connection-item" />
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:call-template name="collection" />
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template name="collection">
 	<xsl:call-template name="image-header">
 		<xsl:with-param name="parent-node" select="collection-header-images" />
 	</xsl:call-template>
@@ -125,30 +141,109 @@
 	<xsl:call-template name="connection-brick" />
 </xsl:template>
 
-<xsl:template match="images">
-	<xsl:variable name="ratio">
-		<xsl:value-of select="file/meta/@width div 320" />
-	</xsl:variable>
-	<!-- Wersja dla jQuery-lazyload [https://appelsiini.net/projects/lazyload/v1/] -->
-	<img class="lazy"
-			 width="320"
-			 height="{floor(file/meta/@height div $ratio)}"
-			 alt="{../authors}, {../object-name}"
-			 data-original="{$root}/image/post-thumbnail{file/@path}/{file/filename}" />
-
-<!-- Wersja dla vanilla-lazyload [https://github.com/verlok/lazyload] -->
-<!--
-	<img class="lazy"
-			 width="320"
-			 height="{floor(file/meta/@height div $ratio)}"
-			 style="width: 320px; height: {floor(file/meta/@height div $ratio)}px"
-			 data-src="{$root}/image/post-thumbnail{file/@path}/{file/filename}"
-			 data-srcset="{$root}/image/post-thumbnail{file/@path}/{file/filename},
-			 							{$root}/image/1/640/0{file/@path}/{file/filename} 2x,
-			 							{$root}/image/1/960/0{file/@path}/{file/filename} 3x"
-			 alt="{../authors}, {../object-name}" />
- -->
+<xsl:template match="connection-item">
+	<section class="coll collection-item">
+		<header>
+			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
+			<ul class="inline-list">
+				<xsl:apply-templates select="//collection-nav/page" />
+			</ul>
+		</header>
+		<xsl:apply-templates select="item[1]" />
+	</section>
+	<xsl:if test="count(//collection-related-items/entry[not(signature = //collection-item/entry/signature)]) &gt; 0">
+		<xsl:apply-templates select="//collection-related-items" />
+	</xsl:if>
 </xsl:template>
+
+<xsl:template match="connection-item/item">
+	<article>
+		<xsl:call-template name="nazwa-obiektu">
+			<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
+		</xsl:call-template>
+		<h2 class="donthyphenate"><xsl:value-of select="architekci/item/autorzy/architekt" /></h2>
+		<h3><xsl:value-of select="datowanie" /></h3>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<xsl:apply-templates select="images/file" />
+			</div>
+			<xsl:if test="count(images/file) > 1">
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</xsl:if>
+		</div>
+		<xsl:if test="count(images/file) > 1">
+			<div class="swiper-pagination"><span class="bullet" /></div>
+		</xsl:if>
+		<ul class="project-description donthyphenate">
+			<li><strong><xsl:value-of select="miejscowosc" /></strong></li>
+			<li><xsl:value-of select="adres" /><xsl:apply-templates select="adres-cyrylica" /></li>
+			<ul class="project-details">
+				<li><xsl:call-template name="zawartosc-projektu">
+					<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
+				</xsl:call-template>
+				</li>
+				<li><xsl:call-template name="uwagi">
+					<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
+				</xsl:call-template>
+				</li>
+			</ul>
+			<ul class="project-details">
+				<li class="label"><span><xsl:value-of select="//dictionary//word[@handle-en = 'inventory-number']" /></span></li>
+				<li class="signature"><xsl:value-of select="sygnatura" /></li>
+
+				<xsl:choose>
+					<xsl:when test="//current-language/@handle = 'pl'">
+						<li><xsl:value-of select="tworzywo-link/item/tworzywo/tworzywo" /></li>
+						<li><xsl:value-of select="technika-link/item/technika/technika" /></li>
+					</xsl:when>
+					<xsl:otherwise>
+						<li><xsl:value-of select="tworzywo-link/item/tworzywo/tlumaczenie/item/tworzywo" /></li>
+						<li><xsl:value-of select="technika-link/item/technika/tlumaczenie/item/technika" /></li>
+					</xsl:otherwise>
+				</xsl:choose>
+				<li><xsl:value-of select="wymiary" /></li>
+			</ul>
+		</ul>
+	</article>
+</xsl:template>
+
+<xsl:template name="nazwa-obiektu">
+	<xsl:param name="lang" />
+	<xsl:choose>
+		<xsl:when test="$lang = 'pl'">
+			<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu" /></h1>
+		</xsl:when>
+			<xsl:when test="$lang != 'pl'">
+				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu-tlumaczenie/item[language = $lang]/nazwa-obiektu" /></h1>
+			</xsl:when>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template name="zawartosc-projektu">
+	<xsl:param name="lang" />
+	<xsl:choose>
+		<xsl:when test="$lang = 'pl'">
+			<li><xsl:value-of select="zawartosc-projektu" /></li>
+		</xsl:when>
+			<xsl:when test="$lang != 'pl'">
+				<li><xsl:value-of select="zawartosc-projektu-tlumaczenie/item[language = $lang]/zawartosc-projektu" /></li>
+			</xsl:when>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template name="uwagi">
+	<xsl:param name="lang" />
+	<xsl:choose>
+		<xsl:when test="$lang = 'pl'">
+			<li><xsl:value-of select="uwagi" /></li>
+		</xsl:when>
+			<xsl:when test="$lang != 'pl'">
+				<li><xsl:value-of select="uwagi-tlumaczenie/item[language = $lang]/uwagi" /></li>
+			</xsl:when>
+	</xsl:choose>
+</xsl:template>
+
 
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/')" />

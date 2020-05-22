@@ -5,13 +5,19 @@
 
 	<xsl:template name="connection-brick">
 		<article class="brick">
-			<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{sygnatura-slug}/">
-				<h1 class="donthyphenate">Yszt<xsl:value-of select="nazwa-obiektu-pl" /></h1>
-				<h2 class="donthyphenate"><xsl:value-of select="autorzy" /></h2>
+			<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/connection/{sygnatura-slug}/">
+				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu" /></h1>
+				<h2 class="donthyphenate"><xsl:value-of select="architekci/item/autorzy/architekt" /></h2>
 				<p><xsl:value-of select="datowanie" /></p>
+				<xsl:call-template name="tmp-image" />
 				<xsl:apply-templates select="images" />
 			</a>
 		</article>
+	</xsl:template>
+
+	<xsl:template name="tmp-image">
+		<img class=""
+				 src="http://placehold.jp/320x200.png" />
 	</xsl:template>
 
 	<xsl:template match="images">
