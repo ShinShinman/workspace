@@ -1,34 +1,33 @@
 <?php
 	include_once(TOOLKIT . '/class.textformattermanager.php');
 
-	// Template class name must be constructed as: formatter___[type]ttf_wiszce_ziomy
+	// Template class name must be constructed as: formatter___[type]ttf_ppauza
 	// where [type] is name of type of formatter, e.g., "markdown", "chain", etc...
 	// That way editor can use it at the same time as other templated formatters and 
 	// formatters generated from them.
-	// When saving, ___[type]ttf_wiszce_ziomy will be replaced by class name entered in editor.
-	Class formatterttf_wiszce_ziomy extends TextFormatter {
+	// When saving, ___[type]ttf_ppauza will be replaced by class name entered in editor.
+	Class formatterttf_ppauza extends TextFormatter {
 
 		private $_patterns;
 
 		public function __construct() {
 			$this->_patterns = array (
-				'/(\\b)(a|i|o|u|w|z|A|I|O|U|W|Z)(\\b )/' => '$2&#160;',
-				'/\\s-\\s/' => '&#32;–&#160;',
-				'/(\\d+)\\s/' => '$1&#160;',
+				'/\\s-\\s/' => '&#32;–&nbsp;',
+				'/(\\d+)\\s/' => '$1&nbsp;',
 			);;
 		}
 		
 		public function about() {
 			return array(
-				'name' => 'Wiszce ziomy', // required
+				'name' => 'Ppauza', // required
 				'author' => array(
 					'name' => 'Olaf Schindler',
 					'website' => 'http://localhost/ma.wroc.pl',
 					'email' => 'studio@orkana39.pl'
 				),
 				'version' => '1.3',
-				'release-date' => '2020-05-27T09:58:28+00:00',
-				'description' => 'Usuwa sieroty',
+				'release-date' => '2020-05-27T09:51:50+00:00',
+				'description' => 'Zamienia dywiz/łącznik na półpauzę',
 				'templatedtextformatters-version' => '1.11', // required
 				'templatedtextformatters-type' => 'regex' // required
 			);
