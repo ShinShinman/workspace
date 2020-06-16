@@ -14,7 +14,7 @@
 
 			&[type = text] {
 				width:100%;
-				
+
 				&:focus {
 					outline: none;
 					border-color: lightgreen;
@@ -25,6 +25,7 @@
 				@include hide-text;
 				position: absolute;
 				right: 0;
+				top: 0;
 				width: 21px;
 				height: 21px;
 				padding: 0;

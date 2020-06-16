@@ -3032,6 +3032,7 @@ body.collection.downloads, body.collection.search, body.collection.collection {
     overflow: hidden;
     position: absolute;
     right: 0;
+    top: 0;
     width: 21px;
     height: 21px;
     padding: 0;
