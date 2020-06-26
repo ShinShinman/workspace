@@ -131,11 +131,13 @@
 
 <xsl:template match="images/file">
 	<div class="swiper-slide">
-		<img src="{$root}/image/collection-gallery{@path}/{filename}">
-			<xsl:attribute name="alt">
-				<xsl:apply-templates select="//collection-item/entry" mode="alt" />
-			</xsl:attribute>
-		</img>
+		<div class="swiper-zoom-container">
+			<img src="{$root}/image/collection-gallery{@path}/{filename}">
+				<xsl:attribute name="alt">
+					<xsl:apply-templates select="//collection-item/entry" mode="alt" />
+				</xsl:attribute>
+			</img>
+		</div>
 	</div>
 </xsl:template>
 
@@ -194,6 +196,7 @@
 			var smallScreen = (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 770</xsl:text>) ? true : false;
 
 			var swiperOptions = {
+				zoom: true,
 				speed: 500,
 				slidesPerView: 'auto',
 				spaceBetween: 30,

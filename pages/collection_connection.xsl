@@ -24,9 +24,11 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
 <xsl:include href="../utilities/_connection-brick.xsl"/>
+<xsl:include href="../utilities/_string-replace.xsl"/>
 
 <xsl:template match="data">
-	<xsl:choose>
+	<xsl:call-template name="collection" />
+	<!-- <xsl:choose>
 		<xsl:when test="$signature">
 			<xsl:if test="collection-item/error">
 				<script>
@@ -38,7 +40,7 @@
 		<xsl:otherwise>
 			<xsl:call-template name="collection" />
 		</xsl:otherwise>
-	</xsl:choose>
+	</xsl:choose> -->
 </xsl:template>
 
 <xsl:template name="collection">
@@ -57,23 +59,49 @@
 			<form class="search-form" action="">
 				<input class="search-field" type="text" name="keywords" autofocus="" placeholder="Wyszukaj">
 					<xsl:attribute name="value">
-						<xsl:apply-templates select="//params/url-keywords" />
+						<xsl:apply-templates select="//params/search" />
 					</xsl:attribute>
 				</input>
 				<input type="submit" value="&rarr;" class="icon"/>
 				<!-- <input type="hidden" name="sections" value="kolekcja" /> -->
 			</form>
 			<xsl:call-template name="count-results">
-				<xsl:with-param name="count" select="string(count(//connection-test/item))" />
+				<!-- <xsl:with-param name="count" select="string(count(//connection-test/item))" /> -->
+				<xsl:with-param name="count" select="//collection-solr-search/response/result/@numFound" />
 			</xsl:call-template>
 		</article>
 	</section>
 	<section>
 		<xsl:apply-templates select="connection-test/error[node() = 'No records found.']" />
+		<xsl:if test="//collection-solr-search/response/result/@numFound = 0">
+			<xsl:call-template name="no-results" />
+		</xsl:if>
 		<div class="bricks-container search-results">
-			<xsl:apply-templates select="connection-test/item" />
+			<!-- <xsl:apply-templates select="connection-test/item" /> -->
+
+			<xsl:apply-templates select="collection-solr-search/response/result/doc" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="collection-solr-search/response/result/doc">
+	<article class="brick">
+		<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{*[@name='sygnatura_slug']/str}/">
+			<h1 class="donthyphenate">
+				<xsl:value-of select="*[@name='nazwa_obiektu']" />
+			</h1>
+			<h2 class="donthyphenate"><xsl:apply-templates select="*[@name='autorzy']/str" /></h2>
+			<p><xsl:value-of select="*[@name='datowanie']" /></p>
+			<xsl:apply-templates select="images" />
+		</a>
+	</article>
+</xsl:template>
+
+<xsl:template match="*[@name='autorzy']/str">
+	<xsl:value-of select="." />
+	<xsl:if test="./following-sibling::*">
+		<xsl:text>, </xsl:text>
+	</xsl:if>
 </xsl:template>
 
 <xsl:template match="collection-nav/page">
@@ -84,8 +112,8 @@
 	</li>
 </xsl:template>
 
-<xsl:template match="params/url-keywords">
-	<xsl:value-of select="." />
+<xsl:template match="params/search">
+	<xsl:value-of select="translate(., '+', ' ')" />
 </xsl:template>
 
 <xsl:template name="count-results">
@@ -114,14 +142,25 @@
 	</xsl:variable>
 
 	<xsl:choose>
-		<xsl:when test="connection-test/error">
-			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/?keywords=Wiktoria+Frydecka">Wiktoria Frydecka</a>, <a href="{$current-url}/?keywords=Andrzej+Frydecki">Andrzej Frydecki</a>, <a href="{$current-url}/?keywords=Maria+Molicka">Maria Molicka</a>, <a href="{$current-url}/?keywords=Witold+Molicki">Witold Molicki</a>, <a href="{$current-url}/?keywords=Tadeusz+Teodorowicz-Todorowski">Tadeusz Teodorowicz-Todorowski</a></p>
+		<xsl:when test="//collection-solr-search/response/result/@numFound = 0">
+			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/autorzy:Wiktoria+Frydecka/">Wiktoria Frydecka</a>, <a href="{$current-url}/autorzy:Andrzej+Frydecki/">Andrzej Frydecki</a>, <a href="{$current-url}/autorzy:Maria+Molicka/">Maria Molicka</a>, <a href="{$current-url}/autorzy:Witold+Molicki/">Witold Molicki</a>, <a href="{$current-url}/autorzy:Tadeusz+Teodorowicz-Todorowski/">Tadeusz Teodorowicz-Todorowski</a></p>
 <!--
 			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: Wiktoria Frydecka&nbsp;(1901–1992), Andrzej Frydecki&nbsp;(1903–1989), Maria Molicka&nbsp;(1931–2014), Witold Molicki&nbsp;(1930–2013), Tadeusz Teodorowicz-Todorowski&nbsp;(1907–2001)</p>
 			 -->
 		</xsl:when>
 		<xsl:otherwise>
 			<p class="results-found">Znaleziono <xsl:value-of select="concat($count, ' ', $grammar)" /></p>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template name="no-results">
+	<xsl:choose>
+		<xsl:when test="//current-language/@handle = 'pl'">
+			<h1>Nie znaleziono wyników.</h1>
+		</xsl:when>
+		<xsl:otherwise>
+			<h1>No records found.</h1>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
@@ -161,7 +200,7 @@
 		<xsl:call-template name="nazwa-obiektu">
 			<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
 		</xsl:call-template>
-		<h2 class="donthyphenate"><xsl:value-of select="architekci/item/autorzy/architekt" /></h2>
+		<h2 class="donthyphenate"><xsl:value-of select="autorzy/item/autorzy/architekt" /></h2>
 		<h3><xsl:value-of select="datowanie" /></h3>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
@@ -302,8 +341,45 @@
 
 			window.ask = ask;
 
-			$('input.search-field').keyup(_.debounce(function() {
-				ask($(this).val());
+			var urlSOLR = '<xsl:value-of select="$root" />/collection/solr-search/';
+
+			function askSOLR(q) {
+				qString = urlSOLR + q + "/";
+				console.log(qString);
+				$.ajax({
+					url: qString,
+					dataType: 'json',
+					success: function(data) {
+						console.log(data);
+						return data;
+					},
+					error: function(data) {
+						console.log('ERROR');
+						console.log(data);
+					}
+				});
+			}
+
+			window.askSOLR = askSOLR;
+
+			<!-- $('.search-results').append(`
+			<article class="brick">
+				<h1>Yszt</h1>
+			</article>
+			`) -->
+
+			$('.search-form').submit(function(e) {
+				e.preventDefault();
+				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent($('input.search-field').val())}/`;
+			})
+
+			$('input.search-field').keyup(_.debounce(function(e) {
+				<!-- ask($(this).val()); -->
+				console.log(e.which);
+				if(e.which === 13) return;
+				console.log(`${encodeURIComponent($(this).val())}*`)
+				askSOLR(`${encodeURIComponent($(this).val())}*`)
+				<!-- askSOLR(encodeURIComponent($(this).val())); -->
 			}, 1000));
 
 			<!-- $.ajax({
