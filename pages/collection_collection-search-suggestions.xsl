@@ -18,7 +18,22 @@
 </xsl:call-template> -->
 
 <!-- <xsl:text>{"data": [{"id": "5","architekt": "Bendl Marjan"},{"id": "31","architekt": "Kaszczuk \"Stanisław\" Marcin"}]}</xsl:text> -->
-<xsl:text>{</xsl:text>"authors": [<xsl:apply-templates select="data/connection-authors/item" /><xsl:text>],</xsl:text>"signatures": [<xsl:apply-templates select="data/connection-signatures/item" />]}
+<!-- <xsl:text>{</xsl:text>"authors": [<xsl:apply-templates select="data/connection-authors/item" /><xsl:text>],</xsl:text>"signatures": [<xsl:apply-templates select="data/connection-signatures/item" />]} -->
+<xsl:text>{</xsl:text>"autocomplete": [<xsl:apply-templates select="data/collection-search-suggestions/response/lst/lst/int" /><xsl:text>]}</xsl:text>
+</xsl:template>
+
+<xsl:template match="collection-search-suggestions/response/lst/lst/int">
+	<xsl:variable name="newtext">
+		<xsl:call-template name="string-replace-all">
+			<xsl:with-param name="text" select="@name" />
+			<xsl:with-param name="replace"><xsl:text>&quot;</xsl:text></xsl:with-param>
+			<xsl:with-param name="by"><xsl:text>\&quot;</xsl:text></xsl:with-param>
+		</xsl:call-template>
+	</xsl:variable>
+	<xsl:text>"</xsl:text><xsl:value-of select="$newtext" /><xsl:text>"</xsl:text>
+	<xsl:if test="following-sibling::int">
+		<xsl:text>,</xsl:text>
+	</xsl:if>
 </xsl:template>
 
 <xsl:template match="item"><xsl:text>{</xsl:text><xsl:apply-templates select="./*" /><xsl:text>},</xsl:text>

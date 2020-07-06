@@ -57,13 +57,15 @@
 		<article class="collection-search">
 			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<form class="search-form" action="">
-				<input class="search-field" type="text" name="keywords" autofocus="" placeholder="Wyszukaj">
+				<input class="search-field" type="text" name="keywords" autofocus="" autocomplete="off" placeholder="Wyszukaj">
 					<xsl:attribute name="value">
 						<xsl:apply-templates select="//params/search" />
 					</xsl:attribute>
 				</input>
 				<input type="submit" value="&rarr;" class="icon"/>
 				<!-- <input type="hidden" name="sections" value="kolekcja" /> -->
+				<ul class="suggester">
+					</ul>
 			</form>
 			<xsl:call-template name="count-results">
 				<!-- <xsl:with-param name="count" select="string(count(//connection-test/item))" /> -->
@@ -318,6 +320,26 @@
 			<!-- var url = 'https://api.ipify.org?format=jsonp'; -->
 			var url = '<xsl:value-of select="$root" />/collection/collection-search-suggestions/';
 
+			const mapPL = {
+				ą: 'a',
+				ć: 'c',
+				ę: 'e',
+				ł: 'l',
+				ń: 'n',
+				ó: 'o',
+				ś: 's',
+				ź: 'z',
+				ż: 'z'
+			}
+
+			function removePL(str) {
+				let tempArray = str.toLowerCase().split('');
+				tempArray.forEach(function(el, i) {
+					if(mapPL[el]) tempArray[i] = mapPL[el];
+				})
+				return tempArray.join('');
+			}
+
 			<!-- $.getJSON(url)
 			$.getJSON(url, function(data) {
 				console.log(data);
@@ -362,6 +384,42 @@
 
 			window.askSOLR = askSOLR;
 
+			const suggesterURL = 'http://localhost/ma.wroc.pl/collection/collection-search-suggestions/';
+
+			async function suggest(q) {
+				const qString = `${suggesterURL}?q=${removePL(decodeURI(q))}`;
+				// let response = await fetch(qString);
+				// let data = await response.json();
+				console.log(qString);
+				fetch(qString)
+					.then(async function(response) {
+						let yszt = await response.json();
+						$('ul.suggester').show();
+						printSuggestions(yszt);
+						console.log(yszt)
+					})
+					.catch(function(error) {console.error(error);})
+			}
+
+			function printSuggestions(suggestions) {
+				const baseUrl = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang=//current-language/@handle]/@handle, '/connection/')" />`;
+				const suggestionsArray = suggestions.autocomplete;
+				$('.suggester').empty();
+				suggestionsArray.forEach(function(i) {
+					const url = baseUrl + encodeURIComponent(i) + '/';
+					$('.suggester').append('<li><a href="' + url + `">${i}</a></li>`);
+				})
+			}
+
+			window.suggest = suggest;
+
+			// (async function yyy() {
+			// 	let res = await fetch(suggesterURL + '?q=mar');
+			// 	console.log(await res.json());
+			//
+			// }());
+
+
 			<!-- $('.search-results').append(`
 			<article class="brick">
 				<h1>Yszt</h1>
@@ -375,12 +433,14 @@
 
 			$('input.search-field').keyup(_.debounce(function(e) {
 				<!-- ask($(this).val()); -->
-				console.log(e.which);
+				if (!$(this).val()) {
+					$('ul.suggester').hide();
+					return
+				}
 				if(e.which === 13) return;
-				console.log(`${encodeURIComponent($(this).val())}*`)
-				askSOLR(`${encodeURIComponent($(this).val())}*`)
-				<!-- askSOLR(encodeURIComponent($(this).val())); -->
+				suggest(encodeURIComponent($(this).val()));
 			}, 1000));
+
 
 			<!-- $.ajax({
 				url: url,
