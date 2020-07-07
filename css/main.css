@@ -3063,11 +3063,15 @@ body.collection.downloads, body.collection.search, body.collection.collection {
   margin-top: -6px;
   padding: 2px;
   z-index: 100; }
+  .collection .collection-search ul.suggester li.highlight {
+    color: white;
+    background-color: black; }
   .collection .collection-search ul.suggester li:hover {
     background-color: black;
     color: white; }
   .collection .collection-search ul.suggester li a {
-    display: block; }
+    display: block;
+    line-height: 2; }
 
 [data-fc-sidecart] {
   background-color: white !important; }

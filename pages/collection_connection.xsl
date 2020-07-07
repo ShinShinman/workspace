@@ -15,7 +15,7 @@
 	<!ENTITY lsaquo "&#8249;">
 	<!ENTITY rsaquo "&#8250;">
 	<!ENTITY percent "&#37;">
-	<!ENTITY gt "&#37;">
+	<!ENTITY gt "&#62;">
 ]>
 
 <xsl:stylesheet version="1.0"
@@ -86,6 +86,7 @@
 	</section>
 </xsl:template>
 
+<!-- BRICK -->
 <xsl:template match="collection-solr-search/response/result/doc">
 	<article class="brick">
 		<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{*[@name='sygnatura_slug']/str}/">
@@ -167,7 +168,7 @@
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="connection-test/error[. = 'No records found.']">
+<!-- <xsl:template match="connection-test/error[. = 'No records found.']">
 	<xsl:choose>
 		<xsl:when test="//current-language/@handle = 'pl'">
 			<h1>Nie znaleziono wyników.</h1>
@@ -176,13 +177,13 @@
 			<h1><xsl:value-of select="." /></h1>
 		</xsl:otherwise>
 	</xsl:choose>
-</xsl:template>
+</xsl:template> -->
 
-<xsl:template match="connection-test/item">
+<!-- <xsl:template match="connection-test/item">
 	<xsl:call-template name="connection-brick" />
-</xsl:template>
+</xsl:template> -->
 
-<xsl:template match="connection-item">
+<!-- <xsl:template match="connection-item">
 	<section class="coll collection-item">
 		<header>
 			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
@@ -195,9 +196,9 @@
 	<xsl:if test="count(//collection-related-items/entry[not(signature = //collection-item/entry/signature)]) &gt; 0">
 		<xsl:apply-templates select="//collection-related-items" />
 	</xsl:if>
-</xsl:template>
+</xsl:template> -->
 
-<xsl:template match="connection-item/item">
+<!-- <xsl:template match="connection-item/item">
 	<article>
 		<xsl:call-template name="nazwa-obiektu">
 			<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
@@ -247,9 +248,9 @@
 			</ul>
 		</ul>
 	</article>
-</xsl:template>
+</xsl:template> -->
 
-<xsl:template name="nazwa-obiektu">
+<!-- <xsl:template name="nazwa-obiektu">
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
@@ -259,9 +260,9 @@
 				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu-tlumaczenie/item[language = $lang]/nazwa-obiektu" /></h1>
 			</xsl:when>
 	</xsl:choose>
-</xsl:template>
+</xsl:template> -->
 
-<xsl:template name="zawartosc-projektu">
+<!-- <xsl:template name="zawartosc-projektu">
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
@@ -271,9 +272,9 @@
 				<li><xsl:value-of select="zawartosc-projektu-tlumaczenie/item[language = $lang]/zawartosc-projektu" /></li>
 			</xsl:when>
 	</xsl:choose>
-</xsl:template>
+</xsl:template> -->
 
-<xsl:template name="uwagi">
+<!-- <xsl:template name="uwagi">
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
@@ -283,7 +284,7 @@
 				<li><xsl:value-of select="uwagi-tlumaczenie/item[language = $lang]/uwagi" /></li>
 			</xsl:when>
 	</xsl:choose>
-</xsl:template>
+</xsl:template> -->
 
 
 <xsl:template match="data" mode="ma-button">
@@ -387,20 +388,23 @@
 			const suggesterURL = 'http://localhost/ma.wroc.pl/collection/collection-search-suggestions/';
 
 			async function suggest(q) {
-				const qString = `${suggesterURL}?q=${removePL(decodeURI(q))}`;
+				console.log(q);
+				console.log(q.replace(' ', '.'));
+				const qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'))}`;
 				// let response = await fetch(qString);
 				// let data = await response.json();
 				console.log(qString);
 				fetch(qString)
 					.then(async function(response) {
-						let yszt = await response.json();
+						let resJSON = await response.json();
 						$('ul.suggester').show();
-						printSuggestions(yszt);
-						console.log(yszt)
+						printSuggestions(resJSON);
 					})
 					.catch(function(error) {console.error(error);})
 			}
 
+			let currentSuggest = -1;
+			let listSuggest;
 			function printSuggestions(suggestions) {
 				const baseUrl = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang=//current-language/@handle]/@handle, '/connection/')" />`;
 				const suggestionsArray = suggestions.autocomplete;
@@ -409,6 +413,8 @@
 					const url = baseUrl + encodeURIComponent(i) + '/';
 					$('.suggester').append('<li><a href="' + url + `">${i}</a></li>`);
 				})
+				currentSuggest = -1;
+				listSuggest = document.querySelectorAll('ul.suggester li');
 			}
 
 			window.suggest = suggest;
@@ -431,30 +437,37 @@
 				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent($('input.search-field').val())}/`;
 			})
 
-			$('input.search-field').keyup(_.debounce(function(e) {
+
+
+			$('input.search-field').keyup(function(e) {
 				<!-- ask($(this).val()); -->
 				if (!$(this).val()) {
 					$('ul.suggester').hide();
 					return
 				}
-				if(e.which === 13) return;
-				suggest(encodeURIComponent($(this).val()));
-			}, 1000));
-
-
-			<!-- $.ajax({
-				url: url,
-				dataType: 'json',
-				success: function(data) {
-					console.log(data);
-				},
-				error: function(data) {
-					console.log('ERROR');
-					console.log(data);
+				// if(e.which === 13) return;
+				switch(e.which) {
+					case 38:
+						if(currentSuggest != -1) listSuggest[currentSuggest].classList.remove('highlight');
+						if(currentSuggest <xsl:text disable-output-escaping="yes">&#62;</xsl:text> 0) currentSuggest--;
+						else currentSuggest = listSuggest.length - 1;
+						listSuggest[currentSuggest].classList.add('highlight');
+						break;
+					case 40:
+						if(currentSuggest != -1) listSuggest[currentSuggest].classList.remove('highlight');
+						if(currentSuggest <xsl:text disable-output-escaping="yes">&lt;</xsl:text> listSuggest.length - 1) currentSuggest++;
+						else currentSuggest = 0;
+						listSuggest[currentSuggest].classList.add('highlight');
+						break;
+					case 13:
+						$('input.search-field').val(listSuggest[currentSuggest].firstChild.textContent).submit();
+						break;
+					default:
+						suggest(encodeURIComponent($(this).val()));
 				}
-			}); -->
-
+			});
 		});
+
 
 		$(window).load(function() {
 			MA.iS();

@@ -10,6 +10,10 @@
       padding: 2px;
       z-index: 100;
       li {
+        &.highlight {
+          color: white;
+          background-color: black;
+        }
         &:hover {
           // background-color: #eaeaea;
             background-color: black;
@@ -30,6 +34,7 @@
 
         a {
           display: block;
+          line-height: 2;
         }
       }
     }
