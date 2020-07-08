@@ -51,7 +51,14 @@
 </xsl:template>
 
 <xsl:template match="*" mode="child">
-	<xsl:text>"</xsl:text><xsl:value-of select="." /><xsl:text>"</xsl:text>
+	<xsl:text>"</xsl:text>
+		<!-- <xsl:value-of select="." /> -->
+		<xsl:call-template name="string-replace-all">
+			<xsl:with-param name="text" select="." />
+			<xsl:with-param name="replace"><xsl:text>&quot;</xsl:text></xsl:with-param>
+			<xsl:with-param name="by"><xsl:text>\&quot;</xsl:text></xsl:with-param>
+		</xsl:call-template>
+	<xsl:text>"</xsl:text>
 	<xsl:if test="./following-sibling::*">
 		<xsl:text>,</xsl:text>
 	</xsl:if>

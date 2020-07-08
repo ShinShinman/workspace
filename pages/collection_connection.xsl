@@ -316,10 +316,6 @@
 				failure_limit : 1000
 			});
 
-			<!-- var url = 'http://156.17.251.36:59190/ma-kolekcja/items/kolekcja'; -->
-			<!-- var url = 'http://localhost:4081/ma-kolekcja/items/kolekcja'; -->
-			<!-- var url = 'https://api.ipify.org?format=jsonp'; -->
-			var url = '<xsl:value-of select="$root" />/collection/collection-search-suggestions/';
 
 			const mapPL = {
 				ą: 'a',
@@ -346,6 +342,12 @@
 				console.log(data);
 			}) -->
 
+
+			<!-- var url = 'http://156.17.251.36:59190/ma-kolekcja/items/kolekcja'; -->
+			<!-- var url = 'http://localhost:4081/ma-kolekcja/items/kolekcja'; -->
+			<!-- var url = 'https://api.ipify.org?format=jsonp'; -->
+			var url = '<xsl:value-of select="$root" />/collection/collection-search-suggestions/';
+
 			function ask(q) {
 				qString = url + "?q=" + q;
 				console.log(qString);
@@ -364,7 +366,34 @@
 
 			window.ask = ask;
 
+			$(window).scroll(function() {
+				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height()) {
+					// loadMore();
+					console.log('Load!');
+					askSOLR2('kosciol')
+				}
+			})
+
 			var urlSOLR = '<xsl:value-of select="$root" />/collection/solr-search/';
+			var container = $('.search-results');
+			var queue = 0;
+			var queueStep = 30;
+
+			async function askSOLR2(q) {
+				queue+=queueStep;
+				qString = urlSOLR + q + "/?start=" + queue ;
+				console.log(qString);
+				fetch(qString)
+					.then(async function(response) {
+						let resJSON = await response.json();
+						console.log(resJSON);
+						resJSON.docs.forEach(function(doc) {
+							container.isotope('insert', template(doc));
+
+						})
+					})
+					.catch(function(error) {console.error(error);})
+			}
 
 			function askSOLR(q) {
 				qString = urlSOLR + q + "/";
@@ -373,8 +402,9 @@
 					url: qString,
 					dataType: 'json',
 					success: function(data) {
-						console.log(data);
-						return data;
+						data.docs.forEach(function(ob) {
+							container.append(template(ob))//.isotope('appended', template(ob));
+						})
 					},
 					error: function(data) {
 						console.log('ERROR');
@@ -383,7 +413,23 @@
 				});
 			}
 
+			function template(ob) {
+				return $(`
+					<article class="brick">
+						<a href="http://localhost/ma.wroc.pl/pl/kolekcja/">
+							<h1 class="donthyphenate">${ob['nazwa-obiektu']}</h1>
+							<!--<h2 class="donthyphenate">${ob.autorzy[0]}</h2>-->
+							<p>${ob.datowanie}</p>
+						</a>
+					</article>
+				`)
+			}
+
+			// askSOLR('maria');
+			// askSOLR2('molicki');
+
 			window.askSOLR = askSOLR;
+			window.askSOLR2 = askSOLR2;
 
 			const suggesterURL = 'http://localhost/ma.wroc.pl/collection/collection-search-suggestions/';
 
@@ -419,18 +465,14 @@
 
 			window.suggest = suggest;
 
-			// (async function yyy() {
-			// 	let res = await fetch(suggesterURL + '?q=mar');
-			// 	console.log(await res.json());
-			//
-			// }());
 
-
-			<!-- $('.search-results').append(`
+			const el = $(`
 			<article class="brick">
-				<h1>Yszt</h1>
+				<h1>Yszttttt</h1>
 			</article>
-			`) -->
+			`)
+
+			// $('.bricks-container').append(el).isotope('appended', el);
 
 			$('.search-form').submit(function(e) {
 				e.preventDefault();
@@ -467,7 +509,6 @@
 				}
 			});
 		});
-
 
 		$(window).load(function() {
 			MA.iS();

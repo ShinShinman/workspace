@@ -5,7 +5,7 @@ require_once(EXTENSIONS . '/remote_datasource/data-sources/datasource.remote.php
 class datasourceconnection_solr extends RemoteDatasource {
 
     public $dsParamROOTELEMENT = 'connection-solr';
-    public $dsParamURL = 'http://localhost:8983/solr/test/select?q={$search}';
+    public $dsParamURL = 'http://localhost:8983/solr/test/select?rows=30&q={$search}&start=0{$url-start}';
     public $dsParamFORMAT = 'json';
     public $dsParamXPATH = '/data/*';
     public $dsParamCACHE = 5;
@@ -30,7 +30,7 @@ class datasourceconnection_solr extends RemoteDatasource {
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2020-06-17T13:54:01+00:00'
+            'release-date' => '2020-07-08T16:29:29+00:00'
         );
     }
 
