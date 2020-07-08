@@ -183,7 +183,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="js">
-	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
@@ -234,7 +234,7 @@
 <xsl:template match="data" mode="meta-tags">
 	<meta name="test" content="" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/css/swiper.css" />
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </xsl:template>
 
 </xsl:stylesheet>
