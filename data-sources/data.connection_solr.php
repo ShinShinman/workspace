@@ -30,7 +30,7 @@ class datasourceconnection_solr extends RemoteDatasource {
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2020-07-08T16:29:29+00:00'
+            'release-date' => '2020-07-09T13:57:56+00:00'
         );
     }
 

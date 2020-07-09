@@ -25,7 +25,7 @@ class MA
 
 	# Private methods
 
-	searchToggle = (trigger, target) -> 
+	searchToggle = (trigger, target) ->
 		trigger.click ->
 			target.css('opacity', (i, opacity) ->
 				if opacity > 0 then 0 else 1
@@ -141,37 +141,6 @@ class MA
 			}, 800)
 
 		setNavBackground('.owl-carousel')
-
-		###
-		hlHeight = $('.owl-carousel').height()
-		MA.settings.highlightVisible = true
-		dirCount = [0, 0]
-		direction = ''
-
-		$(window).scroll ->
-			dirCount.pop()
-			dirCount.push($(window).scrollTop())
-			dirCount.reverse()
-			direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-			console.log direction
-
-			# Highligt in!
-			if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
-				MA.settings.highlightVisible = true
-				stickyNavSetup({
-					backgroundColor: 'transparent'
-					})
-				console.log 'Highligt in!'
-
-			# Highligt out!
-			if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
-				MA.settings.highlightVisible = false
-				stickyNavSetup({
-					backgroundColor: 'white'
-					})
-				console.log 'Highligt out!'
-		###
-
 		return
 
 	isScrolledIntoView = (elem) ->
@@ -187,7 +156,7 @@ class MA
 		return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 
 
-	
+
 	# Public methods
 	stickyNavSetup: (options) ->
 		settings = $.extend( {
@@ -307,7 +276,7 @@ class MA
 		#filtrowanie przez QuickSearch
 		qSOn = () -> #QuickSearhOn
 			# QuickSearch
-			form = $ '.filters .search form' 
+			form = $ '.filters .search form'
 			clearBtn = $ '.filters .search input[type = reset]'
 			qsRegex = undefined
 
@@ -318,7 +287,7 @@ class MA
 					clearTimeout timeout
 					args = arguments
 					_this = this
-					delayed = () -> 
+					delayed = () ->
 						fn.apply _this, args
 						return
 					timeout = setTimeout delayed, threshold
@@ -328,7 +297,7 @@ class MA
 				tmp = settings.quickSearchField.val().split(' ')
 				$.each tmp, (i, v) ->
 					tmp[i] = '(?=.*' + v + ')'
-				
+
 				searchStr = tmp.join('')
 				qsRegExp = new RegExp searchStr + '.*', 'gi'
 				settings.grid.isotope
@@ -361,7 +330,7 @@ class MA
 			slider: $('.slider')
 			sliderRange: [1965, 2016]
 			, options
-		
+
 		updateLegend = (sYear, eYear) ->
 				$('.legend span').text(' ' + sYear + '–' + eYear)
 
@@ -396,7 +365,7 @@ class MA
 	getCountryCode: (lang, url) ->
 		apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4"
 		$.ajax
-			url: "https://api.ipdata.co/country_code?api-key=#{apiKey}" 
+			url: "https://api.ipdata.co/country_code?api-key=#{apiKey}"
 			type: 'GET'
 			dataType: 'text'
 			error: (jqXHR, textStatus, errorThrown) ->
@@ -417,7 +386,7 @@ class MA
 				console.log "AJAX Error: #{textStatus}"
 			success: (data, textStatus, jqXHR) ->
 				console.log "Dziś użyto usługi #{data} razy. Dziś możesz z niej skorzystać jeszcze #{1500-data} razy."
-		return 				
+		return
 
 	apiTest = ->
 		console.log 'Public API available!'

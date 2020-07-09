@@ -2,35 +2,6 @@
   var MA;
 
   MA = (function() {
-    /*
-    hlHeight = $('.owl-carousel').height()
-    MA.settings.highlightVisible = true
-    dirCount = [0, 0]
-    direction = ''
-
-    $(window).scroll ->
-    	dirCount.pop()
-    	dirCount.push($(window).scrollTop())
-    	dirCount.reverse()
-    	direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-    	console.log direction
-
-     * Highligt in!
-    	if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
-    		MA.settings.highlightVisible = true
-    		stickyNavSetup({
-    			backgroundColor: 'transparent'
-    			})
-    		console.log 'Highligt in!'
-
-     * Highligt out!
-    	if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
-    		MA.settings.highlightVisible = false
-    		stickyNavSetup({
-    			backgroundColor: 'white'
-    			})
-    		console.log 'Highligt out!'
-     */
     var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
 
     class MA {

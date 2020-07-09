@@ -24,23 +24,9 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
 <xsl:include href="../utilities/_connection-brick.xsl"/>
-<xsl:include href="../utilities/_string-replace.xsl"/>
 
 <xsl:template match="data">
 	<xsl:call-template name="collection" />
-	<!-- <xsl:choose>
-		<xsl:when test="$signature">
-			<xsl:if test="collection-item/error">
-				<script>
-					window.location.replace('<xsl:value-of select="$root"/>/error/');
-				</script>
-			</xsl:if>
-			<xsl:apply-templates select="connection-item" />
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:call-template name="collection" />
-		</xsl:otherwise>
-	</xsl:choose> -->
 </xsl:template>
 
 <xsl:template name="collection">
@@ -63,12 +49,10 @@
 					</xsl:attribute>
 				</input>
 				<input type="submit" value="&rarr;" class="icon"/>
-				<!-- <input type="hidden" name="sections" value="kolekcja" /> -->
 				<ul class="suggester">
 					</ul>
 			</form>
 			<xsl:call-template name="count-results">
-				<!-- <xsl:with-param name="count" select="string(count(//connection-test/item))" /> -->
 				<xsl:with-param name="count" select="//collection-solr-search/response/result/@numFound" />
 			</xsl:call-template>
 		</article>
@@ -79,8 +63,6 @@
 			<xsl:call-template name="no-results" />
 		</xsl:if>
 		<div class="bricks-container search-results">
-			<!-- <xsl:apply-templates select="connection-test/item" /> -->
-
 			<xsl:apply-templates select="collection-solr-search/response/result/doc" />
 		</div>
 	</section>
@@ -147,9 +129,6 @@
 	<xsl:choose>
 		<xsl:when test="//collection-solr-search/response/result/@numFound = 0">
 			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/autorzy:Wiktoria+Frydecka/">Wiktoria Frydecka</a>, <a href="{$current-url}/autorzy:Andrzej+Frydecki/">Andrzej Frydecki</a>, <a href="{$current-url}/autorzy:Maria+Molicka/">Maria Molicka</a>, <a href="{$current-url}/autorzy:Witold+Molicki/">Witold Molicki</a>, <a href="{$current-url}/autorzy:Tadeusz+Teodorowicz-Todorowski/">Tadeusz Teodorowicz-Todorowski</a></p>
-<!--
-			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: Wiktoria Frydecka&nbsp;(1901–1992), Andrzej Frydecki&nbsp;(1903–1989), Maria Molicka&nbsp;(1931–2014), Witold Molicki&nbsp;(1930–2013), Tadeusz Teodorowicz-Todorowski&nbsp;(1907–2001)</p>
-			 -->
 		</xsl:when>
 		<xsl:otherwise>
 			<p class="results-found">Znaleziono <xsl:value-of select="concat($count, ' ', $grammar)" /></p>
@@ -167,125 +146,6 @@
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
-
-<!-- <xsl:template match="connection-test/error[. = 'No records found.']">
-	<xsl:choose>
-		<xsl:when test="//current-language/@handle = 'pl'">
-			<h1>Nie znaleziono wyników.</h1>
-		</xsl:when>
-		<xsl:otherwise>
-			<h1><xsl:value-of select="." /></h1>
-		</xsl:otherwise>
-	</xsl:choose>
-</xsl:template> -->
-
-<!-- <xsl:template match="connection-test/item">
-	<xsl:call-template name="connection-brick" />
-</xsl:template> -->
-
-<!-- <xsl:template match="connection-item">
-	<section class="coll collection-item">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
-		<xsl:apply-templates select="item[1]" />
-	</section>
-	<xsl:if test="count(//collection-related-items/entry[not(signature = //collection-item/entry/signature)]) &gt; 0">
-		<xsl:apply-templates select="//collection-related-items" />
-	</xsl:if>
-</xsl:template> -->
-
-<!-- <xsl:template match="connection-item/item">
-	<article>
-		<xsl:call-template name="nazwa-obiektu">
-			<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
-		</xsl:call-template>
-		<h2 class="donthyphenate"><xsl:value-of select="autorzy/item/autorzy/architekt" /></h2>
-		<h3><xsl:value-of select="datowanie" /></h3>
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<xsl:apply-templates select="images/file" />
-			</div>
-			<xsl:if test="count(images/file) > 1">
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
-			</xsl:if>
-		</div>
-		<xsl:if test="count(images/file) > 1">
-			<div class="swiper-pagination"><span class="bullet" /></div>
-		</xsl:if>
-		<ul class="project-description donthyphenate">
-			<li><strong><xsl:value-of select="miejscowosc" /></strong></li>
-			<li><xsl:value-of select="adres" /><xsl:apply-templates select="adres-cyrylica" /></li>
-			<ul class="project-details">
-				<li><xsl:call-template name="zawartosc-projektu">
-					<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
-				</xsl:call-template>
-				</li>
-				<li><xsl:call-template name="uwagi">
-					<xsl:with-param name="lang"><xsl:value-of select="//current-language/@handle" /></xsl:with-param>
-				</xsl:call-template>
-				</li>
-			</ul>
-			<ul class="project-details">
-				<li class="label"><span><xsl:value-of select="//dictionary//word[@handle-en = 'inventory-number']" /></span></li>
-				<li class="signature"><xsl:value-of select="sygnatura" /></li>
-
-				<xsl:choose>
-					<xsl:when test="//current-language/@handle = 'pl'">
-						<li><xsl:value-of select="tworzywo-link/item/tworzywo/tworzywo" /></li>
-						<li><xsl:value-of select="technika-link/item/technika/technika" /></li>
-					</xsl:when>
-					<xsl:otherwise>
-						<li><xsl:value-of select="tworzywo-link/item/tworzywo/tlumaczenie/item/tworzywo" /></li>
-						<li><xsl:value-of select="technika-link/item/technika/tlumaczenie/item/technika" /></li>
-					</xsl:otherwise>
-				</xsl:choose>
-				<li><xsl:value-of select="wymiary" /></li>
-			</ul>
-		</ul>
-	</article>
-</xsl:template> -->
-
-<!-- <xsl:template name="nazwa-obiektu">
-	<xsl:param name="lang" />
-	<xsl:choose>
-		<xsl:when test="$lang = 'pl'">
-			<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu" /></h1>
-		</xsl:when>
-			<xsl:when test="$lang != 'pl'">
-				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu-tlumaczenie/item[language = $lang]/nazwa-obiektu" /></h1>
-			</xsl:when>
-	</xsl:choose>
-</xsl:template> -->
-
-<!-- <xsl:template name="zawartosc-projektu">
-	<xsl:param name="lang" />
-	<xsl:choose>
-		<xsl:when test="$lang = 'pl'">
-			<li><xsl:value-of select="zawartosc-projektu" /></li>
-		</xsl:when>
-			<xsl:when test="$lang != 'pl'">
-				<li><xsl:value-of select="zawartosc-projektu-tlumaczenie/item[language = $lang]/zawartosc-projektu" /></li>
-			</xsl:when>
-	</xsl:choose>
-</xsl:template> -->
-
-<!-- <xsl:template name="uwagi">
-	<xsl:param name="lang" />
-	<xsl:choose>
-		<xsl:when test="$lang = 'pl'">
-			<li><xsl:value-of select="uwagi" /></li>
-		</xsl:when>
-			<xsl:when test="$lang != 'pl'">
-				<li><xsl:value-of select="uwagi-tlumaczenie/item[language = $lang]/uwagi" /></li>
-			</xsl:when>
-	</xsl:choose>
-</xsl:template> -->
-
 
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/')" />
@@ -316,7 +176,6 @@
 				failure_limit : 1000
 			});
 
-
 			const mapPL = {
 				ą: 'a',
 				ć: 'c',
@@ -337,38 +196,9 @@
 				return tempArray.join('');
 			}
 
-			<!-- $.getJSON(url)
-			$.getJSON(url, function(data) {
-				console.log(data);
-			}) -->
-
-
-			<!-- var url = 'http://156.17.251.36:59190/ma-kolekcja/items/kolekcja'; -->
-			<!-- var url = 'http://localhost:4081/ma-kolekcja/items/kolekcja'; -->
-			<!-- var url = 'https://api.ipify.org?format=jsonp'; -->
-			var url = '<xsl:value-of select="$root" />/collection/collection-search-suggestions/';
-
-			function ask(q) {
-				qString = url + "?q=" + q;
-				console.log(qString);
-				$.ajax({
-					url: qString,
-					dataType: 'json',
-					success: function(data) {
-						console.log(data);
-					},
-					error: function(data) {
-						console.log('ERROR');
-						console.log(data);
-					}
-				});
-			}
-
-			window.ask = ask;
-
 			$(window).scroll(function() {
-				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 5) {
-					askSOLR2('<xsl:value-of select="$search" />')
+				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) {
+					askSOLR('<xsl:value-of select="$search" />')
 				}
 			})
 
@@ -378,7 +208,7 @@
 			var queueStep = 30;
 			var numFound = 0;
 
-			async function askSOLR2(q) {
+			async function askSOLR(q) {
 				if(queue <xsl:text disable-output-escaping="yes">&gt;</xsl:text> numFound) return
 				queue+=queueStep;
 				qString = urlSOLR + q + "/?start=" + queue ;
@@ -394,42 +224,26 @@
 					})
 					.catch(function(error) {console.error(error);})
 			}
-
-			function askSOLR(q) {
-				qString = urlSOLR + q + "/";
-				console.log(qString);
-				$.ajax({
-					url: qString,
-					dataType: 'json',
-					success: function(data) {
-						data.docs.forEach(function(ob) {
-							container.append(template(ob))//.isotope('appended', template(ob));
-						})
-					},
-					error: function(data) {
-						console.log('ERROR');
-						console.log(data);
-					}
-				});
+			function ziomy(string) {
+				return string.replace(/\b(a|i|o|u|w|z|A|I|O|U|W|Z|ul\.|we)\s\b/gi, '$1&nbsp;');
 			}
 
 			function template(ob) {
+				const nazwaObiektu = (ob.nazwa_obiektu) ? ziomy(ob.nazwa_obiektu) : '';
+				const autorzy = (ob.autorzy) ? ob.autorzy.join(', ') : '';
+				const datowanie = (ob.datowanie) ? ob.datowanie : '';
 				return $(`
 					<article class="brick">
 						<a href="http://localhost/ma.wroc.pl/pl/kolekcja/">
-							<h1 class="donthyphenate">${ob['nazwa-obiektu']}</h1>
-							<!--<h2 class="donthyphenate">${ob.autorzy[0]}</h2>-->
-							<p>${ob.datowanie}</p>
+							<h1 class="donthyphenate">${nazwaObiektu}</h1>
+							<h2 class="donthyphenate">${autorzy}</h2>
+							<p>${datowanie}</p>
 						</a>
 					</article>
 				`)
 			}
 
-			// askSOLR('maria');
-			// askSOLR2('molicki');
-
 			window.askSOLR = askSOLR;
-			window.askSOLR2 = askSOLR2;
 
 			const suggesterURL = 'http://localhost/ma.wroc.pl/collection/collection-search-suggestions/';
 
@@ -470,12 +284,10 @@
 
 
 			$('input.search-field').keyup(function(e) {
-				<!-- ask($(this).val()); -->
 				if (!$(this).val()) {
 					$('ul.suggester').hide();
 					return
 				}
-				// if(e.which === 13) return;
 				switch(e.which) {
 					case 38:
 						if(currentSuggest != -1) listSuggest[currentSuggest].classList.remove('highlight');
