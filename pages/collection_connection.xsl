@@ -367,10 +367,8 @@
 			window.ask = ask;
 
 			$(window).scroll(function() {
-				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height()) {
-					// loadMore();
-					console.log('Load!');
-					askSOLR2('kosciol')
+				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 5) {
+					askSOLR2('<xsl:value-of select="$search" />')
 				}
 			})
 
@@ -378,18 +376,20 @@
 			var container = $('.search-results');
 			var queue = 0;
 			var queueStep = 30;
+			var numFound = 0;
 
 			async function askSOLR2(q) {
+				if(queue <xsl:text disable-output-escaping="yes">&gt;</xsl:text> numFound) return
 				queue+=queueStep;
 				qString = urlSOLR + q + "/?start=" + queue ;
 				console.log(qString);
 				fetch(qString)
 					.then(async function(response) {
 						let resJSON = await response.json();
+						numFound = resJSON.numFound;
 						console.log(resJSON);
 						resJSON.docs.forEach(function(doc) {
 							container.isotope('insert', template(doc));
-
 						})
 					})
 					.catch(function(error) {console.error(error);})
@@ -437,8 +437,6 @@
 				console.log(q);
 				console.log(q.replace(' ', '.'));
 				const qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'))}`;
-				// let response = await fetch(qString);
-				// let data = await response.json();
 				console.log(qString);
 				fetch(qString)
 					.then(async function(response) {
@@ -465,20 +463,10 @@
 
 			window.suggest = suggest;
 
-
-			const el = $(`
-			<article class="brick">
-				<h1>Yszttttt</h1>
-			</article>
-			`)
-
-			// $('.bricks-container').append(el).isotope('appended', el);
-
 			$('.search-form').submit(function(e) {
 				e.preventDefault();
 				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent($('input.search-field').val())}/`;
 			})
-
 
 
 			$('input.search-field').keyup(function(e) {
