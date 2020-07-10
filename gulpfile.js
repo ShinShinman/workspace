@@ -73,7 +73,7 @@ function watchFiles() {
 			done();
 		})
 	);
-	gulp.watch(['./coffee/**/*.coffee'], 
+	gulp.watch(['./coffee/**/*.coffee'],
 		gulp.series(coffeeScript, scripts)
 	);
 	gulp.watch(['pages/*.xsl', 'utilities/*.xsl'],

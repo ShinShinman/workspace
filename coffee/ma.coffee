@@ -21,6 +21,8 @@ class MA
 		gridItem: '.brick'
 		highlightOn: false
 		highlightVisible: false
+		lang: 'pl'
+		suggester: $('ul.suggester')
 
 
 	# Private methods
@@ -387,6 +389,122 @@ class MA
 			success: (data, textStatus, jqXHR) ->
 				console.log "Dziś użyto usługi #{data} razy. Dziś możesz z niej skorzystać jeszcze #{1500-data} razy."
 		return
+
+
+	### COLLECTION SOLR ###
+
+	# remove hanging single letters
+	ziomy = (string) ->
+		return string.replace /\b(a|i|o|u|w|z|A|I|O|U|W|Z)\s\b/gi, '$1&nbsp;'
+
+	# usuwa polskie znaki
+	mapPL =
+		ą: 'a'
+		ć: 'c'
+		ę: 'e'
+		ł: 'l'
+		ń: 'n'
+		ó: 'o'
+		ś: 's'
+		ż: 'z'
+		ź: 'z'
+
+	removePL = (string, map) ->
+		tempArray = string.toLowerCase().split('')
+		tempArray.forEach (el, i) ->
+			if map[el]
+				tempArray[i] = map[el]
+		return tempArray.join('')
+
+	#	templete kafelka Isotope
+	#		dodać obrazki
+	template = (ob) ->
+		nazwaObiektu = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
+		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
+		datowanie = if ob.datowanie then ob.datowanie else ''
+		return $("""
+			<article class="brick">
+				<a href="http://localhost/ma.wroc.pl/pl/kolekcja/">
+					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
+					<h2 class="donthyphenate">#{autorzy}</h2>
+			    <p>#{datowanie}</p>
+				</a>
+			</article>
+		""")
+
+	# askSOLR – dodaje do kontenera Isotope nowe kafle
+	# ustala adres strony /solr-search
+	baseURL = if window.location.origin.includes('ma.wroc.pl') then "#{window.location.origin}" else "#{window.location.origin}/ma.wroc.pl"
+	urlSOLR = "#{baseURL}/collection/solr-search/"
+	#ustawienia kolejki pobierania
+	queue = 0;
+	queueStep = 30;
+	numFound = 0;
+
+	#pobiera i dodaje do gridu kolejne kafle
+	askSOLR: (q) ->
+		if queue > numFound
+			return
+		queue += queueStep
+		qString = urlSOLR + q + '/?start=' + queue
+		console.log qString
+		fetch qString
+			.then (response) ->
+				resJSON = await response.json()
+				numFound = resJSON.numFound
+				console.log resJSON
+				resJSON.docs.forEach (doc) ->
+					MA.settings.grid.isotope('insert', template(doc))
+			.catch (error) ->
+				console.error error
+			return
+
+	# suggester
+	suggesterURL = "#{baseURL}/collection/collection-search-suggestions/"
+	currentSuggest = -1
+	listSuggest = null
+
+	# wyświetla podpowiedzi do wyszukiwania
+	printSuggestions = (suggestions) ->
+		tempURL = "#{baseURL}/#{MA.settings.lang}/kolekcja/connection/"
+		MA.settings.suggester.empty()
+		suggestions.forEach (item) ->
+			url = tempURL + encodeURIComponent item + '/'
+			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
+		currentSuggest = -1
+		listSuggest = document.querySelectorAll('ul.suggester li')
+
+	# pobiera podpowiedzi do wyszukiwania
+	suggest = (q) ->
+		qString = "#{suggesterURL}?q=#{removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}"
+		fetch qString
+			.then (res) ->
+				resJSON = await res.json()
+				MA.settings.suggester.show()
+				printSuggestions resJSON.autocomplete
+			.catch (err) ->
+				console.error err
+
+	sugg: (trg) ->
+		trg.keyup (e) ->
+			if !$(this).val()
+				MA.settings.suggester.hide()
+				return
+			switch e.which
+				when 38
+					if currentSuggest != -1 then listSuggest[currentSuggest].classList.remove 'highlight'
+					if currentSuggest > 0 then currentSuggest--
+					else currentSuggest = listSuggest.length - 1
+					listSuggest[currentSuggest].classList.add 'highlight'
+				when 40
+					if currentSuggest != -1 then listSuggest[currentSuggest].classList.remove 'highlight'
+					if currentSuggest < listSuggest.length - 1 then currentSuggest++
+					else currentSuggest = 0
+					listSuggest[currentSuggest].classList.add 'highlight'
+				when 13
+					trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent, mapPL)).submit()
+				else suggest encodeURIComponent $(this).val()
+
 
 	apiTest = ->
 		console.log 'Public API available!'

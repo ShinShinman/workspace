@@ -176,138 +176,18 @@
 				failure_limit : 1000
 			});
 
-			const mapPL = {
-				ą: 'a',
-				ć: 'c',
-				ę: 'e',
-				ł: 'l',
-				ń: 'n',
-				ó: 'o',
-				ś: 's',
-				ź: 'z',
-				ż: 'z'
-			}
-
-			function removePL(str) {
-				let tempArray = str.toLowerCase().split('');
-				tempArray.forEach(function(el, i) {
-					if(mapPL[el]) tempArray[i] = mapPL[el];
-				})
-				return tempArray.join('');
-			}
-
 			$(window).scroll(function() {
 				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) {
-					askSOLR('<xsl:value-of select="$search" />')
+					MA.askSOLR('<xsl:value-of select="$search" />')
 				}
 			})
-
-			var urlSOLR = '<xsl:value-of select="$root" />/collection/solr-search/';
-			var container = $('.search-results');
-			var queue = 0;
-			var queueStep = 30;
-			var numFound = 0;
-
-			async function askSOLR(q) {
-				if(queue <xsl:text disable-output-escaping="yes">&gt;</xsl:text> numFound) return
-				queue+=queueStep;
-				qString = urlSOLR + q + "/?start=" + queue ;
-				console.log(qString);
-				fetch(qString)
-					.then(async function(response) {
-						let resJSON = await response.json();
-						numFound = resJSON.numFound;
-						console.log(resJSON);
-						resJSON.docs.forEach(function(doc) {
-							container.isotope('insert', template(doc));
-						})
-					})
-					.catch(function(error) {console.error(error);})
-			}
-			function ziomy(string) {
-				return string.replace(/\b(a|i|o|u|w|z|A|I|O|U|W|Z|ul\.|we)\s\b/gi, '$1&nbsp;');
-			}
-
-			function template(ob) {
-				const nazwaObiektu = (ob.nazwa_obiektu) ? ziomy(ob.nazwa_obiektu) : '';
-				const autorzy = (ob.autorzy) ? ob.autorzy.join(', ') : '';
-				const datowanie = (ob.datowanie) ? ob.datowanie : '';
-				return $(`
-					<article class="brick">
-						<a href="http://localhost/ma.wroc.pl/pl/kolekcja/">
-							<h1 class="donthyphenate">${nazwaObiektu}</h1>
-							<h2 class="donthyphenate">${autorzy}</h2>
-							<p>${datowanie}</p>
-						</a>
-					</article>
-				`)
-			}
-
-			window.askSOLR = askSOLR;
-
-			const suggesterURL = 'http://localhost/ma.wroc.pl/collection/collection-search-suggestions/';
-
-			async function suggest(q) {
-				console.log(q);
-				console.log(q.replace(' ', '.'));
-				const qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'))}`;
-				console.log(qString);
-				fetch(qString)
-					.then(async function(response) {
-						let resJSON = await response.json();
-						$('ul.suggester').show();
-						printSuggestions(resJSON);
-					})
-					.catch(function(error) {console.error(error);})
-			}
-
-			let currentSuggest = -1;
-			let listSuggest;
-			function printSuggestions(suggestions) {
-				const baseUrl = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang=//current-language/@handle]/@handle, '/connection/')" />`;
-				const suggestionsArray = suggestions.autocomplete;
-				$('.suggester').empty();
-				suggestionsArray.forEach(function(i) {
-					const url = baseUrl + encodeURIComponent(i) + '/';
-					$('.suggester').append('<li><a href="' + url + `">${i}</a></li>`);
-				})
-				currentSuggest = -1;
-				listSuggest = document.querySelectorAll('ul.suggester li');
-			}
-
-			window.suggest = suggest;
 
 			$('.search-form').submit(function(e) {
 				e.preventDefault();
 				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent($('input.search-field').val())}/`;
 			})
 
-
-			$('input.search-field').keyup(function(e) {
-				if (!$(this).val()) {
-					$('ul.suggester').hide();
-					return
-				}
-				switch(e.which) {
-					case 38:
-						if(currentSuggest != -1) listSuggest[currentSuggest].classList.remove('highlight');
-						if(currentSuggest <xsl:text disable-output-escaping="yes">&#62;</xsl:text> 0) currentSuggest--;
-						else currentSuggest = listSuggest.length - 1;
-						listSuggest[currentSuggest].classList.add('highlight');
-						break;
-					case 40:
-						if(currentSuggest != -1) listSuggest[currentSuggest].classList.remove('highlight');
-						if(currentSuggest <xsl:text disable-output-escaping="yes">&lt;</xsl:text> listSuggest.length - 1) currentSuggest++;
-						else currentSuggest = 0;
-						listSuggest[currentSuggest].classList.add('highlight');
-						break;
-					case 13:
-						$('input.search-field').val(listSuggest[currentSuggest].firstChild.textContent).submit();
-						break;
-					default:
-						suggest(encodeURIComponent($(this).val()));
-				}
-			});
+			MA.sugg($('input.search-field'))
 		});
 
 		$(window).load(function() {

@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
+    var apiTest, baseURL, closeMenu, currentSuggest, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -307,6 +307,62 @@
         });
       }
 
+      askSOLR(q) {
+        var qString;
+        if (queue > numFound) {
+          return;
+        }
+        queue += queueStep;
+        qString = urlSOLR + q + '/?start=' + queue;
+        console.log(qString);
+        fetch(qString).then(async function(response) {
+          var resJSON;
+          resJSON = (await response.json());
+          numFound = resJSON.numFound;
+          console.log(resJSON);
+          return resJSON.docs.forEach(function(doc) {
+            return MA.settings.grid.isotope('insert', template(doc));
+          });
+        }).catch(function(error) {
+          return console.error(error);
+        });
+      }
+
+      sugg(trg) {
+        return trg.keyup(function(e) {
+          if (!$(this).val()) {
+            MA.settings.suggester.hide();
+            return;
+          }
+          switch (e.which) {
+            case 38:
+              if (currentSuggest !== -1) {
+                listSuggest[currentSuggest].classList.remove('highlight');
+              }
+              if (currentSuggest > 0) {
+                currentSuggest--;
+              } else {
+                currentSuggest = listSuggest.length - 1;
+              }
+              return listSuggest[currentSuggest].classList.add('highlight');
+            case 40:
+              if (currentSuggest !== -1) {
+                listSuggest[currentSuggest].classList.remove('highlight');
+              }
+              if (currentSuggest < listSuggest.length - 1) {
+                currentSuggest++;
+              } else {
+                currentSuggest = 0;
+              }
+              return listSuggest[currentSuggest].classList.add('highlight');
+            case 13:
+              return trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent, mapPL)).submit();
+            default:
+              return suggest(encodeURIComponent($(this).val()));
+          }
+        });
+      }
+
       // Initialize
       init() {
         searchToggle(searchTrigger, searchForm);
@@ -347,7 +403,9 @@
       grid: $('.bricks-container'),
       gridItem: '.brick',
       highlightOn: false,
-      highlightVisible: false
+      highlightVisible: false,
+      lang: 'pl',
+      suggester: $('ul.suggester')
     };
 
     // Private methods
@@ -465,6 +523,94 @@
       elemTop = $elem.offset().top;
       elemBottom = elemTop + $elem.height();
       return (elemBottom <= docViewBottom) && (elemTop >= docViewTop);
+    };
+
+    /* COLLECTION SOLR */
+    // remove hanging single letters
+    ziomy = function(string) {
+      return string.replace(/\b(a|i|o|u|w|z|A|I|O|U|W|Z)\s\b/gi, '$1&nbsp;');
+    };
+
+    // usuwa polskie znaki
+    mapPL = {
+      ą: 'a',
+      ć: 'c',
+      ę: 'e',
+      ł: 'l',
+      ń: 'n',
+      ó: 'o',
+      ś: 's',
+      ż: 'z',
+      ź: 'z'
+    };
+
+    removePL = function(string, map) {
+      var tempArray;
+      tempArray = string.toLowerCase().split('');
+      tempArray.forEach(function(el, i) {
+        if (map[el]) {
+          return tempArray[i] = map[el];
+        }
+      });
+      return tempArray.join('');
+    };
+
+    //	templete kafelka Isotope
+    //		dodać obrazki
+    template = function(ob) {
+      var autorzy, datowanie, nazwaObiektu;
+      nazwaObiektu = ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '';
+      autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
+      datowanie = ob.datowanie ? ob.datowanie : '';
+      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n	</a>\n</article>`);
+    };
+
+    // askSOLR – dodaje do kontenera Isotope nowe kafle
+    // ustala adres strony /solr-search
+    baseURL = window.location.origin.includes('ma.wroc.pl') ? `${window.location.origin}` : `${window.location.origin}/ma.wroc.pl`;
+
+    urlSOLR = `${baseURL}/collection/solr-search/`;
+
+    //ustawienia kolejki pobierania
+    queue = 0;
+
+    queueStep = 30;
+
+    numFound = 0;
+
+    // suggester
+    suggesterURL = `${baseURL}/collection/collection-search-suggestions/`;
+
+    currentSuggest = -1;
+
+    listSuggest = null;
+
+    // wyświetla podpowiedzi do wyszukiwania
+    printSuggestions = function(suggestions) {
+      var tempURL;
+      tempURL = `${baseURL}/${MA.settings.lang}/kolekcja/connection/`;
+      MA.settings.suggester.empty();
+      suggestions.forEach(function(item) {
+        var url;
+        url = tempURL + encodeURIComponent(item + '/');
+        return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
+      });
+      currentSuggest = -1;
+      return listSuggest = document.querySelectorAll('ul.suggester li');
+    };
+
+    // pobiera podpowiedzi do wyszukiwania
+    suggest = function(q) {
+      var qString;
+      qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}`;
+      return fetch(qString).then(async function(res) {
+        var resJSON;
+        resJSON = (await res.json());
+        MA.settings.suggester.show();
+        return printSuggestions(resJSON.autocomplete);
+      }).catch(function(err) {
+        return console.error(err);
+      });
     };
 
     apiTest = function() {
