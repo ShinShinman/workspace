@@ -58,8 +58,7 @@
 		</article>
 	</section>
 	<section>
-		<xsl:apply-templates select="connection-test/error[node() = 'No records found.']" />
-		<xsl:if test="//collection-solr-search/response/result/@numFound = 0">
+		<xsl:if test="//collection-solr-search/response/result/@numFound = 0 and $search">
 			<xsl:call-template name="no-results" />
 		</xsl:if>
 		<div class="bricks-container search-results">
