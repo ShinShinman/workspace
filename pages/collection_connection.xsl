@@ -62,7 +62,7 @@
 			<xsl:call-template name="no-results" />
 		</xsl:if>
 		<div class="bricks-container search-results">
-			<xsl:apply-templates select="collection-solr-search/response/result/doc" />
+			<!-- <xsl:apply-templates select="collection-solr-search/response/result/doc" /> -->
 		</div>
 	</section>
 </xsl:template>
@@ -191,6 +191,7 @@
 
 		$(window).load(function() {
 			MA.iS();
+			MA.askSOLR('<xsl:value-of select="$search" />');
 		});
 	</script>
 </xsl:template>

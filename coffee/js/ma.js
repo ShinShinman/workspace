@@ -312,8 +312,8 @@
         if (queue > numFound) {
           return;
         }
-        queue += queueStep;
         qString = urlSOLR + q + '/?start=' + queue;
+        queue += queueStep;
         console.log(qString);
         fetch(qString).then(async function(response) {
           var resJSON;
@@ -562,7 +562,7 @@
       nazwaObiektu = ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '';
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
-      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n	</a>\n</article>`);
+      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n	</a>\n</article>`);
     };
 
     // askSOLR – dodaje do kontenera Isotope nowe kafle
@@ -606,8 +606,10 @@
       return fetch(qString).then(async function(res) {
         var resJSON;
         resJSON = (await res.json());
-        MA.settings.suggester.show();
-        return printSuggestions(resJSON.autocomplete);
+        if (resJSON.autocomplete.length > 0) {
+          MA.settings.suggester.show();
+          return printSuggestions(resJSON.autocomplete);
+        }
       }).catch(function(err) {
         return console.error(err);
       });
