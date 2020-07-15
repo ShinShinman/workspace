@@ -424,7 +424,7 @@ class MA
 		datowanie = if ob.datowanie then ob.datowanie else ''
 		return $("""
 			<article class="brick">
-				<a href="http://localhost/ma.wroc.pl/pl/kolekcja/#{ob.sygnatura_slug}/">
+				<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
 					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
 					<h2 class="donthyphenate">#{autorzy}</h2>
 			    <p>#{datowanie}</p>
