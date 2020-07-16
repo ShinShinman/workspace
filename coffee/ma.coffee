@@ -428,6 +428,7 @@ class MA
 					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
 					<h2 class="donthyphenate">#{autorzy}</h2>
 			    <p>#{datowanie}</p>
+					<img src="" />
 				</a>
 			</article>
 		""")
