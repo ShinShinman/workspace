@@ -90,7 +90,7 @@
 	<section class="bookshop-nav">
 		<header>
 			<xsl:call-template name="bookshop-nav" />
-			
+
 			<xsl:apply-templates select="bookshop-infobanner/entry" />
 
 			<ul class="inline-list filters">
@@ -117,7 +117,7 @@
 
 <xsl:template match="bookshop-categories/entry">
 	<xsl:variable name="cat" select="bookshop-category/@handle" />
-	<xsl:if test="count(//bookshop-items/entry[category/item/bookshop-category/@handle = $cat]) &gt; 0">
+	<xsl:if test="count(//bookshop-items/entry[category/item/@handle = $cat]) &gt; 0">
 		<li>
 			<a href="javascript:void(0)" data-filter="{bookshop-category/@handle}"><xsl:value-of select="bookshop-category" /></a>
 		</li>

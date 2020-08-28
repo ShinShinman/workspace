@@ -147,7 +147,7 @@
 			<div class="left small-stripe">
 				<ul>
 					<xsl:apply-templates select="//main-menu/entry/links/item" />
-					
+
 					<!-- PRZENIEŚĆ TO CO NIŻEJ DO OSOBNEGO TEMPLATE -->
 					<li><a href="https://ewejsciowki.pl/embedded/repertuar/924" onclick="MA.api.closeMenu();">Kup bilety online</a></li>
 					<!---->
@@ -215,7 +215,7 @@
 			<a href="https://ma.foxycart.com/cart?cart=view&amp;template_set=en&amp;locale=en_PL"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
 		</xsl:otherwise>
 	</xsl:choose>
-	
+
 </xsl:template>
 
 <xsl:template name="language-button">
