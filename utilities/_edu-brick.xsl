@@ -30,7 +30,7 @@
 	</xsl:template>
 
 	<xsl:template match="category/item">
-		<xsl:text> </xsl:text><xsl:value-of select="category/@handle-pl" />
+		<xsl:text> </xsl:text><xsl:value-of select="@handle" />
 	</xsl:template>
 
 	<xsl:template name="lesson">

@@ -18,7 +18,7 @@
 			</xsl:choose>
 		</xsl:variable>
 
-		<article class="book brick {category/item/bookshop-category/@handle}">
+		<article class="book brick {category/item/@handle}">
 			<a href="{$root}/{//current-language/@handle}/{$subsite}/{title/@handle}">
 				<div class="bookshop-brick-header">
 					<h1 class="donthyphenate">
