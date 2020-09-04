@@ -62,6 +62,8 @@
 					<xsl:call-template name="fc-link">
 						<xsl:with-param name="prize" select="prize" />
 						<xsl:with-param name="weight" select="weight" />
+						<xsl:with-param name="category" select="category/item/@id" />
+						<xsl:with-param name="product-code" select="product-code" />
 					</xsl:call-template>
 				</xsl:otherwise>
 			</xsl:choose>
