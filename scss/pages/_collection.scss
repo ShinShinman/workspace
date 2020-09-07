@@ -27,7 +27,7 @@ body.collection {
 
 .coll {
 	@extend .text-column;
-	
+
 	&:not(.collection-item) {
 		margin-top: 0 !important;
 	}
@@ -75,7 +75,7 @@ body.collection {
 		position: relative;
 		text-align: left;
 		margin-bottom: $global-margin;
-		
+
 		.swiper-pagination-bullet {
 			width: 66px;
 			height: 10px;
@@ -116,6 +116,43 @@ body.collection {
 
 		.label {
 			font-weight: bold;
+		}
+	}
+}
+
+// style do powiększania tekstu
+
+
+section.coll {
+	position: relative;
+
+	ul.text-class-menu {
+		// font-size: 19px;
+		position: absolute;
+		top: 9px;
+		right: 0;
+
+		li {
+			cursor: pointer;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+	&.text-class-B {
+		h1 {
+			margin-bottom: 12px;
+		}
+		p, ul {
+			font-size: 19px;
+		}
+	}
+	&.text-class-C {
+		h1 {
+			margin-bottom: 12px;
+		}
+		p, ul {
+			font-size: 24px;
 		}
 	}
 }

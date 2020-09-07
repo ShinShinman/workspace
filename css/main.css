@@ -3012,6 +3012,25 @@ body.collection.downloads, body.collection.search, body.collection.collection {
   .coll .project-description .label {
     font-weight: bold; }
 
+section.coll {
+  position: relative; }
+  section.coll ul.text-class-menu {
+    position: absolute;
+    top: 9px;
+    right: 0; }
+    section.coll ul.text-class-menu li {
+      cursor: pointer; }
+      section.coll ul.text-class-menu li:last-of-type {
+        margin-right: 0; }
+  section.coll.text-class-B h1, section.coll.text-class-B .slide-down a, .slide-down section.coll.text-class-B a {
+    margin-bottom: 12px; }
+  section.coll.text-class-B p, section.coll.text-class-B ul {
+    font-size: 19px; }
+  section.coll.text-class-C h1, section.coll.text-class-C .slide-down a, .slide-down section.coll.text-class-C a {
+    margin-bottom: 12px; }
+  section.coll.text-class-C p, section.coll.text-class-C ul {
+    font-size: 24px; }
+
 .coll .collection-search form {
   margin-top: 24px;
   position: relative; }

@@ -45,9 +45,14 @@
 	<xsl:call-template name="image-header">
 		<xsl:with-param name="parent-node" select="collection-header-images" />
 	</xsl:call-template>
-	<section class="coll">
+	<section class="coll text-class-C">
 		<header>
 			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
+			<ul class="inline-list text-class-menu">
+				<li class="text-class-A-butt">A</li>
+				<li class="text-class-B-butt">A+</li>
+				<li class="text-class-C-butt">A++</li>
+			</ul>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//collection-nav/page" />
 			</ul>
@@ -230,6 +235,27 @@
 
 		$(window).load(function() {
 			MA.iS();
+
+			$('ul.text-class-menu li.text-class-A-butt').click(function() {
+				console.log(this, $(this));
+				$('section.coll').removeClass (function (index, className) {
+					return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
+				});
+			})
+			$('ul.text-class-menu li.text-class-B-butt').click(function() {
+				console.log(this, $(this));
+				$('section.coll').removeClass (function (index, className) {
+					return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
+				}).addClass('text-class-B');
+			})
+			$('ul.text-class-menu li.text-class-C-butt').click(function() {
+				console.log(this, $(this));
+				$('section.coll').removeClass (function (index, className) {
+					return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
+				}).addClass('text-class-C');
+			})
+
+
 		});
 	</script>
 </xsl:template>
