@@ -3030,13 +3030,17 @@ section.coll {
         margin-right: 0; }
   section.coll.text-class-B h1, section.coll.text-class-B .slide-down a, .slide-down section.coll.text-class-B a {
     margin-bottom: 12px; }
-  section.coll.text-class-B p, section.coll.text-class-B ul, section.coll.text-class-B input {
+  section.coll.text-class-B h2, section.coll.text-class-B .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left section.coll.text-class-B ul > li > a {
+    font-size: 24px; }
+  section.coll.text-class-B h3, section.coll.text-class-B p, section.coll.text-class-B ul, section.coll.text-class-B input {
     font-size: 19px; }
   section.coll.text-class-B .collection-search .results-found {
     font-size: 16px; }
   section.coll.text-class-C h1, section.coll.text-class-C .slide-down a, .slide-down section.coll.text-class-C a {
     margin-bottom: 12px; }
-  section.coll.text-class-C p, section.coll.text-class-C ul, section.coll.text-class-C input {
+  section.coll.text-class-C h2, section.coll.text-class-C .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left section.coll.text-class-C ul > li > a {
+    font-size: 28px; }
+  section.coll.text-class-C h3, section.coll.text-class-C p, section.coll.text-class-C ul, section.coll.text-class-C input {
     font-size: 24px; }
   section.coll.text-class-C .collection-search .results-found {
     font-size: 19px; }

@@ -47,7 +47,7 @@
 
 			<xsl:apply-templates mode="meta-tags"/>
 
-			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.3.1" />
+			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.3.2" />
 
 			<xsl:call-template name="favicon" />
 
@@ -70,7 +70,7 @@
 				<xsl:with-param name="lang" select="//current-language/@handle" />
 			</xsl:call-template>
 
-			<script src="{$workspace}/js/main.min.js?v=3.3.1" ></script>
+			<script src="{$workspace}/js/main.min.js?v=3.3.2" ></script>
 			<script>
 				$(function(){
 					<xsl:apply-templates select="//dont-hyphenate/entry/item" />
