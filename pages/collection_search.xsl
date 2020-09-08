@@ -23,6 +23,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
+<xsl:include href="../utilities/_collection-header.xsl"/>
 <xsl:include href="../utilities/_collection-brick.xsl"/>
 
 <xsl:template match="data">
@@ -30,12 +31,7 @@
 		<xsl:with-param name="parent-node" select="collection-header-images" />
 	</xsl:call-template>
 	<section class="coll ">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
+		<xsl:call-template name="collection-header" />
 		<article class="collection-search">
 			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<form class="search-form" action="">
@@ -100,7 +96,7 @@
 	<xsl:choose>
 		<xsl:when test="collection-search/error">
 			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/?keywords=Wiktoria+Frydecka">Wiktoria Frydecka</a>, <a href="{$current-url}/?keywords=Andrzej+Frydecki">Andrzej Frydecki</a>, <a href="{$current-url}/?keywords=Maria+Molicka">Maria Molicka</a>, <a href="{$current-url}/?keywords=Witold+Molicki">Witold Molicki</a>, <a href="{$current-url}/?keywords=Tadeusz+Teodorowicz-Todorowski">Tadeusz Teodorowicz-Todorowski</a></p>
-<!-- 
+<!--
 			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: Wiktoria Frydecka&nbsp;(1901–1992), Andrzej Frydecki&nbsp;(1903–1989), Maria Molicka&nbsp;(1931–2014), Witold Molicki&nbsp;(1930–2013), Tadeusz Teodorowicz-Todorowski&nbsp;(1907–2001)</p>
 			 -->
 		</xsl:when>
@@ -137,7 +133,7 @@
 			 data-original="{$root}/image/post-thumbnail{file/@path}/{file/filename}" />
 
 <!-- Wersja dla vanilla-lazyload [https://github.com/verlok/lazyload] -->
-<!-- 
+<!--
 	<img class="lazy"
 			 width="320"
 			 height="{floor(file/meta/@height div $ratio)}"
@@ -178,11 +174,12 @@
 				failure_limit : 1000
 			});
 		});
-		
+
 		$(window).load(function() {
 			MA.iS();
 		});
 	</script>
+		<xsl:call-template name="collection-header-js" />
 </xsl:template>
 
 </xsl:stylesheet>
