@@ -178,6 +178,7 @@
 
 <xsl:template match="data" mode="js">
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="https://unpkg.com/blowup@1.0.2/lib/blowup.min.js"></script>
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
@@ -199,10 +200,14 @@
 
 			function lightbox(swiper) {
 				console.log($(swiper.slides[swiper.clickedIndex]).find('img').data('src'));
-				var img = new Image();
+				const img = new Image();
 				img.src = $(swiper.slides[swiper.clickedIndex]).find('img').data('src');
-				var lb = $('.lightbox');
-				var closeBtn = $('.lightbox button.close');
+				$(img).blowup({
+					'round': false,
+					'scale': 2
+				});
+				const lb = $('.lightbox');
+				const closeBtn = $('.lightbox button.close');
 				closeBtn.click(function() {
 					lb.hide();
 				})
@@ -240,6 +245,7 @@
 
 		$(window).load(function() {
 			MA.iS();
+			// $('.swiper-slide img').blowup();
 		});
 	</script>
 	<xsl:call-template name="collection-header-js" />
