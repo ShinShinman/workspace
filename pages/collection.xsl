@@ -82,6 +82,9 @@
 		<h1 class="donthyphenate"><xsl:value-of select="object-name" /></h1>
 		<h2 class="donthyphenate"><xsl:value-of select="authors" /></h2>
 		<h3><xsl:value-of select="dates" /></h3>
+		<div class="lightbox">
+			<button class="icon close">X</button>
+		</div>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				<xsl:apply-templates select="images/file" />
@@ -122,7 +125,7 @@
 
 <xsl:template match="images/file">
 	<div class="swiper-slide">
-		<img src="{$root}/image/collection-gallery{@path}/{filename}">
+		<img src="{$root}/image/collection-gallery{@path}/{filename}" data-src="{$workspace}{@path}/{filename}">
 			<xsl:attribute name="alt">
 				<xsl:apply-templates select="//collection-item/entry" mode="alt" />
 			</xsl:attribute>
@@ -188,8 +191,27 @@
 				speed: 500,
 				slidesPerView: 'auto',
 				spaceBetween: 30,
-				centerInsufficientSlides: true
+				centerInsufficientSlides: true,
+				on: {
+					click: lightbox
+				}
 			};
+
+			function lightbox(swiper) {
+				console.log($(swiper.slides[swiper.clickedIndex]).find('img').data('src'));
+				var img = new Image();
+				img.src = $(swiper.slides[swiper.clickedIndex]).find('img').data('src');
+				var lb = $('.lightbox');
+				var closeBtn = $('.lightbox button.close');
+				closeBtn.click(function() {
+					lb.hide();
+				})
+				// lb.empty();
+				lb.find('img').remove();
+				// $(swiper.slides[swiper.clickedIndex]).find('img').clone().appendTo(lb);
+				lb.append(img);
+				lb.show();
+			}
 
 			if(<xsl:text disable-output-escaping="yes">(swiperSlides.length &gt; 1) &amp;&amp; !smallScreen</xsl:text>) {
 				$.extend(swiperOptions,
