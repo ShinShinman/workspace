@@ -23,6 +23,7 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
+<xsl:include href="../utilities/_collection-header.xsl"/>
 <xsl:include href="../utilities/_collection-brick.xsl"/>
 
 <xsl:template match="data">
@@ -45,28 +46,10 @@
 	<xsl:call-template name="image-header">
 		<xsl:with-param name="parent-node" select="collection-header-images" />
 	</xsl:call-template>
-	<section class="coll text-class-C">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list text-class-menu">
-				<li class="text-class-A-butt">A</li>
-				<li class="text-class-B-butt">A+</li>
-				<li class="text-class-C-butt">A++</li>
-			</ul>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
+	<section class="coll">
+		<xsl:call-template name="collection-header" />
 		<xsl:apply-templates select="collection-about/entry" />
 	</section>
-</xsl:template>
-
-<xsl:template match="collection-nav/page">
-	<li>
-		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}/">
-			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
-		</a>
-	</li>
 </xsl:template>
 
 <xsl:template match="collection-about/entry">
@@ -235,29 +218,9 @@
 
 		$(window).load(function() {
 			MA.iS();
-
-			$('ul.text-class-menu li.text-class-A-butt').click(function() {
-				console.log(this, $(this));
-				$('section.coll').removeClass (function (index, className) {
-					return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
-				});
-			})
-			$('ul.text-class-menu li.text-class-B-butt').click(function() {
-				console.log(this, $(this));
-				$('section.coll').removeClass (function (index, className) {
-					return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
-				}).addClass('text-class-B');
-			})
-			$('ul.text-class-menu li.text-class-C-butt').click(function() {
-				console.log(this, $(this));
-				$('section.coll').removeClass (function (index, className) {
-					return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
-				}).addClass('text-class-C');
-			})
-
-
 		});
 	</script>
+	<xsl:call-template name="collection-header-js" />
 </xsl:template>
 
 <xsl:template match="data" mode="meta-tags">

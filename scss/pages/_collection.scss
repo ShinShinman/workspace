@@ -127,13 +127,20 @@ section.coll {
 	position: relative;
 
 	ul.text-class-menu {
-		// font-size: 19px;
+		font-size: 19px !important;
 		position: absolute;
 		top: 9px;
 		right: 0;
+		color: grey;
 
 		li {
 			cursor: pointer;
+			&.active {
+				color: black;
+			}
+			&:hover {
+				color: black;
+			}
 			&:last-of-type {
 				margin-right: 0;
 			}
@@ -143,16 +150,22 @@ section.coll {
 		h1 {
 			margin-bottom: 12px;
 		}
-		p, ul {
+		p, ul, input {
 			font-size: 19px;
+		}
+		.collection-search .results-found {
+			font-size: 16px;
 		}
 	}
 	&.text-class-C {
 		h1 {
 			margin-bottom: 12px;
 		}
-		p, ul {
+		p, ul, input {
 			font-size: 24px;
+		}
+		.collection-search .results-found {
+			font-size: 19px;
 		}
 	}
 }
