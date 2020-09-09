@@ -124,53 +124,6 @@ body.collection {
 	}
 }
 
-// lightbox
-section.coll {
-	div.lightbox {
-		width: 100vw;
-    height: 100vh;
-    background-color: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-		display: none;
-
-		button {
-			font-size: 18px;
-			width: 48px;
-			height: 48px;
-			color: white;
-			background: none;
-			border: none;
-			position: fixed;
-			right: 0;
-
-			&:focus {
-				border: none;
-				outline: none;
-			}
-			&:hover {
-				color: black;
-				background-color: white;
-			}
-		}
-
-		img {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			margin: auto;
-			width: auto;
-			max-width: 90%;
-			height: auto;
-			max-height: 80%;
-		}
-	}
-}
-
 // style do powiększania tekstu
 section.coll {
 	position: relative;

@@ -25,6 +25,7 @@
 <xsl:include href="../utilities/_image-header.xsl"/>
 <xsl:include href="../utilities/_collection-header.xsl"/>
 <xsl:include href="../utilities/_collection-brick.xsl"/>
+<xsl:include href="../utilities/_lightbox.xsl"/>
 
 <xsl:template match="data">
 	<xsl:choose>
@@ -82,9 +83,6 @@
 		<h1 class="donthyphenate"><xsl:value-of select="object-name" /></h1>
 		<h2 class="donthyphenate"><xsl:value-of select="authors" /></h2>
 		<h3><xsl:value-of select="dates" /></h3>
-		<div class="lightbox">
-			<button class="icon close">X</button>
-		</div>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				<xsl:apply-templates select="images/file" />
@@ -121,6 +119,7 @@
 			</ul>
 		</ul>
 	</article>
+	<xsl:call-template name="lightbox" />
 </xsl:template>
 
 <xsl:template match="images/file">
@@ -198,25 +197,7 @@
 				}
 			};
 
-			function lightbox(swiper) {
-				console.log($(swiper.slides[swiper.clickedIndex]).find('img').data('src'));
-				const img = new Image();
-				img.src = $(swiper.slides[swiper.clickedIndex]).find('img').data('src');
-				$(img).blowup({
-					'round': false,
-					'scale': 2
-				});
-				const lb = $('.lightbox');
-				const closeBtn = $('.lightbox button.close');
-				closeBtn.click(function() {
-					lb.hide();
-				})
-				// lb.empty();
-				lb.find('img').remove();
-				// $(swiper.slides[swiper.clickedIndex]).find('img').clone().appendTo(lb);
-				lb.append(img);
-				lb.show();
-			}
+			<xsl:call-template name="lightbox-js" />
 
 			if(<xsl:text disable-output-escaping="yes">(swiperSlides.length &gt; 1) &amp;&amp; !smallScreen</xsl:text>) {
 				$.extend(swiperOptions,
@@ -245,7 +226,6 @@
 
 		$(window).load(function() {
 			MA.iS();
-			// $('.swiper-slide img').blowup();
 		});
 	</script>
 	<xsl:call-template name="collection-header-js" />
