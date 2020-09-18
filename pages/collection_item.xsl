@@ -23,15 +23,17 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
+<xsl:include href="../utilities/_collection-header.xsl"/>
 
 <xsl:template match="data">
 	<section class="coll collection-item">
-		<header>
+		<xsl:call-template name="collection-header" />
+		<!-- <header>
 			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
 			<ul class="inline-list">
 				<xsl:apply-templates select="//collection-nav/page" />
 			</ul>
-		</header>
+		</header> -->
 		<!-- <xsl:apply-templates select="entry[1]" /> -->
 		<xsl:apply-templates select="collection-item-2/item" />
 	</section>
@@ -302,6 +304,7 @@
 			MA.iS();
 		});
 	</script>
+	<xsl:call-template name="collection-header-js" />
 </xsl:template>
 
 <xsl:template match="data" mode="meta-tags">

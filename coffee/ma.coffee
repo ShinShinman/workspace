@@ -555,6 +555,7 @@ class MA
 		closeMenu: closeMenu
 		setNavBackground: setNavBackground
 		isotopeSetup: isotopeSetup
+		grid: MA.settings.grid
 
 	# Initialize
 	init: ->
