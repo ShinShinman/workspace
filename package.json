@@ -1,7 +1,7 @@
 {
 	"name": "mawebsite",
 	"version": "3.4.0",
-	"description": "Kolekcja – SOLR",
+	"description": "Kolekcja – lightbox i opwiększanie tekstu",
 	"author": "Olaf Schindler",
 	"license": "MIT",
 	"repository": "https://github.com/ShinShinman/MAWWW.git",
