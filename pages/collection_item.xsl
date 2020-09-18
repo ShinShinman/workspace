@@ -24,6 +24,7 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
 <xsl:include href="../utilities/_collection-header.xsl"/>
+<xsl:include href="../utilities/_lightbox.xsl"/>
 
 <xsl:template match="data">
 	<section class="coll collection-item">
@@ -91,6 +92,7 @@
 			</ul>
 		</ul>
 	</article>
+	<xsl:call-template name="lightbox" />
 </xsl:template>
 
 <xsl:template match="architekci/item/autorzy/architekt">
@@ -268,12 +270,15 @@
 				spaceBetween: 30,
 				centerInsufficientSlides: true,
 				on: {
-					click: function() {
+					<!-- click: function() {
 						console.log('Click', this.zoom);
 						this.zoom.toggle();
-					}
+					} -->
+					click: lightbox
 				}
 			};
+
+			<xsl:call-template name="lightbox-js" />
 
 			if(<xsl:text disable-output-escaping="yes">(swiperSlides.length &gt; 1) &amp;&amp; !smallScreen</xsl:text>) {
 				$.extend(swiperOptions,

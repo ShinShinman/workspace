@@ -3074,9 +3074,7 @@ section.coll {
         margin-right: 0; }
   section.coll.text-class-B h1, section.coll.text-class-B .slide-down a, .slide-down section.coll.text-class-B a {
     margin-bottom: 12px; }
-  section.coll.text-class-B h2, section.coll.text-class-B .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left section.coll.text-class-B ul > li > a {
-    font-size: 24px; }
-  section.coll.text-class-B h3, section.coll.text-class-B p, section.coll.text-class-B ul, section.coll.text-class-B input {
+  section.coll.text-class-B p, section.coll.text-class-B ul, section.coll.text-class-B input, section.coll.text-class-B h3 {
     font-size: 19px; }
   section.coll.text-class-B .collection-search .results-found {
     font-size: 16px; }
@@ -3084,10 +3082,25 @@ section.coll {
     margin-bottom: 12px; }
   section.coll.text-class-C h2, section.coll.text-class-C .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left section.coll.text-class-C ul > li > a {
     font-size: 28px; }
-  section.coll.text-class-C h3, section.coll.text-class-C p, section.coll.text-class-C ul, section.coll.text-class-C input {
+  section.coll.text-class-C p, section.coll.text-class-C ul, section.coll.text-class-C input, section.coll.text-class-C h3 {
     font-size: 24px; }
   section.coll.text-class-C .collection-search .results-found {
     font-size: 19px; }
+
+.bricks-container.text-class-B .brick h2, .bricks-container.text-class-B .brick .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .bricks-container.text-class-B .brick ul > li > a {
+  font-size: 21px; }
+
+.bricks-container.text-class-B .brick p {
+  font-size: 19px; }
+
+.bricks-container.text-class-C .brick h1, .bricks-container.text-class-C .brick .slide-down a, .slide-down .bricks-container.text-class-C .brick a {
+  font-size: 30px; }
+
+.bricks-container.text-class-C .brick h2, .bricks-container.text-class-C .brick .sticky-nav .main-menu .left ul > li > a, .sticky-nav .main-menu .left .bricks-container.text-class-C .brick ul > li > a {
+  font-size: 24px; }
+
+.bricks-container.text-class-C .brick p {
+  font-size: 21px; }
 
 .coll .collection-search form {
   margin-top: 24px;
@@ -3130,6 +3143,25 @@ section.coll {
 .access article .article-anchor {
   padding-top: 120px;
   margin-top: -144px; }
+
+.collection .collection-search ul.suggester {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
+  margin-top: -6px;
+  padding: 2px;
+  z-index: 100; }
+  .collection .collection-search ul.suggester li.highlight {
+    color: white;
+    background-color: black; }
+  .collection .collection-search ul.suggester li:hover {
+    background-color: black;
+    color: white; }
+  .collection .collection-search ul.suggester li a {
+    display: block;
+    line-height: 2; }
 
 [data-fc-sidecart] {
   background-color: white !important; }

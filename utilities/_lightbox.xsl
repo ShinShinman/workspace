@@ -17,12 +17,9 @@
 			})
 			lb.find('img').remove();
 			lb.show();
-			img.src = $(swiper.slides[swiper.clickedIndex]).find('img').data('src');
+			img.src = $(swiper.slides[swiper.clickedIndex]).find('img')[0].src.split('?')[0];
+			console.log(img);
 			img.onload = function() {
-				$(img).blowup({
-					'round': false,
-					'scale': 2
-				});
 				lb.append(img);
 			}
 		}
