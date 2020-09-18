@@ -625,7 +625,8 @@
       openMenu: openMenu,
       closeMenu: closeMenu,
       setNavBackground: setNavBackground,
-      isotopeSetup: isotopeSetup
+      isotopeSetup: isotopeSetup,
+      grid: MA.settings.grid
     };
 
     return MA;

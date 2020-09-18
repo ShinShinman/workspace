@@ -29,23 +29,26 @@
         $('ul.text-class-menu li.text-class-A-butt').click(function() {
           $('ul.text-class-menu li').removeClass('active');
           $(this).addClass('active');
-          $('section.coll').removeClass (function (index, className) {
+          $('section.coll, .bricks-container').removeClass (function (index, className) {
             return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
           });
+          MA.api.grid.isotope('layout');
         })
         $('ul.text-class-menu li.text-class-B-butt').click(function() {
           $('ul.text-class-menu li').removeClass('active');
           $(this).addClass('active');
-          $('section.coll').removeClass (function (index, className) {
+          $('section.coll, .bricks-container').removeClass (function (index, className) {
             return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
           }).addClass('text-class-B');
+          MA.api.grid.isotope('layout');
         })
         $('ul.text-class-menu li.text-class-C-butt').click(function() {
           $('ul.text-class-menu li').removeClass('active');
           $(this).addClass('active');
-          $('section.coll').removeClass (function (index, className) {
+          $('section.coll, .bricks-container').removeClass (function (index, className) {
             return (className.match (/(^|\s)text-class-\S+/g) || []).join(' ');
           }).addClass('text-class-C');
+          MA.api.grid.isotope('layout');
         })
       });
     </script>

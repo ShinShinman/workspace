@@ -121,8 +121,6 @@ body.collection {
 }
 
 // style do powiększania tekstu
-
-
 section.coll {
 	position: relative;
 
@@ -150,7 +148,7 @@ section.coll {
 		h1 {
 			margin-bottom: 12px;
 		}
-		p, ul, input {
+		p, ul, input, h3 {
 			font-size: 19px;
 		}
 		.collection-search .results-found {
@@ -161,11 +159,39 @@ section.coll {
 		h1 {
 			margin-bottom: 12px;
 		}
-		p, ul, input {
+		h2 {
+			font-size: 28px;
+		}
+		p, ul, input, h3 {
 			font-size: 24px;
 		}
 		.collection-search .results-found {
 			font-size: 19px;
+		}
+	}
+}
+.bricks-container {
+	&.text-class-B {
+		.brick {
+			h2 {
+				font-size: 21px;
+			}
+			p {
+				font-size: 19px;
+			}
+		}
+	}
+	&.text-class-C {
+		.brick {
+			h1 {
+				font-size: 30px;
+			}
+			h2 {
+				font-size: 24px;
+			}
+			p {
+				font-size: 21px;
+			}
 		}
 	}
 }
