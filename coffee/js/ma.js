@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var apiTest, baseURL, closeMenu, currentSuggest, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
+    var apiTest, baseURL, closeMenu, currentSuggest, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, loadImage, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -320,8 +320,8 @@
           resJSON = (await response.json());
           numFound = resJSON.numFound;
           console.log(resJSON);
-          return resJSON.docs.forEach(function(doc) {
-            return MA.settings.grid.isotope('insert', template(doc));
+          return resJSON.docs.forEach(async function(doc) {
+            return MA.settings.grid.isotope('insert', (await template(doc)));
           });
         }).catch(function(error) {
           return console.error(error);
@@ -528,7 +528,7 @@
     /* COLLECTION SOLR */
     // remove hanging single letters
     ziomy = function(string) {
-      return string.replace(/\b(a|i|o|u|w|z|A|I|O|U|W|Z)\s\b/gi, '$1&nbsp;');
+      return string.replace(/\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;');
     };
 
     // usuwa polskie znaki
@@ -557,13 +557,49 @@
 
     //	templete kafelka Isotope
     //		dodać obrazki
-    template = function(ob) {
-      var autorzy, datowanie, nazwaObiektu;
+    loadImage = function(src) {
+      return new Promise(function(resolve, reject) {
+        var img;
+        img = new Image();
+        img.onload = function() {
+          return resolve(img);
+        };
+        img.onerror = function() {
+          return reject;
+        };
+        return img.src = src;
+      });
+    };
+
+    template = async function(ob) {
+      var autorzy, datowanie, img, imgHeight, nazwaObiektu, obraz, ratio;
+      console.log(ob);
       nazwaObiektu = ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '';
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
-      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		<img src="" />\n	</a>\n</article>`);
+      obraz = ob.obraz_asset_url ? `http://127.0.0.1:4081${ob.obraz_asset_url[0]}?key=brick-thumbnail` : "";
+      ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
+      imgHeight = ob.obraz_height ? ob.obraz_height[0] / ratio : 0;
+      img = (await loadImage(obraz));
+      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		<img\n			width="320"\n			height="${imgHeight}"\n			data-blank="${baseURL}/workspace/images/blank.gif"\n			src="${img.src}"\n			alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n		/>\n	</a>\n</article>`);
     };
+
+    // $("""
+    // 	<article class="brick">
+    // 		<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
+    // 			<h1 class="donthyphenate">#{nazwaObiektu}</h1>
+    // 			<h2 class="donthyphenate">#{autorzy}</h2>
+    // 	    <p>#{datowanie}</p>
+    // 			<img
+    // 				class="lazy"
+    // 				width="320"
+    // 				height="#{imgHeight}"
+    // 				src="#{baseURL}/workspace/images/blank.gif"
+    // 				data-original="#{obraz}"
+    // 			/>
+    // 		</a>
+    // 	</article>
+    // """)
 
     // askSOLR – dodaje do kontenera Isotope nowe kafle
     // ustala adres strony /solr-search

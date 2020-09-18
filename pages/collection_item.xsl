@@ -258,11 +258,19 @@
 			var smallScreen = (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 770</xsl:text>) ? true : false;
 
 			var swiperOptions = {
-				zoom: true,
+				zoom: {
+					toggle: false
+				},
 				speed: 500,
 				slidesPerView: 'auto',
 				spaceBetween: 30,
-				centerInsufficientSlides: true
+				centerInsufficientSlides: true,
+				on: {
+					click: function() {
+						console.log('Click', this.zoom);
+						this.zoom.toggle();
+					}
+				}
 			};
 
 			if(<xsl:text disable-output-escaping="yes">(swiperSlides.length &gt; 1) &amp;&amp; !smallScreen</xsl:text>) {

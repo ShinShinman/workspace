@@ -5,7 +5,7 @@ require_once(EXTENSIONS . '/remote_datasource/data-sources/datasource.remote.php
 class datasourcecollection_search_suggestions extends RemoteDatasource {
 
     public $dsParamROOTELEMENT = 'collection-search-suggestions';
-    public $dsParamURL = 'http://localhost:8983/solr/test/terms?terms.limit=10&omitHeader=true&terms.fl=autocomplete&terms.regex.flag=case_insensitive&wt=xml&terms.regex=.*{$url-q}.*';
+    public $dsParamURL = 'http://127.0.0.1:4983/solr/ma_collection/terms?terms.limit=10&omitHeader=true&terms.fl=autocomplete&terms.regex.flag=case_insensitive&wt=xml&terms.regex=.*{$url-q}.*';
     public $dsParamFORMAT = 'xml';
     public $dsParamXPATH = '/*';
     public $dsParamCACHE = 5;
@@ -30,7 +30,7 @@ class datasourcecollection_search_suggestions extends RemoteDatasource {
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2020-07-03T14:28:24+00:00'
+            'release-date' => '2020-09-16T16:22:22+00:00'
         );
     }
 
