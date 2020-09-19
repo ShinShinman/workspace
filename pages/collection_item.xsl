@@ -93,8 +93,6 @@
 			</ul>
 		</ul>
 	</article>
-	<!-- <xsl:call-template name="lightbox" /> -->
-
 </xsl:template>
 
 <xsl:template match="architekci/item/autorzy/architekt">
@@ -130,11 +128,12 @@
 <xsl:template match="obrazy/item" mode="lightbox">
 	<div class="swiper-slide">
 		<div class="swiper-zoom-container">
-			<img src="{obraz/data/full-url}">
+			<img data-src="{obraz/data/full-url}" class="swiper-lazy">
 				<xsl:attribute name="alt">
 					<xsl:apply-templates select="." mode="alt" />
 				</xsl:attribute>
 			</img>
+			<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
 		</div>
 	</div>
 </xsl:template>
@@ -146,90 +145,7 @@
 	<xsl:value-of select="concat($autorzy, '; ', ../../nazwa-obiektu, '; ', ../../datowanie)" />
 </xsl:template>
 
-
-
-
-
-<xsl:template match="collection-item">
-	<section class="coll collection-item">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
-
-		<xsl:apply-templates select="entry[1]" />
-	</section>
-	<xsl:if test="count(//collection-related-items/entry[not(signature = //collection-item/entry/signature)]) &gt; 0">
-		<xsl:apply-templates select="//collection-related-items" />
-	</xsl:if>
-</xsl:template>
-
-<xsl:template match="collection-item/entry">
-	<article>
-		<h1 class="donthyphenate"><xsl:value-of select="object-name" /></h1>
-		<h2 class="donthyphenate"><xsl:value-of select="authors" /></h2>
-		<h3><xsl:value-of select="dates" /></h3>
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<xsl:apply-templates select="images/file" />
-			</div>
-			<xsl:if test="count(images/file) > 1">
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
-			</xsl:if>
-		</div>
-		<xsl:if test="count(images/file) > 1">
-			<div class="swiper-pagination"><span class="bullet" /></div>
-		</xsl:if>
-		<ul class="project-description donthyphenate">
-			<li><strong><xsl:value-of select="place" /></strong></li>
-			<li><xsl:value-of select="address" /><xsl:apply-templates select="address-cyrillic" /></li>
-			<ul class="project-details">
-				<li><xsl:value-of select="projec-content" /></li>
-				<li><xsl:value-of select="project-remarks" /></li>
-			</ul>
-			<ul class="project-details">
-				<li class="label"><span><xsl:value-of select="//dictionary//word[@handle-en = 'inventory-number']" /></span></li>
-				<li class="signature"><xsl:value-of select="signature" /></li>
-				<xsl:choose>
-					<xsl:when test="//current-language/@handle = 'pl'">
-						<li><xsl:value-of select="material" /></li>
-						<li><xsl:value-of select="technics" /></li>
-					</xsl:when>
-					<xsl:otherwise>
-						<li><xsl:value-of select="material-en" /></li>
-						<li><xsl:value-of select="technics-en" /></li>
-					</xsl:otherwise>
-				</xsl:choose>
-				<li><xsl:value-of select="dimensions" /></li>
-			</ul>
-		</ul>
-	</article>
-</xsl:template>
-
-<xsl:template match="images/file">
-	<div class="swiper-slide">
-		<div class="swiper-zoom-container">
-			<img src="{$root}/image/collection-gallery{@path}/{filename}">
-				<xsl:attribute name="alt">
-					<xsl:apply-templates select="//collection-item/entry" mode="alt" />
-				</xsl:attribute>
-			</img>
-		</div>
-	</div>
-</xsl:template>
-
-<xsl:template match="//collection-item/entry" mode="alt">
-	<xsl:value-of select="concat(authors, ', ', object-name, ', ', dates)" />
-</xsl:template>
-
-<xsl:template match="address-cyrillic">
-	<span class="cyrillic"><xsl:text> </xsl:text><xsl:value-of select="." /></span>
-</xsl:template>
-
-<xsl:template match="collection-related-items">
+<!-- <xsl:template match="collection-related-items">
 	<section class="relaed-items">
 		<h1><xsl:value-of select="//dictionary//word[@handle-en = 'related-items']" /></h1>
 		<div class="bricks-container">
@@ -240,7 +156,7 @@
 
 <xsl:template match="collection-related-items/entry">
 	<xsl:call-template name="collection-brick" />
-</xsl:template>
+</xsl:template> -->
 
 <xsl:template match="data" mode="ma-button">
 	<xsl:value-of select="concat($root, '/', //current-language/@handle, '/')" />

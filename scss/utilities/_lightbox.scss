@@ -79,11 +79,7 @@ div.lightbox {
 	overflow-y: scroll;
 	display: none;
 
-	background-image: url($css-images-path + "loading_icon_sml.gif");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: 30px;
+
 
 	button {
 		font-size: 18px;
@@ -120,6 +116,12 @@ div.lightbox {
 
 		.swiper-slide {
 			overflow: hidden;
+
+			// background-image: url($css-images-path + "loading_icon_sml.gif");
+			// background-repeat: no-repeat;
+			// background-attachment: fixed;
+			// background-position: center;
+			// background-size: 30px;
 
 			img {
 				width: 100%;

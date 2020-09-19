@@ -2110,12 +2110,7 @@ div.lightbox {
   z-index: 9999;
   overflow: hidden;
   overflow-y: scroll;
-  display: none;
-  background-image: url("../images/loading_icon_sml.gif");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: 30px; }
+  display: none; }
   div.lightbox button {
     font-size: 18px;
     width: 48px;
