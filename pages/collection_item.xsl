@@ -29,16 +29,17 @@
 <xsl:template match="data">
 	<section class="coll collection-item">
 		<xsl:call-template name="collection-header" />
-		<!-- <header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header> -->
 		<!-- <xsl:apply-templates select="entry[1]" /> -->
 		<xsl:apply-templates select="collection-item-2/item" />
 	</section>
-
+	<div class="lightbox">
+		<button class="icon close">X</button>
+		<div class="swiper-lightbox">
+			<div class="swiper-wrapper">
+				<xsl:apply-templates select="collection-item-2/item/obrazy/item" mode="lightbox" />
+			</div>
+		</div>
+	</div>
 </xsl:template>
 
 <xsl:template match="collection-nav/page">
@@ -92,7 +93,8 @@
 			</ul>
 		</ul>
 	</article>
-	<xsl:call-template name="lightbox" />
+	<!-- <xsl:call-template name="lightbox" /> -->
+
 </xsl:template>
 
 <xsl:template match="architekci/item/autorzy/architekt">
@@ -117,6 +119,18 @@
 	<div class="swiper-slide">
 		<div class="swiper-zoom-container">
 			<img src="{obraz/data/thumbnails/item[key='collection-item']/url}">
+				<xsl:attribute name="alt">
+					<xsl:apply-templates select="." mode="alt" />
+				</xsl:attribute>
+			</img>
+		</div>
+	</div>
+</xsl:template>
+
+<xsl:template match="obrazy/item" mode="lightbox">
+	<div class="swiper-slide">
+		<div class="swiper-zoom-container">
+			<img src="{obraz/data/full-url}">
 				<xsl:attribute name="alt">
 					<xsl:apply-templates select="." mode="alt" />
 				</xsl:attribute>
@@ -262,18 +276,12 @@
 			var smallScreen = (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 770</xsl:text>) ? true : false;
 
 			var swiperOptions = {
-				zoom: {
-					toggle: false
-				},
+				<!-- zoom: true, -->
 				speed: 500,
 				slidesPerView: 'auto',
 				spaceBetween: 30,
 				centerInsufficientSlides: true,
 				on: {
-					<!-- click: function() {
-						console.log('Click', this.zoom);
-						this.zoom.toggle();
-					} -->
 					click: lightbox
 				}
 			};
@@ -284,7 +292,7 @@
 				$.extend(swiperOptions,
 					{
 						<!-- slidesOffsetBefore: (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 1132</xsl:text>) ? 150 : 250, -->
-						loop: true,
+						<!-- loop: true, -->
 						navigation: {
 							nextEl: '.swiper-button-next',
 							prevEl: '.swiper-button-prev',
