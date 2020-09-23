@@ -82,7 +82,7 @@
 
 		<xsl:choose>
 			<xsl:when test="$category='ebooki' or $category='ebooks'">
-				<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}&amp;category=eBook&amp;code={$product-code}&amp;{$eBook-template-set}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url({$root}/workspace/images/koszyk.svg)"/></a>
+				<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}&amp;category=eBook&amp;code={$product-code}&amp;quantity_max=1&amp;{$eBook-template-set}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url({$root}/workspace/images/koszyk.svg)"/></a>
 			</xsl:when>
 			<xsl:otherwise>
 				<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}&amp;weight={$fc-weight}&amp;{$template-set}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url({$root}/workspace/images/koszyk.svg)"/></a>
