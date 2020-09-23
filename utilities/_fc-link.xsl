@@ -10,7 +10,7 @@
 		<xsl:param name="product-code" />
 
 		<script>
-			console.log('<xsl:value-of select="$product-code" />');
+			console.log('<xsl:value-of select="$category" />');
 		</script>
 
 		<xsl:variable name="tmp-prize">
@@ -81,7 +81,7 @@
 		</xsl:variable>
 
 		<xsl:choose>
-			<xsl:when test="$category = 3333">
+			<xsl:when test="$category='ebooki' or $category='ebooks'">
 				<a href="https://ma.foxycart.com/cart?name={title/p}&amp;price={$fc-prize}&amp;category=eBook&amp;code={$product-code}&amp;{$eBook-template-set}" class="button"><xsl:value-of select="prize" /><span class="basket-icon" style="background-image: url({$root}/workspace/images/koszyk.svg)"/></a>
 			</xsl:when>
 			<xsl:otherwise>
