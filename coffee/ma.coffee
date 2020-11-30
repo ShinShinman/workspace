@@ -491,7 +491,8 @@ class MA
 		tempURL = "#{baseURL}/#{MA.settings.lang}/kolekcja/connection/"
 		MA.settings.suggester.empty()
 		suggestions.forEach (item) ->
-			url = tempURL + encodeURIComponent item + '/'
+			item = item.replace(/[„”"']/g, '')
+			url = tempURL + encodeURIComponent item
 			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
 		currentSuggest = -1
 		listSuggest = document.querySelectorAll('ul.suggester li')
@@ -499,6 +500,7 @@ class MA
 	# pobiera podpowiedzi do wyszukiwania
 	suggest = (q) ->
 		qString = "#{suggesterURL}?q=#{removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}"
+		# console.log qString
 		fetch qString
 			.then (res) ->
 				resJSON = await res.json()
