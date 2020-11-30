@@ -428,47 +428,31 @@ class MA
 		)
 
 	template = (ob) ->
-		console.log ob
 		nazwaObiektu = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
-		obraz = if ob.obraz_asset_url then "http://127.0.0.1:4081#{ob.obraz_asset_url[0]}?key=brick-thumbnail" else ""
+		obraz = if ob.obraz_asset_url then await loadImage("http://127.0.0.1:4081#{ob.obraz_asset_url[0]}?key=brick-thumbnail") else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then ob.obraz_height[0] / ratio else 0
-		img = await loadImage(obraz)
+		img = if obraz then """
+			<img
+			  width="320"
+			  height="#{imgHeight}"
+			  data-blank="#{baseURL}/workspace/images/blank.gif"
+			  src="#{obraz.src}"
+			  alt="#{ob.autorzy.join(', ')}, #{ob.nazwa_obiektu}"
+			/>
+		""" else ""
 		$("""
 			<article class="brick">
 				<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
 					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
 					<h2 class="donthyphenate">#{autorzy}</h2>
 			    <p>#{datowanie}</p>
-					<img
-						width="320"
-						height="#{imgHeight}"
-						data-blank="#{baseURL}/workspace/images/blank.gif"
-						src="#{img.src}"
-						alt="#{ob.autorzy.join(', ')}, #{ob.nazwa_obiektu}"
-					/>
+					#{img}
 				</a>
 			</article>
 		""")
-
-		# $("""
-		# 	<article class="brick">
-		# 		<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
-		# 			<h1 class="donthyphenate">#{nazwaObiektu}</h1>
-		# 			<h2 class="donthyphenate">#{autorzy}</h2>
-		# 	    <p>#{datowanie}</p>
-		# 			<img
-		# 				class="lazy"
-		# 				width="320"
-		# 				height="#{imgHeight}"
-		# 				src="#{baseURL}/workspace/images/blank.gif"
-		# 				data-original="#{obraz}"
-		# 			/>
-		# 		</a>
-		# 	</article>
-		# """)
 
 	# askSOLR – dodaje do kontenera Isotope nowe kafle
 	# ustala adres strony /solr-search
