@@ -3085,6 +3085,19 @@ body.collection.downloads, body.collection.search, body.collection.collection {
   .coll .swiper-pagination .swiper-pagination-bullet-active {
     background-color: black; }
 
+.coll div.audio audio {
+  width: 580px;
+  margin-right: 15px; }
+
+.coll div.audio a.audio-link:hover {
+  background-color: transparent; }
+
+.coll div.audio a.audio-link svg {
+  position: relative;
+  top: -13px;
+  width: 26px;
+  height: auto; }
+
 .coll .project-description {
   overflow: auto;
   margin-top: 24px; }

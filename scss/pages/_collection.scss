@@ -91,6 +91,24 @@ body.collection {
 		}
 	}
 
+	div.audio {
+		audio {
+			width: 580px;
+			margin-right: 15px;
+		}
+		a.audio-link {
+			&:hover {
+				background-color: transparent;
+			}
+			svg {
+				position: relative;
+				top: -13px;
+				width: 26px;
+				height: auto;
+			}
+		}
+	}
+
 	.project-description {
 		overflow: auto;
 		margin-top: $global-margin;

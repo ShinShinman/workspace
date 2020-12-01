@@ -573,33 +573,15 @@
 
     template = async function(ob) {
       var autorzy, datowanie, img, imgHeight, nazwaObiektu, obraz, ratio;
-      console.log(ob);
       nazwaObiektu = ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '';
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
-      obraz = ob.obraz_asset_url ? `http://127.0.0.1:4081${ob.obraz_asset_url[0]}?key=brick-thumbnail` : "";
+      obraz = ob.obraz_asset_url ? (await loadImage(`http://127.0.0.1:4081${ob.obraz_asset_url[0]}?key=brick-thumbnail`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? ob.obraz_height[0] / ratio : 0;
-      img = (await loadImage(obraz));
-      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		<img\n			width="320"\n			height="${imgHeight}"\n			data-blank="${baseURL}/workspace/images/blank.gif"\n			src="${img.src}"\n			alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n		/>\n	</a>\n</article>`);
+      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL}/workspace/images/blank.gif"\n  src="${obraz.src}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
+      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
-
-    // $("""
-    // 	<article class="brick">
-    // 		<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
-    // 			<h1 class="donthyphenate">#{nazwaObiektu}</h1>
-    // 			<h2 class="donthyphenate">#{autorzy}</h2>
-    // 	    <p>#{datowanie}</p>
-    // 			<img
-    // 				class="lazy"
-    // 				width="320"
-    // 				height="#{imgHeight}"
-    // 				src="#{baseURL}/workspace/images/blank.gif"
-    // 				data-original="#{obraz}"
-    // 			/>
-    // 		</a>
-    // 	</article>
-    // """)
 
     // askSOLR – dodaje do kontenera Isotope nowe kafle
     // ustala adres strony /solr-search
@@ -624,11 +606,13 @@
     // wyświetla podpowiedzi do wyszukiwania
     printSuggestions = function(suggestions) {
       var tempURL;
+      console.log(suggestions);
       tempURL = `${baseURL}/${MA.settings.lang}/kolekcja/connection/`;
       MA.settings.suggester.empty();
       suggestions.forEach(function(item) {
         var url;
-        url = tempURL + encodeURIComponent(item + '/');
+        item = item.replace(/[„”"']/g, '');
+        url = tempURL + encodeURIComponent(item);
         return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
       });
       currentSuggest = -1;
@@ -639,6 +623,7 @@
     suggest = function(q) {
       var qString;
       qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}`;
+      console.log(qString);
       return fetch(qString).then(async function(res) {
         var resJSON;
         resJSON = (await res.json());

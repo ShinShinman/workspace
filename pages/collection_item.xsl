@@ -69,6 +69,8 @@
 			<div class="swiper-pagination"><span class="bullet" /></div>
 		</xsl:if>
 
+		<xsl:apply-templates select="audiodeskrypcja/data" />
+
 		<ul class="project-description donthyphenate">
 			<li><strong><xsl:value-of select="miejscowosc" /></strong></li>
 			<li><xsl:value-of select="adres" /><span class="cyrillic"><xsl:text> </xsl:text><xsl:value-of select="adres-cyrylica" /></span></li>
@@ -99,6 +101,23 @@
 	<xsl:value-of select="." />
 	<xsl:if test="../../following-sibling::*"><xsl:text>, </xsl:text>
 	</xsl:if>
+</xsl:template>
+
+<xsl:template match="audiodeskrypcja/data">
+	<div class="audio">
+		<audio controls="">
+			<source src="{full-url}" type="audio/wav" />
+			<p>Ta przeglądarka nie obsługuje elementu audio. <a href="{full-url}">Link do pliku dźwiekowego</a>.</p>
+		</audio>
+		<a href="{full-url}" target="_blank" class="audio-link">
+			<svg x="0px" y="0px" viewBox="0 0 12 12" enable-background="new 0 0 12 12">
+				<g>
+					<polygon points="10.7,10.7 1.3,10.7 1.3,1.3 4.2,1.3 4.2,0 0,0 0,12 12,12 12,7.8 10.7,7.8 	"/>
+					<polygon points="6,0 6,1.3 9.7,1.3 5.5,5.5 6.5,6.5 10.7,2.3 10.7,6 12,6 12,0 	"/>
+				</g>
+			</svg>
+		</a>
+	</div>
 </xsl:template>
 
 <xsl:template match="tworzywo-link/item">
