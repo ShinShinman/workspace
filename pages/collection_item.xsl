@@ -33,7 +33,7 @@
 		<xsl:apply-templates select="collection-item-2/item" />
 	</section>
 	<div class="lightbox">
-		<button class="icon close">X</button>
+		<button class="icon close">×</button>
 		<div class="swiper-lightbox">
 			<div class="swiper-wrapper">
 				<xsl:apply-templates select="collection-item-2/item/obrazy/item" mode="lightbox" />
@@ -134,23 +134,21 @@
 
 <xsl:template match="obrazy/item">
 	<div class="swiper-slide">
-		<div class="swiper-zoom-container">
-			<img src="{obraz/data/thumbnails/item[key='collection-item']/url}">
-				<xsl:attribute name="alt">
-					<xsl:apply-templates select="." mode="alt" />
-				</xsl:attribute>
-			</img>
-		</div>
+		<img src="{obraz/data/thumbnails/item[key='collection-item']/url}">
+			<xsl:attribute name="alt">
+				<xsl:apply-templates select="." mode="alt" />
+			</xsl:attribute>
+		</img>
 	</div>
 </xsl:template>
 
 <xsl:template match="obrazy/item" mode="lightbox">
 	<div class="swiper-slide">
 		<div class="swiper-zoom-container">
-			<img data-src="{obraz/data/full-url}" class="swiper-lazy">
-				<xsl:attribute name="alt">
+			<img src="{$workspace}/images/blank.gif" data-src="{obraz/data/full-url}" class="swiper-lazy">
+				<!-- <xsl:attribute name="alt">
 					<xsl:apply-templates select="." mode="alt" />
-				</xsl:attribute>
+				</xsl:attribute> -->
 			</img>
 			<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
 		</div>

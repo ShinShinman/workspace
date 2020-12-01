@@ -606,7 +606,6 @@
     // wyświetla podpowiedzi do wyszukiwania
     printSuggestions = function(suggestions) {
       var tempURL;
-      console.log(suggestions);
       tempURL = `${baseURL}/${MA.settings.lang}/kolekcja/connection/`;
       MA.settings.suggester.empty();
       suggestions.forEach(function(item) {
@@ -623,7 +622,7 @@
     suggest = function(q) {
       var qString;
       qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}`;
-      console.log(qString);
+      // console.log qString
       return fetch(qString).then(async function(res) {
         var resJSON;
         resJSON = (await res.json());

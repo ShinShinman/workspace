@@ -7,7 +7,6 @@
 
 	<xsl:template name="lightbox-js">
 		function lightbox(swiper) {
-			console.log(swiper.clickedIndex);
 			const lightbox = $('div.lightbox').show();
 			swiperLightbox.slideTo(swiper.clickedIndex, 0);
 			swiperLightbox.update();
