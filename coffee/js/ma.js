@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var apiTest, baseURL, closeMenu, currentSuggest, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, loadImage, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
+    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, loadImage, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -307,6 +307,9 @@
         });
       }
 
+      // askSOLR – dodaje do kontenera Isotope nowe kafle
+
+      //pobiera i dodaje do gridu kolejne kafle
       askSOLR(q) {
         var qString;
         if (queue > numFound) {
@@ -556,7 +559,21 @@
     };
 
     //	templete kafelka Isotope
-    //		dodać obrazki
+
+    // ustala adres strony /solr-search
+    baseURL = window.location.origin.includes('ma.wroc.pl') ? `${window.location.origin}` : `${window.location.origin}/ma.wroc.pl`;
+
+    urlSOLR = `${baseURL}/collection/solr-search/`;
+
+    //ustawienia kolejki pobierania
+    queue = 0;
+
+    queueStep = 30;
+
+    numFound = 0;
+
+    directusURL = window.location.origin.includes('ma.wroc.pl') ? 'http://156.17.251.36:59190' : 'http://127.0.0.1:4081';
+
     loadImage = function(src) {
       return new Promise(function(resolve, reject) {
         var img;
@@ -576,25 +593,12 @@
       nazwaObiektu = ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '';
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
-      obraz = ob.obraz_asset_url ? (await loadImage(`http://127.0.0.1:4081${ob.obraz_asset_url[0]}?key=brick-thumbnail`)) : "";
+      obraz = ob.obraz_asset_url ? (await loadImage(`${directusURL}${ob.obraz_asset_url[0]}?key=brick-thumbnail`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
-      imgHeight = ob.obraz_height ? ob.obraz_height[0] / ratio : 0;
-      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL}/workspace/images/blank.gif"\n  src="${obraz.src}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
-      return $(`<article class="brick">\n	<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
+      imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
+      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  src="${baseURL}/workspace/images/blank.gif"\n  data-src="${obraz.src}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
+      return $(`<article class="brick">\n	<a href="${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
-
-    // askSOLR – dodaje do kontenera Isotope nowe kafle
-    // ustala adres strony /solr-search
-    baseURL = window.location.origin.includes('ma.wroc.pl') ? `${window.location.origin}` : `${window.location.origin}/ma.wroc.pl`;
-
-    urlSOLR = `${baseURL}/collection/solr-search/`;
-
-    //ustawienia kolejki pobierania
-    queue = 0;
-
-    queueStep = 30;
-
-    numFound = 0;
 
     // suggester
     suggesterURL = `${baseURL}/collection/collection-search-suggestions/`;

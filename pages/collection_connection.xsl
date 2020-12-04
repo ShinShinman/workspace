@@ -24,7 +24,7 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
 <xsl:include href="../utilities/_collection-header.xsl"/>
-<xsl:include href="../utilities/_connection-brick.xsl"/>
+<!-- <xsl:include href="../utilities/_connection-brick.xsl"/> -->
 
 <xsl:template match="data">
 	<xsl:call-template name="collection" />
@@ -123,7 +123,7 @@
 
 	<xsl:choose>
 		<xsl:when test="//collection-solr-search/response/result/@numFound = 0">
-			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/autorzy:Wiktoria+Frydecka/">Wiktoria Frydecka</a>, <a href="{$current-url}/autorzy:Andrzej+Frydecki/">Andrzej Frydecki</a>, <a href="{$current-url}/autorzy:Maria+Molicka/">Maria Molicka</a>, <a href="{$current-url}/autorzy:Witold+Molicki/">Witold Molicki</a>, <a href="{$current-url}/autorzy:Tadeusz+Teodorowicz-Todorowski/">Tadeusz Teodorowicz-Todorowski</a></p>
+			<!-- <p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/autorzy:Wiktoria+Frydecka/">Wiktoria Frydecka</a>, <a href="{$current-url}/autorzy:Andrzej+Frydecki/">Andrzej Frydecki</a>, <a href="{$current-url}/autorzy:Maria+Molicka/">Maria Molicka</a>, <a href="{$current-url}/autorzy:Witold+Molicki/">Witold Molicki</a>, <a href="{$current-url}/autorzy:Tadeusz+Teodorowicz-Todorowski/">Tadeusz Teodorowicz-Todorowski</a></p> -->
 		</xsl:when>
 		<xsl:otherwise>
 			<p class="results-found">Znaleziono <xsl:value-of select="concat($count, ' ', $grammar)" /></p>

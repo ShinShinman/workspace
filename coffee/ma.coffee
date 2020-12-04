@@ -417,7 +417,17 @@ class MA
 		return tempArray.join('')
 
 	#	templete kafelka Isotope
-	#		dodać obrazki
+
+	# ustala adres strony /solr-search
+	baseURL = if window.location.origin.includes('ma.wroc.pl') then "#{window.location.origin}" else "#{window.location.origin}/ma.wroc.pl"
+	urlSOLR = "#{baseURL}/collection/solr-search/"
+	#ustawienia kolejki pobierania
+	queue = 0;
+	queueStep = 30;
+	numFound = 0;
+
+	#ustala adres Directusa
+	directusURL = if window.location.origin.includes('ma.wroc.pl') then 'http://156.17.251.36:59190' else 'http://127.0.0.1:4081'
 
 	loadImage = (src) ->
 		new Promise( (resolve, reject) ->
@@ -431,21 +441,21 @@ class MA
 		nazwaObiektu = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
-		obraz = if ob.obraz_asset_url then await loadImage("http://127.0.0.1:4081#{ob.obraz_asset_url[0]}?key=brick-thumbnail") else ""
+		obraz = if ob.obraz_asset_url then await loadImage("#{directusURL}#{ob.obraz_asset_url[0]}?key=brick-thumbnail") else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
-		imgHeight = if ob.obraz_height then ob.obraz_height[0] / ratio else 0
+		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
 		img = if obraz then """
 			<img
 			  width="320"
 			  height="#{imgHeight}"
-			  data-blank="#{baseURL}/workspace/images/blank.gif"
-			  src="#{obraz.src}"
+			  src="#{baseURL}/workspace/images/blank.gif"
+			  data-src="#{obraz.src}"
 			  alt="#{ob.autorzy.join(', ')}, #{ob.nazwa_obiektu}"
 			/>
 		""" else ""
 		$("""
 			<article class="brick">
-				<a href="http://localhost/ma.wroc.pl/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
+				<a href="#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
 					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
 					<h2 class="donthyphenate">#{autorzy}</h2>
 			    <p>#{datowanie}</p>
@@ -455,13 +465,6 @@ class MA
 		""")
 
 	# askSOLR – dodaje do kontenera Isotope nowe kafle
-	# ustala adres strony /solr-search
-	baseURL = if window.location.origin.includes('ma.wroc.pl') then "#{window.location.origin}" else "#{window.location.origin}/ma.wroc.pl"
-	urlSOLR = "#{baseURL}/collection/solr-search/"
-	#ustawienia kolejki pobierania
-	queue = 0;
-	queueStep = 30;
-	numFound = 0;
 
 	#pobiera i dodaje do gridu kolejne kafle
 	askSOLR: (q) ->
