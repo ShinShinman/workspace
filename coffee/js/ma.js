@@ -589,15 +589,27 @@
     };
 
     template = async function(ob) {
-      var autorzy, datowanie, img, imgHeight, nazwaObiektu, obraz, ratio;
-      nazwaObiektu = ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '';
+      var autorzy, currentLanguage, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, ratio;
+      currentLanguage = window.location.pathname.includes('/pl/') ? 'pl' : 'en';
+      nazwa = {
+        pl: ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '',
+        en: ob.nazwa_obiektu_tlumaczenie ? ob.nazwa_obiektu_tlumaczenie : ''
+      };
+      // nazwaObiektuPL = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
+      // nazwaObiektuEN = if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else nazwaObiektu
+      // nazwaObiektu = if window.location.pathname.includes('en') then nazwaObiektuEN else nazwaObiektuPL
+      nazwaObiektu = nazwa[currentLanguage];
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
       obraz = ob.obraz_asset_url ? (await loadImage(`${directusURL}${ob.obraz_asset_url[0]}?key=brick-thumbnail`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
+      link = {
+        pl: `${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
+        en: `${baseURL}/en/collection/item/${ob.sygnatura_slug}/`
+      };
       img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  src="${baseURL}/workspace/images/blank.gif"\n  data-src="${obraz.src}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
-      return $(`<article class="brick">\n	<a href="${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
+      return $(`<article class="brick">\n	<a href="${link[currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
 
     // suggester

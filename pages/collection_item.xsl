@@ -52,7 +52,14 @@
 
 <xsl:template match="collection-item-2/item">
 	<article>
-		<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu" /></h1>
+		<xsl:choose>
+			<xsl:when test="//current-language/@handle = 'pl'">
+				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu" /></h1>
+			</xsl:when>
+			<xsl:otherwise>
+				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu-en" /></h1>
+			</xsl:otherwise>
+		</xsl:choose>
 		<h2 class="donthyphenate"><xsl:apply-templates select="architekci/item/autorzy/architekt" /></h2>
 		<h3><xsl:value-of select="datowanie" /></h3>
 
@@ -75,8 +82,16 @@
 			<li><strong><xsl:value-of select="miejscowosc" /></strong></li>
 			<li><xsl:value-of select="adres" /><span class="cyrillic"><xsl:text> </xsl:text><xsl:value-of select="adres-cyrylica" /></span></li>
 			<ul class="project-details">
-				<li><xsl:value-of select="zawartosc-projektu" /></li>
-				<li><xsl:value-of select="uwagi" /></li>
+				<xsl:choose>
+					<xsl:when test="//current-language/@handle = 'pl'">
+						<li><xsl:value-of select="zawartosc-projektu" /></li>
+						<li><xsl:value-of select="uwagi" /></li>
+					</xsl:when>
+					<xsl:otherwise>
+						<li><xsl:value-of select="zawartosc-projektu-en" /></li>
+						<li><xsl:value-of select="uwagi-en" /></li>
+					</xsl:otherwise>
+				</xsl:choose>
 			</ul>
 			<ul class="project-details">
 				<li class="label"><span><xsl:value-of select="//dictionary//word[@handle-en = 'inventory-number']" /></span></li>
@@ -87,8 +102,8 @@
 						<li><xsl:apply-templates select="technika-link/item" /></li>
 					</xsl:when>
 					<xsl:otherwise>
-						<li><xsl:value-of select="material-en" /></li>
-						<li><xsl:value-of select="technics-en" /></li>
+						<li><xsl:value-of select="tworzywo-en" /></li>
+						<li><xsl:value-of select="technika-en" /></li>
 					</xsl:otherwise>
 				</xsl:choose>
 				<li><xsl:value-of select="wymiary" /></li>

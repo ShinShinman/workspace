@@ -438,12 +438,22 @@ class MA
 		)
 
 	template = (ob) ->
-		nazwaObiektu = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
+		currentLanguage = if window.location.pathname.includes('/pl/') then 'pl' else 'en'
+		nazwa =
+			pl: if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
+			en: if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else ''
+		# nazwaObiektuPL = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
+		# nazwaObiektuEN = if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else nazwaObiektu
+		# nazwaObiektu = if window.location.pathname.includes('en') then nazwaObiektuEN else nazwaObiektuPL
+		nazwaObiektu = nazwa[currentLanguage]
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
 		obraz = if ob.obraz_asset_url then await loadImage("#{directusURL}#{ob.obraz_asset_url[0]}?key=brick-thumbnail") else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
+		link =
+			pl: "#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
+			en: "#{baseURL}/en/collection/item/#{ob.sygnatura_slug}/"
 		img = if obraz then """
 			<img
 			  width="320"
@@ -455,7 +465,7 @@ class MA
 		""" else ""
 		$("""
 			<article class="brick">
-				<a href="#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/">
+				<a href="#{link[currentLanguage]}">
 					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
 					<h2 class="donthyphenate">#{autorzy}</h2>
 			    <p>#{datowanie}</p>
