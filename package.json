@@ -1,7 +1,7 @@
 {
 	"name": "mawebsite",
-	"version": "3.4.0",
-	"description": "Kolekcja – lightbox i opwiększanie tekstu",
+	"version": "4.0.0",
+	"description": "Kolekcja – z serwera MA",
 	"author": "Olaf Schindler",
 	"license": "MIT",
 	"repository": "https://github.com/ShinShinman/MAWWW.git",

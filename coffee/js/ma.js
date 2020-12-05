@@ -589,7 +589,7 @@
     };
 
     template = async function(ob) {
-      var autorzy, currentLanguage, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, ratio;
+      var autorzy, currentLanguage, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, obrazLink, ratio;
       currentLanguage = window.location.pathname.includes('/pl/') ? 'pl' : 'en';
       nazwa = {
         pl: ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '',
@@ -601,14 +601,16 @@
       nazwaObiektu = nazwa[currentLanguage];
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
-      obraz = ob.obraz_asset_url ? (await loadImage(`${directusURL}${ob.obraz_asset_url[0]}?key=brick-thumbnail`)) : "";
+      // obraz = if ob.obraz_asset_url then await loadImage("#{directusURL}#{ob.obraz_asset_url[0]}?key=brick-thumbnail") else ""
+      obrazLink = `${ob.obraz_asset_url[0].split('assets/').pop()}?key=brick-thumbnail`;
+      obraz = ob.obraz_asset_url ? (await $.get(`${baseURL}/collection/image/?img=${obrazLink}`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
       link = {
         pl: `${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
         en: `${baseURL}/en/collection/item/${ob.sygnatura_slug}/`
       };
-      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  src="${baseURL}/workspace/images/blank.gif"\n  data-src="${obraz.src}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
+      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL}/workspace/images/blank.gif"\n	src = "${obraz}"\n  data-src="${obraz.src}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
       return $(`<article class="brick">\n	<a href="${link[currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
 
