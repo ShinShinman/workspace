@@ -21,11 +21,13 @@ class MA
 		gridItem: '.brick'
 		highlightOn: false
 		highlightVisible: false
+		lang: 'pl'
+		suggester: $('ul.suggester')
 
 
 	# Private methods
 
-	searchToggle = (trigger, target) -> 
+	searchToggle = (trigger, target) ->
 		trigger.click ->
 			target.css('opacity', (i, opacity) ->
 				if opacity > 0 then 0 else 1
@@ -141,37 +143,6 @@ class MA
 			}, 800)
 
 		setNavBackground('.owl-carousel')
-
-		###
-		hlHeight = $('.owl-carousel').height()
-		MA.settings.highlightVisible = true
-		dirCount = [0, 0]
-		direction = ''
-
-		$(window).scroll ->
-			dirCount.pop()
-			dirCount.push($(window).scrollTop())
-			dirCount.reverse()
-			direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-			console.log direction
-
-			# Highligt in!
-			if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
-				MA.settings.highlightVisible = true
-				stickyNavSetup({
-					backgroundColor: 'transparent'
-					})
-				console.log 'Highligt in!'
-
-			# Highligt out!
-			if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
-				MA.settings.highlightVisible = false
-				stickyNavSetup({
-					backgroundColor: 'white'
-					})
-				console.log 'Highligt out!'
-		###
-
 		return
 
 	isScrolledIntoView = (elem) ->
@@ -187,7 +158,7 @@ class MA
 		return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 
 
-	
+
 	# Public methods
 	stickyNavSetup: (options) ->
 		settings = $.extend( {
@@ -307,7 +278,7 @@ class MA
 		#filtrowanie przez QuickSearch
 		qSOn = () -> #QuickSearhOn
 			# QuickSearch
-			form = $ '.filters .search form' 
+			form = $ '.filters .search form'
 			clearBtn = $ '.filters .search input[type = reset]'
 			qsRegex = undefined
 
@@ -318,7 +289,7 @@ class MA
 					clearTimeout timeout
 					args = arguments
 					_this = this
-					delayed = () -> 
+					delayed = () ->
 						fn.apply _this, args
 						return
 					timeout = setTimeout delayed, threshold
@@ -328,7 +299,7 @@ class MA
 				tmp = settings.quickSearchField.val().split(' ')
 				$.each tmp, (i, v) ->
 					tmp[i] = '(?=.*' + v + ')'
-				
+
 				searchStr = tmp.join('')
 				qsRegExp = new RegExp searchStr + '.*', 'gi'
 				settings.grid.isotope
@@ -361,7 +332,7 @@ class MA
 			slider: $('.slider')
 			sliderRange: [1965, 2016]
 			, options
-		
+
 		updateLegend = (sYear, eYear) ->
 				$('.legend span').text(' ' + sYear + '–' + eYear)
 
@@ -396,7 +367,7 @@ class MA
 	getCountryCode: (lang, url) ->
 		apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4"
 		$.ajax
-			url: "https://api.ipdata.co/country_code?api-key=#{apiKey}" 
+			url: "https://api.ipdata.co/country_code?api-key=#{apiKey}"
 			type: 'GET'
 			dataType: 'text'
 			error: (jqXHR, textStatus, errorThrown) ->
@@ -417,7 +388,160 @@ class MA
 				console.log "AJAX Error: #{textStatus}"
 			success: (data, textStatus, jqXHR) ->
 				console.log "Dziś użyto usługi #{data} razy. Dziś możesz z niej skorzystać jeszcze #{1500-data} razy."
-		return 				
+		return
+
+
+	### COLLECTION SOLR ###
+
+	# remove hanging single letters
+	ziomy = (string) ->
+		return string.replace /\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;'
+
+	# usuwa polskie znaki
+	mapPL =
+		ą: 'a'
+		ć: 'c'
+		ę: 'e'
+		ł: 'l'
+		ń: 'n'
+		ó: 'o'
+		ś: 's'
+		ż: 'z'
+		ź: 'z'
+
+	removePL = (string, map) ->
+		tempArray = string.toLowerCase().split('')
+		tempArray.forEach (el, i) ->
+			if map[el]
+				tempArray[i] = map[el]
+		return tempArray.join('')
+
+	#	templete kafelka Isotope
+
+	# ustala adres strony /solr-search
+	baseURL = if window.location.origin.includes('ma.wroc.pl') then "#{window.location.origin}" else "#{window.location.origin}/ma.wroc.pl"
+	urlSOLR = "#{baseURL}/collection/solr-search/"
+	#ustawienia kolejki pobierania
+	queue = 0;
+	queueStep = 30;
+	numFound = 0;
+
+	#ustala adres Directusa
+	directusURL = if window.location.origin.includes('ma.wroc.pl') then 'http://156.17.251.36:59190' else 'http://127.0.0.1:4081'
+
+	# loadImage = (src) ->
+	# 	new Promise( (resolve, reject) ->
+	# 		img = new Image()
+	# 		img.onload = () -> resolve(img)
+	# 		img.onerror = () -> reject
+	# 		img.src = src
+	# 	)
+
+	template = (ob) ->
+		currentLanguage = if window.location.pathname.includes('/pl/') then 'pl' else 'en'
+		nazwa =
+			pl: if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
+			en: if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else ''
+		nazwaObiektu = nazwa[currentLanguage]
+		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
+		datowanie = if ob.datowanie then ob.datowanie else ''
+		obrazID = "#{ob.obraz_asset_url[0]}?key=brick-thumbnail"
+		obraz = if ob.obraz_asset_url then await $.get "#{baseURL}/collection/image/?img=#{obrazID}" else ""
+		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
+		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
+		link =
+			pl: "#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
+			en: "#{baseURL}/en/collection/item/#{ob.sygnatura_slug}/"
+		img = if obraz then """
+			<img
+			  width="320"
+			  height="#{imgHeight}"
+			  data-blank="#{baseURL}/workspace/images/blank.gif"
+				src = "#{obraz}"
+			  data-src="#{obraz.src}"
+			  alt="#{ob.autorzy.join(', ')}, #{ob.nazwa_obiektu}"
+			/>
+		""" else ""
+		$("""
+			<article class="brick">
+				<a href="#{link[currentLanguage]}">
+					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
+					<h2 class="donthyphenate">#{autorzy}</h2>
+			    <p>#{datowanie}</p>
+					#{img}
+				</a>
+			</article>
+		""")
+
+	# askSOLR – dodaje do kontenera Isotope nowe kafle
+
+	#pobiera i dodaje do gridu kolejne kafle
+	askSOLR: (q) ->
+		if queue > numFound
+			return
+		qString = urlSOLR + q + '/?start=' + queue
+		queue += queueStep
+		# console.log qString
+		fetch qString
+			.then (response) ->
+				resJSON = await response.json()
+				numFound = resJSON.numFound
+				# console.log resJSON
+				resJSON.docs.forEach (doc) ->
+					MA.settings.grid.isotope('insert', await template(doc))
+			.catch (error) ->
+				console.error error
+			return
+
+	# suggester
+	suggesterURL = "#{baseURL}/collection/collection-search-suggestions/"
+	currentSuggest = -1
+	listSuggest = null
+
+	# wyświetla podpowiedzi do wyszukiwania
+	printSuggestions = (suggestions) ->
+		tempURL = "#{baseURL}/#{MA.settings.lang}/kolekcja/wyszukiwarka/"
+		MA.settings.suggester.empty()
+		suggestions.forEach (item) ->
+			item = item.replace(/[„”"']/g, '')
+			url = tempURL + encodeURIComponent item
+			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
+		currentSuggest = -1
+		listSuggest = document.querySelectorAll('ul.suggester li')
+
+	# pobiera podpowiedzi do wyszukiwania
+	suggest = (q) ->
+		qString = "#{suggesterURL}?q=#{removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}"
+		# console.log qString
+		fetch qString
+			.then (res) ->
+				resJSON = await res.json()
+				if resJSON.autocomplete.length > 0
+					MA.settings.suggester.show()
+					printSuggestions resJSON.autocomplete
+			.catch (err) ->
+				console.error err
+
+	sugg: (trg) ->
+		trg.keyup (e) ->
+			if !$(this).val()
+				MA.settings.suggester.hide()
+				return
+			switch e.which
+				when 38
+					if currentSuggest != -1 then listSuggest[currentSuggest].classList.remove 'highlight'
+					if currentSuggest > 0 then currentSuggest--
+					else currentSuggest = listSuggest.length - 1
+					listSuggest[currentSuggest].classList.add 'highlight'
+				when 40
+					if currentSuggest != -1 then listSuggest[currentSuggest].classList.remove 'highlight'
+					if currentSuggest < listSuggest.length - 1 then currentSuggest++
+					else currentSuggest = 0
+					listSuggest[currentSuggest].classList.add 'highlight'
+				when 13
+					trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent, mapPL)).submit()
+				else suggest encodeURIComponent $(this).val()
+
 
 	apiTest = ->
 		console.log 'Public API available!'
@@ -429,6 +553,7 @@ class MA
 		closeMenu: closeMenu
 		setNavBackground: setNavBackground
 		isotopeSetup: isotopeSetup
+		grid: MA.settings.grid
 
 	# Initialize
 	init: ->

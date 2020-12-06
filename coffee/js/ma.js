@@ -2,36 +2,7 @@
   var MA;
 
   MA = (function() {
-    /*
-    hlHeight = $('.owl-carousel').height()
-    MA.settings.highlightVisible = true
-    dirCount = [0, 0]
-    direction = ''
-
-    $(window).scroll ->
-    	dirCount.pop()
-    	dirCount.push($(window).scrollTop())
-    	dirCount.reverse()
-    	direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-    	console.log direction
-
-     * Highligt in!
-    	if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
-    		MA.settings.highlightVisible = true
-    		stickyNavSetup({
-    			backgroundColor: 'transparent'
-    			})
-    		console.log 'Highligt in!'
-
-     * Highligt out!
-    	if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
-    		MA.settings.highlightVisible = false
-    		stickyNavSetup({
-    			backgroundColor: 'white'
-    			})
-    		console.log 'Highligt out!'
-     */
-    var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
+    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -336,6 +307,65 @@
         });
       }
 
+      // askSOLR – dodaje do kontenera Isotope nowe kafle
+
+      //pobiera i dodaje do gridu kolejne kafle
+      askSOLR(q) {
+        var qString;
+        if (queue > numFound) {
+          return;
+        }
+        qString = urlSOLR + q + '/?start=' + queue;
+        queue += queueStep;
+        // console.log qString
+        fetch(qString).then(async function(response) {
+          var resJSON;
+          resJSON = (await response.json());
+          numFound = resJSON.numFound;
+          // console.log resJSON
+          return resJSON.docs.forEach(async function(doc) {
+            return MA.settings.grid.isotope('insert', (await template(doc)));
+          });
+        }).catch(function(error) {
+          return console.error(error);
+        });
+      }
+
+      sugg(trg) {
+        return trg.keyup(function(e) {
+          if (!$(this).val()) {
+            MA.settings.suggester.hide();
+            return;
+          }
+          switch (e.which) {
+            case 38:
+              if (currentSuggest !== -1) {
+                listSuggest[currentSuggest].classList.remove('highlight');
+              }
+              if (currentSuggest > 0) {
+                currentSuggest--;
+              } else {
+                currentSuggest = listSuggest.length - 1;
+              }
+              return listSuggest[currentSuggest].classList.add('highlight');
+            case 40:
+              if (currentSuggest !== -1) {
+                listSuggest[currentSuggest].classList.remove('highlight');
+              }
+              if (currentSuggest < listSuggest.length - 1) {
+                currentSuggest++;
+              } else {
+                currentSuggest = 0;
+              }
+              return listSuggest[currentSuggest].classList.add('highlight');
+            case 13:
+              return trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent, mapPL)).submit();
+            default:
+              return suggest(encodeURIComponent($(this).val()));
+          }
+        });
+      }
+
       // Initialize
       init() {
         searchToggle(searchTrigger, searchForm);
@@ -376,7 +406,9 @@
       grid: $('.bricks-container'),
       gridItem: '.brick',
       highlightOn: false,
-      highlightVisible: false
+      highlightVisible: false,
+      lang: 'pl',
+      suggester: $('ul.suggester')
     };
 
     // Private methods
@@ -496,6 +528,120 @@
       return (elemBottom <= docViewBottom) && (elemTop >= docViewTop);
     };
 
+    /* COLLECTION SOLR */
+    // remove hanging single letters
+    ziomy = function(string) {
+      return string.replace(/\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;');
+    };
+
+    // usuwa polskie znaki
+    mapPL = {
+      ą: 'a',
+      ć: 'c',
+      ę: 'e',
+      ł: 'l',
+      ń: 'n',
+      ó: 'o',
+      ś: 's',
+      ż: 'z',
+      ź: 'z'
+    };
+
+    removePL = function(string, map) {
+      var tempArray;
+      tempArray = string.toLowerCase().split('');
+      tempArray.forEach(function(el, i) {
+        if (map[el]) {
+          return tempArray[i] = map[el];
+        }
+      });
+      return tempArray.join('');
+    };
+
+    //	templete kafelka Isotope
+
+    // ustala adres strony /solr-search
+    baseURL = window.location.origin.includes('ma.wroc.pl') ? `${window.location.origin}` : `${window.location.origin}/ma.wroc.pl`;
+
+    urlSOLR = `${baseURL}/collection/solr-search/`;
+
+    //ustawienia kolejki pobierania
+    queue = 0;
+
+    queueStep = 30;
+
+    numFound = 0;
+
+    directusURL = window.location.origin.includes('ma.wroc.pl') ? 'http://156.17.251.36:59190' : 'http://127.0.0.1:4081';
+
+    // loadImage = (src) ->
+    // 	new Promise( (resolve, reject) ->
+    // 		img = new Image()
+    // 		img.onload = () -> resolve(img)
+    // 		img.onerror = () -> reject
+    // 		img.src = src
+    // 	)
+    template = async function(ob) {
+      var autorzy, currentLanguage, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, obrazID, ratio;
+      currentLanguage = window.location.pathname.includes('/pl/') ? 'pl' : 'en';
+      nazwa = {
+        pl: ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '',
+        en: ob.nazwa_obiektu_tlumaczenie ? ob.nazwa_obiektu_tlumaczenie : ''
+      };
+      nazwaObiektu = nazwa[currentLanguage];
+      autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
+      datowanie = ob.datowanie ? ob.datowanie : '';
+      obrazID = `${ob.obraz_asset_url[0]}?key=brick-thumbnail`;
+      obraz = ob.obraz_asset_url ? (await $.get(`${baseURL}/collection/image/?img=${obrazID}`)) : "";
+      ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
+      imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
+      link = {
+        pl: `${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
+        en: `${baseURL}/en/collection/item/${ob.sygnatura_slug}/`
+      };
+      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL}/workspace/images/blank.gif"\n	src = "${obraz}"\n  data-src="${obraz.src}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
+      return $(`<article class="brick">\n	<a href="${link[currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
+    };
+
+    // suggester
+    suggesterURL = `${baseURL}/collection/collection-search-suggestions/`;
+
+    currentSuggest = -1;
+
+    listSuggest = null;
+
+    // wyświetla podpowiedzi do wyszukiwania
+    printSuggestions = function(suggestions) {
+      var tempURL;
+      tempURL = `${baseURL}/${MA.settings.lang}/kolekcja/wyszukiwarka/`;
+      MA.settings.suggester.empty();
+      suggestions.forEach(function(item) {
+        var url;
+        item = item.replace(/[„”"']/g, '');
+        url = tempURL + encodeURIComponent(item);
+        return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
+      });
+      currentSuggest = -1;
+      return listSuggest = document.querySelectorAll('ul.suggester li');
+    };
+
+    // pobiera podpowiedzi do wyszukiwania
+    suggest = function(q) {
+      var qString;
+      qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}`;
+      // console.log qString
+      return fetch(qString).then(async function(res) {
+        var resJSON;
+        resJSON = (await res.json());
+        if (resJSON.autocomplete.length > 0) {
+          MA.settings.suggester.show();
+          return printSuggestions(resJSON.autocomplete);
+        }
+      }).catch(function(err) {
+        return console.error(err);
+      });
+    };
+
     apiTest = function() {
       return console.log('Public API available!');
     };
@@ -506,7 +652,8 @@
       openMenu: openMenu,
       closeMenu: closeMenu,
       setNavBackground: setNavBackground,
-      isotopeSetup: isotopeSetup
+      isotopeSetup: isotopeSetup,
+      grid: MA.settings.grid
     };
 
     return MA;

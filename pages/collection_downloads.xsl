@@ -23,18 +23,14 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
+<xsl:include href="../utilities/_collection-header.xsl"/>
 
 <xsl:template match="data">
 	<xsl:call-template name="image-header">
 		<xsl:with-param name="parent-node" select="collection-header-images" />
 	</xsl:call-template>
 	<section class="coll">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
+		<xsl:call-template name="collection-header" />
 		<article>
 			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<ul>
@@ -83,6 +79,7 @@
 			MA.api.setNavBackground('.offset');
 		});
 	</script>
+	<xsl:call-template name="collection-header-js" />
 </xsl:template>
 
 </xsl:stylesheet>

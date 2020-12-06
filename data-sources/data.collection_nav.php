@@ -9,10 +9,15 @@ class datasourcecollection_nav extends MultilingualNavigationDatasource
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
+    
 
     public $dsParamFILTERS = array(
         'parent' => '/collection',
+        'type' => 'submenu',
     );
+        
+
+    
 
     public function __construct($env = null, $process_params = true)
     {
@@ -26,10 +31,10 @@ class datasourcecollection_nav extends MultilingualNavigationDatasource
             'name' => 'Collection Nav',
             'author' => array(
                 'name' => 'Olaf Schindler',
-                'website' => 'http://ma.wroc.pl',
+                'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2019-10-18T13:49:35+00:00'
+            'release-date' => '2020-03-31T16:41:14+00:00'
         );
     }
 

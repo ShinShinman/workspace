@@ -1,0 +1,42 @@
+.collection {
+  .collection-search {
+    ul.suggester {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 4px 6px 0 rgba(32,33,36,0.28);
+      margin-top: -6px;
+      padding: 2px;
+      z-index: 100;
+      li {
+        &.highlight {
+          color: white;
+          background-color: black;
+        }
+        &:hover {
+          // background-color: #eaeaea;
+            background-color: black;
+            color: white;
+          // &:after {
+          //   content: "";
+          //   display: inline-block;
+          //   width: 21px;
+          //   height: 21px;
+          //   background-image: url($css-images-path + 'search.svg');
+          //   background-repeat: no-repeat;
+          //   background-color: #eaeaea;
+          //   position: absolute;
+          //   right: -3px;
+          //   padding-right: 5px;
+          // }
+        }
+
+        a {
+          display: block;
+          line-height: 2;
+        }
+      }
+    }
+  }
+}
