@@ -24,7 +24,6 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
 <xsl:include href="../utilities/_collection-header.xsl"/>
-<!-- <xsl:include href="../utilities/_connection-brick.xsl"/> -->
 
 <xsl:template match="data">
 	<xsl:call-template name="collection" />
@@ -58,23 +57,8 @@
 			<xsl:call-template name="no-results" />
 		</xsl:if>
 		<div class="bricks-container search-results">
-			<!-- <xsl:apply-templates select="collection-solr-search/response/result/doc" /> -->
 		</div>
 	</section>
-</xsl:template>
-
-<!-- BRICK -->
-<xsl:template match="collection-solr-search/response/result/doc">
-	<article class="brick">
-		<a href="{$root}/{//current-language/@handle}/{//plh-page/page/item[@lang = //current-language/@handle]/@handle}/{*[@name='sygnatura_slug']/str}/">
-			<h1 class="donthyphenate">
-				<xsl:value-of select="*[@name='nazwa_obiektu']" />
-			</h1>
-			<h2 class="donthyphenate"><xsl:apply-templates select="*[@name='autorzy']/str" /></h2>
-			<p><xsl:value-of select="*[@name='datowanie']" /></p>
-			<xsl:apply-templates select="images" />
-		</a>
-	</article>
 </xsl:template>
 
 <xsl:template match="*[@name='autorzy']/str">

@@ -613,7 +613,7 @@
     // wyświetla podpowiedzi do wyszukiwania
     printSuggestions = function(suggestions) {
       var tempURL;
-      tempURL = `${baseURL}/${MA.settings.lang}/kolekcja/connection/`;
+      tempURL = `${baseURL}/${MA.settings.lang}/kolekcja/wyszukiwarka/`;
       MA.settings.suggester.empty();
       suggestions.forEach(function(item) {
         var url;

@@ -15,7 +15,7 @@
 	<!ENTITY lsaquo "&#8249;">
 	<!ENTITY rsaquo "&#8250;">
 	<!ENTITY percent "&#37;">
-	<!ENTITY gt "&#37;">
+	<!ENTITY gt "&#62;">
 ]>
 
 <xsl:stylesheet version="1.0"
@@ -24,9 +24,12 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
 <xsl:include href="../utilities/_collection-header.xsl"/>
-<xsl:include href="../utilities/_collection-brick.xsl"/>
 
 <xsl:template match="data">
+	<xsl:call-template name="collection" />
+</xsl:template>
+
+<xsl:template name="collection">
 	<xsl:call-template name="image-header">
 		<xsl:with-param name="parent-node" select="collection-header-images" />
 	</xsl:call-template>
@@ -35,25 +38,34 @@
 		<article class="collection-search">
 			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<form class="search-form" action="">
-				<input class="search-field" type="text" name="keywords" autofocus="" placeholder="Wyszukaj">
+				<input class="search-field" type="text" name="keywords" autofocus="" autocomplete="off" placeholder="Wyszukaj">
 					<xsl:attribute name="value">
-						<xsl:apply-templates select="//params/url-keywords" />
+						<xsl:apply-templates select="//params/search" />
 					</xsl:attribute>
 				</input>
 				<input type="submit" value="&rarr;" class="icon"/>
-				<input type="hidden" name="sections" value="kolekcja" />
+				<ul class="suggester">
+					</ul>
 			</form>
 			<xsl:call-template name="count-results">
-				<xsl:with-param name="count" select="string(count(//collection-search/entry))" />
+				<xsl:with-param name="count" select="//collection-solr-search/response/result/@numFound" />
 			</xsl:call-template>
 		</article>
 	</section>
 	<section>
-		<xsl:apply-templates select="collection-search/error[node() = 'No records found.']" />
+		<xsl:if test="//collection-solr-search/response/result/@numFound = 0 and $search">
+			<xsl:call-template name="no-results" />
+		</xsl:if>
 		<div class="bricks-container search-results">
-			<xsl:apply-templates select="collection-search/entry" />
 		</div>
 	</section>
+</xsl:template>
+
+<xsl:template match="*[@name='autorzy']/str">
+	<xsl:value-of select="." />
+	<xsl:if test="./following-sibling::*">
+		<xsl:text>, </xsl:text>
+	</xsl:if>
 </xsl:template>
 
 <xsl:template match="collection-nav/page">
@@ -64,8 +76,8 @@
 	</li>
 </xsl:template>
 
-<xsl:template match="params/url-keywords">
-	<xsl:value-of select="." />
+<xsl:template match="params/search">
+	<xsl:value-of select="translate(., '+', ' ')" />
 </xsl:template>
 
 <xsl:template name="count-results">
@@ -94,56 +106,24 @@
 	</xsl:variable>
 
 	<xsl:choose>
-		<xsl:when test="collection-search/error">
-			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/?keywords=Wiktoria+Frydecka">Wiktoria Frydecka</a>, <a href="{$current-url}/?keywords=Andrzej+Frydecki">Andrzej Frydecki</a>, <a href="{$current-url}/?keywords=Maria+Molicka">Maria Molicka</a>, <a href="{$current-url}/?keywords=Witold+Molicki">Witold Molicki</a>, <a href="{$current-url}/?keywords=Tadeusz+Teodorowicz-Todorowski">Tadeusz Teodorowicz-Todorowski</a></p>
-<!--
-			<p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: Wiktoria Frydecka&nbsp;(1901–1992), Andrzej Frydecki&nbsp;(1903–1989), Maria Molicka&nbsp;(1931–2014), Witold Molicki&nbsp;(1930–2013), Tadeusz Teodorowicz-Todorowski&nbsp;(1907–2001)</p>
-			 -->
+		<xsl:when test="//collection-solr-search/response/result/@numFound = 0">
+			<!-- <p class="results-found">Udostępniamy ponad 1&nbsp;000 obiektów następujących architektów: <a href="{$current-url}/autorzy:Wiktoria+Frydecka/">Wiktoria Frydecka</a>, <a href="{$current-url}/autorzy:Andrzej+Frydecki/">Andrzej Frydecki</a>, <a href="{$current-url}/autorzy:Maria+Molicka/">Maria Molicka</a>, <a href="{$current-url}/autorzy:Witold+Molicki/">Witold Molicki</a>, <a href="{$current-url}/autorzy:Tadeusz+Teodorowicz-Todorowski/">Tadeusz Teodorowicz-Todorowski</a></p> -->
 		</xsl:when>
 		<xsl:otherwise>
-			<p class="results-found">Znaleziono <xsl:value-of select="concat(count(//collection-search/entry), ' ', $grammar)" /></p>
+			<p class="results-found">Znaleziono <xsl:value-of select="concat($count, ' ', $grammar)" /></p>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="collection-search/error[. = 'No records found.']">
+<xsl:template name="no-results">
 	<xsl:choose>
 		<xsl:when test="//current-language/@handle = 'pl'">
 			<h1>Nie znaleziono wyników.</h1>
 		</xsl:when>
 		<xsl:otherwise>
-			<h1><xsl:value-of select="." /></h1>
+			<h1>No records found.</h1>
 		</xsl:otherwise>
 	</xsl:choose>
-</xsl:template>
-
-<xsl:template match="collection-search/entry">
-	<xsl:call-template name="collection-brick" />
-</xsl:template>
-
-<xsl:template match="images">
-	<xsl:variable name="ratio">
-		<xsl:value-of select="file/meta/@width div 320" />
-	</xsl:variable>
-	<!-- Wersja dla jQuery-lazyload [https://appelsiini.net/projects/lazyload/v1/] -->
-	<img class="lazy"
-			 width="320"
-			 height="{floor(file/meta/@height div $ratio)}"
-			 alt="{../authors}, {../object-name}"
-			 data-original="{$root}/image/post-thumbnail{file/@path}/{file/filename}" />
-
-<!-- Wersja dla vanilla-lazyload [https://github.com/verlok/lazyload] -->
-<!--
-	<img class="lazy"
-			 width="320"
-			 height="{floor(file/meta/@height div $ratio)}"
-			 style="width: 320px; height: {floor(file/meta/@height div $ratio)}px"
-			 data-src="{$root}/image/post-thumbnail{file/@path}/{file/filename}"
-			 data-srcset="{$root}/image/post-thumbnail{file/@path}/{file/filename},
-			 							{$root}/image/1/640/0{file/@path}/{file/filename} 2x,
-			 							{$root}/image/1/960/0{file/@path}/{file/filename} 3x"
-			 alt="{../authors}, {../object-name}" />
- -->
 </xsl:template>
 
 <xsl:template match="data" mode="ma-button">
@@ -163,6 +143,7 @@
 </xsl:template>
 
 <xsl:template match="data" mode="js">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" integrity="sha256-G7A4JrJjJlFqP0yamznwPjAApIKPkadeHfyIwiaa9e0=" crossorigin="anonymous"></script>
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
@@ -174,66 +155,23 @@
 				failure_limit : 1000
 			});
 
-			<!-- var url = 'http://156.17.251.36:59190/ma-kolekcja/items/kolekcja'; -->
-			<!-- var url = 'http://localhost:4081/ma-kolekcja/items/kolekcja'; -->
-			var url = 'https://api.ipify.org?format=jsonp';
-
-			$.ajax({
-				url: url,
-				crossDomain: true,
-				dataType: 'jsonp',
-				success: function(data) {
-					console.log(data);
-				},
-				error: function(data) {
-					console.log('ERROR');
-					console.log(data);
+			$(window).scroll(function() {
+				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) {
+					MA.askSOLR('<xsl:value-of select="$search" />')
 				}
-			});
+			})
 
+			$('.search-form').submit(function(e) {
+				e.preventDefault();
+				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent($('input.search-field').val())}/`;
+			})
 
-<!--
-			$.ajax({
-				url : url,
-				type: 'GET',
-				dataType: 'jsonp',
-				jsonp : 'callback',
-				// jsonpCallback: 'loadData',
-				crossDomain: true,
-				scriptCharset: 'utf-8',
-				contentType: 'jsonp; charset=utf-8',
-				success: function(data) {
-					console.log(data);
-					$.each(data.response.docs, function(i, doc) {
-						printResults({
-							adres: doc.kolumna2,
-							adresDE: doc.kolumna1,
-							id: doc.id,
-							sygnatura: doc.kolumna41,
-							nazwa: doc.kolumna24,
-							podpisy: doc.kolumna23,
-							architekt: doc.kolumna3,
-							image: doc.plik,
-							highlight: data.highlighting[doc.id].text[0]
-						})
-					});
-				},
-				error: function(data) {
-					console.log('Error')
-					console.log(data);
-				},
-			});
-
-			function loadData () {
-				console.log('*');
-				console.log(data.response);
-			}
- -->
-
+			MA.sugg($('input.search-field'))
 		});
 
 		$(window).load(function() {
 			MA.iS();
+			MA.askSOLR('<xsl:value-of select="$search" />');
 		});
 	</script>
 	<xsl:call-template name="collection-header-js" />

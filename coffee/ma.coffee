@@ -500,7 +500,7 @@ class MA
 
 	# wyświetla podpowiedzi do wyszukiwania
 	printSuggestions = (suggestions) ->
-		tempURL = "#{baseURL}/#{MA.settings.lang}/kolekcja/connection/"
+		tempURL = "#{baseURL}/#{MA.settings.lang}/kolekcja/wyszukiwarka/"
 		MA.settings.suggester.empty()
 		suggestions.forEach (item) ->
 			item = item.replace(/[„”"']/g, '')
