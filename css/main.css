@@ -3018,9 +3018,6 @@ body.collection.downloads, body.collection.search, body.collection.collection {
     width: auto;
     max-width: 90%;
     max-height: 540px; }
-    .coll .swiper-container .swiper-slide img {
-      cursor: -webkit-zoom-in;
-      cursor: zoom-in; }
 
 .coll .swiper-button-prev {
   left: 20px;

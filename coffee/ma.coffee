@@ -429,28 +429,24 @@ class MA
 	#ustala adres Directusa
 	directusURL = if window.location.origin.includes('ma.wroc.pl') then 'http://156.17.251.36:59190' else 'http://127.0.0.1:4081'
 
-	loadImage = (src) ->
-		new Promise( (resolve, reject) ->
-			img = new Image()
-			img.onload = () -> resolve(img)
-			img.onerror = () -> reject
-			img.src = src
-		)
+	# loadImage = (src) ->
+	# 	new Promise( (resolve, reject) ->
+	# 		img = new Image()
+	# 		img.onload = () -> resolve(img)
+	# 		img.onerror = () -> reject
+	# 		img.src = src
+	# 	)
 
 	template = (ob) ->
 		currentLanguage = if window.location.pathname.includes('/pl/') then 'pl' else 'en'
 		nazwa =
 			pl: if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
 			en: if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else ''
-		# nazwaObiektuPL = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
-		# nazwaObiektuEN = if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else nazwaObiektu
-		# nazwaObiektu = if window.location.pathname.includes('en') then nazwaObiektuEN else nazwaObiektuPL
 		nazwaObiektu = nazwa[currentLanguage]
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
-		# obraz = if ob.obraz_asset_url then await loadImage("#{directusURL}#{ob.obraz_asset_url[0]}?key=brick-thumbnail") else ""
-		obrazLink = "#{ob.obraz_asset_url[0].split('assets/').pop()}?key=brick-thumbnail"
-		obraz = if ob.obraz_asset_url then await $.get "#{baseURL}/collection/image/?img=#{obrazLink}" else ""
+		obrazID = "#{ob.obraz_asset_url[0]}?key=brick-thumbnail"
+		obraz = if ob.obraz_asset_url then await $.get "#{baseURL}/collection/image/?img=#{obrazID}" else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
 		link =
@@ -485,12 +481,12 @@ class MA
 			return
 		qString = urlSOLR + q + '/?start=' + queue
 		queue += queueStep
-		console.log qString
+		# console.log qString
 		fetch qString
 			.then (response) ->
 				resJSON = await response.json()
 				numFound = resJSON.numFound
-				console.log resJSON
+				# console.log resJSON
 				resJSON.docs.forEach (doc) ->
 					MA.settings.grid.isotope('insert', await template(doc))
 			.catch (error) ->

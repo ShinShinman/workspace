@@ -148,8 +148,9 @@
 </xsl:template>
 
 <xsl:template match="obrazy/item">
+	<xsl:variable name="width" select="floor(obraz/width div (obraz/height div 540))" />
 	<div class="swiper-slide">
-		<img src="{obraz/data/thumbnails/item[key='collection-item']/url}">
+		<img data-src="{obraz/data/thumbnails/item[key='collection-item']/url}" src="{$workspace}/images/blank.gif" width="{$width}" height="540" data-test="{$width}">
 			<xsl:attribute name="alt">
 				<xsl:apply-templates select="." mode="alt" />
 			</xsl:attribute>
@@ -160,7 +161,7 @@
 <xsl:template match="obrazy/item" mode="lightbox">
 	<div class="swiper-slide">
 		<div class="swiper-zoom-container">
-			<img src="{$workspace}/images/blank.gif" data-src="{obraz/data/full-url}" class="swiper-lazy">
+			<img src="{$workspace}/images/blank.gif" data-img="{obraz/data/full-url}" class="swiper-lazy">
 				<!-- <xsl:attribute name="alt">
 					<xsl:apply-templates select="." mode="alt" />
 				</xsl:attribute> -->
@@ -230,7 +231,7 @@
 				spaceBetween: 30,
 				centerInsufficientSlides: true,
 				on: {
-					click: lightbox
+					<!-- click: lightbox -->
 				}
 			};
 
@@ -253,6 +254,29 @@
 				);
 			}
 			var gallery = new Swiper('.swiper-container', swiperOptions);
+
+			<!-- Dodaje base64 src w galerii -->
+			$('.coll .swiper-slide img').each(function(i, el) {
+				const img = $(this);
+				const imgID = `/ma-kolekcja/${$(el).data('src').split('ma-kolekcja/').pop()}`;
+				const fetchURL = `<xsl:value-of select="$root" />/collection/image/?img=${imgID}`;
+				<!-- console.log(fetchURL); -->
+				$.get(fetchURL, function(data) {
+					img.attr('src', data);
+				})
+			})
+
+			<!-- Dodaje base64 src w lightboxie -->
+			<!-- $('.swiper-lightbox img').each(function() {
+				const img = $(this);
+				const imgID = `/uploads/ma-kolekcja/${img.data('img').split('ma-kolekcja/').pop()}`;
+				console.log(imgID)
+				const fetchURL = `<xsl:value-of select="$root" />/collection/image/?img=${imgID}`;
+				$.get(fetchURL, function(data) {
+					console.log(data)
+					img.data('src', data)
+				})
+			}) -->
 
 			var lazyImgs = $('img.lazy');
 			lazyImgs.lazyload({

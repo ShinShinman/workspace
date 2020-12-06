@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, loadImage, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
+    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -317,12 +317,12 @@
         }
         qString = urlSOLR + q + '/?start=' + queue;
         queue += queueStep;
-        console.log(qString);
+        // console.log qString
         fetch(qString).then(async function(response) {
           var resJSON;
           resJSON = (await response.json());
           numFound = resJSON.numFound;
-          console.log(resJSON);
+          // console.log resJSON
           return resJSON.docs.forEach(async function(doc) {
             return MA.settings.grid.isotope('insert', (await template(doc)));
           });
@@ -574,36 +574,25 @@
 
     directusURL = window.location.origin.includes('ma.wroc.pl') ? 'http://156.17.251.36:59190' : 'http://127.0.0.1:4081';
 
-    loadImage = function(src) {
-      return new Promise(function(resolve, reject) {
-        var img;
-        img = new Image();
-        img.onload = function() {
-          return resolve(img);
-        };
-        img.onerror = function() {
-          return reject;
-        };
-        return img.src = src;
-      });
-    };
-
+    // loadImage = (src) ->
+    // 	new Promise( (resolve, reject) ->
+    // 		img = new Image()
+    // 		img.onload = () -> resolve(img)
+    // 		img.onerror = () -> reject
+    // 		img.src = src
+    // 	)
     template = async function(ob) {
-      var autorzy, currentLanguage, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, obrazLink, ratio;
+      var autorzy, currentLanguage, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, obrazID, ratio;
       currentLanguage = window.location.pathname.includes('/pl/') ? 'pl' : 'en';
       nazwa = {
         pl: ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '',
         en: ob.nazwa_obiektu_tlumaczenie ? ob.nazwa_obiektu_tlumaczenie : ''
       };
-      // nazwaObiektuPL = if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
-      // nazwaObiektuEN = if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else nazwaObiektu
-      // nazwaObiektu = if window.location.pathname.includes('en') then nazwaObiektuEN else nazwaObiektuPL
       nazwaObiektu = nazwa[currentLanguage];
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
-      // obraz = if ob.obraz_asset_url then await loadImage("#{directusURL}#{ob.obraz_asset_url[0]}?key=brick-thumbnail") else ""
-      obrazLink = `${ob.obraz_asset_url[0].split('assets/').pop()}?key=brick-thumbnail`;
-      obraz = ob.obraz_asset_url ? (await $.get(`${baseURL}/collection/image/?img=${obrazLink}`)) : "";
+      obrazID = `${ob.obraz_asset_url[0]}?key=brick-thumbnail`;
+      obraz = ob.obraz_asset_url ? (await $.get(`${baseURL}/collection/image/?img=${obrazID}`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
       link = {

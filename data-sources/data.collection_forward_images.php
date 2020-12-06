@@ -9,7 +9,7 @@ class datasourcecollection_forward_images extends RemoteDatasource {
     public $dsParamFORMAT = 'txt';
     public $dsParamXPATH = '/*';
     public $dsParamCACHE = 5;
-    public $dsParamTIMEOUT = 6;
+    public $dsParamTIMEOUT = 1200;
 
     
 
@@ -30,7 +30,7 @@ class datasourcecollection_forward_images extends RemoteDatasource {
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2020-12-05T16:31:48+00:00'
+            'release-date' => '2020-12-06T11:50:57+00:00'
         );
     }
 
