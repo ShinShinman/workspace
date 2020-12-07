@@ -163,7 +163,7 @@
 
 			$('.search-form').submit(function(e) {
 				e.preventDefault();
-				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent($('input.search-field').val())}/`;
+				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent(MA.api.removePL( $('input.search-field').val() ))}/`;
 			})
 
 			MA.sugg($('input.search-field'))

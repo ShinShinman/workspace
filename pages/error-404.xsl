@@ -28,7 +28,7 @@
 		<xsl:choose>
 			<xsl:when test="//current-language/@handle = 'pl'">
 				<p class="error">Błąd 404</p>
-				<h2>Stona o podanym adresie nie istnieje.</h2>
+				<h2>Strona o podanym adresie nie istnieje.</h2>
 				<p>Zapraszamy na <a href="{$root}/{//current-language/@handle}/">stronę głowną</a>.</p>
 			</xsl:when>
 			<xsl:otherwise>

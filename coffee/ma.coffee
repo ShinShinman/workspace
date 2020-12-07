@@ -398,22 +398,22 @@ class MA
 		return string.replace /\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;'
 
 	# usuwa polskie znaki
-	mapPL =
-		ą: 'a'
-		ć: 'c'
-		ę: 'e'
-		ł: 'l'
-		ń: 'n'
-		ó: 'o'
-		ś: 's'
-		ż: 'z'
-		ź: 'z'
-
 	removePL = (string, map) ->
+		currentMap = $.extend {
+			ą: 'a'
+			ć: 'c'
+			ę: 'e'
+			ł: 'l'
+			ń: 'n'
+			ó: 'o'
+			ś: 's'
+			ż: 'z'
+			ź: 'z'
+		}, map
 		tempArray = string.toLowerCase().split('')
 		tempArray.forEach (el, i) ->
-			if map[el]
-				tempArray[i] = map[el]
+			if currentMap[el]
+				tempArray[i] = currentMap[el]
 		return tempArray.join('')
 
 	#	templete kafelka Isotope
@@ -511,7 +511,7 @@ class MA
 
 	# pobiera podpowiedzi do wyszukiwania
 	suggest = (q) ->
-		qString = "#{suggesterURL}?q=#{removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}"
+		qString = "#{suggesterURL}?q=#{removePL(decodeURI(q).replace(/\s/g, '.'))}"
 		# console.log qString
 		fetch qString
 			.then (res) ->
@@ -539,7 +539,7 @@ class MA
 					else currentSuggest = 0
 					listSuggest[currentSuggest].classList.add 'highlight'
 				when 13
-					trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent, mapPL)).submit()
+					trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent)).submit()
 				else suggest encodeURIComponent $(this).val()
 
 
@@ -554,6 +554,7 @@ class MA
 		setNavBackground: setNavBackground
 		isotopeSetup: isotopeSetup
 		grid: MA.settings.grid
+		removePL: removePL
 
 	# Initialize
 	init: ->

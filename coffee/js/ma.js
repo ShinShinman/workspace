@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, mapPL, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
+    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -359,7 +359,7 @@
               }
               return listSuggest[currentSuggest].classList.add('highlight');
             case 13:
-              return trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent, mapPL)).submit();
+              return trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent)).submit();
             default:
               return suggest(encodeURIComponent($(this).val()));
           }
@@ -535,24 +535,23 @@
     };
 
     // usuwa polskie znaki
-    mapPL = {
-      ą: 'a',
-      ć: 'c',
-      ę: 'e',
-      ł: 'l',
-      ń: 'n',
-      ó: 'o',
-      ś: 's',
-      ż: 'z',
-      ź: 'z'
-    };
-
     removePL = function(string, map) {
-      var tempArray;
+      var currentMap, tempArray;
+      currentMap = $.extend({
+        ą: 'a',
+        ć: 'c',
+        ę: 'e',
+        ł: 'l',
+        ń: 'n',
+        ó: 'o',
+        ś: 's',
+        ż: 'z',
+        ź: 'z'
+      }, map);
       tempArray = string.toLowerCase().split('');
       tempArray.forEach(function(el, i) {
-        if (map[el]) {
-          return tempArray[i] = map[el];
+        if (currentMap[el]) {
+          return tempArray[i] = currentMap[el];
         }
       });
       return tempArray.join('');
@@ -628,7 +627,7 @@
     // pobiera podpowiedzi do wyszukiwania
     suggest = function(q) {
       var qString;
-      qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'), mapPL)}`;
+      qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'))}`;
       // console.log qString
       return fetch(qString).then(async function(res) {
         var resJSON;
@@ -653,7 +652,8 @@
       closeMenu: closeMenu,
       setNavBackground: setNavBackground,
       isotopeSetup: isotopeSetup,
-      grid: MA.settings.grid
+      grid: MA.settings.grid,
+      removePL: removePL
     };
 
     return MA;
