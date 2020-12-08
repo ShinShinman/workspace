@@ -3018,6 +3018,9 @@ body.collection.downloads, body.collection.search, body.collection.collection {
     width: auto;
     max-width: 90%;
     max-height: 540px; }
+    .coll .swiper-container .swiper-slide img {
+      cursor: -webkit-zoom-in;
+      cursor: zoom-in; }
 
 .coll .swiper-button-prev {
   left: 20px;
@@ -3040,17 +3043,8 @@ body.collection.downloads, body.collection.search, body.collection.collection {
     background-color: black; }
 
 .coll div.audio audio {
-  width: 580px;
+  width: 100%;
   margin-right: 15px; }
-
-.coll div.audio a.audio-link:hover {
-  background-color: transparent; }
-
-.coll div.audio a.audio-link svg {
-  position: relative;
-  top: -13px;
-  width: 26px;
-  height: auto; }
 
 .coll .project-description {
   overflow: auto;

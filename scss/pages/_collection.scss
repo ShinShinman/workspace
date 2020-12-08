@@ -61,7 +61,7 @@ body.collection {
 			max-height: 540px;
 
 			img {
-				// cursor: zoom-in;
+				cursor: zoom-in;
 			}
 		}
 	}
@@ -93,20 +93,21 @@ body.collection {
 
 	div.audio {
 		audio {
-			width: 580px;
+			// width: 580px;
+			width: 100%;
 			margin-right: 15px;
 		}
-		a.audio-link {
-			&:hover {
-				background-color: transparent;
-			}
-			svg {
-				position: relative;
-				top: -13px;
-				width: 26px;
-				height: auto;
-			}
-		}
+		// a.audio-link {
+		// 	&:hover {
+		// 		background-color: transparent;
+		// 	}
+		// 	svg {
+		// 		position: relative;
+		// 		top: -13px;
+		// 		width: 26px;
+		// 		height: auto;
+		// 	}
+		// }
 	}
 
 	.project-description {
