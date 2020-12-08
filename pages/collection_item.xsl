@@ -121,17 +121,17 @@
 <xsl:template match="audiodeskrypcja/data">
 	<div class="audio">
 		<audio controls="">
-			<source src="{full-url}" type="audio/wav" />
+			<source src="http://ma.wroc.pl/workspace/t.php?link={asset-url}" type="audio/wav" />
 			<p>Ta przeglądarka nie obsługuje elementu audio. <a href="{full-url}">Link do pliku dźwiekowego</a>.</p>
 		</audio>
-		<a href="{full-url}" target="_blank" class="audio-link">
+		<!-- <a href="{$workspace}/t.php?link={asset-url}" target="_blank" class="audio-link">
 			<svg x="0px" y="0px" viewBox="0 0 12 12" enable-background="new 0 0 12 12">
 				<g>
 					<polygon points="10.7,10.7 1.3,10.7 1.3,1.3 4.2,1.3 4.2,0 0,0 0,12 12,12 12,7.8 10.7,7.8 	"/>
 					<polygon points="6,0 6,1.3 9.7,1.3 5.5,5.5 6.5,6.5 10.7,2.3 10.7,6 12,6 12,0 	"/>
 				</g>
 			</svg>
-		</a>
+		</a> -->
 	</div>
 </xsl:template>
 
@@ -150,7 +150,8 @@
 <xsl:template match="obrazy/item">
 	<xsl:variable name="width" select="floor(obraz/width div (obraz/height div 540))" />
 	<div class="swiper-slide">
-		<img data-src="{obraz/data/thumbnails/item[key='collection-item']/url}" src="{$workspace}/images/blank.gif" width="{$width}" height="540" data-test="{$width}">
+		<!-- <img data-src="{obraz/data/thumbnails/item[key='collection-item']/url}" src="{$workspace}/images/blank.gif" width="{$width}" height="540" data-test="{$width}"> -->
+		<img src="http://ma.wroc.pl/workspace/t.php?link={obraz/data/thumbnails/item[key='collection-item']/relative-url}" data-src="{$workspace}/images/blank.gif" width="{$width}" height="540" data-test="{$width}">
 			<xsl:attribute name="alt">
 				<xsl:apply-templates select="." mode="alt" />
 			</xsl:attribute>
@@ -161,7 +162,7 @@
 <xsl:template match="obrazy/item" mode="lightbox">
 	<div class="swiper-slide">
 		<div class="swiper-zoom-container">
-			<img src="{$workspace}/images/blank.gif" data-img="{obraz/data/full-url}" class="swiper-lazy">
+			<img src="{$workspace}/images/blank.gif" data-src="http://ma.wroc.pl/workspace/t.php?link={obraz/data/asset-url}" class="swiper-lazy">
 				<!-- <xsl:attribute name="alt">
 					<xsl:apply-templates select="." mode="alt" />
 				</xsl:attribute> -->
@@ -231,7 +232,7 @@
 				spaceBetween: 30,
 				centerInsufficientSlides: true,
 				on: {
-					<!-- click: lightbox -->
+					click: lightbox
 				}
 			};
 
@@ -256,25 +257,12 @@
 			var gallery = new Swiper('.swiper-container', swiperOptions);
 
 			<!-- Dodaje base64 src w galerii -->
-			$('.coll .swiper-slide img').each(function(i, el) {
+			<!-- $('.coll .swiper-slide img').each(function(i, el) {
 				const img = $(this);
 				const imgID = `/ma-kolekcja/${$(el).data('src').split('ma-kolekcja/').pop()}`;
 				const fetchURL = `<xsl:value-of select="$root" />/collection/image/?img=${imgID}`;
-				<!-- console.log(fetchURL); -->
 				$.get(fetchURL, function(data) {
 					img.attr('src', data);
-				})
-			})
-
-			<!-- Dodaje base64 src w lightboxie -->
-			<!-- $('.swiper-lightbox img').each(function() {
-				const img = $(this);
-				const imgID = `/uploads/ma-kolekcja/${img.data('img').split('ma-kolekcja/').pop()}`;
-				console.log(imgID)
-				const fetchURL = `<xsl:value-of select="$root" />/collection/image/?img=${imgID}`;
-				$.get(fetchURL, function(data) {
-					console.log(data)
-					img.data('src', data)
 				})
 			}) -->
 

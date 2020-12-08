@@ -450,15 +450,14 @@ class MA
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
 		link =
-			pl: "#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
-			en: "#{baseURL}/en/collection/item/#{ob.sygnatura_slug}/"
+			pl: "#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura.toLowerCase().replace(/[\s/]/g, '-')}/"
+			en: "#{baseURL}/en/collection/item/#{ob.sygnatura.toLowerCase().replace(/[\s/]/g, '-')}/"
 		img = if obraz then """
 			<img
 			  width="320"
 			  height="#{imgHeight}"
 			  data-blank="#{baseURL}/workspace/images/blank.gif"
 				src = "#{obraz}"
-			  data-src="#{obraz.src}"
 			  alt="#{ob.autorzy.join(', ')}, #{ob.nazwa_obiektu}"
 			/>
 		""" else ""
