@@ -449,9 +449,10 @@ class MA
 		obraz = if ob.obraz_asset_url then await $.get "#{baseURL}/collection/image/?img=#{obrazID}" else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
+		console.log ob.sygnatura_slug
 		link =
-			pl: "#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura.toLowerCase().replace(/[\s/]/g, '-')}/"
-			en: "#{baseURL}/en/collection/item/#{ob.sygnatura.toLowerCase().replace(/[\s/]/g, '-')}/"
+			pl: "#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
+			en: "#{baseURL}/en/collection/item/#{ob.sygnatura_slug}/"
 		img = if obraz then """
 			<img
 			  width="320"

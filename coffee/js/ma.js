@@ -594,9 +594,10 @@
       obraz = ob.obraz_asset_url ? (await $.get(`${baseURL}/collection/image/?img=${obrazID}`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
+      console.log(ob.sygnatura_slug);
       link = {
-        pl: `${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura.toLowerCase().replace(/[\s\/]/g, '-')}/`,
-        en: `${baseURL}/en/collection/item/${ob.sygnatura.toLowerCase().replace(/[\s\/]/g, '-')}/`
+        pl: `${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
+        en: `${baseURL}/en/collection/item/${ob.sygnatura_slug}/`
       };
       img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL}/workspace/images/blank.gif"\n	src = "${obraz}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
       return $(`<article class="brick">\n	<a href="${link[currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
