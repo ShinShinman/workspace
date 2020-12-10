@@ -57,7 +57,7 @@
 				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu" /></h1>
 			</xsl:when>
 			<xsl:otherwise>
-				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu-en" /></h1>
+				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu-tlumaczenie/item/nazwa-obiektu" /></h1>
 			</xsl:otherwise>
 		</xsl:choose>
 		<h2 class="donthyphenate"><xsl:apply-templates select="architekci/item/autorzy/architekt" /></h2>
@@ -88,24 +88,16 @@
 						<li><xsl:value-of select="uwagi" /></li>
 					</xsl:when>
 					<xsl:otherwise>
-						<li><xsl:value-of select="zawartosc-projektu-en" /></li>
-						<li><xsl:value-of select="uwagi-en" /></li>
+						<li><xsl:value-of select="zawartosc-projektu-tlumaczenie/item/zawartosc-projektu" /></li>
+						<li><xsl:value-of select="uwagi-tlumaczenie/item/uwagi" /></li>
 					</xsl:otherwise>
 				</xsl:choose>
 			</ul>
 			<ul class="project-details">
 				<li class="label"><span><xsl:value-of select="//dictionary//word[@handle-en = 'inventory-number']" /></span></li>
 				<li class="signature"><xsl:value-of select="sygnatura" /></li>
-				<xsl:choose>
-					<xsl:when test="//current-language/@handle = 'pl'">
-						<li><xsl:apply-templates select="tworzywo-link/item" /></li>
-						<li><xsl:apply-templates select="technika-link/item" /></li>
-					</xsl:when>
-					<xsl:otherwise>
-						<li><xsl:value-of select="tworzywo-en" /></li>
-						<li><xsl:value-of select="technika-en" /></li>
-					</xsl:otherwise>
-				</xsl:choose>
+				<li><xsl:apply-templates select="tworzywo-link/item" /></li>
+				<li><xsl:apply-templates select="technika-link/item" /></li>
 				<li><xsl:value-of select="wymiary" /></li>
 			</ul>
 		</ul>
@@ -136,15 +128,33 @@
 </xsl:template>
 
 <xsl:template match="tworzywo-link/item">
-	<xsl:value-of select="tworzywo/tworzywo" />
-	<xsl:if test="./following-sibling::*"><xsl:text>, </xsl:text>
-	</xsl:if>
+	<xsl:choose>
+		<xsl:when test="//current-language/@handle = 'pl'">
+			<xsl:value-of select="tworzywo/tworzywo" />
+			<xsl:if test="./following-sibling::*"><xsl:text>, </xsl:text>
+			</xsl:if>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="tworzywo/tlumaczenie/item/tworzywo" />
+			<xsl:if test="./following-sibling::*"><xsl:text>, </xsl:text>
+			</xsl:if>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="technika-link/item">
-	<xsl:value-of select="technika/technika" />
-	<xsl:if test="./following-sibling::*"><xsl:text>, </xsl:text>
-	</xsl:if>
+	<xsl:choose>
+		<xsl:when test="//current-language/@handle = 'pl'">
+			<xsl:value-of select="technika/technika" />
+			<xsl:if test="./following-sibling::*"><xsl:text>, </xsl:text>
+			</xsl:if>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="technika/tlumaczenie/item/technika" />
+			<xsl:if test="./following-sibling::*"><xsl:text>, </xsl:text>
+			</xsl:if>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template match="obrazy/item">
