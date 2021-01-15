@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, menuToggle, menuTrigger, numFound, openMenu, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, urlSOLR, ziomy;
+    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, env, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, menuToggle, menuTrigger, numFound, openMenu, polishPlural, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, tunelSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -308,22 +308,19 @@
       }
 
       // askSOLR – dodaje do kontenera Isotope nowe kafle
-
-      //pobiera i dodaje do gridu kolejne kafle
       askSOLR(q) {
-        var qString;
+        var url;
         if (queue > numFound) {
           return;
         }
-        qString = urlSOLR + q + '/?start=' + queue;
+        url = `${tunelSOLR[env]}?link=ma_collection/select&q=${q}&start=${queue}&rows=30`;
         queue += queueStep;
-        // console.log qString
-        fetch(qString).then(async function(response) {
+        fetch(url).then(async function(response) {
           var resJSON;
           resJSON = (await response.json());
-          numFound = resJSON.numFound;
-          // console.log resJSON
-          return resJSON.docs.forEach(async function(doc) {
+          numFound = resJSON.response.numFound;
+          $('p.results-found .number').text(polishPlural(numFound));
+          return resJSON.response.docs.forEach(async function(doc) {
             return MA.settings.grid.isotope('insert', (await template(doc)));
           });
         }).catch(function(error) {
@@ -529,6 +526,9 @@
     };
 
     /* COLLECTION SOLR */
+    // Ustala środowisko: local albo live
+    env = window.location.origin.includes('ma.wroc.pl') ? "live" : "local";
+
     // remove hanging single letters
     ziomy = function(string) {
       return string.replace(/\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;');
@@ -560,9 +560,17 @@
     //	templete kafelka Isotope
 
     // ustala adres strony /solr-search
-    baseURL = window.location.origin.includes('ma.wroc.pl') ? `${window.location.origin}` : `${window.location.origin}/ma.wroc.pl`;
+    // użycie: baseURL[env]
+    baseURL = {
+      local: `${window.location.origin}/ma.wroc.pl`,
+      live: `${window.location.origin}`
+    };
 
-    urlSOLR = `${baseURL}/collection/solr-search/`;
+    // ustala adres tunelu php (tunelSOLR[env])
+    tunelSOLR = {
+      local: `${baseURL[env]}/workspace/tS.local.php`,
+      live: `${baseURL[env]}/workspace/tS.php`
+    };
 
     //ustawienia kolejki pobierania
     queue = 0;
@@ -571,7 +579,10 @@
 
     numFound = 0;
 
-    directusURL = window.location.origin.includes('ma.wroc.pl') ? 'http://156.17.251.36:59190' : 'http://127.0.0.1:4081';
+    directusURL = {
+      local: 'http://127.0.0.1:4081',
+      live: 'http://156.17.251.36:59190'
+    };
 
     // loadImage = (src) ->
     // 	new Promise( (resolve, reject) ->
@@ -591,20 +602,35 @@
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
       obrazID = `${ob.obraz_asset_url[0]}?key=brick-thumbnail`;
-      obraz = ob.obraz_asset_url ? (await $.get(`${baseURL}/collection/image/?img=${obrazID}`)) : "";
+      obraz = ob.obraz_asset_url ? (await $.get(`${baseURL[env]}/collection/image/?img=${obrazID}`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
-      console.log(ob.sygnatura_slug);
+      // console.log ob.sygnatura_slug
       link = {
-        pl: `${baseURL}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
-        en: `${baseURL}/en/collection/item/${ob.sygnatura_slug}/`
+        pl: `${baseURL[env]}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
+        en: `${baseURL[env]}/en/collection/item/${ob.sygnatura_slug}/`
       };
-      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL}/workspace/images/blank.gif"\n	src = "${obraz}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
+      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL[env]}/workspace/images/blank.gif"\n	src = "${obraz}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
       return $(`<article class="brick">\n	<a href="${link[currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
 
+    // odmina słowa obiekt
+    polishPlural = function(value) {
+      var pluralGenitive, pluralNominativ, singularNominativ;
+      singularNominativ = 'obiekt';
+      pluralNominativ = 'obiekty';
+      pluralGenitive = 'obiektów';
+      if (value === 1) {
+        return `${value} ${singularNominativ}`;
+      } else if (value % 10 >= 2 && value % 10 <= 4 && (value % 100 < 10 || value % 100 >= 20)) {
+        return `${value} ${pluralNominativ}`;
+      } else {
+        return `${value} ${pluralGenitive}`;
+      }
+    };
+
     // suggester
-    suggesterURL = `${baseURL}/collection/collection-search-suggestions/`;
+    suggesterURL = `${baseURL[env]}/collection/collection-search-suggestions/`;
 
     currentSuggest = -1;
 
@@ -613,7 +639,7 @@
     // wyświetla podpowiedzi do wyszukiwania
     printSuggestions = function(suggestions) {
       var tempURL;
-      tempURL = `${baseURL}/${MA.settings.lang}/kolekcja/wyszukiwarka/`;
+      tempURL = `${baseURL[env]}/${MA.settings.lang}/kolekcja/wyszukiwarka/`;
       MA.settings.suggester.empty();
       suggestions.forEach(function(item) {
         var url;
@@ -654,7 +680,8 @@
       setNavBackground: setNavBackground,
       isotopeSetup: isotopeSetup,
       grid: MA.settings.grid,
-      removePL: removePL
+      removePL: removePL,
+      polishPlural: polishPlural
     };
 
     return MA;

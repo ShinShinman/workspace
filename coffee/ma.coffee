@@ -393,6 +393,9 @@ class MA
 
 	### COLLECTION SOLR ###
 
+	# Ustala środowisko: local albo live
+	env = if window.location.origin.includes('ma.wroc.pl') then "live" else "local"
+
 	# remove hanging single letters
 	ziomy = (string) ->
 		return string.replace /\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;'
@@ -419,15 +422,24 @@ class MA
 	#	templete kafelka Isotope
 
 	# ustala adres strony /solr-search
-	baseURL = if window.location.origin.includes('ma.wroc.pl') then "#{window.location.origin}" else "#{window.location.origin}/ma.wroc.pl"
-	urlSOLR = "#{baseURL}/collection/solr-search/"
+	# użycie: baseURL[env]
+	baseURL =
+		local: "#{window.location.origin}/ma.wroc.pl"
+		live: "#{window.location.origin}"
+	# ustala adres tunelu php (tunelSOLR[env])
+	tunelSOLR =
+		local: "#{baseURL[env]}/workspace/tS.local.php"
+		live: "#{baseURL[env]}/workspace/tS.php"
 	#ustawienia kolejki pobierania
 	queue = 0;
 	queueStep = 30;
 	numFound = 0;
 
-	#ustala adres Directusa
-	directusURL = if window.location.origin.includes('ma.wroc.pl') then 'http://156.17.251.36:59190' else 'http://127.0.0.1:4081'
+	# ustala adres Directusa
+	# użycie: directusURL[env]
+	directusURL =
+		local: 'http://127.0.0.1:4081'
+		live: 'http://156.17.251.36:59190'
 
 	# loadImage = (src) ->
 	# 	new Promise( (resolve, reject) ->
@@ -446,18 +458,18 @@ class MA
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
 		obrazID = "#{ob.obraz_asset_url[0]}?key=brick-thumbnail"
-		obraz = if ob.obraz_asset_url then await $.get "#{baseURL}/collection/image/?img=#{obrazID}" else ""
+		obraz = if ob.obraz_asset_url then await $.get "#{baseURL[env]}/collection/image/?img=#{obrazID}" else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
-		console.log ob.sygnatura_slug
+		# console.log ob.sygnatura_slug
 		link =
-			pl: "#{baseURL}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
-			en: "#{baseURL}/en/collection/item/#{ob.sygnatura_slug}/"
+			pl: "#{baseURL[env]}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
+			en: "#{baseURL[env]}/en/collection/item/#{ob.sygnatura_slug}/"
 		img = if obraz then """
 			<img
 			  width="320"
 			  height="#{imgHeight}"
-			  data-blank="#{baseURL}/workspace/images/blank.gif"
+			  data-blank="#{baseURL[env]}/workspace/images/blank.gif"
 				src = "#{obraz}"
 			  alt="#{ob.autorzy.join(', ')}, #{ob.nazwa_obiektu}"
 			/>
@@ -473,34 +485,43 @@ class MA
 			</article>
 		""")
 
-	# askSOLR – dodaje do kontenera Isotope nowe kafle
+	# odmina słowa obiekt
+	polishPlural = (value) ->
+		singularNominativ = 'obiekt'
+		pluralNominativ = 'obiekty'
+		pluralGenitive = 'obiektów'
+		if value == 1
+			return "#{value} #{singularNominativ}"
+		else if value % 10 >= 2 and value %10 <= 4 and (value % 100 < 10 or value % 100 >= 20)
+			return "#{value} #{pluralNominativ}"
+		else
+			return "#{value} #{pluralGenitive}"
 
-	#pobiera i dodaje do gridu kolejne kafle
+	# askSOLR – dodaje do kontenera Isotope nowe kafle
 	askSOLR: (q) ->
 		if queue > numFound
 			return
-		qString = urlSOLR + q + '/?start=' + queue
+		url = "#{tunelSOLR[env]}?link=ma_collection/select&q=#{q}&start=#{queue}&rows=30"
 		queue += queueStep
-		# console.log qString
-		fetch qString
+		fetch url
 			.then (response) ->
 				resJSON = await response.json()
-				numFound = resJSON.numFound
-				# console.log resJSON
-				resJSON.docs.forEach (doc) ->
+				numFound = resJSON.response.numFound
+				$('p.results-found .number').text(polishPlural(numFound))
+				resJSON.response.docs.forEach (doc) ->
 					MA.settings.grid.isotope('insert', await template(doc))
 			.catch (error) ->
 				console.error error
 			return
 
 	# suggester
-	suggesterURL = "#{baseURL}/collection/collection-search-suggestions/"
+	suggesterURL = "#{baseURL[env]}/collection/collection-search-suggestions/"
 	currentSuggest = -1
 	listSuggest = null
 
 	# wyświetla podpowiedzi do wyszukiwania
 	printSuggestions = (suggestions) ->
-		tempURL = "#{baseURL}/#{MA.settings.lang}/kolekcja/wyszukiwarka/"
+		tempURL = "#{baseURL[env]}/#{MA.settings.lang}/kolekcja/wyszukiwarka/"
 		MA.settings.suggester.empty()
 		suggestions.forEach (item) ->
 			item = item.replace(/[„”"']/g, '')
@@ -555,6 +576,7 @@ class MA
 		isotopeSetup: isotopeSetup
 		grid: MA.settings.grid
 		removePL: removePL
+		polishPlural: polishPlural
 
 	# Initialize
 	init: ->

@@ -1,8 +1,8 @@
 <?php
-$params = '';
+$params = '?';
 foreach ($_GET as $key => $value) {
   if ($key != "link")
-    $params .= "&" . $key . "=" . $value;
+    $params .= $key . "=" . urlencode($value) . "&";
 }
 $url='http://127.0.0.1:4983/solr/' . $_GET["link"] . $params;
 $content_type=get_headers($url, 1)["Content-Type"];
