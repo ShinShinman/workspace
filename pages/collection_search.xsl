@@ -40,7 +40,9 @@
 			<form class="search-form" action="">
 				<input class="search-field" type="text" name="keywords" autofocus="" autocomplete="off" placeholder="Wyszukaj">
 					<xsl:attribute name="value">
-						<xsl:apply-templates select="//params/search" />
+						<xsl:apply-templates select="//params/url-q" />
+						<!-- <xsl:apply-templates select="//params/search" /> -->
+						<!-- <xsl:text>iuysdiauyd</xsl:text> -->
 					</xsl:attribute>
 				</input>
 				<input type="submit" value="&rarr;" class="icon"/>
@@ -48,14 +50,17 @@
 					</ul>
 			</form>
 			<xsl:call-template name="count-results">
-				<xsl:with-param name="count" select="//collection-solr-search/response/result/@numFound" />
+				<!-- <xsl:with-param name="count" select="//collection-solr-search/response/result/@numFound" /> -->
 			</xsl:call-template>
 		</article>
 	</section>
 	<section>
-		<xsl:if test="//collection-solr-search/response/result/@numFound = 0 and $search">
+		<!-- Info o braku wyników jeżeli numFound == 0 -->
+		<!-- W tej chwili nieużywane, bo nie ma już parametru $search -->
+		<!-- zamiast $search jest $url-q -->
+		<!-- <xsl:if test="//collection-solr-search/response/result/@numFound = 0 and $search">
 			<xsl:call-template name="no-results" />
-		</xsl:if>
+		</xsl:if> -->
 		<div class="bricks-container search-results">
 		</div>
 	</section>
@@ -76,12 +81,12 @@
 	</li>
 </xsl:template>
 
-<xsl:template match="params/search">
+<xsl:template match="params/search"> <!-- tego już nie używam do usunięia -->
 	<xsl:value-of select="translate(., '+', ' ')" />
 </xsl:template>
 
 <xsl:template name="count-results">
-	<xsl:param name="count" />
+	<xsl:param name="count" /> <!-- tego parametru już nie używam do usunięia -->
 	<xsl:variable name="last-digit">
 		<xsl:value-of select="substring($count, string-length($count), 1)" />
 	</xsl:variable>
@@ -104,11 +109,12 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
+
 	<xsl:variable name="search-url" select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />
 
 	<xsl:choose>
-		<xsl:when test="//params/search = ''">
-			 <p class="results-found">Autorzy udostępnionych prac: <a href="{$search-url}/autorzy:Tadeusz%20Brzoza/">Tadeusz Brzoza</a>, <a href="{$search-url}/autorzy:Jacek%20Burzyński/">Jacek Burzyński</a>, <a href="{$search-url}/autorzy:Ewa%20Cieszyńska/">Ewa Cieszyńska</a>, <a href="{$search-url}/autorzy:Władysław%20Czerny/">Władysław Czerny</a>, <a href="{$search-url}/autorzy:Julian%20Duchowicz/">Julian Duchowicz</a>, <a href="{$search-url}/autorzy:Andrzej%20Frydecki/">Andrzej Frydecki</a>, <a href="{$search-url}/autorzy:Jan%20Głuszak%20Dagarama/">Jan Głuszak "Dagarama”</a>, <a href="{$search-url}/autorzy:Włodzimierz%20Gruszczyński/">Włodzimierz Gruszczyński</a>, <a href="{$search-url}/autorzy:Emil%20Kaliski/">Emil Kaliski</a>, <a href="{$search-url}/autorzy:Jan%20Koszyc%20Witkiewicz/">Jan Koszyc Witkiewicz</a>, <a href="{$search-url}/autorzy:Bohdan%20Lachert/">Bohdan Lachert</a>, <a href="{$search-url}/autorzy:Romuald%20Loegler/">Romuald Loegler</a>, <a href="{$search-url}/autorzy:Witold%20Lipiński/">Witold Lipiński</a>, <a href="{$search-url}/autorzy:Zygmunt%20Majerski/">Zygmunt Majerski</a>, <a href="{$search-url}/autorzy:Maciej%20Nowicki/">Maciej Nowicki</a>, <a href="{$search-url}/autorzy:Jerzy%20Mokrzyński/">Jerzy Mokrzyński</a>, <a href="{$search-url}/autorzy:Maria%20Molicka/">Maria Molicka</a>, <a href="{$search-url}/autorzy:Witold%20Molicki/">Witold Molicki</a>, <a href="{$search-url}/autorzy:Maria%20Muller/">Maria Müller</a>, <a href="{$search-url}/autorzy:Stefan%20Muller/">Stefan Müller</a>, <a href="{$search-url}/autorzy:Jerzy%20Sołtan/">Jerzy Sołtan</a>, <a href="{$search-url}/autorzy:Helena%20Syrkus/">Helena Syrkus</a>, <a href="{$search-url}/autorzy:Szymon%20Syrkus/">Szymon Syrkus</a>, <a href="{$search-url}/autorzy:Stefan%20Tworkowski/">Stefan Tworkowski</a>, <a href="{$search-url}/autorzy:Marian%20Sulikowski/">Marian Sulikowski</a>, <a href="{$search-url}/autorzy:Józef%20Szanajca/">Józef Szanajca</a>, <a href="{$search-url}/autorzy:Tadeusz%20Teodorowicz-Todorowski/">Tadeusz Teodorowicz-Todorowski</a></p>
+		<xsl:when test="not(//params/url-q)">
+			 <p class="results-found">Autorzy udostępnionych prac: <a href="{$search-url}?q=Tadeusz%20Brzoza">Tadeusz Brzoza</a>, <a href="{$search-url}?q=Jacek%20Burzyński">Jacek Burzyński</a>, <a href="{$search-url}?q=Ewa%20Cieszyńska">Ewa Cieszyńska</a>, <a href="{$search-url}?q=Władysław%20Czerny">Władysław Czerny</a>, <a href="{$search-url}?q=Julian%20Duchowicz">Julian Duchowicz</a>, <a href="{$search-url}?q=Andrzej%20Frydecki">Andrzej Frydecki</a>, <a href="{$search-url}?q=Jan%20Głuszak%20Dagarama">Jan Głuszak "Dagarama”</a>, <a href="{$search-url}?q=Włodzimierz%20Gruszczyński">Włodzimierz Gruszczyński</a>, <a href="{$search-url}?q=Emil%20Kaliski">Emil Kaliski</a>, <a href="{$search-url}?q=Jan%20Koszyc%20Witkiewicz">Jan Koszyc Witkiewicz</a>, <a href="{$search-url}?q=Bohdan%20Lachert">Bohdan Lachert</a>, <a href="{$search-url}?q=Romuald%20Loegler">Romuald Loegler</a>, <a href="{$search-url}?q=Witold%20Lipiński">Witold Lipiński</a>, <a href="{$search-url}?q=Zygmunt%20Majerski">Zygmunt Majerski</a>, <a href="{$search-url}?q=Maciej%20Nowicki">Maciej Nowicki</a>, <a href="{$search-url}?q=Jerzy%20Mokrzyński">Jerzy Mokrzyński</a>, <a href="{$search-url}?q=Maria%20Molicka">Maria Molicka</a>, <a href="{$search-url}?q=Witold%20Molicki">Witold Molicki</a>, <a href="{$search-url}?q=Maria%20Muller">Maria Müller</a>, <a href="{$search-url}?q=Stefan%20Muller">Stefan Müller</a>, <a href="{$search-url}?q=Jerzy%20Sołtan">Jerzy Sołtan</a>, <a href="{$search-url}?q=Helena%20Syrkus">Helena Syrkus</a>, <a href="{$search-url}?q=Szymon%20Syrkus">Szymon Syrkus</a>, <a href="{$search-url}?q=Stefan%20Tworkowski">Stefan Tworkowski</a>, <a href="{$search-url}?q=Marian%20Sulikowski">Marian Sulikowski</a>, <a href="{$search-url}?q=Józef%20Szanajca">Józef Szanajca</a>, <a href="{$search-url}?q=Tadeusz%20Teodorowicz-Todorowski">Tadeusz Teodorowicz-Todorowski</a></p>
 		</xsl:when>
 		<xsl:otherwise>
 			<p class="results-found">Znaleziono <span class="number">…</span></p>
@@ -158,13 +164,13 @@
 
 			$(window).scroll(function() {
 				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) {
-					MA.askSOLR('<xsl:value-of select="$search" />')
+					MA.askSOLR('<xsl:value-of select="//params/url-q" />')
 				}
 			})
 
 			$('.search-form').submit(function(e) {
 				e.preventDefault();
-				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />/${encodeURIComponent($('input.search-field').val())}/`;
+				window.location.href = `<xsl:value-of select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />?q=${encodeURIComponent($('input.search-field').val())}`;
 			})
 
 			MA.sugg($('input.search-field'))
@@ -172,7 +178,7 @@
 
 		$(window).load(function() {
 			MA.iS();
-			MA.askSOLR('<xsl:value-of select="$search" />');
+			MA.askSOLR('<xsl:value-of select="//params/url-q" />');
 		});
 	</script>
 	<xsl:call-template name="collection-header-js" />
