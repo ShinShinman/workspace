@@ -457,7 +457,7 @@ class MA
 		nazwaObiektu = nazwa[currentLanguage]
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
-		obrazID = "#{ob.obraz_asset_url[0]}?key=brick-thumbnail"
+		obrazID = if ob.obraz_asset_url then "#{ob.obraz_asset_url[0]}?key=brick-thumbnail" else ''
 		obraz = if ob.obraz_asset_url then await $.get "#{baseURL[env]}/collection/image/?img=#{obrazID}" else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
@@ -471,7 +471,7 @@ class MA
 			  height="#{imgHeight}"
 			  data-blank="#{baseURL[env]}/workspace/images/blank.gif"
 				src = "#{obraz}"
-			  alt="#{ob.autorzy.join(', ')}, #{ob.nazwa_obiektu}"
+			  alt="#{autorzy}, #{nazwaObiektu}"
 			/>
 		""" else ""
 		$("""

@@ -601,7 +601,7 @@
       nazwaObiektu = nazwa[currentLanguage];
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
-      obrazID = `${ob.obraz_asset_url[0]}?key=brick-thumbnail`;
+      obrazID = ob.obraz_asset_url ? `${ob.obraz_asset_url[0]}?key=brick-thumbnail` : '';
       obraz = ob.obraz_asset_url ? (await $.get(`${baseURL[env]}/collection/image/?img=${obrazID}`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
@@ -610,7 +610,7 @@
         pl: `${baseURL[env]}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
         en: `${baseURL[env]}/en/collection/item/${ob.sygnatura_slug}/`
       };
-      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL[env]}/workspace/images/blank.gif"\n	src = "${obraz}"\n  alt="${ob.autorzy.join(', ')}, ${ob.nazwa_obiektu}"\n/>` : "";
+      img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL[env]}/workspace/images/blank.gif"\n	src = "${obraz}"\n  alt="${autorzy}, ${nazwaObiektu}"\n/>` : "";
       return $(`<article class="brick">\n	<a href="${link[currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
 
