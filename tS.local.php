@@ -2,8 +2,10 @@
 $params = '?';
 foreach ($_GET as $key => $value) {
   if ($key != "link")
-    $params .= $key . "=" . urlencode($value) . "&";
+      $params .= str_replace("_", ".", $key) . "=" . urlencode($value) . "&";
 }
+$params = rtrim($params, "&");
+// echo $params;
 $url='http://127.0.0.1:4983/solr/' . $_GET["link"] . $params;
 $content_type=get_headers($url, 1)["Content-Type"];
 $ch=curl_init();

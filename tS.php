@@ -1,9 +1,11 @@
 <?php
-$params = '';
+$params = '?';
 foreach ($_GET as $key => $value) {
   if ($key != "link")
-    $params .= "&" . $key . "=" . $value;
+      $params .= str_replace("_", ".", $key) . "=" . urlencode($value) . "&";
 }
+$params = rtrim($params, "&");
+// echo $params;
 $url='http://156.17.251.36:59188/solr/' . $_GET["link"] . $params;
 $content_type=get_headers($url, 1)["Content-Type"];
 $ch=curl_init();

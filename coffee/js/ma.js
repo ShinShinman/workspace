@@ -643,6 +643,9 @@
       MA.settings.suggester.empty();
       suggestions.forEach(function(item) {
         var url;
+        if (typeof item === 'number') {
+          return;
+        }
         item = item.replace(/[„”"']/g, '');
         url = tempURL + encodeURIComponent(item);
         return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
@@ -653,15 +656,16 @@
 
     // pobiera podpowiedzi do wyszukiwania
     suggest = function(q) {
-      var qString;
-      qString = `${suggesterURL}?q=${removePL(decodeURI(q).replace(/\s/g, '.'))}`;
-      // console.log qString
-      return fetch(qString).then(async function(res) {
+      var url;
+      url = `${tunelSOLR[env]}?link=ma_collection/terms&terms.limit=10&terms.fl=autocomplete&terms.regex.flag=case_insensitive&terms.regex=.*${decodeURI(q).replace(/\s/g, '.')}.*`;
+      // console.log url
+      return fetch(url).then(async function(res) {
         var resJSON;
         resJSON = (await res.json());
-        if (resJSON.autocomplete.length > 0) {
+        // console.log resJSON.terms.autocomplete
+        if (resJSON.terms.autocomplete.length > 0) {
           MA.settings.suggester.show();
-          return printSuggestions(resJSON.autocomplete);
+          return printSuggestions(resJSON.terms.autocomplete);
         }
       }).catch(function(err) {
         return console.error(err);

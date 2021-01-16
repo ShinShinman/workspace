@@ -524,6 +524,7 @@ class MA
 		tempURL = "#{baseURL[env]}/#{MA.settings.lang}/kolekcja/wyszukiwarka/"
 		MA.settings.suggester.empty()
 		suggestions.forEach (item) ->
+			if typeof item == 'number' then return
 			item = item.replace(/[„”"']/g, '')
 			url = tempURL + encodeURIComponent item
 			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
@@ -532,14 +533,15 @@ class MA
 
 	# pobiera podpowiedzi do wyszukiwania
 	suggest = (q) ->
-		qString = "#{suggesterURL}?q=#{removePL(decodeURI(q).replace(/\s/g, '.'))}"
-		# console.log qString
-		fetch qString
+		url = "#{tunelSOLR[env]}?link=ma_collection/terms&terms.limit=10&terms.fl=autocomplete&terms.regex.flag=case_insensitive&terms.regex=.*#{decodeURI(q).replace(/\s/g, '.')}.*"
+		# console.log url
+		fetch url
 			.then (res) ->
 				resJSON = await res.json()
-				if resJSON.autocomplete.length > 0
+				# console.log resJSON.terms.autocomplete
+				if resJSON.terms.autocomplete.length > 0
 					MA.settings.suggester.show()
-					printSuggestions resJSON.autocomplete
+					printSuggestions resJSON.terms.autocomplete
 			.catch (err) ->
 				console.error err
 
