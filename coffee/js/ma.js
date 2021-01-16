@@ -319,7 +319,7 @@
           var resJSON;
           resJSON = (await response.json());
           numFound = resJSON.response.numFound;
-          $('p.results-found .number').text(polishPlural(numFound));
+          $('p.results-found .number').text(`Znaleziono ${polishPlural(numFound)}`).removeClass('loading');
           return resJSON.response.docs.forEach(async function(doc) {
             return MA.settings.grid.isotope('insert', (await template(doc)));
           });

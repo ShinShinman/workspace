@@ -3149,6 +3149,33 @@ section.coll {
   color: grey;
   font-size: 14px; }
 
+.coll .collection-search .loading {
+  overflow: hidden;
+  text-indent: 100%;
+  color: #a7a7a7;
+  background-color: #a7a7a7;
+  margin: 5px 0;
+  min-width: 100px;
+  opacity: 0.1;
+  -webkit-animation: fading 1.5s infinite;
+          animation: fading 1.5s infinite; }
+
+@-webkit-keyframes fading {
+  0% {
+    opacity: .1; }
+  50% {
+    opacity: .2; }
+  100% {
+    opacity: .1; } }
+
+@keyframes fading {
+  0% {
+    opacity: .1; }
+  50% {
+    opacity: .2; }
+  100% {
+    opacity: .1; } }
+
 /* ACCESSIBILITY */
 .access article .article-anchor {
   padding-top: 120px;

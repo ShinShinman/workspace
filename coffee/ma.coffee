@@ -507,7 +507,7 @@ class MA
 			.then (response) ->
 				resJSON = await response.json()
 				numFound = resJSON.response.numFound
-				$('p.results-found .number').text(polishPlural(numFound))
+				$('p.results-found .number').text("Znaleziono #{polishPlural(numFound)}").removeClass('loading')
 				resJSON.response.docs.forEach (doc) ->
 					MA.settings.grid.isotope('insert', await template(doc))
 			.catch (error) ->

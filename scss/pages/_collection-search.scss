@@ -47,5 +47,28 @@
 			color: grey;
 			font-size: 14px;
 		}
+		.loading {
+			overflow: hidden;
+			text-indent: 100%;
+			color: #a7a7a7;
+			background-color: #a7a7a7;
+			margin: 5px 0;
+			min-width: 100px;
+			opacity: 0.1;
+			animation: fading 1.5s infinite;
+		}
+		@keyframes fading {
+      0% {
+        opacity: .1;
+      }
+
+      50% {
+        opacity: .2;
+      }
+
+      100% {
+        opacity: .1;
+      }
+    }
 	}
 }
