@@ -63,6 +63,9 @@
 		</xsl:if> -->
 		<div class="bricks-container search-results">
 		</div>
+		<div class="load7">
+			<p class="loader">Loading…</p>
+		</div>
 	</section>
 </xsl:template>
 

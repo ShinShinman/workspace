@@ -311,6 +311,7 @@
       askSOLR(q) {
         var url;
         if (queue > numFound) {
+          $('div.load7').hide();
           return;
         }
         url = `${tunelSOLR[env]}?link=ma_collection/select&q=${q}&start=${queue}&rows=30`;
