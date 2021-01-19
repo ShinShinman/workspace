@@ -499,10 +499,12 @@ class MA
 
 	# askSOLR – dodaje do kontenera Isotope nowe kafle
 	askSOLR: (q) ->
-		if queue > numFound
-			$('div.load7').hide();
+		loader = $('div.load7')
+		if queue > numFound or q == ''
+			loader.hide()
 			return
 		url = "#{tunelSOLR[env]}?link=ma_collection/select&q=#{q}&start=#{queue}&rows=30"
+		loader.show()
 		queue += queueStep
 		fetch url
 			.then (response) ->

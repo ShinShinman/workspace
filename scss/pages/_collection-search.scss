@@ -73,10 +73,16 @@
 	}
 }
 
+// BRICK CONTAINER aka SEARCH RESULTS
+.bricks-container.search-results {
+	min-height: 0;
+}
+
 // loder
 $foreground: #999;
 
 .load7 {
+	display: none;
 
 	.loader,
 	.loader:before,

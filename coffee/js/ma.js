@@ -309,12 +309,14 @@
 
       // askSOLR – dodaje do kontenera Isotope nowe kafle
       askSOLR(q) {
-        var url;
-        if (queue > numFound) {
-          $('div.load7').hide();
+        var loader, url;
+        loader = $('div.load7');
+        if (queue > numFound || q === '') {
+          loader.hide();
           return;
         }
         url = `${tunelSOLR[env]}?link=ma_collection/select&q=${q}&start=${queue}&rows=30`;
+        loader.show();
         queue += queueStep;
         fetch(url).then(async function(response) {
           var resJSON;
