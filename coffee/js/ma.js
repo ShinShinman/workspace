@@ -359,7 +359,7 @@
               }
               return listSuggest[currentSuggest].classList.add('highlight');
             case 13:
-              return trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent)).submit();
+              return trg.val(listSuggest[currentSuggest].firstChild.textContent).submit();
             default:
               return suggest(encodeURIComponent($(this).val()));
           }
@@ -642,13 +642,14 @@
     // wyświetla podpowiedzi do wyszukiwania
     printSuggestions = function(suggestions) {
       var tempURL;
-      tempURL = `${baseURL[env]}/${MA.settings.lang}/kolekcja/wyszukiwarka/`;
+      tempURL = `${baseURL[env]}/${MA.settings.lang}/kolekcja/wyszukiwarka?q=`;
       MA.settings.suggester.empty();
       suggestions.forEach(function(item) {
         var url;
         if (typeof item === 'number') {
           return;
         }
+        // console.log item
         item = item.replace(/[„”"']/g, '');
         url = tempURL + encodeURIComponent(item);
         return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);

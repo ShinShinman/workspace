@@ -524,10 +524,11 @@ class MA
 
 	# wyświetla podpowiedzi do wyszukiwania
 	printSuggestions = (suggestions) ->
-		tempURL = "#{baseURL[env]}/#{MA.settings.lang}/kolekcja/wyszukiwarka/"
+		tempURL = "#{baseURL[env]}/#{MA.settings.lang}/kolekcja/wyszukiwarka?q="
 		MA.settings.suggester.empty()
 		suggestions.forEach (item) ->
 			if typeof item == 'number' then return
+			# console.log item
 			item = item.replace(/[„”"']/g, '')
 			url = tempURL + encodeURIComponent item
 			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
@@ -565,7 +566,7 @@ class MA
 					else currentSuggest = 0
 					listSuggest[currentSuggest].classList.add 'highlight'
 				when 13
-					trg.val(removePL(listSuggest[currentSuggest].firstChild.textContent)).submit()
+					trg.val(listSuggest[currentSuggest].firstChild.textContent).submit()
 				else suggest encodeURIComponent $(this).val()
 
 
