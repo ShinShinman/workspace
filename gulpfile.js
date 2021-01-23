@@ -61,7 +61,8 @@ function cacheBust() {
 
 function bs() {
 	browserSync.init({
-		proxy: 'localhost/ma.wroc.pl/'
+		proxy: 'localhost/ma.wroc.pl/',
+		online: true
 	});
 }
 
