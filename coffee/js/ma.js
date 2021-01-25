@@ -2,7 +2,7 @@
   var MA;
 
   MA = (function() {
-    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, env, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, menuToggle, menuTrigger, numFound, openMenu, polishPlural, printSuggestions, queue, queueStep, removePL, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup, suggest, suggesterURL, template, tunelSOLR, ziomy;
+    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, env, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, mainMenu, menuToggle, menuTrigger, numFound, openMenu, pagination, polishPlural, printSuggestions, removePL, rows, searchForm, searchToggle, searchTrigger, setNavBackground, start, stickyNavSetup, suggest, suggesterURL, template, tunelSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -308,24 +308,32 @@
       }
 
       // askSOLR – dodaje do kontenera Isotope nowe kafle
-      askSOLR(q) {
-        var loader, url;
+      askSOLR(q, start = 0) {
+        var lastPage, loader, url;
         loader = $('div.load7');
-        if (queue > numFound || q === '') {
-          loader.hide();
+        if (q === '') {
           return;
         }
-        url = `${tunelSOLR[env]}?link=ma_collection/select&q=${q}&start=${queue}&rows=30`;
+        url = `${tunelSOLR[env]}?link=ma_collection/select&q=${q}&start=${start}&rows=${rows}`;
+        lastPage = '';
         loader.show();
-        queue += queueStep;
+        // start += rows
         fetch(url).then(async function(response) {
           var resJSON;
           resJSON = (await response.json());
           numFound = resJSON.response.numFound;
+          lastPage = Math.ceil(numFound / rows);
           $('p.results-found .number').text(`Znaleziono ${polishPlural(numFound)}`).removeClass('loading');
           return resJSON.response.docs.forEach(async function(doc) {
             return MA.settings.grid.isotope('insert', (await template(doc)));
           });
+        }).finally(function() {
+          pagination(start, lastPage, q);
+          // timeout ze względu na dodawanie do Isotope
+          return setTimeout(function() {
+            loader.hide();
+            return $('div.pagination').show();
+          }, 1000);
         }).catch(function(error) {
           return console.error(error);
         });
@@ -408,8 +416,11 @@
       highlightOn: false,
       highlightVisible: false,
       lang: 'pl',
+      currentLanguage: window.location.pathname.includes('/pl/') ? 'pl' : 'en',
       suggester: $('ul.suggester')
     };
+
+    console.log(MA.settings.lang);
 
     // Private methods
     searchToggle = function(trigger, target) {
@@ -576,9 +587,9 @@
     };
 
     //ustawienia kolejki pobierania
-    queue = 0;
+    start = 0;
 
-    queueStep = 30;
+    rows = 30;
 
     numFound = 0;
 
@@ -595,13 +606,12 @@
     // 		img.src = src
     // 	)
     template = async function(ob) {
-      var autorzy, currentLanguage, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, obrazID, ratio;
-      currentLanguage = window.location.pathname.includes('/pl/') ? 'pl' : 'en';
+      var autorzy, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obraz, obrazID, ratio;
       nazwa = {
         pl: ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '',
         en: ob.nazwa_obiektu_tlumaczenie ? ob.nazwa_obiektu_tlumaczenie : ''
       };
-      nazwaObiektu = nazwa[currentLanguage];
+      nazwaObiektu = nazwa[MA.settings.currentLanguage];
       autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
       datowanie = ob.datowanie ? ob.datowanie : '';
       obrazID = ob.obraz_asset_url ? `${ob.obraz_asset_url[0]}?key=brick-thumbnail` : '';
@@ -614,7 +624,7 @@
         en: `${baseURL[env]}/en/collection/item/${ob.sygnatura_slug}/`
       };
       img = obraz ? `<img\n  width="320"\n  height="${imgHeight}"\n  data-blank="${baseURL[env]}/workspace/images/blank.gif"\n	src = "${obraz}"\n  alt="${autorzy}, ${nazwaObiektu}"\n/>` : "";
-      return $(`<article class="brick">\n	<a href="${link[currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
+      return $(`<article class="brick">\n	<a href="${link[MA.settings.currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
 
     // odmina słowa obiekt
@@ -629,6 +639,40 @@
         return `${value} ${pluralNominativ}`;
       } else {
         return `${value} ${pluralGenitive}`;
+      }
+    };
+
+    // pagination
+    pagination = function(start, lastPage, q) {
+      var i, j, newPage, pagMax, pagStart, page, paginationList, ref, ref1, xItems;
+      q = q === '*' ? '' : q;
+      paginationList = $('ul.pagination__list');
+      page = start / rows + 1;
+      pagStart = page - 3;
+      pagMax = (page + 3) > lastPage ? lastPage : page + 3;
+      xItems = [];
+      for (i = j = ref = pagStart, ref1 = pagMax; (ref <= ref1 ? j <= ref1 : j >= ref1); i = ref <= ref1 ? ++j : --j) {
+        if (i < 1) {
+          newPage = Math.abs(i) + pagMax + 1;
+          xItems.unshift(`<li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(newPage - 1) * 30}'>${newPage}</a></li>`);
+        } else if (i === page) {
+          paginationList.append(`<li><a class='active' href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
+        } else {
+          paginationList.append(`<li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
+        }
+      }
+      if (page > 4) {
+        paginationList.prepend(`<li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=0'>1</a></li><li class='inactive'>…</li>`);
+      }
+      paginationList.append(xItems);
+      if (pagMax !== lastPage) {
+        paginationList.append(`<li class='inactive'>…</li><li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(lastPage - 1) * 30}'>${lastPage}</a></li>`);
+      }
+      if (page !== 1) {
+        paginationList.prepend(`<li><a class='prev-page button' href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(page - 2) * 30}'>POPRZEDNIA</a></li>`);
+      }
+      if (page !== lastPage) {
+        return paginationList.append(`<li><a class='next-page button' href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${page * 30}'>NASTĘPNA</a></li>`);
       }
     };
 

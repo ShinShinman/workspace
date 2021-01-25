@@ -145,3 +145,59 @@ $foreground: #999;
 
 @-webkit-keyframes load7 {@include load7-frames;}
 @keyframes load7 {@include load7-frames;}
+
+// pagination
+
+.pagination {
+	margin-top: 100px;
+	margin-bottom: -50px;
+	display: none;
+
+	.pagination__list {
+		display: flex;
+		justify-content: center;
+
+		li {
+			margin: 0 1px;
+
+			&.inactive {
+				margin: 0 5px;
+			}
+
+			a {
+				display: inline-block;
+				padding: 0 8px;
+
+				&:hover {
+					background-color: lightgrey;
+					color: black;
+				}
+
+				&.active {
+					background-color: black;
+					color: white;
+					opacity: 1;
+				}
+
+				&.button {
+					margin: 0 10px;
+					text-transform: uppercase;
+
+					&:hover {
+						background-color: transparent;
+					}
+					&.prev-page {
+						&::before {
+							content: "< ";
+						}
+					}
+					&.next-page {
+						&::after {
+							content: " >";
+						}
+					}
+				}
+			}
+		}
+	}
+}

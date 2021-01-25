@@ -38,7 +38,7 @@
 		<article class="collection-search">
 			<h1><xsl:value-of select="plh-page/page/page/item[@lang = //current-language/@handle]" /></h1>
 			<form class="search-form" action="">
-				<input class="search-field" type="text" name="keywords" autofocus="" autocomplete="off" placeholder="Wyszukaj">
+				<input class="search-field" type="text" name="q" autofocus="" autocomplete="off" placeholder="Wyszukaj">
 					<xsl:attribute name="value">
 						<xsl:apply-templates select="//params/url-q" />
 						<!-- <xsl:apply-templates select="//params/search" /> -->
@@ -65,6 +65,10 @@
 		</div>
 		<div class="load7">
 			<p class="loader">Loading…</p>
+		</div>
+		<div class="pagination">
+			<ul class="pagination__list">
+			</ul>
 		</div>
 	</section>
 </xsl:template>
@@ -165,12 +169,12 @@
 				failure_limit : 1000
 			});
 
-			$(window).scroll(function() {
-				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) {
-					<!-- MA.askSOLR('<xsl:value-of select="//params/url-q" />') -->
-					firstRun();
+			<!-- $(window).scroll(function() {
+				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) { -->
+				<!-- MA.askSOLR('<xsl:value-of select="//params/url-q" />') -->
+					<!-- firstRun();
 				}
-			})
+			}) -->
 
 			$('.search-form').submit(function(e) {
 				e.preventDefault();
@@ -180,11 +184,13 @@
 			MA.sugg($('input.search-field'))
 		});
 
+		<!-- // można przenieść do klasy MA  -->
+		<!-- // i wywoływać MA.firstRun('<xsl:value-of select="//params/url-q" />') -->
 		function firstRun() {
 			if('<xsl:value-of select="//params/url-q" />' == '') {
-				MA.askSOLR('*');
+				MA.askSOLR('*', <xsl:value-of select="//params/url-start" />);
 			} else {
-				MA.askSOLR('<xsl:value-of select="//params/url-q" />');
+				MA.askSOLR('<xsl:value-of select="//params/url-q" />', <xsl:value-of select="//params/url-start" />);
 			}
 		}
 

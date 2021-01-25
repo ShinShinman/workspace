@@ -22,9 +22,10 @@ class MA
 		highlightOn: false
 		highlightVisible: false
 		lang: 'pl'
+		currentLanguage: if window.location.pathname.includes('/pl/') then 'pl' else 'en'
 		suggester: $('ul.suggester')
 
-
+	console.log MA.settings.lang
 	# Private methods
 
 	searchToggle = (trigger, target) ->
@@ -431,8 +432,8 @@ class MA
 		local: "#{baseURL[env]}/workspace/tS.local.php"
 		live: "#{baseURL[env]}/workspace/tS.php"
 	#ustawienia kolejki pobierania
-	queue = 0;
-	queueStep = 30;
+	start = 0;
+	rows = 30;
 	numFound = 0;
 
 	# ustala adres Directusa
@@ -450,11 +451,10 @@ class MA
 	# 	)
 
 	template = (ob) ->
-		currentLanguage = if window.location.pathname.includes('/pl/') then 'pl' else 'en'
 		nazwa =
 			pl: if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
 			en: if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else ''
-		nazwaObiektu = nazwa[currentLanguage]
+		nazwaObiektu = nazwa[MA.settings.currentLanguage]
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
 		obrazID = if ob.obraz_asset_url then "#{ob.obraz_asset_url[0]}?key=brick-thumbnail" else ''
@@ -476,7 +476,7 @@ class MA
 		""" else ""
 		$("""
 			<article class="brick">
-				<a href="#{link[currentLanguage]}">
+				<a href="#{link[MA.settings.currentLanguage]}">
 					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
 					<h2 class="donthyphenate">#{autorzy}</h2>
 			    <p>#{datowanie}</p>
@@ -498,24 +498,52 @@ class MA
 			return "#{value} #{pluralGenitive}"
 
 	# askSOLR – dodaje do kontenera Isotope nowe kafle
-	askSOLR: (q) ->
+	askSOLR: (q, start = 0) ->
 		loader = $('div.load7')
-		if queue > numFound or q == ''
-			loader.hide()
+		if q == ''
 			return
-		url = "#{tunelSOLR[env]}?link=ma_collection/select&q=#{q}&start=#{queue}&rows=30"
+		url = "#{tunelSOLR[env]}?link=ma_collection/select&q=#{q}&start=#{start}&rows=#{rows}"
+		lastPage = ''
 		loader.show()
-		queue += queueStep
+		# start += rows
 		fetch url
 			.then (response) ->
 				resJSON = await response.json()
 				numFound = resJSON.response.numFound
+				lastPage = Math.ceil numFound / rows
 				$('p.results-found .number').text("Znaleziono #{polishPlural(numFound)}").removeClass('loading')
 				resJSON.response.docs.forEach (doc) ->
 					MA.settings.grid.isotope('insert', await template(doc))
+			.finally () ->
+				pagination(start, lastPage, q)
+				# timeout ze względu na dodawanie do Isotope
+				setTimeout( () ->
+						loader.hide()
+						$('div.pagination').show()
+					, 1000)
 			.catch (error) ->
 				console.error error
 			return
+
+	# pagination
+	pagination = (start, lastPage, q) ->
+		q = if q == '*' then '' else q
+		paginationList = $('ul.pagination__list')
+		page = start / rows + 1
+		pagStart = page - 3
+		pagMax = if (page + 3) > lastPage then lastPage else page + 3
+		xItems = []
+		for i  in [pagStart..pagMax]
+			if i < 1
+				newPage = Math.abs(i) + pagMax + 1
+				xItems.unshift "<li><a href='#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q=#{q}&start=#{(newPage - 1) * 30}'>#{newPage}</a></li>"
+			else if i == page then paginationList.append("<li><a class='active' href='#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
+			else paginationList.append("<li><a href='#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
+		if page > 4 then paginationList.prepend("<li><a href='#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q=#{q}&start=0'>1</a></li><li class='inactive'>…</li>")
+		paginationList.append(xItems)
+		if pagMax != lastPage then paginationList.append("<li class='inactive'>…</li><li><a href='#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q=#{q}&start=#{(lastPage - 1) * 30}'>#{lastPage}</a></li>")
+		if page != 1 then paginationList.prepend("<li><a class='prev-page button' href='#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q=#{q}&start=#{(page - 2) * 30}'>POPRZEDNIA</a></li>")
+		if page != lastPage then paginationList.append("<li><a class='next-page button' href='#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q=#{q}&start=#{(page * 30)}'>NASTĘPNA</a></li>")
 
 	# suggester
 	suggesterURL = "#{baseURL[env]}/collection/collection-search-suggestions/"
