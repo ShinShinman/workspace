@@ -415,12 +415,9 @@
       gridItem: '.brick',
       highlightOn: false,
       highlightVisible: false,
-      lang: 'pl',
       currentLanguage: window.location.pathname.includes('/pl/') ? 'pl' : 'en',
       suggester: $('ul.suggester')
     };
-
-    console.log(MA.settings.lang);
 
     // Private methods
     searchToggle = function(trigger, target) {
@@ -644,35 +641,40 @@
 
     // pagination
     pagination = function(start, lastPage, q) {
-      var i, j, newPage, pagMax, pagStart, page, paginationList, ref, ref1, xItems;
+      var i, j, newPage, pagMax, pagStart, page, paginationList, ref, ref1, url, xItems;
       q = q === '*' ? '' : q;
       paginationList = $('ul.pagination__list');
       page = start / rows + 1;
       pagStart = page - 3;
       pagMax = (page + 3) > lastPage ? lastPage : page + 3;
+      url = {
+        pl: `${baseURL[env]}/pl/kolekcja/wyszukiwarka`,
+        en: `${baseURL[env]}/en/collection/search`
+      };
       xItems = [];
+      console.log(MA.settings.currentLanguage);
       for (i = j = ref = pagStart, ref1 = pagMax; (ref <= ref1 ? j <= ref1 : j >= ref1); i = ref <= ref1 ? ++j : --j) {
         if (i < 1) {
           newPage = Math.abs(i) + pagMax + 1;
-          xItems.unshift(`<li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(newPage - 1) * 30}'>${newPage}</a></li>`);
+          xItems.unshift(`<li><a href='${url[MA.settings.currentLanguage]}?q=${q}&start=${(newPage - 1) * 30}'>${newPage}</a></li>`);
         } else if (i === page) {
-          paginationList.append(`<li><a class='active' href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
+          paginationList.append(`<li><a class='active' href='${url[MA.settings.currentLanguage]}?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
         } else {
-          paginationList.append(`<li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
+          paginationList.append(`<li><a href='${url[MA.settings.currentLanguage]}?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
         }
       }
       if (page > 4) {
-        paginationList.prepend(`<li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=0'>1</a></li><li class='inactive'>…</li>`);
+        paginationList.prepend(`<li><a href='${url[MA.settings.currentLanguage]}?q=${q}&start=0'>1</a></li><li class='inactive'>…</li>`);
       }
       paginationList.append(xItems);
       if (pagMax !== lastPage) {
-        paginationList.append(`<li class='inactive'>…</li><li><a href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(lastPage - 1) * 30}'>${lastPage}</a></li>`);
+        paginationList.append(`<li class='inactive'>…</li><li><a href='${url[MA.settings.currentLanguage]}?q=${q}&start=${(lastPage - 1) * 30}'>${lastPage}</a></li>`);
       }
       if (page !== 1) {
-        paginationList.prepend(`<li><a class='prev-page button' href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${(page - 2) * 30}'>POPRZEDNIA</a></li>`);
+        paginationList.prepend(`<li><a class='prev-page button' href='${url[MA.settings.currentLanguage]}?q=${q}&start=${(page - 2) * 30}'>POPRZEDNIA</a></li>`);
       }
       if (page !== lastPage) {
-        return paginationList.append(`<li><a class='next-page button' href='${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=${q}&start=${page * 30}'>NASTĘPNA</a></li>`);
+        return paginationList.append(`<li><a class='next-page button' href='${url[MA.settings.currentLanguage]}?q=${q}&start=${page * 30}'>NASTĘPNA</a></li>`);
       }
     };
 
@@ -686,7 +688,10 @@
     // wyświetla podpowiedzi do wyszukiwania
     printSuggestions = function(suggestions) {
       var tempURL;
-      tempURL = `${baseURL[env]}/${MA.settings.lang}/kolekcja/wyszukiwarka?q=`;
+      tempURL = {
+        pl: `${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=`,
+        en: `${baseURL[env]}/en/collection/search?q=`
+      };
       MA.settings.suggester.empty();
       suggestions.forEach(function(item) {
         var url;
@@ -695,7 +700,7 @@
         }
         // console.log item
         item = item.replace(/[„”"']/g, '');
-        url = tempURL + encodeURIComponent(item);
+        url = tempURL[MA.settings.currentLanguage] + encodeURIComponent(item);
         return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
       });
       currentSuggest = -1;
