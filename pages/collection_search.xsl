@@ -169,7 +169,8 @@
 				failure_limit : 1000
 			});
 
-			<!-- $(window).scroll(function() {
+			<!-- Doładowuje eyniki po skrolowaniu na doł strony
+			$(window).scroll(function() {
 				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) { -->
 				<!-- MA.askSOLR('<xsl:value-of select="//params/url-q" />') -->
 					<!-- firstRun();
@@ -182,6 +183,14 @@
 			})
 
 			MA.sugg($('input.search-field'))
+
+			<!--
+			Zapisuje pozycję scrollTop przy opuszczaniu strony
+			$(window).unload(function() {
+				sessionStorage.setItem('scrollPosition', $(window).scrollTop())
+			})
+			-->
+
 		});
 
 		<!-- // można przenieść do klasy MA  -->

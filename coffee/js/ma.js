@@ -324,16 +324,20 @@
           numFound = resJSON.response.numFound;
           lastPage = Math.ceil(numFound / rows);
           $('p.results-found .number').text(`Znaleziono ${polishPlural(numFound)}`).removeClass('loading');
-          return resJSON.response.docs.forEach(async function(doc) {
-            return MA.settings.grid.isotope('insert', (await template(doc)));
-          });
-        }).finally(function() {
           pagination(start, lastPage, q);
-          // timeout ze względu na dodawanie do Isotope
-          return setTimeout(function() {
-            loader.hide();
-            return $('div.pagination').show();
-          }, 1000);
+          return resJSON.response.docs.forEach(async function(doc, i) {
+            MA.settings.grid.isotope('insert', (await template(doc)));
+            if (i + 1 === resJSON.response.docs.length) {
+              loader.hide();
+              return $('div.pagination').show();
+            }
+          });
+        //  scroluje do pozycji zapisanej przy opuszczaniu strony
+        // patrz JS w collection_search.xsl
+        // window.scroll({
+        // 	top: sessionStorage.getItem('scrollPosition'),
+        // 	behavior: 'smooth'
+        // })
         }).catch(function(error) {
           return console.error(error);
         });
@@ -615,7 +619,6 @@
       obraz = ob.obraz_asset_url ? (await $.get(`${baseURL[env]}/collection/image/?img=${obrazID}`)) : "";
       ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
       imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
-      // console.log ob.sygnatura_slug
       link = {
         pl: `${baseURL[env]}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
         en: `${baseURL[env]}/en/collection/item/${ob.sygnatura_slug}/`
@@ -652,10 +655,12 @@
         en: `${baseURL[env]}/en/collection/search`
       };
       xItems = [];
-      console.log(MA.settings.currentLanguage);
       for (i = j = ref = pagStart, ref1 = pagMax; (ref <= ref1 ? j <= ref1 : j >= ref1); i = ref <= ref1 ? ++j : --j) {
         if (i < 1) {
           newPage = Math.abs(i) + pagMax + 1;
+          if (newPage >= lastPage) {
+            continue;
+          }
           xItems.unshift(`<li><a href='${url[MA.settings.currentLanguage]}?q=${q}&start=${(newPage - 1) * 30}'>${newPage}</a></li>`);
         } else if (i === page) {
           paginationList.append(`<li><a class='active' href='${url[MA.settings.currentLanguage]}?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
@@ -698,7 +703,6 @@
         if (typeof item === 'number') {
           return;
         }
-        // console.log item
         item = item.replace(/[„”"']/g, '');
         url = tempURL[MA.settings.currentLanguage] + encodeURIComponent(item);
         return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
@@ -711,7 +715,6 @@
     suggest = function(q) {
       var url;
       url = `${tunelSOLR[env]}?link=ma_collection/terms&terms.limit=10&terms.fl=autocomplete&terms.regex.flag=case_insensitive&terms.regex=.*${decodeURI(q).replace(/\s/g, '.')}.*`;
-      // console.log url
       return fetch(url).then(async function(res) {
         var resJSON;
         resJSON = (await res.json());

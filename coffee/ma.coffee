@@ -459,7 +459,6 @@ class MA
 		obraz = if ob.obraz_asset_url then await $.get "#{baseURL[env]}/collection/image/?img=#{obrazID}" else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
-		# console.log ob.sygnatura_slug
 		link =
 			pl: "#{baseURL[env]}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
 			en: "#{baseURL[env]}/en/collection/item/#{ob.sygnatura_slug}/"
@@ -510,15 +509,18 @@ class MA
 				numFound = resJSON.response.numFound
 				lastPage = Math.ceil numFound / rows
 				$('p.results-found .number').text("Znaleziono #{polishPlural(numFound)}").removeClass('loading')
-				resJSON.response.docs.forEach (doc) ->
-					MA.settings.grid.isotope('insert', await template(doc))
-			.finally () ->
 				pagination(start, lastPage, q)
-				# timeout ze względu na dodawanie do Isotope
-				setTimeout( () ->
+				resJSON.response.docs.forEach (doc, i) ->
+					MA.settings.grid.isotope('insert', await template(doc))
+					if  i + 1 == resJSON.response.docs.length
 						loader.hide()
 						$('div.pagination').show()
-					, 1000)
+						#  scroluje do pozycji zapisanej przy opuszczaniu strony
+						# patrz JS w collection_search.xsl
+						# window.scroll({
+						# 	top: sessionStorage.getItem('scrollPosition'),
+						# 	behavior: 'smooth'
+						# })
 			.catch (error) ->
 				console.error error
 			return
@@ -534,10 +536,10 @@ class MA
 			pl: "#{baseURL[env]}/pl/kolekcja/wyszukiwarka"
 			en: "#{baseURL[env]}/en/collection/search"
 		xItems = []
-		console.log MA.settings.currentLanguage
 		for i  in [pagStart..pagMax]
 			if i < 1
 				newPage = Math.abs(i) + pagMax + 1
+				if newPage >= lastPage then continue
 				xItems.unshift "<li><a href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(newPage - 1) * 30}'>#{newPage}</a></li>"
 			else if i == page then paginationList.append("<li><a class='active' href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
 			else paginationList.append("<li><a href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
@@ -560,7 +562,6 @@ class MA
 		MA.settings.suggester.empty()
 		suggestions.forEach (item) ->
 			if typeof item == 'number' then return
-			# console.log item
 			item = item.replace(/[„”"']/g, '')
 			url = tempURL[MA.settings.currentLanguage] + encodeURIComponent item
 			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
@@ -570,7 +571,6 @@ class MA
 	# pobiera podpowiedzi do wyszukiwania
 	suggest = (q) ->
 		url = "#{tunelSOLR[env]}?link=ma_collection/terms&terms.limit=10&terms.fl=autocomplete&terms.regex.flag=case_insensitive&terms.regex=.*#{decodeURI(q).replace(/\s/g, '.')}.*"
-		# console.log url
 		fetch url
 			.then (res) ->
 				resJSON = await res.json()
