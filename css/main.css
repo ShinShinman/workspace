@@ -3178,6 +3178,8 @@ section.coll {
 
 .bricks-container.search-results {
   min-height: 0; }
+  .bricks-container.search-results img.lazy {
+    background-color: #e7e7e7; }
 
 .load7 {
   display: none; }

@@ -184,12 +184,11 @@
 
 			MA.sugg($('input.search-field'))
 
-			<!--
-			Zapisuje pozycję scrollTop przy opuszczaniu strony
+			<!-- Zapisuje pozycję scrollTop przy opuszczaniu strony -->
 			$(window).unload(function() {
 				sessionStorage.setItem('scrollPosition', $(window).scrollTop())
+				sessionStorage.setItem('startIndex', <xsl:value-of select="//params/url-start" />)
 			})
-			-->
 
 		});
 

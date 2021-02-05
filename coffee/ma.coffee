@@ -456,18 +456,20 @@ class MA
 		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
 		datowanie = if ob.datowanie then ob.datowanie else ''
 		obrazID = if ob.obraz_asset_url then "#{ob.obraz_asset_url[0]}?key=brick-thumbnail" else ''
-		obraz = if ob.obraz_asset_url then await $.get "#{baseURL[env]}/collection/image/?img=#{obrazID}" else ""
+		# obraz = if ob.obraz_asset_url then await $.get "#{baseURL[env]}/collection/image/?img=#{obrazID}" else ""
+		# obraz = if ob.obraz_asset_url then await $.get "#{baseURL[env]}/collection/image/?img=#{obrazID}" else ""
 		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
 		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
 		link =
 			pl: "#{baseURL[env]}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
 			en: "#{baseURL[env]}/en/collection/item/#{ob.sygnatura_slug}/"
-		img = if obraz then """
+		img = if obrazID then """
 			<img
+				class="lazy"
 			  width="320"
 			  height="#{imgHeight}"
-			  data-blank="#{baseURL[env]}/workspace/images/blank.gif"
-				src = "#{obraz}"
+			  src="#{baseURL[env]}/workspace/images/blank.gif"
+				data-original = "http://ma.wroc.pl/workspace/t.php?link=#{obrazID}"
 			  alt="#{autorzy}, #{nazwaObiektu}"
 			/>
 		""" else ""
@@ -515,12 +517,17 @@ class MA
 					if  i + 1 == resJSON.response.docs.length
 						loader.hide()
 						$('div.pagination').show()
+						$('img.lazy').lazyload({
+							threshold: 1000,
+							failure_limit : 1000
+						})
 						#  scroluje do pozycji zapisanej przy opuszczaniu strony
 						# patrz JS w collection_search.xsl
-						# window.scroll({
-						# 	top: sessionStorage.getItem('scrollPosition'),
-						# 	behavior: 'smooth'
-						# })
+						if parseInt(sessionStorage.getItem('startIndex')) == start
+							window.scroll({
+								top: sessionStorage.getItem('scrollPosition'),
+								behavior: 'smooth'
+							})
 			.catch (error) ->
 				console.error error
 			return
