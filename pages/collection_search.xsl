@@ -121,7 +121,11 @@
 
 	<xsl:choose>
 		<xsl:when test="not(//params/url-q)">
-			 <p class="results-found"><a href='{$search-url}?q="MAt IIIb"'>Architektura międzywojenna</a>. <a href='{$search-url}?q="MAt IIIc"'>Architektura współczesna</a>. Autorzy udostępnionych prac: <a href="{$search-url}?q=Tadeusz%20Brzoza">Tadeusz Brzoza</a>, <a href="{$search-url}?q=Jacek%20Burzyński">Jacek Burzyński</a>, <a href="{$search-url}?q=Ewa%20Cieszyńska">Ewa Cieszyńska</a>, <a href="{$search-url}?q=Władysław%20Czerny">Władysław Czerny</a>, <a href="{$search-url}?q=Julian%20Duchowicz">Julian Duchowicz</a>, <a href="{$search-url}?q=Andrzej%20Frydecki">Andrzej Frydecki</a>, <a href="{$search-url}?q=Jan%20Głuszak%20Dagarama">Jan Głuszak "Dagarama”</a>, <a href="{$search-url}?q=Włodzimierz%20Gruszczyński">Włodzimierz Gruszczyński</a>, <a href="{$search-url}?q=Emil%20Kaliski">Emil Kaliski</a>, <a href="{$search-url}?q=Jan%20Koszczyc%20Witkiewicz">Jan Koszczyc Witkiewicz</a>, <a href="{$search-url}?q=Bohdan%20Lachert">Bohdan Lachert</a>, <a href="{$search-url}?q=Romuald%20Loegler">Romuald Loegler</a>, <a href="{$search-url}?q=Witold%20Lipiński">Witold Lipiński</a>, <a href="{$search-url}?q=Zygmunt%20Majerski">Zygmunt Majerski</a>, <a href="{$search-url}?q=Maciej%20Nowicki">Maciej Nowicki</a>, <a href="{$search-url}?q=Jerzy%20Mokrzyński">Jerzy Mokrzyński</a>, <a href="{$search-url}?q=Maria%20Molicka">Maria Molicka</a>, <a href="{$search-url}?q=Witold%20Molicki">Witold Molicki</a>, <a href="{$search-url}?q=Maria%20Muller">Maria Müller</a>, <a href="{$search-url}?q=Stefan%20Muller">Stefan Müller</a>, <a href="{$search-url}?q=Jerzy%20Sołtan">Jerzy Sołtan</a>, <a href="{$search-url}?q=Helena%20Syrkus">Helena Syrkus</a>, <a href="{$search-url}?q=Szymon%20Syrkus">Szymon Syrkus</a>, <a href="{$search-url}?q=Stefan%20Tworkowski">Stefan Tworkowski</a>, <a href="{$search-url}?q=Marian%20Sulikowski">Marian Sulikowski</a>, <a href="{$search-url}?q=Józef%20Szanajca">Józef Szanajca</a>, <a href="{$search-url}?q=Tadeusz%20Teodorowicz-Todorowski">Tadeusz Teodorowicz-Todorowski</a></p>
+			<p class="results-found">
+				<xsl:apply-templates select="collection-search-links/entry">
+					<xsl:with-param name="search-url" select="$search-url" />
+				</xsl:apply-templates>
+			</p>
 		</xsl:when>
 		<xsl:otherwise>
 			<p class="results-found"><span class="number loading">Znaleziono ___ obiektów</span></p>
@@ -136,6 +140,18 @@
 		</xsl:when>
 		<xsl:otherwise>
 			<h1>No records found.</h1>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+<xsl:template match="collection-search-links/entry">
+	<xsl:param name="search-url" />
+	<xsl:choose>
+		<xsl:when test="search-term">
+			<a href="{$search-url}?q={search-term}"><xsl:value-of select="link-text" /></a>
+		</xsl:when>
+		<xsl:otherwise>
+		<xsl:text> </xsl:text><xsl:value-of select="link-text" />
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
