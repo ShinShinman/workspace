@@ -265,6 +265,9 @@
 				);
 			}
 			var gallery = new Swiper('.swiper-container', swiperOptions);
+			$('.swiper-slide img').bind('contextmenu', function(e) {
+				return false;
+			});
 
 			<!-- Dodaje base64 src w galerii -->
 			<!-- $('.coll .swiper-slide img').each(function(i, el) {
