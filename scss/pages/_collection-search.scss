@@ -48,28 +48,28 @@
 			font-size: 14px;
 		}
 		.loading {
-			overflow: hidden;
-			text-indent: 100%;
-			color: #a7a7a7;
-			background-color: #a7a7a7;
+			@include hide-text;
+
+			color: transparent;
+			background-color: #e4e4e4;
 			margin: 5px 0;
 			min-width: 100px;
-			opacity: 0.1;
+			// opacity: 0.1;
 			animation: fading 1.5s infinite;
 		}
-		@keyframes fading {
-      0% {
-        opacity: .1;
-      }
+	}
+}
+@keyframes fading {
+	0% {
+		background-color: #e4e4e4;
+	}
 
-      50% {
-        opacity: .2;
-      }
+	50% {
+		background-color: #f4f4f4;
+	}
 
-      100% {
-        opacity: .1;
-      }
-    }
+	100% {
+		background-color: #e4e4e4;
 	}
 }
 
@@ -78,7 +78,8 @@
 	min-height: 0;
 
 	img.lazy {
-		background-color: #e7e7e7;
+		background-color: #e4e4e4;
+		animation: fading 1.5s infinite;
 	}
 }
 

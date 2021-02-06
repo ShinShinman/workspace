@@ -3150,36 +3150,38 @@ section.coll {
   font-size: 14px; }
 
 .coll .collection-search .loading {
-  overflow: hidden;
   text-indent: 100%;
-  color: #a7a7a7;
-  background-color: #a7a7a7;
+  white-space: nowrap;
+  overflow: hidden;
+  color: transparent;
+  background-color: #e4e4e4;
   margin: 5px 0;
   min-width: 100px;
-  opacity: 0.1;
   -webkit-animation: fading 1.5s infinite;
           animation: fading 1.5s infinite; }
 
 @-webkit-keyframes fading {
   0% {
-    opacity: .1; }
+    background-color: #e4e4e4; }
   50% {
-    opacity: .2; }
+    background-color: #f4f4f4; }
   100% {
-    opacity: .1; } }
+    background-color: #e4e4e4; } }
 
 @keyframes fading {
   0% {
-    opacity: .1; }
+    background-color: #e4e4e4; }
   50% {
-    opacity: .2; }
+    background-color: #f4f4f4; }
   100% {
-    opacity: .1; } }
+    background-color: #e4e4e4; } }
 
 .bricks-container.search-results {
   min-height: 0; }
   .bricks-container.search-results img.lazy {
-    background-color: #e7e7e7; }
+    background-color: #e4e4e4;
+    -webkit-animation: fading 1.5s infinite;
+            animation: fading 1.5s infinite; }
 
 .load7 {
   display: none; }
