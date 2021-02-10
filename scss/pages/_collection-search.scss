@@ -48,34 +48,39 @@
 			font-size: 14px;
 		}
 		.loading {
-			overflow: hidden;
-			text-indent: 100%;
-			color: #a7a7a7;
-			background-color: #a7a7a7;
+			@include hide-text;
+
+			color: transparent;
+			background-color: #e4e4e4;
 			margin: 5px 0;
 			min-width: 100px;
-			opacity: 0.1;
+			// opacity: 0.1;
 			animation: fading 1.5s infinite;
 		}
-		@keyframes fading {
-      0% {
-        opacity: .1;
-      }
+	}
+}
+@keyframes fading {
+	0% {
+		background-color: #e4e4e4;
+	}
 
-      50% {
-        opacity: .2;
-      }
+	50% {
+		background-color: #f4f4f4;
+	}
 
-      100% {
-        opacity: .1;
-      }
-    }
+	100% {
+		background-color: #e4e4e4;
 	}
 }
 
 // BRICK CONTAINER aka SEARCH RESULTS
 .bricks-container.search-results {
 	min-height: 0;
+
+	img.lazy {
+		background-color: #e4e4e4;
+		animation: fading 1.5s infinite;
+	}
 }
 
 // loder
@@ -87,26 +92,26 @@ $foreground: #999;
 	.loader,
 	.loader:before,
 	.loader:after {
-		border-radius:50%;
-		width:10px;
-		height:10px;
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
 		-webkit-animation-fill-mode: both;
 		animation-fill-mode: both;
-		-webkit-animation:load7 1.8s infinite ease-in-out;
-		animation:load7 1.8s infinite ease-in-out;
+		-webkit-animation: load7 1.8s infinite ease-in-out;
+		animation: load7 1.8s infinite ease-in-out;
 	}
 
 	.loader {
-		color:$foreground;
-		font-size:10px;
-		margin:80px auto;
-		position:relative;
-		text-indent:-9999em;
+		color: $foreground;
+		font-size: 10px;
+		margin: 80px auto;
+		position: relative;
+		text-indent: -9999em;
 		-webkit-transform: translateZ(0);
 		-ms-transform: translateZ(0);
 		transform: translateZ(0);
-		-webkit-animation-delay:-0.16s;
-		animation-delay:-0.16s;
+		-webkit-animation-delay: -0.16s;
+		animation-delay: -0.16s;
 
 		&:before,
 		&:after {
