@@ -67,10 +67,12 @@
 			<div class="swiper-wrapper">
 				<xsl:apply-templates select="obrazy/item" />
 			</div>
-			<xsl:if test="count(obrazy/item) > 1">
+			<!-- Przewijanie galerii -->
+			<!-- Nie działa z ligtboxem -->
+			<!-- <xsl:if test="count(obrazy/item) > 1">
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
-			</xsl:if>
+			</xsl:if> -->
 		</div>
 		<xsl:if test="count(obrazy/item) > 1">
 			<div class="swiper-pagination"><span class="bullet" /></div>
@@ -253,10 +255,10 @@
 					{
 						<!-- slidesOffsetBefore: (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 1132</xsl:text>) ? 150 : 250, -->
 						<!-- loop: true, -->
-						navigation: {
+						<!-- navigation: {
 							nextEl: '.swiper-button-next',
 							prevEl: '.swiper-button-prev',
-						},
+						}, -->
 						pagination: {
 							el: '.swiper-pagination',
 							clickable: true
