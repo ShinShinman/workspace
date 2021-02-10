@@ -532,22 +532,20 @@ class MA
 		page = start / rows + 1
 		pagStart = page - 3
 		pagMax = if (page + 3) > lastPage then lastPage else page + 3
-		url =
-			pl: "#{baseURL[env]}/pl/kolekcja/wyszukiwarka"
-			en: "#{baseURL[env]}/en/collection/search"
+		url = window.location.origin + window.location.pathname
 		xItems = []
 		for i  in [pagStart..pagMax]
 			if i < 1
 				newPage = Math.abs(i) + pagMax + 1
 				if newPage >= lastPage then continue
-				xItems.unshift "<li><a href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(newPage - 1) * 30}'>#{newPage}</a></li>"
-			else if i == page then paginationList.append("<li><a class='active' href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
-			else paginationList.append("<li><a href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
-		if page > 4 then paginationList.prepend("<li><a href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=0'>1</a></li><li class='inactive'>…</li>")
+				xItems.unshift "<li><a href='#{url}?q=#{q}&start=#{(newPage - 1) * 30}'>#{newPage}</a></li>"
+			else if i == page then paginationList.append("<li><a class='active' href='#{url}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
+			else paginationList.append("<li><a href='#{url}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
+		if page > 4 then paginationList.prepend("<li><a href='#{url}?q=#{q}&start=0'>1</a></li><li class='inactive'>…</li>")
 		paginationList.append(xItems)
-		if pagMax != lastPage then paginationList.append("<li class='inactive'>…</li><li><a href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(lastPage - 1) * 30}'>#{lastPage}</a></li>")
-		if page != 1 then paginationList.prepend("<li><a class='prev-page button' href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(page - 2) * 30}'>POPRZEDNIA</a></li>")
-		if page != lastPage then paginationList.append("<li><a class='next-page button' href='#{url[MA.settings.currentLanguage]}?q=#{q}&start=#{(page * 30)}'>NASTĘPNA</a></li>")
+		if pagMax != lastPage then paginationList.append("<li class='inactive'>…</li><li><a href='#{url}?q=#{q}&start=#{(lastPage - 1) * 30}'>#{lastPage}</a></li>")
+		if page != 1 then paginationList.prepend("<li><a class='prev-page button' href='#{url}?q=#{q}&start=#{(page - 2) * 30}'>POPRZEDNIA</a></li>")
+		if page != lastPage then paginationList.append("<li><a class='next-page button' href='#{url}?q=#{q}&start=#{(page * 30)}'>NASTĘPNA</a></li>")
 
 	# suggester
 	suggesterURL = "#{baseURL[env]}/collection/collection-search-suggestions/"
