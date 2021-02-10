@@ -83,6 +83,13 @@
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
 			MA.api.setNavBackground('.offset');
 
+			<!-- Zapisuje pozycję scrollTop przy opuszczaniu strony -->
+			const startIndex = '<xsl:value-of select="//params/url-start" />'
+			$(window).unload(function() {
+				sessionStorage.setItem('scrollPosition', $(window).scrollTop())
+				sessionStorage.setItem('startIndex', (startIndex != '') ? startIndex : '0')
+			})
+
 			var lazyImgs = $('img.lazy');
 			lazyImgs.lazyload({
 				threshold: 1000,
