@@ -707,7 +707,7 @@
         if (typeof item === 'number') {
           return;
         }
-        item = item.replace(/[„”"']/g, '');
+        item = '"' + item.replace(/[„”"']/g, '') + '"';
         url = tempURL[MA.settings.currentLanguage] + encodeURIComponent(item);
         return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
       });

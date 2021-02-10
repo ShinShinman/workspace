@@ -567,7 +567,7 @@ class MA
 		MA.settings.suggester.empty()
 		suggestions.forEach (item) ->
 			if typeof item == 'number' then return
-			item = item.replace(/[„”"']/g, '')
+			item = '"' + item.replace(/[„”"']/g, '') + '"'
 			url = tempURL[MA.settings.currentLanguage] + encodeURIComponent item
 			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
 		currentSuggest = -1
