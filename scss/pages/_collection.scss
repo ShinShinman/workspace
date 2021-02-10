@@ -61,6 +61,8 @@ body.collection {
 			max-height: 540px;
 
 			img {
+				height: 100%;
+				object-fit: contain;
 				cursor: zoom-in;
 			}
 		}
