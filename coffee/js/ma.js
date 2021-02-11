@@ -643,7 +643,7 @@
         pl: `${baseURL[env]}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
         en: `${baseURL[env]}/en/collection/item/${ob.sygnatura_slug}/`
       };
-      img = obrazID ? `<img\n	class="lazy"\n  width="320"\n  height="${imgHeight}"\n  src="${baseURL[env]}/workspace/images/blank.gif"\n	data-original = "http://ma.wroc.pl/workspace/t.php?link=${obrazID}"\n  alt="${autorzy}, ${nazwaObiektu}"\n/>` : "";
+      img = obrazID ? `<img\n	class="lazy"\n  width="320"\n  height="${imgHeight}"\n  src="${baseURL[env]}/workspace/images/blank.gif"\n	srcset="http://ma.wroc.pl/workspace/t.php?link=${obrazID},\n					http://ma.wroc.pl/workspace/t.php?link=${obrazID}_x2 2x,\n					http://ma.wroc.pl/workspace/t.php?link=${obrazID}_x3 3x"\n	data-original="http://ma.wroc.pl/workspace/t.php?link=${obrazID}"\n  alt="${autorzy}, ${nazwaObiektu}"\n/>` : "";
       return $(`<article class="brick">\n	<a href="${link[MA.settings.currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
     };
 

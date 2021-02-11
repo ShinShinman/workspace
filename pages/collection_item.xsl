@@ -161,7 +161,12 @@
 <xsl:template match="obrazy/item">
 	<xsl:variable name="width" select="floor(obraz/width div (obraz/height div 540))" />
 	<div class="swiper-slide">
-		<img src="http://ma.wroc.pl/workspace/t.php?link={obraz/data/thumbnails/item[key='collection-item']/relative-url}" data-src="{$workspace}/images/blank.gif" width="{$width}" height="540" data-test="{$width}">
+		<img src="http://ma.wroc.pl/workspace/t.php?link={obraz/data/thumbnails/item[key='collection-item']/relative-url}"
+			srcset="http://ma.wroc.pl/workspace/t.php?link={obraz/data/thumbnails/item[key='collection-item']/relative-url},
+							http://ma.wroc.pl/workspace/t.php?link={obraz/data/thumbnails/item[key='collection-item_x2']/relative-url} 2x,
+							http://ma.wroc.pl/workspace/t.php?link={obraz/data/thumbnails/item[key='collection-item_x3']/relative-url} 3x"
+			data-src="{$workspace}/images/blank.gif"
+			width="{$width}" height="540" data-test="{$width}">
 			<xsl:attribute name="alt">
 				<xsl:apply-templates select="." mode="alt" />
 			</xsl:attribute>

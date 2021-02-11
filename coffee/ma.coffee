@@ -476,7 +476,10 @@ class MA
 			  width="320"
 			  height="#{imgHeight}"
 			  src="#{baseURL[env]}/workspace/images/blank.gif"
-				data-original = "http://ma.wroc.pl/workspace/t.php?link=#{obrazID}"
+				srcset="http://ma.wroc.pl/workspace/t.php?link=#{obrazID},
+								http://ma.wroc.pl/workspace/t.php?link=#{obrazID}_x2 2x,
+								http://ma.wroc.pl/workspace/t.php?link=#{obrazID}_x3 3x"
+				data-original="http://ma.wroc.pl/workspace/t.php?link=#{obrazID}"
 			  alt="#{autorzy}, #{nazwaObiektu}"
 			/>
 		""" else ""
