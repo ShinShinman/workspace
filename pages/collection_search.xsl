@@ -41,17 +41,13 @@
 				<input class="search-field" type="text" name="q" autofocus="" autocomplete="off" placeholder="Wyszukaj">
 					<xsl:attribute name="value">
 						<xsl:apply-templates select="//params/url-q" />
-						<!-- <xsl:apply-templates select="//params/search" /> -->
-						<!-- <xsl:text>iuysdiauyd</xsl:text> -->
 					</xsl:attribute>
 				</input>
 				<input type="submit" value="&rarr;" class="icon"/>
 				<ul class="suggester">
 					</ul>
 			</form>
-			<xsl:call-template name="count-results">
-				<!-- <xsl:with-param name="count" select="//collection-solr-search/response/result/@numFound" /> -->
-			</xsl:call-template>
+			<xsl:call-template name="count-results" />
 		</article>
 	</section>
 	<section>
@@ -88,35 +84,7 @@
 	</li>
 </xsl:template>
 
-<xsl:template match="params/search"> <!-- tego już nie używam do usunięia -->
-	<xsl:value-of select="translate(., '+', ' ')" />
-</xsl:template>
-
 <xsl:template name="count-results">
-	<xsl:param name="count" /> <!-- tego parametru już nie używam do usunięia -->
-	<xsl:variable name="last-digit">
-		<xsl:value-of select="substring($count, string-length($count), 1)" />
-	</xsl:variable>
-	<xsl:variable name="grammar">
-		<xsl:choose>
-			<xsl:when test="$last-digit = '1'">
-				<xsl:text>obiekt</xsl:text>
-			</xsl:when>
-			<xsl:when test="$last-digit = '2'">
-				<xsl:text>obiekty</xsl:text>
-			</xsl:when>
-			<xsl:when test="$last-digit = '3'">
-				<xsl:text>obiekty</xsl:text>
-			</xsl:when>
-			<xsl:when test="$last-digit = '4'">
-				<xsl:text>obiekty</xsl:text>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:text>obiektów</xsl:text>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:variable>
-
 	<xsl:variable name="search-url" select="concat($root, '/', //current-language/@handle, '/', //plh-page/page/item[@lang = //current-language/@handle]/@handle, '/', //plh-page/page/page/item[@lang = //current-language/@handle]/@handle)" />
 
 	<xsl:choose>
