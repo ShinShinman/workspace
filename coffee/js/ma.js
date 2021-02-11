@@ -758,7 +758,8 @@
       isotopeSetup: isotopeSetup,
       grid: MA.settings.grid,
       removePL: removePL,
-      polishPlural: polishPlural
+      polishPlural: polishPlural,
+      ziomy: ziomy
     };
 
     return MA;

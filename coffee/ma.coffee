@@ -627,6 +627,7 @@ class MA
 		grid: MA.settings.grid
 		removePL: removePL
 		polishPlural: polishPlural
+		ziomy: ziomy
 
 	# Initialize
 	init: ->

@@ -29,7 +29,6 @@
 <xsl:template match="data">
 	<section class="coll collection-item">
 		<xsl:call-template name="collection-header" />
-		<!-- <xsl:apply-templates select="entry[1]" /> -->
 		<xsl:apply-templates select="collection-item-2/item" />
 	</section>
 	<div class="lightbox">
@@ -54,10 +53,10 @@
 	<article>
 		<xsl:choose>
 			<xsl:when test="//current-language/@handle = 'pl'">
-				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu" /></h1>
+				<h1 class="donthyphenate object-name"><xsl:value-of select="nazwa-obiektu" /></h1>
 			</xsl:when>
 			<xsl:otherwise>
-				<h1 class="donthyphenate"><xsl:value-of select="nazwa-obiektu-tlumaczenie/item/nazwa-obiektu" /></h1>
+				<h1 class="donthyphenate object-name"><xsl:value-of select="nazwa-obiektu-tlumaczenie/item/nazwa-obiektu" /></h1>
 			</xsl:otherwise>
 		</xsl:choose>
 		<h2 class="donthyphenate"><xsl:apply-templates select="architekci/item/autorzy/architekt" /></h2>
@@ -162,7 +161,6 @@
 <xsl:template match="obrazy/item">
 	<xsl:variable name="width" select="floor(obraz/width div (obraz/height div 540))" />
 	<div class="swiper-slide">
-		<!-- <img data-src="{obraz/data/thumbnails/item[key='collection-item']/url}" src="{$workspace}/images/blank.gif" width="{$width}" height="540" data-test="{$width}"> -->
 		<img src="http://ma.wroc.pl/workspace/t.php?link={obraz/data/thumbnails/item[key='collection-item']/relative-url}" data-src="{$workspace}/images/blank.gif" width="{$width}" height="540" data-test="{$width}">
 			<xsl:attribute name="alt">
 				<xsl:apply-templates select="." mode="alt" />
@@ -286,6 +284,10 @@
 				threshold: 1000,
 				failure_limit : 1000
 			});
+
+			const objectName = document.querySelector('.object-name');
+			objectName.innerHTML = MA.api.ziomy(objectName.innerText);
+
 		});
 
 		$(window).load(function() {
