@@ -89,13 +89,6 @@
 				sessionStorage.setItem('scrollPosition', $(window).scrollTop())
 				sessionStorage.setItem('startIndex', (startIndex != '') ? startIndex : '0')
 			})
-
-			var lazyImgs = $('img.lazy');
-			lazyImgs.lazyload({
-				threshold: 1000,
-				failure_limit : 1000
-			});
-
 		});
 
 		$(window).load(function() {

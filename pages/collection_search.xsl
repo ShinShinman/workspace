@@ -179,12 +179,6 @@
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
 			MA.api.setNavBackground('.offset');
 
-			var lazyImgs = $('img.lazy');
-			lazyImgs.lazyload({
-				threshold: 1000,
-				failure_limit : 1000
-			});
-
 			<!-- Doładowuje eyniki po skrolowaniu na doł strony
 			$(window).scroll(function() {
 				if($(window).scrollTop() + $(window).height() <xsl:text disable-output-escaping="yes">&gt;</xsl:text>= $(document).height() - 1) { -->
