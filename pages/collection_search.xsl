@@ -51,12 +51,7 @@
 		</article>
 	</section>
 	<section>
-		<!-- Info o braku wyników jeżeli numFound == 0 -->
-		<!-- W tej chwili nieużywane, bo nie ma już parametru $search -->
-		<!-- zamiast $search jest $url-q -->
-		<!-- <xsl:if test="//collection-solr-search/response/result/@numFound = 0 and $search">
-			<xsl:call-template name="no-results" />
-		</xsl:if> -->
+		<xsl:call-template name="no-results" />
 		<div class="bricks-container search-results">
 		</div>
 		<div class="load7">
@@ -104,10 +99,10 @@
 <xsl:template name="no-results">
 	<xsl:choose>
 		<xsl:when test="//current-language/@handle = 'pl'">
-			<h1>Nie znaleziono wyników.</h1>
+			<h2 class="no-results">Nie znaleziono wyników.</h2>
 		</xsl:when>
 		<xsl:otherwise>
-			<h1>No records found.</h1>
+			<h2 class="no-results">No records found.</h2>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>

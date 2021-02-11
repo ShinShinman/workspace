@@ -3179,12 +3179,15 @@ section.coll {
   100% {
     background-color: #e4e4e4; } }
 
-.bricks-container.search-results {
+.collection.search .bricks-container.search-results {
   min-height: 0; }
-  .bricks-container.search-results img.lazy {
+  .collection.search .bricks-container.search-results img.lazy {
     background-color: #e4e4e4;
     -webkit-animation: fading 1.5s infinite;
             animation: fading 1.5s infinite; }
+
+.collection.search .no-results {
+  display: none; }
 
 .load7 {
   display: none; }

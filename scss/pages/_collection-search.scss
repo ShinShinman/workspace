@@ -74,12 +74,17 @@
 }
 
 // BRICK CONTAINER aka SEARCH RESULTS
-.bricks-container.search-results {
-	min-height: 0;
+.collection.search {
+	.bricks-container.search-results {
+		min-height: 0;
 
-	img.lazy {
-		background-color: #e4e4e4;
-		animation: fading 1.5s infinite;
+		img.lazy {
+			background-color: #e4e4e4;
+			animation: fading 1.5s infinite;
+		}
+	}
+	.no-results {
+		display: none;
 	}
 }
 

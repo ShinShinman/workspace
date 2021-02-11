@@ -324,6 +324,10 @@
           numFound = resJSON.response.numFound;
           lastPage = Math.ceil(numFound / rows);
           $('p.results-found .number').text(`Znaleziono ${polishPlural(numFound)}`).removeClass('loading');
+          if (numFound === 0) {
+            $('.no-results').show();
+            return;
+          }
           pagination(start, lastPage, q);
           return resJSON.response.docs.forEach(async function(doc, i) {
             return MA.settings.grid.isotope('insert', (await template(doc)));
