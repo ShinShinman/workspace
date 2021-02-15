@@ -47,7 +47,7 @@
 
 			<xsl:apply-templates mode="meta-tags"/>
 
-			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=3.3.1" />
+			<link rel="stylesheet" type="text/css" href="{$workspace}/css/main.css?v=4.2.0" />
 
 			<xsl:call-template name="favicon" />
 
@@ -70,7 +70,7 @@
 				<xsl:with-param name="lang" select="//current-language/@handle" />
 			</xsl:call-template>
 
-			<script src="{$workspace}/js/main.min.js?v=3.3.1" ></script>
+			<script src="{$workspace}/js/main.min.js?v=4.2.0" ></script>
 			<script>
 				$(function(){
 					<xsl:apply-templates select="//dont-hyphenate/entry/item" />
@@ -147,7 +147,7 @@
 			<div class="left small-stripe">
 				<ul>
 					<xsl:apply-templates select="//main-menu/entry/links/item" />
-					
+
 					<!-- PRZENIEŚĆ TO CO NIŻEJ DO OSOBNEGO TEMPLATE -->
 					<li><a href="https://ewejsciowki.pl/embedded/repertuar/924" onclick="MA.api.closeMenu();">Kup bilety online</a></li>
 					<!---->
@@ -209,13 +209,13 @@
 	<xsl:param name="lang" />
 	<xsl:choose>
 		<xsl:when test="$lang = 'pl'">
-			<a href="https://ma.foxycart.com/cart?cart=view&amp;template_set=DEFAULT"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
+			<a href="https://ma.foxycart.com/cart?cart=view"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
 		</xsl:when>
 		<xsl:otherwise>
-			<a href="https://ma.foxycart.com/cart?cart=view&amp;template_set=en&amp;locale=en_PL"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
+			<a href="https://ma.foxycart.com/cart?cart=view&amp;locale=en_PL"><span class="tmp-icon" style="background-image: url({$root}/workspace/images/koszyk-b.svg)">B</span><span data-fc-id="minicart"><span class="quantity" data-fc-id="minicart-quantity">0</span></span></a>
 		</xsl:otherwise>
 	</xsl:choose>
-	
+
 </xsl:template>
 
 <xsl:template name="language-button">

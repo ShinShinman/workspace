@@ -61,7 +61,8 @@ function cacheBust() {
 
 function bs() {
 	browserSync.init({
-		proxy: 'localhost/ma.wroc.pl/'
+		proxy: 'localhost/ma.wroc.pl/',
+		online: true
 	});
 }
 
@@ -73,7 +74,7 @@ function watchFiles() {
 			done();
 		})
 	);
-	gulp.watch(['./coffee/**/*.coffee'], 
+	gulp.watch(['./coffee/**/*.coffee'],
 		gulp.series(coffeeScript, scripts)
 	);
 	gulp.watch(['pages/*.xsl', 'utilities/*.xsl'],

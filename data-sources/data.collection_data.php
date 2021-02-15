@@ -1,22 +1,41 @@
 <?php
 
-require_once(EXTENSIONS.'/page_lhandles/lib/class.datasource.MultilingualNavigation.php');
-
-class datasourcecollection_nav extends MultilingualNavigationDatasource
+class datasourcecollection_data extends SectionDatasource
 {
-    public $dsParamROOTELEMENT = 'collection-nav';
+    public $dsParamROOTELEMENT = 'collection-data';
     public $dsParamORDER = 'asc';
+    public $dsParamPAGINATERESULTS = 'no';
+    public $dsParamLIMIT = '100';
+    public $dsParamSTARTPAGE = '1';
     public $dsParamREDIRECTONEMPTY = 'no';
     public $dsParamREDIRECTONFORBIDDEN = 'no';
     public $dsParamREDIRECTONREQUIRED = 'no';
+    public $dsParamSORT = 'signature';
+    public $dsParamHTMLENCODE = 'yes';
+    public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
     
 
-    public $dsParamFILTERS = array(
-        'parent' => '/collection',
-        'type' => 'submenu',
-    );
-        
+    
 
+    public $dsParamINCLUDEDELEMENTS = array(
+        'signature',
+        'authors',
+        'object-name: all-languages: unformatted',
+        'place',
+        'address',
+        'address-cyrillic',
+        'projec-content: all-languages: unformatted',
+        'project-remarks: all-languages: unformatted',
+        'dates',
+        'material',
+        'material-en',
+        'technics',
+        'technics-en',
+        'dimensions',
+        'publish',
+        'images',
+        'related-items'
+    );
     
 
     public function __construct($env = null, $process_params = true)
@@ -28,19 +47,19 @@ class datasourcecollection_nav extends MultilingualNavigationDatasource
     public function about()
     {
         return array(
-            'name' => 'Collection Nav',
+            'name' => 'Collection Data',
             'author' => array(
                 'name' => 'Olaf Schindler',
                 'website' => 'http://localhost/ma.wroc.pl',
                 'email' => 'studio@orkana39.pl'),
             'version' => 'Symphony 2.7.7',
-            'release-date' => '2020-03-31T16:41:14+00:00'
+            'release-date' => '2020-04-24T08:45:19+00:00'
         );
     }
 
     public function getSource()
     {
-        return 'navigation';
+        return '70';
     }
 
     public function allowEditorToParse()

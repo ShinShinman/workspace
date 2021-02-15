@@ -47,5 +47,167 @@
 			color: grey;
 			font-size: 14px;
 		}
+		.loading {
+			@include hide-text;
+
+			color: transparent;
+			background-color: #e4e4e4;
+			margin: 5px 0;
+			min-width: 100px;
+			// opacity: 0.1;
+			animation: fading 1.5s infinite;
+		}
+	}
+}
+@keyframes fading {
+	0% {
+		background-color: #e4e4e4;
+	}
+
+	50% {
+		background-color: #f4f4f4;
+	}
+
+	100% {
+		background-color: #e4e4e4;
+	}
+}
+
+// BRICK CONTAINER aka SEARCH RESULTS
+.collection.search {
+	.bricks-container.search-results {
+		min-height: 0;
+
+		img.lazy {
+			background-color: #e4e4e4;
+			animation: fading 1.5s infinite;
+		}
+	}
+	.no-results {
+		display: none;
+	}
+}
+
+// loder
+$foreground: #999;
+
+.load7 {
+	display: none;
+
+	.loader,
+	.loader:before,
+	.loader:after {
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		-webkit-animation: load7 1.8s infinite ease-in-out;
+		animation: load7 1.8s infinite ease-in-out;
+	}
+
+	.loader {
+		color: $foreground;
+		font-size: 10px;
+		margin: 80px auto;
+		position: relative;
+		text-indent: -9999em;
+		-webkit-transform: translateZ(0);
+		-ms-transform: translateZ(0);
+		transform: translateZ(0);
+		-webkit-animation-delay: -0.16s;
+		animation-delay: -0.16s;
+
+		&:before,
+		&:after {
+			content:'';
+			position:absolute;
+			top:0;
+		}
+
+		&:before {
+			left:-3.5em;
+			-webkit-animation-delay:-0.32s;
+			animation-delay:-0.32s;
+		}
+
+		&:after {
+			left:3.5em;
+		}
+
+	}
+
+}
+
+@mixin load7-frames() {
+
+	0%,
+	80%,
+	100% {
+		box-shadow:0 10px 0 -1.3em;
+	}
+
+	40% {
+		box-shadow:0 10px 0 0;
+	}
+
+}
+
+@-webkit-keyframes load7 {@include load7-frames;}
+@keyframes load7 {@include load7-frames;}
+
+// pagination
+
+.pagination {
+	margin-top: 100px;
+	margin-bottom: -50px;
+	display: none;
+
+	.pagination__list {
+		display: flex;
+		justify-content: center;
+
+		li {
+			margin: 0 1px;
+
+			&.inactive {
+				margin: 0 5px;
+			}
+
+			a {
+				display: inline-block;
+				padding: 0 8px;
+
+				&:hover {
+					background-color: lightgrey;
+					color: black;
+				}
+
+				&.active {
+					background-color: black;
+					color: white;
+					opacity: 1;
+				}
+
+				&.button {
+					margin: 0 10px;
+					text-transform: uppercase;
+
+					&:hover {
+						background-color: transparent;
+					}
+					&.prev-page {
+						&::before {
+							content: "< ";
+						}
+					}
+					&.next-page {
+						&::after {
+							content: " >";
+						}
+					}
+				}
+			}
+		}
 	}
 }

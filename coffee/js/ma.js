@@ -2,36 +2,7 @@
   var MA;
 
   MA = (function() {
-    /*
-    hlHeight = $('.owl-carousel').height()
-    MA.settings.highlightVisible = true
-    dirCount = [0, 0]
-    direction = ''
-
-    $(window).scroll ->
-    	dirCount.pop()
-    	dirCount.push($(window).scrollTop())
-    	dirCount.reverse()
-    	direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-    	console.log direction
-
-     * Highligt in!
-    	if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
-    		MA.settings.highlightVisible = true
-    		stickyNavSetup({
-    			backgroundColor: 'transparent'
-    			})
-    		console.log 'Highligt in!'
-
-     * Highligt out!
-    	if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
-    		MA.settings.highlightVisible = false
-    		stickyNavSetup({
-    			backgroundColor: 'white'
-    			})
-    		console.log 'Highligt out!'
-     */
-    var apiTest, closeMenu, grid, gridItem, isScrolledIntoView, isotopeSetup, mainMenu, menuToggle, menuTrigger, openMenu, searchForm, searchToggle, searchTrigger, setNavBackground, stickyNavSetup;
+    var apiTest, baseURL, closeMenu, currentSuggest, directusURL, env, grid, gridItem, isScrolledIntoView, isotopeSetup, listSuggest, loadLazyImages, mainMenu, menuToggle, menuTrigger, numFound, openMenu, pagination, polishPlural, printSuggestions, removePL, rows, searchForm, searchToggle, searchTrigger, setNavBackground, start, stickyNavSetup, suggest, suggesterURL, template, tunelSOLR, ziomy;
 
     class MA {
       setupHighlight() {
@@ -336,6 +307,83 @@
         });
       }
 
+      // askSOLR – dodaje do kontenera Isotope nowe kafle
+      askSOLR(q, start = 0) {
+        var lastPage, loader, url;
+        loader = $('div.load7');
+        if (q === '') {
+          return;
+        }
+        url = `${tunelSOLR[env]}?link=ma_collection/select&q=${q}&start=${start}&rows=${rows}`;
+        lastPage = '';
+        loader.show();
+        // start += rows
+        fetch(url).then(async function(response) {
+          var resJSON;
+          resJSON = (await response.json());
+          numFound = resJSON.response.numFound;
+          lastPage = Math.ceil(numFound / rows);
+          $('p.results-found .number').text(`Znaleziono ${polishPlural(numFound)}`).removeClass('loading');
+          if (numFound === 0) {
+            $('.no-results').show();
+            return;
+          }
+          pagination(start, lastPage, q);
+          return resJSON.response.docs.forEach(async function(doc, i) {
+            return MA.settings.grid.isotope('insert', (await template(doc)));
+          });
+        }).then(function() {
+          loader.hide();
+          $('div.pagination').show();
+          loadLazyImages('img.lazy');
+          //  scroluje do pozycji zapisanej przy opuszczaniu strony
+          // patrz JS w collection_search.xsl
+          if (parseInt(sessionStorage.getItem('startIndex')) === start) {
+            return window.scroll({
+              top: sessionStorage.getItem('scrollPosition'),
+              behavior: 'smooth'
+            });
+          }
+        }).catch(function(error) {
+          return console.error(error);
+        });
+      }
+
+      sugg(trg) {
+        return trg.keyup(function(e) {
+          if (!$(this).val()) {
+            MA.settings.suggester.hide();
+            return;
+          }
+          switch (e.which) {
+            case 38:
+              if (currentSuggest !== -1) {
+                listSuggest[currentSuggest].classList.remove('highlight');
+              }
+              if (currentSuggest > 0) {
+                currentSuggest--;
+              } else {
+                currentSuggest = listSuggest.length - 1;
+              }
+              return listSuggest[currentSuggest].classList.add('highlight');
+            case 40:
+              if (currentSuggest !== -1) {
+                listSuggest[currentSuggest].classList.remove('highlight');
+              }
+              if (currentSuggest < listSuggest.length - 1) {
+                currentSuggest++;
+              } else {
+                currentSuggest = 0;
+              }
+              return listSuggest[currentSuggest].classList.add('highlight');
+            case 13:
+              return trg.val(listSuggest[currentSuggest].firstChild.textContent).submit();
+            default:
+              return suggest(encodeURIComponent($(this).val()));
+          }
+        });
+      }
+
       // Initialize
       init() {
         searchToggle(searchTrigger, searchForm);
@@ -376,7 +424,9 @@
       grid: $('.bricks-container'),
       gridItem: '.brick',
       highlightOn: false,
-      highlightVisible: false
+      highlightVisible: false,
+      currentLanguage: window.location.pathname.includes('/pl/') ? 'pl' : 'en',
+      suggester: $('ul.suggester')
     };
 
     // Private methods
@@ -496,6 +546,205 @@
       return (elemBottom <= docViewBottom) && (elemTop >= docViewTop);
     };
 
+    /* COLLECTION SOLR */
+    // Ustala środowisko: local albo live
+    env = window.location.origin.includes('ma.wroc.pl') ? "live" : "local";
+
+    // remove hanging single letters
+    ziomy = function(string) {
+      return string.replace(/\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;');
+    };
+
+    // usuwa polskie znaki
+    removePL = function(string, map) {
+      var currentMap, tempArray;
+      currentMap = $.extend({
+        ą: 'a',
+        ć: 'c',
+        ę: 'e',
+        ł: 'l',
+        ń: 'n',
+        ó: 'o',
+        ś: 's',
+        ż: 'z',
+        ź: 'z'
+      }, map);
+      tempArray = string.toLowerCase().split('');
+      tempArray.forEach(function(el, i) {
+        if (currentMap[el]) {
+          return tempArray[i] = currentMap[el];
+        }
+      });
+      return tempArray.join('');
+    };
+
+    //	templete kafelka Isotope
+
+    // ustala adres strony /solr-search
+    // użycie: baseURL[env]
+    baseURL = {
+      local: `${window.location.origin}/ma.wroc.pl`,
+      live: `${window.location.origin}`
+    };
+
+    // ustala adres tunelu php (tunelSOLR[env])
+    tunelSOLR = {
+      local: `${baseURL[env]}/workspace/tS.local.php`,
+      live: `${baseURL[env]}/workspace/tS.php`
+    };
+
+    //ustawienia kolejki pobierania
+    start = 0;
+
+    rows = 30;
+
+    numFound = 0;
+
+    directusURL = {
+      local: 'http://127.0.0.1:4081',
+      live: 'http://156.17.251.36:59190'
+    };
+
+    // loadImage = (src) ->
+    // 	new Promise( (resolve, reject) ->
+    // 		img = new Image()
+    // 		img.onload = () -> resolve(img)
+    // 		img.onerror = () -> reject
+    // 		img.src = src
+    // 	)
+
+    // Ładuje w tel obrazki
+    loadLazyImages = function(selector) {
+      var elements;
+      elements = document.querySelectorAll(selector);
+      return elements.forEach(function(el) {
+        var tempImg;
+        tempImg = new Image();
+        tempImg.onload = function() {
+          return el.src = el.dataset.original;
+        };
+        return tempImg.src = el.dataset.original;
+      });
+    };
+
+    template = function(ob) {
+      var autorzy, datowanie, img, imgHeight, link, nazwa, nazwaObiektu, obrazID, ratio;
+      nazwa = {
+        pl: ob.nazwa_obiektu ? ziomy(ob.nazwa_obiektu) : '',
+        en: ob.nazwa_obiektu_tlumaczenie ? ob.nazwa_obiektu_tlumaczenie : ''
+      };
+      nazwaObiektu = nazwa[MA.settings.currentLanguage];
+      autorzy = ob.autorzy ? ob.autorzy.join(', ') : '';
+      datowanie = ob.datowanie ? ob.datowanie : '';
+      obrazID = ob.obraz_asset_url ? `${ob.obraz_asset_url[0]}?key=brick-thumbnail` : '';
+      ratio = ob.obraz_width ? ob.obraz_width[0] / 320 : 0;
+      imgHeight = ob.obraz_height ? Math.floor(ob.obraz_height[0] / ratio) : 0;
+      link = {
+        pl: `${baseURL[env]}/pl/kolekcja/obiekt/${ob.sygnatura_slug}/`,
+        en: `${baseURL[env]}/en/collection/item/${ob.sygnatura_slug}/`
+      };
+      img = obrazID ? `<img\n	class="lazy"\n  width="320"\n  height="${imgHeight}"\n  src="${baseURL[env]}/workspace/images/blank.gif"\n	srcset="http://ma.wroc.pl/workspace/t.php?link=${obrazID},\n					http://ma.wroc.pl/workspace/t.php?link=${obrazID}_x2 2x,\n					http://ma.wroc.pl/workspace/t.php?link=${obrazID}_x3 3x"\n	data-original="http://ma.wroc.pl/workspace/t.php?link=${obrazID}"\n  alt="${autorzy}, ${nazwaObiektu}"\n/>` : "";
+      return $(`<article class="brick">\n	<a href="${link[MA.settings.currentLanguage]}">\n		<h1 class="donthyphenate">${nazwaObiektu}</h1>\n		<h2 class="donthyphenate">${autorzy}</h2>\n    <p>${datowanie}</p>\n		${img}\n	</a>\n</article>`);
+    };
+
+    // odmina słowa obiekt
+    polishPlural = function(value) {
+      var pluralGenitive, pluralNominativ, singularNominativ;
+      singularNominativ = 'obiekt';
+      pluralNominativ = 'obiekty';
+      pluralGenitive = 'obiektów';
+      if (value === 1) {
+        return `${value} ${singularNominativ}`;
+      } else if (value % 10 >= 2 && value % 10 <= 4 && (value % 100 < 10 || value % 100 >= 20)) {
+        return `${value} ${pluralNominativ}`;
+      } else {
+        return `${value} ${pluralGenitive}`;
+      }
+    };
+
+    // pagination
+    pagination = function(start, lastPage, q) {
+      var i, j, newPage, pagMax, pagStart, page, paginationList, ref, ref1, url, xItems;
+      q = q === '*' ? '' : q;
+      paginationList = $('ul.pagination__list');
+      page = start / rows + 1;
+      pagStart = page - 3;
+      pagMax = (page + 3) > lastPage ? lastPage : page + 3;
+      url = window.location.origin + window.location.pathname;
+      xItems = [];
+      for (i = j = ref = pagStart, ref1 = pagMax; (ref <= ref1 ? j <= ref1 : j >= ref1); i = ref <= ref1 ? ++j : --j) {
+        if (i < 1) {
+          newPage = Math.abs(i) + pagMax + 1;
+          if (newPage >= lastPage) {
+            continue;
+          }
+          xItems.unshift(`<li><a href='${url}?q=${q}&start=${(newPage - 1) * 30}'>${newPage}</a></li>`);
+        } else if (i === page) {
+          paginationList.append(`<li><a class='active' href='${url}?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
+        } else {
+          paginationList.append(`<li><a href='${url}?q=${q}&start=${(i - 1) * 30}'>${i}</a></li>`);
+        }
+      }
+      if (page > 4) {
+        paginationList.prepend(`<li><a href='${url}?q=${q}&start=0'>1</a></li><li class='inactive'>…</li>`);
+      }
+      paginationList.append(xItems);
+      if (pagMax !== lastPage) {
+        paginationList.append(`<li class='inactive'>…</li><li><a href='${url}?q=${q}&start=${(lastPage - 1) * 30}'>${lastPage}</a></li>`);
+      }
+      if (page !== 1) {
+        paginationList.prepend(`<li><a class='prev-page button' href='${url}?q=${q}&start=${(page - 2) * 30}'>POPRZEDNIA</a></li>`);
+      }
+      if (page !== lastPage) {
+        return paginationList.append(`<li><a class='next-page button' href='${url}?q=${q}&start=${page * 30}'>NASTĘPNA</a></li>`);
+      }
+    };
+
+    // suggester
+    suggesterURL = `${baseURL[env]}/collection/collection-search-suggestions/`;
+
+    currentSuggest = -1;
+
+    listSuggest = null;
+
+    // wyświetla podpowiedzi do wyszukiwania
+    printSuggestions = function(suggestions) {
+      var tempURL;
+      tempURL = {
+        pl: `${baseURL[env]}/pl/kolekcja/wyszukiwarka?q=`,
+        en: `${baseURL[env]}/en/collection/search?q=`
+      };
+      MA.settings.suggester.empty();
+      suggestions.forEach(function(item) {
+        var url;
+        if (typeof item === 'number') {
+          return;
+        }
+        item = '"' + item.replace(/[„”"']/g, '') + '"';
+        url = tempURL[MA.settings.currentLanguage] + encodeURIComponent(item);
+        return MA.settings.suggester.append(`<li><a href='${url}'>${item}</a></li>`);
+      });
+      currentSuggest = -1;
+      return listSuggest = document.querySelectorAll('ul.suggester li');
+    };
+
+    // pobiera podpowiedzi do wyszukiwania
+    suggest = function(q) {
+      var url;
+      url = `${tunelSOLR[env]}?link=ma_collection/terms&terms.limit=10&terms.fl=autocomplete&terms.regex.flag=case_insensitive&terms.regex=.*${decodeURI(q).replace(/\s/g, '.')}.*`;
+      return fetch(url).then(async function(res) {
+        var resJSON;
+        resJSON = (await res.json());
+        // console.log resJSON.terms.autocomplete
+        if (resJSON.terms.autocomplete.length > 0) {
+          MA.settings.suggester.show();
+          return printSuggestions(resJSON.terms.autocomplete);
+        }
+      }).catch(function(err) {
+        return console.error(err);
+      });
+    };
+
     apiTest = function() {
       return console.log('Public API available!');
     };
@@ -506,7 +755,11 @@
       openMenu: openMenu,
       closeMenu: closeMenu,
       setNavBackground: setNavBackground,
-      isotopeSetup: isotopeSetup
+      isotopeSetup: isotopeSetup,
+      grid: MA.settings.grid,
+      removePL: removePL,
+      polishPlural: polishPlural,
+      ziomy: ziomy
     };
 
     return MA;

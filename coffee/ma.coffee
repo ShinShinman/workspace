@@ -21,11 +21,12 @@ class MA
 		gridItem: '.brick'
 		highlightOn: false
 		highlightVisible: false
-
+		currentLanguage: if window.location.pathname.includes('/pl/') then 'pl' else 'en'
+		suggester: $('ul.suggester')
 
 	# Private methods
 
-	searchToggle = (trigger, target) -> 
+	searchToggle = (trigger, target) ->
 		trigger.click ->
 			target.css('opacity', (i, opacity) ->
 				if opacity > 0 then 0 else 1
@@ -141,37 +142,6 @@ class MA
 			}, 800)
 
 		setNavBackground('.owl-carousel')
-
-		###
-		hlHeight = $('.owl-carousel').height()
-		MA.settings.highlightVisible = true
-		dirCount = [0, 0]
-		direction = ''
-
-		$(window).scroll ->
-			dirCount.pop()
-			dirCount.push($(window).scrollTop())
-			dirCount.reverse()
-			direction = if dirCount[0] > dirCount[1] then 'down' else 'up'
-			console.log direction
-
-			# Highligt in!
-			if $(window).scrollTop() < hlHeight and not MA.settings.highlightVisible
-				MA.settings.highlightVisible = true
-				stickyNavSetup({
-					backgroundColor: 'transparent'
-					})
-				console.log 'Highligt in!'
-
-			# Highligt out!
-			if $(window).scrollTop() >= hlHeight and MA.settings.highlightVisible
-				MA.settings.highlightVisible = false
-				stickyNavSetup({
-					backgroundColor: 'white'
-					})
-				console.log 'Highligt out!'
-		###
-
 		return
 
 	isScrolledIntoView = (elem) ->
@@ -187,7 +157,7 @@ class MA
 		return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 
 
-	
+
 	# Public methods
 	stickyNavSetup: (options) ->
 		settings = $.extend( {
@@ -307,7 +277,7 @@ class MA
 		#filtrowanie przez QuickSearch
 		qSOn = () -> #QuickSearhOn
 			# QuickSearch
-			form = $ '.filters .search form' 
+			form = $ '.filters .search form'
 			clearBtn = $ '.filters .search input[type = reset]'
 			qsRegex = undefined
 
@@ -318,7 +288,7 @@ class MA
 					clearTimeout timeout
 					args = arguments
 					_this = this
-					delayed = () -> 
+					delayed = () ->
 						fn.apply _this, args
 						return
 					timeout = setTimeout delayed, threshold
@@ -328,7 +298,7 @@ class MA
 				tmp = settings.quickSearchField.val().split(' ')
 				$.each tmp, (i, v) ->
 					tmp[i] = '(?=.*' + v + ')'
-				
+
 				searchStr = tmp.join('')
 				qsRegExp = new RegExp searchStr + '.*', 'gi'
 				settings.grid.isotope
@@ -361,7 +331,7 @@ class MA
 			slider: $('.slider')
 			sliderRange: [1965, 2016]
 			, options
-		
+
 		updateLegend = (sYear, eYear) ->
 				$('.legend span').text(' ' + sYear + '–' + eYear)
 
@@ -396,7 +366,7 @@ class MA
 	getCountryCode: (lang, url) ->
 		apiKey = "7955c4b5554ea1387dad070d0ae194279a717795137ac2b3b1f884f4"
 		$.ajax
-			url: "https://api.ipdata.co/country_code?api-key=#{apiKey}" 
+			url: "https://api.ipdata.co/country_code?api-key=#{apiKey}"
 			type: 'GET'
 			dataType: 'text'
 			error: (jqXHR, textStatus, errorThrown) ->
@@ -417,7 +387,235 @@ class MA
 				console.log "AJAX Error: #{textStatus}"
 			success: (data, textStatus, jqXHR) ->
 				console.log "Dziś użyto usługi #{data} razy. Dziś możesz z niej skorzystać jeszcze #{1500-data} razy."
-		return 				
+		return
+
+
+	### COLLECTION SOLR ###
+
+	# Ustala środowisko: local albo live
+	env = if window.location.origin.includes('ma.wroc.pl') then "live" else "local"
+
+	# remove hanging single letters
+	ziomy = (string) ->
+		return string.replace /\s\b(a|i|o|u|w|z|A|I|O|U|W|Z|we|ul\.)\b\s/gi, ' $1&nbsp;'
+
+	# usuwa polskie znaki
+	removePL = (string, map) ->
+		currentMap = $.extend {
+			ą: 'a'
+			ć: 'c'
+			ę: 'e'
+			ł: 'l'
+			ń: 'n'
+			ó: 'o'
+			ś: 's'
+			ż: 'z'
+			ź: 'z'
+		}, map
+		tempArray = string.toLowerCase().split('')
+		tempArray.forEach (el, i) ->
+			if currentMap[el]
+				tempArray[i] = currentMap[el]
+		return tempArray.join('')
+
+	#	templete kafelka Isotope
+
+	# ustala adres strony /solr-search
+	# użycie: baseURL[env]
+	baseURL =
+		local: "#{window.location.origin}/ma.wroc.pl"
+		live: "#{window.location.origin}"
+	# ustala adres tunelu php (tunelSOLR[env])
+	tunelSOLR =
+		local: "#{baseURL[env]}/workspace/tS.local.php"
+		live: "#{baseURL[env]}/workspace/tS.php"
+	#ustawienia kolejki pobierania
+	start = 0;
+	rows = 30;
+	numFound = 0;
+
+	# ustala adres Directusa
+	# użycie: directusURL[env]
+	directusURL =
+		local: 'http://127.0.0.1:4081'
+		live: 'http://156.17.251.36:59190'
+
+	# loadImage = (src) ->
+	# 	new Promise( (resolve, reject) ->
+	# 		img = new Image()
+	# 		img.onload = () -> resolve(img)
+	# 		img.onerror = () -> reject
+	# 		img.src = src
+	# 	)
+
+	# Ładuje w tel obrazki
+	loadLazyImages = (selector) ->
+		elements = document.querySelectorAll(selector)
+		elements.forEach (el) ->
+			tempImg = new Image()
+			tempImg.onload = () ->
+				el.src = el.dataset.original
+			tempImg.src = el.dataset.original
+
+	template = (ob) ->
+		nazwa =
+			pl: if ob.nazwa_obiektu then ziomy(ob.nazwa_obiektu) else ''
+			en: if ob.nazwa_obiektu_tlumaczenie then ob.nazwa_obiektu_tlumaczenie else ''
+		nazwaObiektu = nazwa[MA.settings.currentLanguage]
+		autorzy = if ob.autorzy then ob.autorzy.join(', ') else ''
+		datowanie = if ob.datowanie then ob.datowanie else ''
+		obrazID = if ob.obraz_asset_url then "#{ob.obraz_asset_url[0]}?key=brick-thumbnail" else ''
+		ratio = if ob.obraz_width then ob.obraz_width[0] / 320 else 0
+		imgHeight = if ob.obraz_height then Math.floor( ob.obraz_height[0] / ratio ) else 0
+		link =
+			pl: "#{baseURL[env]}/pl/kolekcja/obiekt/#{ob.sygnatura_slug}/"
+			en: "#{baseURL[env]}/en/collection/item/#{ob.sygnatura_slug}/"
+		img = if obrazID then """
+			<img
+				class="lazy"
+			  width="320"
+			  height="#{imgHeight}"
+			  src="#{baseURL[env]}/workspace/images/blank.gif"
+				srcset="http://ma.wroc.pl/workspace/t.php?link=#{obrazID},
+								http://ma.wroc.pl/workspace/t.php?link=#{obrazID}_x2 2x,
+								http://ma.wroc.pl/workspace/t.php?link=#{obrazID}_x3 3x"
+				data-original="http://ma.wroc.pl/workspace/t.php?link=#{obrazID}"
+			  alt="#{autorzy}, #{nazwaObiektu}"
+			/>
+		""" else ""
+		$("""
+			<article class="brick">
+				<a href="#{link[MA.settings.currentLanguage]}">
+					<h1 class="donthyphenate">#{nazwaObiektu}</h1>
+					<h2 class="donthyphenate">#{autorzy}</h2>
+			    <p>#{datowanie}</p>
+					#{img}
+				</a>
+			</article>
+		""")
+
+	# odmina słowa obiekt
+	polishPlural = (value) ->
+		singularNominativ = 'obiekt'
+		pluralNominativ = 'obiekty'
+		pluralGenitive = 'obiektów'
+		if value == 1
+			return "#{value} #{singularNominativ}"
+		else if value % 10 >= 2 and value %10 <= 4 and (value % 100 < 10 or value % 100 >= 20)
+			return "#{value} #{pluralNominativ}"
+		else
+			return "#{value} #{pluralGenitive}"
+
+	# askSOLR – dodaje do kontenera Isotope nowe kafle
+	askSOLR: (q, start = 0) ->
+		loader = $('div.load7')
+		if q == ''
+			return
+		url = "#{tunelSOLR[env]}?link=ma_collection/select&q=#{q}&start=#{start}&rows=#{rows}"
+		lastPage = ''
+		loader.show()
+		# start += rows
+		fetch url
+			.then (response) ->
+				resJSON = await response.json()
+				numFound = resJSON.response.numFound
+				lastPage = Math.ceil numFound / rows
+				$('p.results-found .number').text("Znaleziono #{polishPlural(numFound)}").removeClass('loading')
+				if numFound == 0
+					$('.no-results').show();
+					return
+				pagination(start, lastPage, q)
+				resJSON.response.docs.forEach (doc, i) ->
+					MA.settings.grid.isotope('insert', await template(doc))
+			.then () ->
+				loader.hide()
+				$('div.pagination').show()
+				loadLazyImages('img.lazy')
+				#  scroluje do pozycji zapisanej przy opuszczaniu strony
+				# patrz JS w collection_search.xsl
+				if parseInt(sessionStorage.getItem('startIndex')) == start
+					window.scroll({
+						top: sessionStorage.getItem('scrollPosition'),
+						behavior: 'smooth'
+					})
+			.catch (error) ->
+				console.error error
+			return
+
+	# pagination
+	pagination = (start, lastPage, q) ->
+		q = if q == '*' then '' else q
+		paginationList = $('ul.pagination__list')
+		page = start / rows + 1
+		pagStart = page - 3
+		pagMax = if (page + 3) > lastPage then lastPage else page + 3
+		url = window.location.origin + window.location.pathname
+		xItems = []
+		for i  in [pagStart..pagMax]
+			if i < 1
+				newPage = Math.abs(i) + pagMax + 1
+				if newPage >= lastPage then continue
+				xItems.unshift "<li><a href='#{url}?q=#{q}&start=#{(newPage - 1) * 30}'>#{newPage}</a></li>"
+			else if i == page then paginationList.append("<li><a class='active' href='#{url}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
+			else paginationList.append("<li><a href='#{url}?q=#{q}&start=#{(i - 1) * 30}'>#{i}</a></li>")
+		if page > 4 then paginationList.prepend("<li><a href='#{url}?q=#{q}&start=0'>1</a></li><li class='inactive'>…</li>")
+		paginationList.append(xItems)
+		if pagMax != lastPage then paginationList.append("<li class='inactive'>…</li><li><a href='#{url}?q=#{q}&start=#{(lastPage - 1) * 30}'>#{lastPage}</a></li>")
+		if page != 1 then paginationList.prepend("<li><a class='prev-page button' href='#{url}?q=#{q}&start=#{(page - 2) * 30}'>POPRZEDNIA</a></li>")
+		if page != lastPage then paginationList.append("<li><a class='next-page button' href='#{url}?q=#{q}&start=#{(page * 30)}'>NASTĘPNA</a></li>")
+
+	# suggester
+	suggesterURL = "#{baseURL[env]}/collection/collection-search-suggestions/"
+	currentSuggest = -1
+	listSuggest = null
+
+	# wyświetla podpowiedzi do wyszukiwania
+	printSuggestions = (suggestions) ->
+		tempURL =
+			pl: "#{baseURL[env]}/pl/kolekcja/wyszukiwarka?q="
+			en: "#{baseURL[env]}/en/collection/search?q="
+		MA.settings.suggester.empty()
+		suggestions.forEach (item) ->
+			if typeof item == 'number' then return
+			item = '"' + item.replace(/[„”"']/g, '') + '"'
+			url = tempURL[MA.settings.currentLanguage] + encodeURIComponent item
+			MA.settings.suggester.append("<li><a href='#{url}'>#{item}</a></li>")
+		currentSuggest = -1
+		listSuggest = document.querySelectorAll('ul.suggester li')
+
+	# pobiera podpowiedzi do wyszukiwania
+	suggest = (q) ->
+		url = "#{tunelSOLR[env]}?link=ma_collection/terms&terms.limit=10&terms.fl=autocomplete&terms.regex.flag=case_insensitive&terms.regex=.*#{decodeURI(q).replace(/\s/g, '.')}.*"
+		fetch url
+			.then (res) ->
+				resJSON = await res.json()
+				# console.log resJSON.terms.autocomplete
+				if resJSON.terms.autocomplete.length > 0
+					MA.settings.suggester.show()
+					printSuggestions resJSON.terms.autocomplete
+			.catch (err) ->
+				console.error err
+
+	sugg: (trg) ->
+		trg.keyup (e) ->
+			if !$(this).val()
+				MA.settings.suggester.hide()
+				return
+			switch e.which
+				when 38
+					if currentSuggest != -1 then listSuggest[currentSuggest].classList.remove 'highlight'
+					if currentSuggest > 0 then currentSuggest--
+					else currentSuggest = listSuggest.length - 1
+					listSuggest[currentSuggest].classList.add 'highlight'
+				when 40
+					if currentSuggest != -1 then listSuggest[currentSuggest].classList.remove 'highlight'
+					if currentSuggest < listSuggest.length - 1 then currentSuggest++
+					else currentSuggest = 0
+					listSuggest[currentSuggest].classList.add 'highlight'
+				when 13
+					trg.val(listSuggest[currentSuggest].firstChild.textContent).submit()
+				else suggest encodeURIComponent $(this).val()
+
 
 	apiTest = ->
 		console.log 'Public API available!'
@@ -429,6 +627,10 @@ class MA
 		closeMenu: closeMenu
 		setNavBackground: setNavBackground
 		isotopeSetup: isotopeSetup
+		grid: MA.settings.grid
+		removePL: removePL
+		polishPlural: polishPlural
+		ziomy: ziomy
 
 	# Initialize
 	init: ->

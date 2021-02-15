@@ -23,7 +23,9 @@
 
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:include href="../utilities/_image-header.xsl"/>
+<xsl:include href="../utilities/_collection-header.xsl"/>
 <xsl:include href="../utilities/_collection-brick.xsl"/>
+<xsl:include href="../utilities/_lightbox.xsl"/>
 
 <xsl:template match="data">
 	<xsl:choose>
@@ -46,22 +48,9 @@
 		<xsl:with-param name="parent-node" select="collection-header-images" />
 	</xsl:call-template>
 	<section class="coll">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
+		<xsl:call-template name="collection-header" />
 		<xsl:apply-templates select="collection-about/entry" />
 	</section>
-</xsl:template>
-
-<xsl:template match="collection-nav/page">
-	<li>
-		<a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/{item[@lang = //fl-languages/current-language/@handle]/@handle}/">
-			<xsl:value-of select="item[@lang = //fl-languages/current-language/@handle]" />
-		</a>
-	</li>
 </xsl:template>
 
 <xsl:template match="collection-about/entry">
@@ -73,12 +62,7 @@
 
 <xsl:template match="collection-item">
 	<section class="coll collection-item">
-		<header>
-			<h1><a href="{$root}/{//fl-languages/current-language/@handle}/{//plh-page/page/item[@lang = //fl-languages/current-language/@handle]/@handle}/"><xsl:value-of select="//plh-page/page/item[@lang = //fl-languages/current-language/@handle]" /></a></h1>
-			<ul class="inline-list">
-				<xsl:apply-templates select="//collection-nav/page" />
-			</ul>
-		</header>
+		<xsl:call-template name="collection-header" />
 		<xsl:apply-templates select="entry[1]" />
 	</section>
 	<xsl:if test="count(//collection-related-items/entry[not(signature = //collection-item/entry/signature)]) &gt; 0">
@@ -127,11 +111,12 @@
 			</ul>
 		</ul>
 	</article>
+	<xsl:call-template name="lightbox" />
 </xsl:template>
 
 <xsl:template match="images/file">
 	<div class="swiper-slide">
-		<img src="{$root}/image/collection-gallery{@path}/{filename}">
+		<img src="{$root}/image/collection-gallery{@path}/{filename}" data-src="{$workspace}{@path}/{filename}">
 			<xsl:attribute name="alt">
 				<xsl:apply-templates select="//collection-item/entry" mode="alt" />
 			</xsl:attribute>
@@ -184,6 +169,7 @@
 
 <xsl:template match="data" mode="js">
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="https://unpkg.com/blowup@1.0.2/lib/blowup.min.js"></script>
 	<script>
 		$(function() {
 			MA.stickyNavSetup({backgroundColor: 'transparent'});
@@ -194,11 +180,17 @@
 			var smallScreen = (<xsl:text disable-output-escaping="yes">viewPortWidth &lt; 770</xsl:text>) ? true : false;
 
 			var swiperOptions = {
+				zoom: true,
 				speed: 500,
 				slidesPerView: 'auto',
 				spaceBetween: 30,
-				centerInsufficientSlides: true
+				centerInsufficientSlides: true,
+				on: {
+					click: lightbox
+				}
 			};
+
+			<xsl:call-template name="lightbox-js" />
 
 			if(<xsl:text disable-output-escaping="yes">(swiperSlides.length &gt; 1) &amp;&amp; !smallScreen</xsl:text>) {
 				$.extend(swiperOptions,
@@ -229,6 +221,7 @@
 			MA.iS();
 		});
 	</script>
+	<xsl:call-template name="collection-header-js" />
 </xsl:template>
 
 <xsl:template match="data" mode="meta-tags">
